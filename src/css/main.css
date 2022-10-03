@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply antialiased font-poppins bg-catppuccin-black-0 border-t-[6px] border-catppuccin-red text-catppuccin-white !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+html {
+    @apply scroll-smooth !important;
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+.navbar {
+    @apply shadow-none !important;
+}
+
+.btn {
+    @apply text-base font-semibold uppercase rounded-[10px] bg-catppuccin-black-2 !important;
+}
+
+.btn:hover {
+    @apply bg-catppuccin-red !important;
+}
+
+.heading {
+    @apply bg-bottom bg-no-repeat text-catppuccin-white;
+    padding: 160px 50px !important;
+    background-image: url("../assets/wave-red.svg") !important;
+    background-size: 300% !important;
+}
+
+.title {
+    @apply leading-[90px] mb-[-2px] text-4xl !important;
+}
+
+.subtitle {
+    @apply text-base text-catppuccin-gray-2 !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.projects {
+    @apply text-center bg-catppuccin-red bg-bottom bg-no-repeat !important;
+    padding: 60px 50px !important;
+    background-image: url("../assets/wave-dark.svg") !important;
+    background-size: 200% !important;
+}
+
+.projects .title { 
+    @apply text-[40px] text-catppuccin-white leading-[70px] !important;
+}
+
+.projects .subtitle {
+    @apply text-xl text-catppuccin-white !important;
+}
+
+.projects .card-body {
+    @apply text-left !important;
+}
+
+.projects .card-title {
+    margin: 0 0 -3px !important;
+}
+
+.projects .card {
+    @apply bg-catppuccin-black-0 rounded-[22px] !important;
+    border: 4px solid #D9E0EE !important;
+}
+
+.projects .card-text {
+    @apply text-catppuccin-gray-1 !important;
+}
+
+.projects .card-body {
+    padding: 40px 40px 40px 30px !important;
+}
+
+.cards {
+    @apply mt-[30px] !important;
+}
+
+.card {
+    @apply rounded-[5px] shadow-none !important;
+}
+
+.card-title {
+    @apply text-[26px] font-[600] text-catppuccin-red !important;
+}
+
+.page-end {
+    @apply bg-bottom bg-no-repeat !important;
+    background-image: url("../assets/wave-light.svg") !important;
+    background-size: 200% !important;
+}
+
+.start {
+    padding: 60px 50px !important
+}
+
+.start .card {
+    @apply bg-transparent text-catppuccin-white !important;
+}
+
+.footer {
+    @apply text-center text-catppuccin-white !important;
+    padding: 30px 30px !important
+}
+
+.footer .pod-footer {
+    @apply text-center text-catppuccin-gray-2 !important;
+}
+
+.youtube {
+    @apply text-center bg-catppuccin-black-0 bg-bottom bg-no-repeat !important;
+    padding: 60px 50px !important;
+    background-image: url("../assets/wave-light.svg") !important;
+    background-size: 200% !important;
+}
+
+.youtube .title { 
+    @apply text-[40px] text-catppuccin-white leading-[70px] !important;
+}
+
+.youtube .subtitle {
+    @apply text-xl text-catppuccin-white !important;
+}
+
+.youtube .card-body {
+    @apply text-left !important;
+}
+
+.youtube .card-title {
+    @apply text-[26px] font-[600] text-catppuccin-red !important;
+}
+
+.youtube .card {
+    @apply bg-catppuccin-black-0 rounded-[22px] !important;
+    border: 4px solid #F28FAD;
+}
+
+.youtube .card-text {
+    @apply text-catppuccin-gray-1 !important;
+}
+
+.youtube .card-body {
+    padding: 40px 40px 40px 30px !important;
+}
+
+.socials {
+    @apply text-center bg-bottom bg-no-repeat;
+    padding: 60px 50px !important;
+    background-image: url("../assets/wave-dark.svg") !important;
+    background-size: 175% !important;
+    background-color: #201e2b;
+}
+
+.socials .title { 
+    @apply text-[40px] text-catppuccin-white leading-[70px] !important;
+}
+
+.socials .subtitle {
+    @apply text-xl text-catppuccin-white !important;
+}
+
+.socials .card-body {
+    @apply text-left !important;
+}
+
+.socials .card-title {
+    @apply text-[26px] font-[600] text-catppuccin-red !important;
+    margin: 0 0 -3px !important;
+}
+
+.socials .card {
+    background: #161320;
+    border-radius: 22px !important;
+    border: 4px solid #F28FAD;
+}
+
+.socials .card-text {
+    @apply text-catppuccin-gray-1 !important;
+}
+
+.socials .card-body {
+    padding: 40px 40px 40px 30px !important;
+}
+
+.centered-thing {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
