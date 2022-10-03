@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply dark:ctp-mocha bg-ctp-base text-ctp-text tracking-wide scrollbar-track-ctp-crust scrollbar-thumb-ctp-red scrollbar-thin;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  li {
+    @apply cursor-pointer;
+  }
+
+  button {
+    @apply shadow-xl shadow-ctp-subtext1 dark:shadow-ctp-crust rounded-xl uppercase bg-gradient-to-r from-ctp-red to-ctp-maroon text-ctp-base;
+  }
+}
+
+.transition-colors-transform {
+  transition-property: transform, color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
