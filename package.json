@@ -1,8 +1,8 @@
 {
   "name": "podter-website",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,8 +11,6 @@
   },
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.0",
-    "@iconify/icons-fluent-emoji": "^1.2.2",
-    "@iconify/svelte": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "svelte": "^3.49.0",
