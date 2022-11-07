@@ -3,6 +3,8 @@
 import Head from "next/head";
 import { CSSProperties } from "react";
 
+import Navbar from "../components/Navbar";
+
 type RadialProgressStyles = CSSProperties & {
   "--value": string | number | undefined;
   "--size": string | number | undefined;
@@ -17,7 +19,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h2 className="px-2 pb-4 text-xl font-bold">Hello world!</h2>
+      <Navbar />
+
       <div
         className="rounded-box bg-base-100 border-base-content/5 text-base-content not-prose grid gap-3 border p-6"
         data-theme="mytheme"
