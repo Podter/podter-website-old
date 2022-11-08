@@ -3,7 +3,7 @@ import Arch from "../public/assets/arch.png";
 
 export default function About() {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200" id="about">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Image
           src={Arch}
@@ -13,6 +13,7 @@ export default function About() {
         <div>
           <h1 className="text-5xl font-bold">Who am I?</h1>
           <p className="py-6">
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             Hello, I'm Podter
             <br />
             <br />
