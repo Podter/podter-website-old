@@ -1,14 +1,25 @@
 import { Github, Youtube, Facebook } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">
-        <a className="link link-hover">Home</a>
-        <a className="link link-hover">About</a>
-        <a className="link link-hover">Skills</a>
-        <a className="link link-hover">Projects</a>
-        <a className="link link-hover">Contact</a>
+        <Link href="/#home" className="link link-hover">
+          Home
+        </Link>
+        <Link href="/#about" className="link link-hover">
+          About
+        </Link>
+        <Link href="/#skills" className="link link-hover">
+          Skills
+        </Link>
+        <Link href="/#projects" className="link link-hover">
+          Projects
+        </Link>
+        <Link href="/#contact" className="link link-hover">
+          Contact
+        </Link>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">

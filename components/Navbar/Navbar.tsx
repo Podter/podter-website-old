@@ -29,19 +29,19 @@ export default function Navbar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <Link href="/#home">Home</Link>
             </li>
             <li>
-              <a>About</a>
+              <Link href="/#about">About</Link>
             </li>
             <li>
-              <a>Skills</a>
+              <Link href="/#skills">Skills</Link>
             </li>
             <li>
-              <a>Projects</a>
+              <Link href="/#projects">Projects</Link>
             </li>
             <li>
-              <a>Contact</a>
+              <Link href="/#contact">Contact</Link>
             </li>
           </ul>
         </div>
