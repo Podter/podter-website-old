@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import Home from "../components/Home";
+
 export default function Homepage() {
   return (
     <div>
@@ -9,7 +11,9 @@ export default function Homepage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Hello world!</h1>
+      <Home />
+      <Home />
+      <Home />
     </div>
   );
 }
