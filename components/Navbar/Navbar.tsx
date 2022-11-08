@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { useState, useRef } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 import ThemeButton from "./ThemeButton";
 
@@ -46,7 +47,8 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a
+        <Link
+          href="/#home"
           onMouseDown={() => setMouseDown(true)}
           onMouseUp={() => setMouseDown(false)}
           onMouseMove={(e) => {
@@ -56,7 +58,7 @@ export default function Navbar() {
           className="btn btn-ghost normal-case text-xl text-ctp-red"
         >
           Podter
-        </a>
+        </Link>
       </div>
       <div className="navbar-end">
         <ThemeButton />
