@@ -17,51 +17,49 @@ export default function Navbar() {
   const { width, height } = useWindowSize();
 
   return (
-    <>
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <Menu className="h-5 w-5" />
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Home</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
-              <li>
-                <a>Skills</a>
-              </li>
-              <li>
-                <a>Projects</a>
-              </li>
-              <li>
-                <a>Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="navbar-center">
-          <a
-            onMouseDown={() => setMouseDown(true)}
-            onMouseUp={() => setMouseDown(false)}
-            onMouseMove={(e) => {
-              setMousePosX(e.clientX);
-              setMousePosY(e.clientY);
-            }}
-            className="btn btn-ghost normal-case text-xl text-ctp-red"
+    <div className="navbar fixed bg-base-100">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost btn-circle">
+            <Menu className="h-5 w-5" />
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            Podter
-          </a>
+            <li>
+              <a>Home</a>
+            </li>
+            <li>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Skills</a>
+            </li>
+            <li>
+              <a>Projects</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+          </ul>
         </div>
-        <div className="navbar-end">
-          <ThemeButton />
-        </div>
+      </div>
+      <div className="navbar-center">
+        <a
+          onMouseDown={() => setMouseDown(true)}
+          onMouseUp={() => setMouseDown(false)}
+          onMouseMove={(e) => {
+            setMousePosX(e.clientX);
+            setMousePosY(e.clientY);
+          }}
+          className="btn btn-ghost normal-case text-xl text-ctp-red"
+        >
+          Podter
+        </a>
+      </div>
+      <div className="navbar-end">
+        <ThemeButton />
       </div>
       <Confetti
         style={{ pointerEvents: "none" }}
@@ -81,6 +79,6 @@ export default function Navbar() {
         recycle={mouseDown ? true : false}
         tweenDuration={10}
       />
-    </>
+    </div>
   );
 }
