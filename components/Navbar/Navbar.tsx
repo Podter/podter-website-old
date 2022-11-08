@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
 import { useState, useRef } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
