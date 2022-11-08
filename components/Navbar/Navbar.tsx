@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
-import { themeChange } from "theme-change";
 import { useState, useRef } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
@@ -17,10 +16,6 @@ export default function Navbar() {
   const [mousePosX, setMousePosX] = useState(0);
   const [mousePosY, setMousePosY] = useState(0);
   const { width, height } = useWindowSize();
-
-  useEffect(() => {
-    themeChange(false);
-  }, []);
 
   return (
     <>
