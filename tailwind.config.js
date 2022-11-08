@@ -47,5 +47,6 @@ module.exports = {
       prefix: "ctp",
       defaultFlavour: "latte",
     }),
+    require("tailwind-scrollbar"),
   ],
 };

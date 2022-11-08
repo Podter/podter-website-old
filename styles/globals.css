@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply scrollbar-track-ctp-crust scrollbar-thumb-ctp-red scrollbar-thin;
+}
+
 [data-theme="ctp-mocha"] {
   @apply ctp-mocha;
 }
