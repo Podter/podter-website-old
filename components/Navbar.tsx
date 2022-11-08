@@ -12,11 +12,13 @@ export default function Navbar() {
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
       <div className="flex-none">
-        <input
-          type="checkbox"
-          className="toggle"
-          data-toggle-theme="ctp-mocha,ctp-latte"
-        />
+        <select
+          className="select select-bordered w-full max-w-xs"
+          data-choose-theme
+        >
+          <option value="ctp-latte">Latte</option>
+          <option value="ctp-mocha">Mocha</option>
+        </select>
       </div>
     </div>
   );
