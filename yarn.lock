@@ -174,6 +174,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/animejs@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/animejs/-/animejs-3.1.6.tgz#cdcb8bcfd0c0d1642c8951973b8d6ea6d578908c"
+  integrity sha512-jYlEdbVTOOLBz1mauqhrigFUFAGde2KCdO/99asxHpF+5zOdz/VjNKbnpNa0oNBhsDNFzmMvvE+V4C8ZkvJdKg==
+
 "@types/js-cookie@^2.2.6":
   version "2.2.7"
   resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-2.2.7.tgz#226a9e31680835a6188e887f3988e60c04d3f6a3"
@@ -302,6 +307,11 @@ ajv@^6.10.0, ajv@^6.12.4:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+animejs@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.2.1.tgz#de9fe2e792f44a777a7fdf6ae160e26604b0cdda"
+  integrity sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==
 
 ansi-regex@^5.0.1:
   version "5.0.1"
