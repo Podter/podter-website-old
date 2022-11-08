@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Home from "../components/Home";
+import About from "../components/About";
 
 export default function Homepage() {
   return (
@@ -12,8 +13,7 @@ export default function Homepage() {
       </Head>
 
       <Home />
-      <Home />
-      <Home />
+      <About />
     </div>
   );
 }
