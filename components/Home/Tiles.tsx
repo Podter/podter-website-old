@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { variants } from "@catppuccin/palette";
 import anime from "animejs";
 import { useTheme } from "next-themes";
-import { useState, useEffect, MouseEvent } from "react";
+import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 
 export default function Tiles() {
@@ -12,20 +14,12 @@ export default function Tiles() {
   const [rows, setRows] = useState(0);
   const [total, setTotal] = useState(1);
 
-  function getInitialBgTileColor(): string {
-    const color =
-      theme === "light" ? variants.mocha.red.hex : variants.latte.red.hex;
-    return color;
-  }
-
-  function handleStagger(
-    event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
-  ) {
-    const el = (event.target as HTMLDivElement).id;
+  function handleStagger(id: number) {
     anime({
       targets: ".tile",
-      backgroundColor: variants.latte.red.hex,
-      delay: anime.stagger(50, { grid: [columns, rows], from: +el }),
+      backgroundColor:
+        theme === "light" ? variants.latte.red.hex : variants.mocha.red.hex,
+      delay: anime.stagger(50, { grid: [columns, rows], from: id }),
     });
   }
 
@@ -36,7 +30,6 @@ export default function Tiles() {
     setColumns(newColumns);
     setRows(newRows);
     setTotal(newRows * newColumns);
-    console.log(theme);
 
     anime({
       targets: ".tile",
@@ -45,8 +38,7 @@ export default function Tiles() {
       duration: 0,
       easing: "linear",
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width, height]);
+  }, [width, height, total, theme]);
 
   return (
     <div
@@ -59,11 +51,8 @@ export default function Tiles() {
       {[...Array(total)].map((_x, i) => (
         <div
           className="tile opacity-100 cursor-pointer hover:opacity-80"
-          style={{
-            backgroundColor: getInitialBgTileColor(),
-          }}
           id={i.toString()}
-          onClick={(e) => handleStagger(e)}
+          onClick={(e) => handleStagger(+(e.target as HTMLDivElement).id)}
           key={i}
         />
       ))}
