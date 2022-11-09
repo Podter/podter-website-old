@@ -1,4 +1,5 @@
 import { Github, Youtube, Facebook } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 import Tiles from "./Tiles";
 
@@ -7,9 +8,14 @@ export default function Home() {
     <div className="hero min-h-screen" id="home">
       <Tiles />
       <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md">
+        <div className="max-w-2xl bg-base-100/10 backdrop-blur-xl shadow-md rounded-2xl p-20">
           <h1 className="mb-5 text-5xl font-bold">
-            Hello! I am <span className="text-ctp-red">Podter</span>
+            Hello! I am <span className="text-ctp-red">Podter</span>{" "}
+            <Icon
+              className="inline"
+              icon="fluent-emoji-flat:waving-hand"
+              inline={true}
+            />
           </h1>
           <p className="mb-5">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
