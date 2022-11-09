@@ -11,6 +11,9 @@ export default function About() {
           alt="arch"
         />
         <div>
+          <p className="uppercase text-xl tracking-widest text-ctp-red">
+            About
+          </p>
           <h1 className="text-5xl font-bold">Who am I?</h1>
           <p className="py-6">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
