@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -11,14 +11,32 @@ const Confetti = dynamic(() => import("react-confetti"), {
 });
 
 export default function Navbar() {
-  const ref = useRef(null);
+  const { width, height } = useWindowSize();
+
+  const confettiRef = useRef(null);
   const [mouseDown, setMouseDown] = useState(false);
   const [mousePosX, setMousePosX] = useState(0);
   const [mousePosY, setMousePosY] = useState(0);
-  const { width, height } = useWindowSize();
+
+  const [navColor, setNavColor] = useState(false);
+
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setNavColor(true);
+      } else {
+        setNavColor(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
 
   return (
-    <div className="navbar fixed bg-base-100">
+    <div
+      className={`navbar fixed z-50 ${
+        navColor ? "bg-base-100" : "bg-transparent"
+      } bg-base-100 transition-colors`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -68,7 +86,7 @@ export default function Navbar() {
         numberOfPieces={mouseDown ? 200 : 0}
         initialVelocityX={50}
         initialVelocityY={-50}
-        ref={ref}
+        ref={confettiRef}
         gravity={0.05}
         width={width}
         height={height}
