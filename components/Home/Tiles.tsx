@@ -6,6 +6,40 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 
+const latte = [
+  variants.latte.rosewater.hex,
+  variants.latte.flamingo.hex,
+  variants.latte.pink.hex,
+  variants.latte.mauve.hex,
+  variants.latte.red.hex,
+  variants.latte.maroon.hex,
+  variants.latte.peach.hex,
+  variants.latte.yellow.hex,
+  variants.latte.green.hex,
+  variants.latte.teal.hex,
+  variants.latte.sky.hex,
+  variants.latte.sapphire.hex,
+  variants.latte.blue.hex,
+  variants.latte.lavender.hex,
+];
+
+const mocha = [
+  variants.mocha.rosewater.hex,
+  variants.mocha.flamingo.hex,
+  variants.mocha.pink.hex,
+  variants.mocha.mauve.hex,
+  variants.mocha.red.hex,
+  variants.mocha.maroon.hex,
+  variants.mocha.peach.hex,
+  variants.mocha.yellow.hex,
+  variants.mocha.green.hex,
+  variants.mocha.teal.hex,
+  variants.mocha.sky.hex,
+  variants.mocha.sapphire.hex,
+  variants.mocha.blue.hex,
+  variants.mocha.lavender.hex,
+];
+
 export default function Tiles() {
   const { width, height } = useWindowSize();
   const { theme } = useTheme();
@@ -13,12 +47,17 @@ export default function Tiles() {
   const [columns, setColumns] = useState(0);
   const [rows, setRows] = useState(0);
   const [total, setTotal] = useState(1);
+  const [currentColor, setCurrentColor] = useState<number | undefined>(
+    undefined
+  );
 
   function handleStagger(id: number) {
     anime({
       targets: ".tile",
       backgroundColor:
-        theme === "light" ? variants.latte.red.hex : variants.mocha.red.hex,
+        theme === "light"
+          ? mocha[Math.floor(Math.random() * mocha.length)]
+          : latte[Math.floor(Math.random() * latte.length)],
       delay: anime.stagger(50, { grid: [columns, rows], from: id }),
     });
   }
@@ -51,8 +90,7 @@ export default function Tiles() {
       {[...Array(total)].map((_x, i) => (
         <div
           className="tile opacity-100 cursor-pointer hover:opacity-80"
-          id={i.toString()}
-          onClick={(e) => handleStagger(+(e.target as HTMLDivElement).id)}
+          onClick={(e) => handleStagger(i)}
           key={i}
         />
       ))}
