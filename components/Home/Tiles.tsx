@@ -51,13 +51,30 @@ export default function Tiles() {
     undefined
   );
 
+  function getColor() {
+    if (currentColor) {
+      if (theme === "light") {
+        return mocha[currentColor];
+      } else {
+        return latte[currentColor];
+      }
+    } else {
+      if (theme === "light") {
+        return mocha[4];
+      } else {
+        return latte[4];
+      }
+    }
+  }
+
   function handleStagger(id: number) {
+    const randomIndex = Math.floor(Math.random() * latte.length);
+    setCurrentColor(randomIndex);
+
     anime({
       targets: ".tile",
       backgroundColor:
-        theme === "light"
-          ? mocha[Math.floor(Math.random() * mocha.length)]
-          : latte[Math.floor(Math.random() * latte.length)],
+        theme === "light" ? mocha[randomIndex] : latte[randomIndex],
       delay: anime.stagger(50, { grid: [columns, rows], from: id }),
     });
   }
@@ -72,8 +89,7 @@ export default function Tiles() {
 
     anime({
       targets: ".tile",
-      backgroundColor:
-        theme === "light" ? variants.mocha.red.hex : variants.latte.red.hex,
+      backgroundColor: getColor(),
       duration: 0,
       easing: "linear",
     });
