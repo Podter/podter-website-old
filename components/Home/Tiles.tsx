@@ -67,9 +67,19 @@ export default function Tiles() {
     }
   }
 
-  function handleStagger(id: number) {
+  function getRandomColor(): number {
     const randomIndex = Math.floor(Math.random() * latte.length);
-    setCurrentColor(randomIndex);
+
+    if (randomIndex === currentColor) {
+      return getRandomColor();
+    } else {
+      setCurrentColor(randomIndex);
+      return randomIndex;
+    }
+  }
+
+  function handleStagger(id: number) {
+    const randomIndex = getRandomColor();
 
     anime({
       targets: ".tile",
