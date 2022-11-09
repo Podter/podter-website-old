@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, MouseEvent } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -19,6 +19,16 @@ export default function Navbar() {
   const [mousePosY, setMousePosY] = useState(0);
 
   const [navColor, setNavColor] = useState(false);
+
+  function navCenterClick(event: MouseEvent) {
+    if (window.scrollY <= 90) {
+      setMousePosX(event.clientX);
+      setMousePosY(event.clientY);
+
+      setConfetti(true);
+      setTimeout(() => setConfetti(false), 100);
+    }
+  }
 
   useEffect(() => {
     const handleShadow = () => {
@@ -67,14 +77,7 @@ export default function Navbar() {
       <div className="navbar-center">
         <Link
           href="/#home"
-          onMouseMove={(e) => {
-            setMousePosX(e.clientX);
-            setMousePosY(e.clientY);
-          }}
-          onClick={() => {
-            setConfetti(true);
-            setTimeout(() => setConfetti(false), 100);
-          }}
+          onClick={navCenterClick}
           className="btn btn-ghost normal-case text-xl text-ctp-red"
         >
           Podter
