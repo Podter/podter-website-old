@@ -106,7 +106,7 @@ export default function Tiles() {
       {[...Array(total)].map((_x, i) => (
         <div
           className="tile opacity-100 cursor-pointer hover:opacity-80"
-          onClick={(e) => handleStagger(i)}
+          onClick={() => handleStagger(i)}
           key={i}
         />
       ))}
