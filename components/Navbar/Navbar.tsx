@@ -14,7 +14,7 @@ export default function Navbar() {
   const { width, height } = useWindowSize();
 
   const confettiRef = useRef(null);
-  const [mouseDown, setMouseDown] = useState(false);
+  const [confetti, setConfetti] = useState(false);
   const [mousePosX, setMousePosX] = useState(0);
   const [mousePosY, setMousePosY] = useState(0);
 
@@ -67,11 +67,13 @@ export default function Navbar() {
       <div className="navbar-center">
         <Link
           href="/#home"
-          onMouseDown={() => setMouseDown(true)}
-          onMouseUp={() => setMouseDown(false)}
           onMouseMove={(e) => {
             setMousePosX(e.clientX);
             setMousePosY(e.clientY);
+          }}
+          onClick={() => {
+            setConfetti(true);
+            setTimeout(() => setConfetti(false), 100);
           }}
           className="btn btn-ghost normal-case text-xl text-ctp-red"
         >
@@ -83,7 +85,7 @@ export default function Navbar() {
       </div>
       <Confetti
         style={{ pointerEvents: "none" }}
-        numberOfPieces={mouseDown ? 200 : 0}
+        numberOfPieces={confetti ? 200 : 0}
         initialVelocityX={50}
         initialVelocityY={-50}
         ref={confettiRef}
@@ -96,7 +98,7 @@ export default function Navbar() {
           x: mousePosX,
           y: mousePosY,
         }}
-        recycle={mouseDown ? true : false}
+        recycle={confetti ? true : false}
         tweenDuration={10}
       />
     </div>
