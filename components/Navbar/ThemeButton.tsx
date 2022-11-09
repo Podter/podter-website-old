@@ -2,7 +2,11 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export default function ThemeButton() {
+type Props = {
+  navColor: boolean;
+};
+
+export default function ThemeButton({ navColor }: Props) {
   const { theme, setTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState<string | undefined>();
 
@@ -18,7 +22,11 @@ export default function ThemeButton() {
 
   return (
     <button
-      className={`btn btn-ghost btn-circle swap swap-rotate ${
+      className={`btn ${
+        !navColor
+          ? "bg-base-100/20 hover:bg-base-100/75 backdrop-blur-xl shadow-sm"
+          : "btn-ghost"
+      } btn-circle swap swap-rotate mr-2 border-0 transition-all ${
         currentTheme === "dark" ? "swap-active" : null
       }`}
       onClick={changeTheme}

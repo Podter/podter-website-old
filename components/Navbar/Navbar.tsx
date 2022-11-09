@@ -44,12 +44,21 @@ export default function Navbar() {
   return (
     <div
       className={`navbar fixed z-50 ${
-        navColor ? "bg-base-100" : "bg-transparent"
-      } bg-base-100 transition-colors`}
+        navColor
+          ? "bg-base-100/20 backdrop-blur-xl shadow-md"
+          : "bg-transparent"
+      } transition-all`}
     >
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost btn-circle">
+          <label
+            tabIndex={0}
+            className={`btn ${
+              !navColor
+                ? "bg-base-100/20 hover:bg-base-100/75 backdrop-blur-xl shadow-sm"
+                : "btn-ghost"
+            } btn-circle border-0 transition-all`}
+          >
             <Menu className="h-5 w-5" />
           </label>
           <ul
@@ -88,14 +97,18 @@ export default function Navbar() {
         <Link
           href="/#home"
           onClick={navCenterClick}
-          className="btn btn-ghost normal-case text-xl text-ctp-red"
+          className={`btn ${
+            !navColor
+              ? "bg-base-100/20 hover:bg-base-100/75 backdrop-blur-xl shadow-sm"
+              : "btn-ghost"
+          } normal-case text-xl text-ctp-red border-0 transition-all`}
           scroll={false}
         >
           Podter
         </Link>
       </div>
       <div className="navbar-end">
-        <ThemeButton />
+        <ThemeButton navColor={navColor} />
       </div>
       <Confetti
         style={{ pointerEvents: "none" }}
