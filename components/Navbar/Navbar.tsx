@@ -57,19 +57,29 @@ export default function Navbar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href="/#home">Home</Link>
+              <Link href="/#home" scroll={false}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/#about">About</Link>
+              <Link href="/#about" scroll={false}>
+                About
+              </Link>
             </li>
             <li>
-              <Link href="/#skills">Skills</Link>
+              <Link href="/#skills" scroll={false}>
+                Skills
+              </Link>
             </li>
             <li>
-              <Link href="/#projects">Projects</Link>
+              <Link href="/#projects" scroll={false}>
+                Projects
+              </Link>
             </li>
             <li>
-              <Link href="/#contact">Contact</Link>
+              <Link href="/#contact" scroll={false}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -79,6 +89,7 @@ export default function Navbar() {
           href="/#home"
           onClick={navCenterClick}
           className="btn btn-ghost normal-case text-xl text-ctp-red"
+          scroll={false}
         >
           Podter
         </Link>

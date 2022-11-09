@@ -5,19 +5,19 @@ export default function Footer() {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">
-        <Link href="/#home" className="link link-hover">
+        <Link href="/#home" className="link link-hover" scroll={false}>
           Home
         </Link>
-        <Link href="/#about" className="link link-hover">
+        <Link href="/#about" className="link link-hover" scroll={false}>
           About
         </Link>
-        <Link href="/#skills" className="link link-hover">
+        <Link href="/#skills" className="link link-hover" scroll={false}>
           Skills
         </Link>
-        <Link href="/#projects" className="link link-hover">
+        <Link href="/#projects" className="link link-hover" scroll={false}>
           Projects
         </Link>
-        <Link href="/#contact" className="link link-hover">
+        <Link href="/#contact" className="link link-hover" scroll={false}>
           Contact
         </Link>
       </div>
