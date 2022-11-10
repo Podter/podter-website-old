@@ -1,6 +1,9 @@
 import { Github, Youtube, Facebook } from "lucide-react";
+import Image from "next/image";
 
 import Form from "./Form";
+
+import Arch from "../../public/assets/arch2.png";
 
 export default function Contact() {
   return (
@@ -8,7 +11,7 @@ export default function Contact() {
       <div className="hero-content flex-col lg:flex-row-reverse items-stretch">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            <Image src={Arch} alt="arch" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Shoes!</h2>
