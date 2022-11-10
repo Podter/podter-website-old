@@ -1,4 +1,6 @@
 import { Icon } from "@iconify/react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import Arch from "../../public/assets/arch.png";
 
@@ -30,15 +32,15 @@ export default function Projects() {
           </p>
           <button className="btn btn-primary">Get Started</button>
         </div>
+      </div>
 
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-7">
-          <a href="#slide1" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide3" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
+      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-7">
+        <Link href="#slide1" className="btn btn-circle" scroll={false}>
+          <ChevronLeft size={24} />
+        </Link>
+        <Link href="#slide3" className="btn btn-circle" scroll={false}>
+          <ChevronRight size={24} />
+        </Link>
       </div>
     </div>
   );
