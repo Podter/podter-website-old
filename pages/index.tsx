@@ -2,6 +2,8 @@ import Head from "next/head";
 
 import Home from "../components/Home/Home";
 import About from "../components/About";
+// import Skills from "../components/Skills/Skills";
+import Projects from "../components/Projects/Projects";
 
 export default function Homepage() {
   return (
@@ -14,6 +16,8 @@ export default function Homepage() {
 
       <Home />
       <About />
+      {/* <Skills /> */}
+      <Projects />
     </div>
   );
 }
