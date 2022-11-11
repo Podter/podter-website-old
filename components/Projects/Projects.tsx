@@ -19,7 +19,7 @@ function SlidesContextProvider({ children }: ProviderProps) {
 
 export default function Projects() {
   return (
-    <div className="carousel w-full">
+    <div id="projects" className="carousel w-full">
       <SlidesContextProvider>
         <CarouselItem item={1} img="/assets/arch2.png" />
         <CarouselItem item={2} img="/assets/arch.png" />
