@@ -4,14 +4,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type Props = {
   item: number;
+  img: string;
 };
 
-export default function Carousel({ item }: Props) {
+export default function Carousel({ item, img }: Props) {
   return (
     <div
       className="hero min-h-screen carousel-item"
       id={`slide${item}`}
-      style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}
+      style={{ backgroundImage: `url("${img}")` }}
     >
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md bg-base-100/10 backdrop-blur-xl shadow-md rounded-2xl p-8">
