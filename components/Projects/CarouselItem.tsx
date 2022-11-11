@@ -1,6 +1,9 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useContext } from "react";
+
+import { SlidesContext } from "./Projects";
 
 type Props = {
   item: number;
@@ -8,6 +11,11 @@ type Props = {
 };
 
 export default function Carousel({ item, img }: Props) {
+  const slides = useContext(SlidesContext);
+
+  const previous = item - 1;
+  const next = item + 1;
+
   return (
     <div
       className="hero min-h-screen carousel-item"
@@ -29,21 +37,23 @@ export default function Carousel({ item, img }: Props) {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <Link
-            href={`#slide${item - 1}`}
-            className="btn btn-circle"
-            scroll={false}
-          >
-            <ChevronLeft size={24} />
-          </Link>
-          <button className="btn btn-primary">Get Started</button>
-          <Link
-            href={`#slide${item + 1}`}
-            className="btn btn-circle"
-            scroll={false}
-          >
-            <ChevronRight size={24} />
-          </Link>
+          <div className="flex justify-evenly">
+            <Link
+              href={`#slide${previous <= 0 ? slides : previous}`}
+              className="btn btn-circle"
+              scroll={false}
+            >
+              <ChevronLeft />
+            </Link>
+            <button className="btn btn-primary">Learn more</button>
+            <Link
+              href={`#slide${next > slides ? 1 : next}`}
+              className="btn btn-circle"
+              scroll={false}
+            >
+              <ChevronRight />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
