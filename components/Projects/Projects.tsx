@@ -24,13 +24,7 @@ export default function Projects() {
     <div id="projects" className="carousel w-full">
       <SlidesContextProvider>
         {projects.map((project, index) => (
-          <CarouselItem
-            item={index}
-            key={index}
-            title={project.title}
-            description={project.description}
-            img={project.img}
-          />
+          <CarouselItem key={index} project={project} index={index} />
         ))}
       </SlidesContextProvider>
     </div>
