@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Form from "./Form";
 
-import Arch from "../../public/assets/arch2.png";
+import Arch from "../../public/assets/arch3.jpg";
 
 export default function Contact() {
   return (
