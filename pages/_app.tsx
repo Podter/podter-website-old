@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
@@ -14,6 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
       themes={["ctp-latte", "ctp-mocha"]}
       value={{ light: "ctp-latte", dark: "ctp-mocha" }}
     >
+      <Head>
+        <title>Podter</title>
+        <meta name="description" content="Podter's Website" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Navbar />
       <ScrollToTop />
       <Component {...pageProps} />
