@@ -28,14 +28,17 @@ export default function Carousel({ item, img, title, description }: Props) {
         <div className="max-w-md bg-base-100/10 backdrop-blur-xl shadow-md rounded-2xl p-8">
           <h1 className="mb-5 text-5xl font-bold text-ctp-red">{title}</h1>
           <p className="mb-5">{description}</p>
-          <div className="flex justify-evenly">
-            <Link
-              href={`#slide${previous <= 0 ? slides : previous}`}
-              className="btn btn-circle"
-              scroll={false}
-            >
-              <ChevronLeft />
-            </Link>
+          <div className="flex justify-center gap-6">
+            {item !== 1 ? (
+              <Link
+                href={`#slide${previous}`}
+                className="btn btn-circle"
+                scroll={false}
+              >
+                <ChevronLeft />
+              </Link>
+            ) : null}
+
             {item == 1 ? (
               <Link className="btn btn-primary" href="#slide2" scroll={false}>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -45,13 +48,15 @@ export default function Carousel({ item, img, title, description }: Props) {
               <button className="btn btn-primary">Learn more</button>
             )}
 
-            <Link
-              href={`#slide${next > slides ? 1 : next}`}
-              className="btn btn-circle"
-              scroll={false}
-            >
-              <ChevronRight />
-            </Link>
+            {item !== 1 && next <= slides ? (
+              <Link
+                href={`#slide${next}`}
+                className="btn btn-circle"
+                scroll={false}
+              >
+                <ChevronRight />
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
