@@ -23,6 +23,7 @@ export default function Carousel({ item, img, title, description }: Props) {
       id={`slide${item}`}
       style={{ backgroundImage: `url("${img}")` }}
     >
+      <div className="hero-overlay bg-opacity-50"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md bg-base-100/10 backdrop-blur-xl shadow-md rounded-2xl p-8">
           <h1 className="mb-5 text-5xl font-bold text-ctp-red">{title}</h1>
