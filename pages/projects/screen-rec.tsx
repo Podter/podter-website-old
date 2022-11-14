@@ -1,5 +1,3 @@
-// Cozmo Bot
-
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -46,6 +44,7 @@ export default function Project() {
         /> */}
           <div className="grid grid-cols-1 grid-rows-2">
             <p className="py-6">{project.description}</p>
+
             <button className="link mt-6" onClick={() => router.back()}>
               Back
             </button>
