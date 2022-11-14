@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { variants } from "@catppuccin/palette";
-import anime from "animejs";
+import anime, { random } from "animejs";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { useWindowSize } from "react-use";
+import { useWindowSize, useTimeoutFn } from "react-use";
 
 const latte = [
   variants.latte.rosewater.hex,
@@ -104,6 +104,11 @@ export default function Tiles() {
       easing: "linear",
     });
   }, [width, height, total, theme]);
+
+  const [_isReady, _cancel, reset] = useTimeoutFn(() => {
+    handleStagger(Math.round(Math.random() * total));
+    reset();
+  }, 5000);
 
   return (
     <div
