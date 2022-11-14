@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import Arch from "../public/assets/arch.png";
 
 export default function About() {
@@ -31,7 +33,9 @@ export default function About() {
             nobis quae vitae cum accusamus. Iure odio placeat consequuntur qui
             alias!
           </p>
-          <button className="btn btn-primary">Check out my projects</button>
+          <Link className="btn btn-primary" href="#projects" scroll={false}>
+            Check out my projects
+          </Link>
         </div>
       </div>
     </div>
