@@ -15,7 +15,7 @@ export default function Skills() {
       className="flex flex-col justify-center items-center min-h-screen m-6"
       id="skills"
     >
-      <div>
+      <div className="mb-6">
         <p className="uppercase text-xl tracking-widest text-ctp-red">Skills</p>
         <h1 className="text-5xl font-bold">What can I do?</h1>
       </div>
