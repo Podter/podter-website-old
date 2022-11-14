@@ -21,9 +21,9 @@ export default function Projects() {
   return (
     <div id="projects" className="carousel w-full">
       <SlidesContextProvider>
-        <CarouselItem item={1} img="/assets/arch2.png" />
-        <CarouselItem item={2} img="/assets/arch.png" />
-        <CarouselItem item={3} img="/assets/arch2.png" />
+        <CarouselItem item={1} img="/assets/arch2.jpg" />
+        <CarouselItem item={2} img="/assets/arch2.jpg" />
+        <CarouselItem item={3} img="/assets/arch2.jpg" />
       </SlidesContextProvider>
     </div>
   );
