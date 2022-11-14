@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useContext } from "react";
@@ -8,9 +7,11 @@ import { SlidesContext } from "./Projects";
 type Props = {
   item: number;
   img: string;
+  title: string;
+  description: string;
 };
 
-export default function Carousel({ item, img }: Props) {
+export default function Carousel({ item, img, title, description }: Props) {
   const slides = useContext(SlidesContext);
 
   const previous = item - 1;
@@ -24,19 +25,8 @@ export default function Carousel({ item, img }: Props) {
     >
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md bg-base-100/10 backdrop-blur-xl shadow-md rounded-2xl p-8">
-          <h1 className="mb-5 text-5xl font-bold text-ctp-red">
-            {item} Projects{" "}
-            <Icon
-              className="inline"
-              icon="fluent-emoji-flat:laptop"
-              inline={true}
-            />
-          </h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+          <h1 className="mb-5 text-5xl font-bold text-ctp-red">{title}</h1>
+          <p className="mb-5">{description}</p>
           <div className="flex justify-evenly">
             <Link
               href={`#slide${previous <= 0 ? slides : previous}`}
@@ -45,7 +35,15 @@ export default function Carousel({ item, img }: Props) {
             >
               <ChevronLeft />
             </Link>
-            <button className="btn btn-primary">Learn more</button>
+            {item == 1 ? (
+              // eslint-disable-next-line react/no-unescaped-entities
+              <Link className="btn btn-primary" href="#slide2" scroll={false}>
+                Let's see
+              </Link>
+            ) : (
+              <button className="btn btn-primary">Learn more</button>
+            )}
+
             <Link
               href={`#slide${next > slides ? 1 : next}`}
               className="btn btn-circle"
