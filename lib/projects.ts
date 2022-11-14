@@ -30,7 +30,7 @@ const projects: Project[] = [
     title: "Screen Recorder",
     description:
       "A stupid WebRTC Screen Recorder on your browser! I made it because school work (why not?) Hosted using GitHub page so you can try it if you want to! or you can see my source code on my GitHub repo if you want to learn more about it.",
-    img: "/assets/arch2.jpg",
+    img: "https://github.com/Podter/browser-screen-recorder/raw/main/assets/screenshot.png",
     alias: "screen-rec",
   },
   {
