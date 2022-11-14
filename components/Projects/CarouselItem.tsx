@@ -36,8 +36,8 @@ export default function Carousel({ item, img, title, description }: Props) {
               <ChevronLeft />
             </Link>
             {item == 1 ? (
-              // eslint-disable-next-line react/no-unescaped-entities
               <Link className="btn btn-primary" href="#slide2" scroll={false}>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Let's see
               </Link>
             ) : (
