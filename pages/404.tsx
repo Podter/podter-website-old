@@ -35,12 +35,12 @@ export default function NotFound() {
             </Link>
           </p>
           <div className="grid grid-cols-2 gap-6">
-            <Link className="btn btn-primary" href="/">
-              Home
-            </Link>
             <button className="btn btn-primary" onClick={() => router.back()}>
               Go back
             </button>
+            <Link className="btn btn-primary" href="/">
+              Home
+            </Link>
           </div>
         </div>
       </div>
