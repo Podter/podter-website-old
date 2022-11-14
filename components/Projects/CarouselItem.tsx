@@ -29,7 +29,7 @@ export default function Carousel({ item, img, title, description }: Props) {
           <h1 className="mb-5 text-5xl font-bold text-ctp-red">{title}</h1>
           <p className="mb-5">{description}</p>
           <div className="flex justify-center gap-6">
-            {item !== 1 ? (
+            {item !== 0 ? (
               <Link
                 href={`#slide${previous}`}
                 className="btn btn-circle"
@@ -39,8 +39,8 @@ export default function Carousel({ item, img, title, description }: Props) {
               </Link>
             ) : null}
 
-            {item == 1 ? (
-              <Link className="btn btn-primary" href="#slide2" scroll={false}>
+            {item == 0 ? (
+              <Link className="btn btn-primary" href="#slide1" scroll={false}>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Let's see
               </Link>
@@ -48,7 +48,7 @@ export default function Carousel({ item, img, title, description }: Props) {
               <button className="btn btn-primary">Learn more</button>
             )}
 
-            {item !== 1 && next <= slides ? (
+            {item !== 0 && next < slides ? (
               <Link
                 href={`#slide${next}`}
                 className="btn btn-circle"
