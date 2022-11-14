@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, MouseEvent } from "react";
 import { useWindowSize } from "react-use";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import ThemeButton from "./ThemeButton";
 
@@ -12,6 +13,7 @@ const Confetti = dynamic(() => import("react-confetti"), {
 
 export default function Navbar() {
   const { width, height } = useWindowSize();
+  const router = useRouter();
 
   const confettiRef = useRef(null);
   const [confetti, setConfetti] = useState(false);
@@ -21,7 +23,7 @@ export default function Navbar() {
   const [navColor, setNavColor] = useState(false);
 
   function navCenterClick(event: MouseEvent) {
-    if (window.scrollY <= 90) {
+    if (window.scrollY <= 90 && router.route == "/") {
       setMousePosX(event.clientX);
       setMousePosY(event.clientY);
 
