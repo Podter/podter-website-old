@@ -42,9 +42,11 @@ export default function Project() {
           className="max-w-sm rounded-lg shadow-2xl"
           alt="arch"
         /> */}
-          <div className="grid grid-cols-1 grid-rows-2">
-            <p className="py-6">{project.description}</p>
-
+          <div className="">
+            <iframe
+              src="/script"
+              className="min-w-[360px] min-h-[480px] sm:min-w-[640px] sm:min-h-[640px] md:min-w-[768px] md:min-h-[768px] lg:min-w-[1024px] lg:min-h-[1024px]"
+            ></iframe>
             <button className="link mt-6" onClick={() => router.back()}>
               Back
             </button>
