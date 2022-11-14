@@ -49,7 +49,7 @@ export default function Carousel({ project, index }: Props) {
             ) : (
               <Link
                 className="btn btn-primary"
-                href={`project?id=${index}`}
+                href={`projects/${project.alias}`}
                 scroll={false}
               >
                 Learn more
