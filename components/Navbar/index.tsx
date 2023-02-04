@@ -1,4 +1,4 @@
-import { Sun } from "lucide-react";
+import ThemeSwitch from "./ThemeSwitch";
 
 export default function Navbar() {
   return (
@@ -23,9 +23,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
-          <Sun size={24} className="h-6 w-6" />
-        </button>
+        <ThemeSwitch />
       </div>
     </div>
   );
