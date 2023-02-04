@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Container from "@/components/Container";
+import { Icon } from "@iconify/react";
+import wavingHand from "@iconify/icons-fluent-emoji-flat/waving-hand";
 
 export default function Home() {
   return (
@@ -7,9 +10,15 @@ export default function Home() {
         <title>Podter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div>
-        <h1>Hello, world!</h1>
-      </div>
+      <Container>
+        <h1 className="text-5xl font-bold">
+          Hello, I&apos;m <span className="text-ctp-red">Podter</span>{" "}
+          <Icon className="inline" icon={wavingHand} inline={true} />
+        </h1>
+        <p className="py-6">
+          Hey, I&apos;m Podter. I&apos;m a student and developer from Thailand
+        </p>
+      </Container>
     </>
   );
 }
