@@ -12,7 +12,10 @@ export default function Home() {
       </Head>
       <Container>
         <h1 className="text-5xl font-bold">
-          Hello, I&apos;m <span className="text-ctp-red">Podter</span>{" "}
+          Hello, I&apos;m{" "}
+          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+            Podter
+          </span>{" "}
           <Icon className="inline" icon={wavingHand} inline={true} />
         </h1>
         <p className="py-6">
