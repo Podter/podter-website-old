@@ -63,6 +63,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify/icons-line-md@^1.2.21":
+  version "1.2.21"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-line-md/-/icons-line-md-1.2.21.tgz#38a0ab87195668238a3b2c675d43088b5db8f4ae"
+  integrity sha512-pDw2FW+CbLHa3QdrQcgQXQOtC0Q7xAJIjhtc64RScy3KC/I5qKdDhbl+ozQL+fDIMEBle00Lrp1PM9zd9yu8Lg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/react@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@iconify/react/-/react-4.1.0.tgz#5ea86acae6e209a2f5b1b52922ab85d0d22f9b45"
