@@ -45,7 +45,7 @@ export default function Navbar() {
         <Link
           onClick={navClick}
           href="/"
-          className="btn btn-ghost normal-case text-xl bg-gradient-to-r hover:text-transparent from-ctp-red to-ctp-blue bg-clip-text transition-colors duration-75 hover:duration-300"
+          className="btn btn-ghost normal-case text-xl font-bold bg-gradient-to-r hover:text-transparent from-ctp-red to-ctp-blue bg-clip-text transition-colors duration-75 hover:duration-300"
         >
           Podter
         </Link>
