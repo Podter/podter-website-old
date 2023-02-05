@@ -2,7 +2,6 @@ import Head from "next/head";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/ProjectCard";
 
-import Shoes from "@/public/shoes.jpg";
 import PodWeb from "@/public/projects/podter-website.png";
 import Cozmo from "@/public/projects/cozmo-bot.png";
 import LuaBot from "@/public/projects/music-bot-lua.png";
