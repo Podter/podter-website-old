@@ -1,11 +1,5 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import { Icon } from "@iconify/react";
-import Link from "next/link";
-import githubIcon from "@iconify/icons-fa6-brands/github";
-import discordIcon from "@iconify/icons-fa6-brands/discord";
-import twitterIcon from "@iconify/icons-fa6-brands/twitter";
-import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 
 export default function About() {
   return (
