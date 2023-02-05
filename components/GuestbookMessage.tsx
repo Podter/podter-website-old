@@ -20,7 +20,7 @@ export default function GuestbookMessage({
     <div className="flex flex-col space-y-1 mb-4">
       <div className="flex w-full text-sm items-center gap-2">
         <div
-          className="tooltip tooltip-right md:tooltip-right"
+          className="tooltip tooltip-right md:tooltip-top"
           data-tip={`${username} on ${provider} ${edited ? "(edited)" : ""}`}
         >
           <div className="avatar hover:cursor-pointer">
