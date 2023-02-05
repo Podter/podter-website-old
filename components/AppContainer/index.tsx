@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import DrawerContainer from "./DrawerContainer";
 
 type AppContainerProps = {
@@ -12,12 +12,15 @@ export default function AppContainer({
   className,
 }: AppContainerProps) {
   const { theme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState<string | undefined>();
+
+  useEffect(() => setCurrentTheme(theme), [theme]);
 
   return (
     <DrawerContainer>
       <main
         className={`${className} ${
-          theme === "light" ? "ctp-latte" : "ctp-mocha"
+          currentTheme === "light" ? "ctp-latte" : "ctp-mocha"
         }`}
       >
         {children}

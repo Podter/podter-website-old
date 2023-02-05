@@ -29,25 +29,25 @@ export default function Home() {
         </p>
         <div className="flex flex-row gap-2 w-28">
           <Link
-            className="btn btn-ghost btn-circle"
+            className="btn btn-ghost btn-circle duration-75"
             href="https://github.com/Podter"
           >
             <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
           </Link>
           <Link
-            className="btn btn-ghost btn-circle"
+            className="btn btn-ghost btn-circle duration-75"
             href="https://discord.com/users/331793642689789962"
           >
             <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
           </Link>
           <Link
-            className="btn btn-ghost btn-circle"
+            className="btn btn-ghost btn-circle duration-75"
             href="https://twitter.com/Real_Podter"
           >
             <Icon icon={twitterIcon} className="h-6 w-6" scale={24} />
           </Link>
           <Link
-            className="btn btn-ghost btn-circle"
+            className="btn btn-ghost btn-circle duration-75"
             href="mailto:me@podter.xyz"
           >
             <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
