@@ -33,10 +33,10 @@ export default function Navbar() {
 
   return (
     <nav className="navbar bg-base-100 z-50 mx-auto max-w-4xl px-8 mb-20 md:mt-20 mt-5">
-      <div className="flex-none">
+      <div className="flex-none -mr-4 -ml-1 md:hidden">
         <label
           htmlFor="menu-drawer"
-          className="btn btn-ghost btn-circle drawer-button md:hidden"
+          className="btn btn-ghost btn-circle drawer-button"
         >
           <Menu className="h-6 w-6" size={24} />
         </label>
