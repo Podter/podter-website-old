@@ -65,7 +65,7 @@ export default function Projects() {
             installable as PWA. This app is hosted on GitHub page
           </ProjectCard>
           <ProjectCard
-            title="JIΛmusic"
+            title="JIAmusic"
             img={JIAmusic}
             sourceUrl="https://github.com/jiafeitech/jiamusic"
           >

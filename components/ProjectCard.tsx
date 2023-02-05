@@ -25,19 +25,7 @@ export default function ProjectCard({
         <Image src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {title === "JIΛmusic" ? (
-            <>
-              JI
-              <span className={`-m-2 -mb-[6px] font-sans text-xl font-bold`}>
-                Λ
-              </span>
-              music
-            </>
-          ) : (
-            title
-          )}
-        </h2>
+        <h2 className="card-title">{title}</h2>
         <p>{children}</p>
         <div className="card-actions justify-end">
           {url ? (
