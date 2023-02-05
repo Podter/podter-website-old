@@ -23,8 +23,8 @@ export default function ThemeSwitch() {
       }`}
       onClick={changeTheme}
     >
-      <Sun className="swap-on h-5 w-5" />
-      <Moon className="swap-off h-5 w-5" />
+      <Sun className="swap-on h-6 w-6" size={24} />
+      <Moon className="swap-off h-6 w-6" size={24} />
     </button>
   );
 }
