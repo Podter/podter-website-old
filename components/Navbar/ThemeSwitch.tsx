@@ -20,7 +20,7 @@ export default function ThemeSwitch() {
     <button
       className={`btn btn-ghost btn-circle swap swap-rotate transition-all ${
         currentTheme === "dark" ? "swap-active" : null
-      }`}
+      } transition-none`}
       onClick={changeTheme}
     >
       <Sun className="swap-on h-6 w-6" size={24} />
