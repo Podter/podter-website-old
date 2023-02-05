@@ -3,6 +3,11 @@ import Container from "@/components/Container";
 import ProjectCard from "@/components/ProjectCard";
 
 import Shoes from "@/public/shoes.jpg";
+import PodWeb from "@/public/projects/podter-website.png";
+import Cozmo from "@/public/projects/cozmo-bot.png";
+import LuaBot from "@/public/projects/music-bot-lua.png";
+import ScreenRec from "@/public/projects/browser-screen-recorder.png";
+import JIAmusic from "@/public/projects/jiamusic.png";
 
 export default function Projects() {
   return (
@@ -25,7 +30,7 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 gap-4">
           <ProjectCard
             title="podter.xyz"
-            img={Shoes}
+            img={PodWeb}
             sourceUrl="https://github.com/Podter/podter-website"
           >
             The website that you are currently on right now. Built with Next.js,
@@ -33,7 +38,7 @@ export default function Projects() {
           </ProjectCard>
           <ProjectCard
             title="Cozmo Bot"
-            img={Shoes}
+            img={Cozmo}
             url="https://discord.com/api/oauth2/authorize?client_id=559323007697551381&permissions=8&scope=bot%20applications.commands"
             action="Invite"
           >
@@ -43,7 +48,7 @@ export default function Projects() {
           </ProjectCard>
           <ProjectCard
             title="Lua Music Bot"
-            img={Shoes}
+            img={LuaBot}
             sourceUrl="https://github.com/Podter/Music-Bot-Lua"
           >
             Yet another music Discord bot written in Lua using Discordia. This
@@ -52,7 +57,7 @@ export default function Projects() {
           </ProjectCard>
           <ProjectCard
             title="Screen Recorder"
-            img={Shoes}
+            img={ScreenRec}
             url="https://podter.github.io/browser-screen-recorder/"
             sourceUrl="https://github.com/Podter/browser-screen-recorder"
           >
@@ -61,7 +66,7 @@ export default function Projects() {
           </ProjectCard>
           <ProjectCard
             title="JIΛmusic"
-            img={Shoes}
+            img={JIAmusic}
             sourceUrl="https://github.com/jiafeitech/jiamusic"
           >
             A music streaming service built with Tauri, React and PocketBase.
