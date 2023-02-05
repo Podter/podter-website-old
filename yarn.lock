@@ -56,6 +56,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@iconify/icons-fa6-brands@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-fa6-brands/-/icons-fa6-brands-1.2.8.tgz#eb765c78e4010b3e339230175e2a8341f6f695fe"
+  integrity sha512-focJYImkY2ibtnm7aR1mrr3u6eQWFwWW+ta8Q4Qks85rRCEW1n8EwKVumkAzvZdjUDymR0x1WjyPd2P2HYp2ZA==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/icons-fluent-emoji-flat@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@iconify/icons-fluent-emoji-flat/-/icons-fluent-emoji-flat-1.2.6.tgz#377167e21381202fb9c8610c6e98a16de97494f4"
@@ -67,6 +74,13 @@
   version "1.2.21"
   resolved "https://registry.yarnpkg.com/@iconify/icons-line-md/-/icons-line-md-1.2.21.tgz#38a0ab87195668238a3b2c675d43088b5db8f4ae"
   integrity sha512-pDw2FW+CbLHa3QdrQcgQXQOtC0Q7xAJIjhtc64RScy3KC/I5qKdDhbl+ozQL+fDIMEBle00Lrp1PM9zd9yu8Lg==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/icons-material-symbols@^1.2.26":
+  version "1.2.26"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-material-symbols/-/icons-material-symbols-1.2.26.tgz#782756968fa2bd737e959313c595095569aff3d9"
+  integrity sha512-ydWG5B6FqihrYc3kqDnLJPdisxN3ZDC7HVBgeH4VPqysiHN4dDb0MMoaOnR1HN6iwVEikcIPFE2pAFgUOPcyTg==
   dependencies:
     "@iconify/types" "*"
 

@@ -23,8 +23,10 @@
   "devDependencies": {
     "@catppuccin/palette": "^0.1.5",
     "@catppuccin/tailwindcss": "^0.1.1",
+    "@iconify/icons-fa6-brands": "^1.2.8",
     "@iconify/icons-fluent-emoji-flat": "^1.2.6",
     "@iconify/icons-line-md": "^1.2.21",
+    "@iconify/icons-material-symbols": "^1.2.26",
     "@iconify/react": "^4.1.0",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.50.0",
