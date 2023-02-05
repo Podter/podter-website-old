@@ -1,17 +1,60 @@
-import Image from "next/image";
-import Shoes from "@/public/Shoes.jpg";
+import Image, { ImageProps } from "next/image";
+import Link from "next/link";
+import { Github, ExternalLink } from "lucide-react";
 
-export default function ProjectCard() {
+type ProjectCardProps = {
+  title: string;
+  children: string;
+  img: ImageProps["src"];
+  url?: string;
+  action?: string;
+  sourceUrl?: string;
+};
+
+export default function ProjectCard({
+  title,
+  children,
+  img,
+  url,
+  action = "Open",
+  sourceUrl,
+}: ProjectCardProps) {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl hover:scale-[1.025] transition-all duration-75 h-[30rem]">
       <figure>
-        <Image src={Shoes} alt="Shoes" />
+        <Image src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <h2 className="card-title">
+          {title === "JIΛmusic" ? (
+            <>
+              JI
+              <span className={`-m-2 -mb-[6px] font-sans text-xl font-bold`}>
+                Λ
+              </span>
+              music
+            </>
+          ) : (
+            title
+          )}
+        </h2>
+        <p>{children}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary duration-75">Buy Now</button>
+          {url ? (
+            <Link href={url} className="btn btn-primary gap-3">
+              {action}
+              <ExternalLink className="h-6 w-6" size={24} />
+            </Link>
+          ) : undefined}
+          {sourceUrl ? (
+            <Link
+              href={sourceUrl}
+              className={`btn ${!url ? "btn-primary" : undefined} gap-3`}
+            >
+              GitHub
+              <Github className="h-6 w-6" size={24} />
+            </Link>
+          ) : undefined}
         </div>
       </div>
     </div>
