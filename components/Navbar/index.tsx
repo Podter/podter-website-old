@@ -5,7 +5,7 @@ import { Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 z-50 mx-auto max-w-4xl px-8 my-20">
+    <nav className="navbar bg-base-100 z-50 mx-auto max-w-4xl px-8 my-20">
       <div className="flex-none">
         <label
           htmlFor="menu-drawer"
@@ -34,6 +34,6 @@ export default function Navbar() {
       <div className="flex-none">
         <ThemeSwitch />
       </div>
-    </div>
+    </nav>
   );
 }
