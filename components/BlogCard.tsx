@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function BlogCard() {
+export default function ProjectCard() {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl hover:scale-[1.025] transition-all duration-75 h-[14.5rem]">
+    <div className="card bg-base-100 shadow-xl card- hover:scale-[1.025] transition-all duration-75 h-72 md:h-64">
       <div className="card-body">
         <h2 className="card-title">Coming soon!</h2>
         <p>
@@ -10,10 +11,10 @@ export default function BlogCard() {
           porro illo earum tempora!
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary gap-3">
+          <Link href="/blog" className="btn btn-primary gap-3">
             Read
             <ArrowRight className="h-6 w-6" size={24} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
