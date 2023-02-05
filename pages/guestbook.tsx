@@ -20,11 +20,11 @@ export default function Guestbook() {
         </h1>
         <p className="pt-6">Feel free to leave me any message here.</p>
         <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
-          <button className="btn w-full gap-3">
+          <button className="btn w-full gap-3 duration-75 transition-colors">
             Sign in with GitHub
             <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
           </button>
-          <button className="btn w-full gap-3">
+          <button className="btn w-full gap-3 duration-75 transition-colors">
             Sign in with Discord
             <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
           </button>
