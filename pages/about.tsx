@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Container from "@/components/Container";
 import { Icon } from "@iconify/react";
-import wavingHand from "@iconify/icons-fluent-emoji-flat/waving-hand";
 import Link from "next/link";
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
