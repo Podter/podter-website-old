@@ -17,14 +17,10 @@ export default function AppContainer({
   useEffect(() => setCurrentTheme(theme), [theme]);
 
   return (
-    <DrawerContainer>
-      <main
-        className={`${className} ${
-          currentTheme === "light" ? "ctp-latte" : "ctp-mocha"
-        }`}
-      >
-        {children}
-      </main>
+    <DrawerContainer
+      className={currentTheme === "light" ? "ctp-latte" : "ctp-mocha"}
+    >
+      <main className={className}>{children}</main>
     </DrawerContainer>
   );
 }

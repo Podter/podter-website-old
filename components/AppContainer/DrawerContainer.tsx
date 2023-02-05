@@ -4,11 +4,15 @@ import { ReactNode } from "react";
 
 type DrawerContainerProps = {
   children?: ReactNode;
+  className?: string;
 };
 
-export default function DrawerContainer({ children }: DrawerContainerProps) {
+export default function DrawerContainer({
+  children,
+  className,
+}: DrawerContainerProps) {
   return (
-    <div className="drawer">
+    <div className={`drawer ${className}`}>
       <input id="menu-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">{children}</div>
       <div className="drawer-side">
