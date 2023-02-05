@@ -37,7 +37,7 @@ export default function ProjectCard({
           {sourceUrl ? (
             <Link
               href={sourceUrl}
-              className={`btn ${!url ? "btn-primary" : undefined} gap-3`}
+              className={`btn ${!url ? "btn-primary" : ""} gap-3`}
             >
               GitHub
               <Github className="h-6 w-6" size={24} />
