@@ -21,12 +21,8 @@ export default function About() {
           </span>
         </h1>
         <p className="pt-6">
-          Hey, I&apos;m Podter. Most folks know me as <strong>Podter</strong> or{" "}
-          <strong>Real_Podter</strong> online. Someone called me just{" "}
-          <strong>Pod</strong> for short. Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. Illum, in doloribus autem, sed iste
-          blanditiis error, eum odio soluta est alias laborum corrupti minus
-          natus consequatur impedit velit incidunt rerum.
+          Hey, I&apos;m Podter. You can call me <strong>&quot;pod&quot;</strong>{" "}
+          for short.
         </p>
         <div className="divider" />
         <p className="pb-6">
@@ -35,32 +31,6 @@ export default function About() {
           quae sequi tenetur dolorem, officia repudiandae, alias quibusdam
           dignissimos dolor quis, voluptas provident accusantium.
         </p>
-        <div className="flex flex-row gap-2 w-28">
-          <Link
-            className="btn btn-ghost btn-circle duration-75"
-            href="https://github.com/Podter"
-          >
-            <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
-          </Link>
-          <Link
-            className="btn btn-ghost btn-circle duration-75"
-            href="https://discord.com/users/331793642689789962"
-          >
-            <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
-          </Link>
-          <Link
-            className="btn btn-ghost btn-circle duration-75"
-            href="https://twitter.com/Real_Podter"
-          >
-            <Icon icon={twitterIcon} className="h-6 w-6" scale={24} />
-          </Link>
-          <Link
-            className="btn btn-ghost btn-circle duration-75"
-            href="mailto:me@podter.xyz"
-          >
-            <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
-          </Link>
-        </div>
       </Container>
     </>
   );
