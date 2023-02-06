@@ -4,8 +4,11 @@ import GuestbookMessage from "@/components/GuestbookMessage";
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import { Icon } from "@iconify/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Guestbook() {
+  const { data: session, status } = useSession();
+
   return (
     <>
       <Head>
@@ -20,17 +23,37 @@ export default function Guestbook() {
         </h1>
         <p className="pt-6">Feel free to leave me any message here.</p>
         <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
-          <button className="btn w-full gap-3 duration-75 transition-colors">
-            Sign in with GitHub
-            <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
-          </button>
-          <button className="btn w-full gap-3 duration-75 transition-colors">
-            Sign in with Discord
-            <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
-          </button>
+          {status === "unauthenticated" ? (
+            <>
+              <button
+                className="btn w-full gap-3 duration-75 transition-colors"
+                onClick={() => signIn("github")}
+              >
+                Sign in with GitHub
+                <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
+              </button>
+              <button
+                className="btn w-full gap-3 duration-75 transition-colors"
+                onClick={() => signIn("discord")}
+              >
+                Sign in with Discord
+                <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
+              </button>
+            </>
+          ) : status === "authenticated" ? (
+            <button
+              className="btn w-full gap-3 duration-75 transition-colors"
+              onClick={() => signOut()}
+            >
+              Logout
+              <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
+            </button>
+          ) : (
+            ""
+          )}
         </div>
         <div className="divider" />
-        <div className="">
+        <div>
           <GuestbookMessage
             name="Podter"
             username="Podter"
