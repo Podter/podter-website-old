@@ -30,7 +30,7 @@ export default function Projects() {
           <ProjectCard
             title="podter.xyz"
             img={PodWeb}
-            sourceUrl="https://github.com/Podter/podter-website"
+            sourceUrl="https://github.com/Podter/podter.xyz"
           >
             The website that you are currently on right now. Built with Next.js,
             Tailwind CSS, daisyUI and MongoDB.
