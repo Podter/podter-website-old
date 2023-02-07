@@ -5,7 +5,7 @@ import questionCircleTwotone from "@iconify/icons-line-md/question-circle-twoton
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Home() {
+export default function NoPage() {
   const router = useRouter();
 
   return (
