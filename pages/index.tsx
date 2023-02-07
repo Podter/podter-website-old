@@ -25,7 +25,7 @@ export default function Home() {
         </h1>
         <p className="py-6">
           Hey, I&apos;m Podter. I&apos;m a student and self taught developer
-          from Thailand
+          from Thailand.
         </p>
         <div className="flex flex-row gap-2 w-28">
           <Link
