@@ -8,7 +8,7 @@ import AppContainer from "@/components/AppContainer";
 import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
-  weight: ["400", "700"],
+  weight: ["400", "600", "700"],
   subsets: ["latin"],
   variable: "--font-poppins",
 });
