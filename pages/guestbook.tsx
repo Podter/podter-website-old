@@ -4,6 +4,7 @@ import GuestbookItem from "@/components/Guestbook/GuestbookItem";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
 import Actions from "@/components/Guestbook/Actions";
+import { getSession } from "next-auth/react";
 
 export type GuestbookData = {
   id: string;
@@ -13,9 +14,16 @@ export type GuestbookData = {
   message: string;
 };
 
+export type UserMessage = {
+  message: string;
+};
+
 export const getServerSideProps: GetServerSideProps<{
   data: GuestbookData[];
-}> = async () => {
+  userMessage: UserMessage | null;
+}> = async ({ req }) => {
+  const session = await getSession({ req });
+
   const data = await prisma.guestbookMessage.findMany({
     select: {
       id: true,
@@ -29,15 +37,26 @@ export const getServerSideProps: GetServerSideProps<{
     },
   });
 
+  const userMessage = await prisma.guestbookMessage.findFirst({
+    where: {
+      email: session?.user?.email || "",
+    },
+    select: {
+      message: true,
+    },
+  });
+
   return {
     props: {
       data,
+      userMessage,
     },
   };
 };
 
 export default function Guestbook({
   data,
+  userMessage,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
@@ -55,7 +74,7 @@ export default function Guestbook({
           Sign my guestbook and leave your mark. Feel free to leave any message
           here.
         </p>
-        <Actions />
+        <Actions userMessage={userMessage} />
         <div className="divider" />
         <div>
           {data.map((item) => (

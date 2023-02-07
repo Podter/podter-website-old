@@ -2,31 +2,60 @@ import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import { Icon } from "@iconify/react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Send, LogOut, XCircle } from "lucide-react";
+import { Send, LogOut, XCircle, Edit, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { UserMessage } from "@/pages/guestbook";
 
-export default function Actions() {
+type ActionsProps = {
+  userMessage: UserMessage | null;
+};
+
+export default function Actions({ userMessage }: ActionsProps) {
   const session = useSession();
   const router = useRouter();
 
   const [message, setMessage] = useState("");
+  const [editing, setEditing] = useState(false);
   const [error, setError] = useState("");
 
-  async function create(e: FormEvent<HTMLFormElement>) {
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     try {
-      await axios.post("/api/guestbook", {
-        message: message,
-      });
+      if (editing) {
+        await axios.put("/api/guestbook", {
+          message: message,
+        });
+      } else {
+        await axios.post("/api/guestbook", {
+          message: message,
+        });
+      }
 
       router.reload();
     } catch {
       setError("Something went wrong. Please try again later.");
     }
   }
+
+  async function deleteMessage() {
+    try {
+      await axios.delete("/api/guestbook");
+
+      router.reload();
+    } catch {
+      setError("Something went wrong. Please try again later.");
+    }
+  }
+
+  useEffect(() => {
+    if (userMessage) {
+      setEditing(true);
+      setMessage(userMessage.message);
+    }
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,7 +90,7 @@ export default function Actions() {
               <span className="font-semibold">{session.data?.user?.name}</span>
             </span>
           </label>
-          <form className="input-group" onSubmit={create}>
+          <form className="input-group" onSubmit={submit}>
             <input
               type="text"
               placeholder="your message"
@@ -72,10 +101,14 @@ export default function Actions() {
             />
             <button
               className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
-              data-tip="Send"
+              data-tip={editing ? "Edit" : "Send"}
               type="submit"
             >
-              <Send className="h-6 w-6" size={24} />
+              {editing ? (
+                <Edit className="h-6 w-6" size={24} />
+              ) : (
+                <Send className="h-6 w-6" size={24} />
+              )}
             </button>
           </form>
           <label className="label">
@@ -89,6 +122,18 @@ export default function Actions() {
               />
               Sign out
             </span>
+            {editing ? (
+              <span
+                className="label-text-alt link link-hover link-error"
+                onClick={deleteMessage}
+              >
+                <Trash2
+                  className="inline mr-1 align-[-0.125em] h-3 w-3"
+                  size={12}
+                />
+                Delete
+              </span>
+            ) : undefined}
           </label>
         </div>
       )}
