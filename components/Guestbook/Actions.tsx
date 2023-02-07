@@ -31,6 +31,12 @@ export default function Actions() {
         </>
       ) : (
         <div className="form-control">
+          <label className="label">
+            <span className="label-text-alt">
+              Signed in as{" "}
+              <span className="font-semibold">{session.data?.user?.name}</span>
+            </span>
+          </label>
           <div className="input-group">
             <input
               type="text"
@@ -39,7 +45,10 @@ export default function Actions() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <button className="btn btn-square">
+            <button
+              className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
+              data-tip="Send"
+            >
               <Send className="h-6 w-6" size={24} />
             </button>
           </div>
