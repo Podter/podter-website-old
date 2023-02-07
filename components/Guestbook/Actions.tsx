@@ -2,13 +2,37 @@ import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import { Icon } from "@iconify/react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Send, LogOut } from "lucide-react";
-import { useState } from "react";
+import { Send, LogOut, XCircle } from "lucide-react";
+import { FormEvent, useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Actions() {
   const session = useSession();
+  const router = useRouter();
 
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  async function create(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    try {
+      await axios.post("/api/guestbook", {
+        message: message,
+      });
+
+      router.reload();
+    } catch {
+      setError("Something went wrong. Please try again later.");
+    }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+  }, [error]);
 
   return (
     <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
@@ -37,21 +61,23 @@ export default function Actions() {
               <span className="font-semibold">{session.data?.user?.name}</span>
             </span>
           </label>
-          <div className="input-group">
+          <form className="input-group" onSubmit={create}>
             <input
               type="text"
               placeholder="your message"
-              className="input input-bordered"
+              className={`input input-bordered ${error ? "input-error" : ""}`}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              required={true}
             />
             <button
               className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
               data-tip="Send"
+              type="submit"
             >
               <Send className="h-6 w-6" size={24} />
             </button>
-          </div>
+          </form>
           <label className="label">
             <span
               className="label-text-alt link link-hover"
@@ -66,6 +92,16 @@ export default function Actions() {
           </label>
         </div>
       )}
+      {error ? (
+        <div className="toast">
+          <div className="alert alert-error">
+            <div>
+              <XCircle size={24} className="h-6 w-6" />
+              <span>{error}</span>
+            </div>
+          </div>
+        </div>
+      ) : undefined}
     </div>
   );
 }
