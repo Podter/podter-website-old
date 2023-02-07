@@ -19,6 +19,7 @@ export default async function handler(
       const data = await prisma.guestbookMessage.create({
         data: {
           email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
           name: session.user.name,
           avatar: session.user.image,
           message: req.body.message || "",
@@ -40,6 +41,7 @@ export default async function handler(
       const dataToDelete = await prisma.guestbookMessage.findFirst({
         where: {
           email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
         },
         select: {
           id: true,
@@ -67,6 +69,7 @@ export default async function handler(
       const dataToUpdate = await prisma.guestbookMessage.findFirst({
         where: {
           email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
         },
         select: {
           id: true,
@@ -79,9 +82,11 @@ export default async function handler(
         },
         data: {
           email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
           name: session.user.name,
           avatar: session.user.image,
           message: req.body.message || "",
+          updated: true,
         },
       });
 

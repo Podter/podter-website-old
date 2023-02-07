@@ -7,6 +7,7 @@ import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { UserMessage } from "@/pages/guestbook";
+import getUsername, { UserData } from "@/lib/getUsername";
 
 type ActionsProps = {
   userMessage: UserMessage | null;
@@ -18,6 +19,10 @@ export default function Actions({ userMessage }: ActionsProps) {
 
   const [message, setMessage] = useState("");
   const [editing, setEditing] = useState(false);
+  const [userData, setUserData] = useState<UserData>({
+    text: "Loading...",
+    url: "",
+  });
   const [error, setError] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -87,7 +92,23 @@ export default function Actions({ userMessage }: ActionsProps) {
           <label className="label">
             <span className="label-text-alt">
               Signed in as{" "}
-              <span className="font-semibold">{session.data?.user?.name}</span>
+              <a
+                className="tooltip tooltip-top cursor-pointer"
+                data-tip={userData.text}
+                onMouseEnter={() => {
+                  if (!userData.url) {
+                    getUsername(
+                      userMessage?.providerAccountId || "",
+                      setUserData
+                    );
+                  }
+                }}
+                href={userData.url}
+              >
+                <span className="font-semibold">
+                  {session.data?.user?.name}
+                </span>
+              </a>
             </span>
           </label>
           <form className="input-group" onSubmit={submit}>

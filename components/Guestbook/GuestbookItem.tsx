@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { User } from "lucide-react";
 import { GuestbookData } from "@/pages/guestbook";
+import { useState } from "react";
+import getUsername, { UserData } from "@/lib/getUsername";
 
 type GuestbookItemProps = GuestbookData;
 
@@ -8,11 +10,26 @@ export default function GuestbookItem({
   name,
   message,
   avatar,
+  providerAccountId,
 }: GuestbookItemProps) {
+  const [userData, setUserData] = useState<UserData>({
+    text: "Loading...",
+    url: "",
+  });
+
   return (
     <div className="flex flex-col space-y-1 mb-4">
       <div className="flex w-full text-sm items-center gap-2">
-        <div className="tooltip tooltip-right md:tooltip-top" data-tip="">
+        <a
+          className="tooltip tooltip-right md:tooltip-top"
+          data-tip={userData.text}
+          onMouseEnter={() => {
+            if (!userData.url) {
+              getUsername(providerAccountId || "", setUserData);
+            }
+          }}
+          href={userData.url}
+        >
           <div className="avatar hover:cursor-pointer">
             <center className="flex justify-center items-center w-6 h-6 rounded-full bg-base-200">
               {avatar ? (
@@ -28,7 +45,7 @@ export default function GuestbookItem({
               )}
             </center>
           </div>
-        </div>
+        </a>
         <p>
           <span className="text-ctp-subtext0 mr-1">{name}: </span>
           {message}

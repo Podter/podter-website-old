@@ -9,6 +9,7 @@ import { getSession } from "next-auth/react";
 export type GuestbookData = {
   id: string;
   updated: boolean;
+  providerAccountId: string | null;
   name: string;
   avatar: string | null;
   message: string;
@@ -16,6 +17,7 @@ export type GuestbookData = {
 
 export type UserMessage = {
   message: string;
+  providerAccountId: string | null;
 };
 
 export const getServerSideProps: GetServerSideProps<{
@@ -31,6 +33,7 @@ export const getServerSideProps: GetServerSideProps<{
       name: true,
       avatar: true,
       message: true,
+      providerAccountId: true,
     },
     orderBy: {
       updatedAt: "desc",
@@ -39,10 +42,12 @@ export const getServerSideProps: GetServerSideProps<{
 
   const userMessage = await prisma.guestbookMessage.findFirst({
     where: {
-      email: session?.user?.email || "",
+      email: session?.user.email || "",
+      providerAccountId: session?.user.providerAccountId,
     },
     select: {
       message: true,
+      providerAccountId: true,
     },
   });
 
