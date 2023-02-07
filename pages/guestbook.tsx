@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Container from "@/components/Container";
 import GuestbookItem from "@/components/Guestbook/GuestbookItem";
-import githubIcon from "@iconify/icons-fa6-brands/github";
-import discordIcon from "@iconify/icons-fa6-brands/discord";
-import { Icon } from "@iconify/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
 import { Provider } from "@prisma/client";
+import Actions from "@/components/Guestbook/Actions";
 
 export type GuestbookData = {
   id: string;
@@ -62,16 +60,7 @@ export default function Guestbook({
           Sign my guestbook and leave your mark. Feel free to leave any message
           here.
         </p>
-        <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
-          <button className="btn w-full gap-3 duration-75 transition-colors">
-            Sign in with GitHub
-            <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
-          </button>
-          <button className="btn w-full gap-3 duration-75 transition-colors">
-            Sign in with Discord
-            <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
-          </button>
-        </div>
+        <Actions />
         <div className="divider" />
         <div>
           {data.map((item) => (
