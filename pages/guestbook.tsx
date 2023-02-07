@@ -17,7 +17,6 @@ export type GuestbookData = {
 
 export type UserMessage = {
   message: string;
-  providerAccountId: string | null;
 };
 
 export const getServerSideProps: GetServerSideProps<{
@@ -47,7 +46,6 @@ export const getServerSideProps: GetServerSideProps<{
     },
     select: {
       message: true,
-      providerAccountId: true,
     },
   });
 

@@ -98,7 +98,7 @@ export default function Actions({ userMessage }: ActionsProps) {
                 onMouseEnter={() => {
                   if (!userData.url) {
                     getUsername(
-                      userMessage?.providerAccountId || "",
+                      session?.data?.user.providerAccountId || "",
                       setUserData
                     );
                   }
