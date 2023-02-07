@@ -1,37 +1,40 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import GuestbookItem, {
-  GuestbookItemProps,
-} from "@/components/Guestbook/GuestbookItem";
+import GuestbookItem from "@/components/Guestbook/GuestbookItem";
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import { Icon } from "@iconify/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
+import { Provider } from "@prisma/client";
 
 type Data = {
   id: string;
-  props: GuestbookItemProps;
+  updated: boolean;
+  name: string;
+  username: string;
+  avatar: string | null;
+  provider: Provider;
+  message: string;
 };
 
 export const getServerSideProps: GetServerSideProps<{
   data: Data[];
 }> = async () => {
-  const fetchedData = await prisma.guestbookMessage.findMany();
-  const data: Data[] = [];
-
-  fetchedData.map((item) =>
-    data.push({
-      id: item.id,
-      props: {
-        name: item.name,
-        message: item.message,
-        provider: item.provider === "GITHUB" ? "GitHub" : "Discord",
-        username: item.username,
-        updated: item.updated,
-      },
-    })
-  );
+  const data = await prisma.guestbookMessage.findMany({
+    select: {
+      id: true,
+      name: true,
+      message: true,
+      provider: true,
+      username: true,
+      updated: true,
+      avatar: true,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
 
   return {
     props: {
@@ -69,7 +72,7 @@ export default function Guestbook({
         <div className="divider" />
         <div>
           {data.map((item) => (
-            <GuestbookItem key={item.id} {...item.props} />
+            <GuestbookItem key={item.id} {...item} />
           ))}
         </div>
       </Container>
