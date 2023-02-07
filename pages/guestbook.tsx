@@ -8,7 +8,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
 import { Provider } from "@prisma/client";
 
-type Data = {
+export type GuestbookData = {
   id: string;
   updated: boolean;
   name: string;
@@ -19,17 +19,17 @@ type Data = {
 };
 
 export const getServerSideProps: GetServerSideProps<{
-  data: Data[];
+  data: GuestbookData[];
 }> = async () => {
   const data = await prisma.guestbookMessage.findMany({
     select: {
       id: true,
-      name: true,
-      message: true,
-      provider: true,
-      username: true,
       updated: true,
+      name: true,
+      username: true,
       avatar: true,
+      provider: true,
+      message: true,
     },
     orderBy: {
       updatedAt: "desc",

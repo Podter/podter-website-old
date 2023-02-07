@@ -1,23 +1,16 @@
 import Shoes from "@/public/shoes.jpg";
-import { Provider } from "@prisma/client";
 import Image from "next/image";
 import { User } from "lucide-react";
+import { GuestbookData } from "@/pages/guestbook";
 
-export type GuestbookItemProps = {
-  name: string;
-  username: string;
-  message: string;
-  provider: Provider;
-  updated?: boolean;
-  avatar?: string | null;
-};
+type GuestbookItemProps = GuestbookData;
 
 export default function GuestbookItem({
   name,
   message,
   provider,
   username,
-  updated = false,
+  updated,
   avatar,
 }: GuestbookItemProps) {
   return (
