@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import GuestbookItem, { GuestbookItemProps } from "@/components/GuestbookItem";
+import GuestbookItem, {
+  GuestbookItemProps,
+} from "@/components/Guestbook/GuestbookItem";
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import { Icon } from "@iconify/react";
