@@ -8,7 +8,6 @@ import { getSession } from "next-auth/react";
 
 export type GuestbookData = {
   id: string;
-  updated: boolean;
   providerAccountId: string | null;
   name: string;
   avatar: string | null;
@@ -28,7 +27,6 @@ export const getServerSideProps: GetServerSideProps<{
   const data = await prisma.guestbookMessage.findMany({
     select: {
       id: true,
-      updated: true,
       name: true,
       avatar: true,
       message: true,

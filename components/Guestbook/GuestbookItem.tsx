@@ -3,6 +3,7 @@ import { User } from "lucide-react";
 import { GuestbookData } from "@/pages/guestbook";
 import { useState } from "react";
 import getUsername, { UserData } from "@/lib/getUsername";
+import axios from "axios";
 
 type GuestbookItemProps = GuestbookData;
 
@@ -11,11 +12,28 @@ export default function GuestbookItem({
   message,
   avatar,
   providerAccountId,
+  id,
 }: GuestbookItemProps) {
   const [userData, setUserData] = useState<UserData>({
     text: "Loading...",
     url: "",
   });
+  const [dateText, setDateText] = useState("Loading...");
+
+  async function getDate() {
+    try {
+      const res = await axios.get(`/api/guestbook/date?id=${id}`);
+      const data = res.data.data;
+
+      if (data.updated) {
+        setDateText(`Updated: ${data.updatedAt}`);
+      } else {
+        setDateText(`Created: ${data.created}`);
+      }
+    } catch {
+      setDateText("Failed to load.");
+    }
+  }
 
   return (
     <div className="flex flex-col space-y-1 mb-4">
@@ -47,7 +65,17 @@ export default function GuestbookItem({
           </div>
         </a>
         <p>
-          <span className="text-ctp-subtext0 mr-1">{name}: </span>
+          <span
+            className="text-ctp-subtext0 mr-1 tooltip tooltip-right md:tooltip-top"
+            data-tip={dateText}
+            onMouseEnter={() => {
+              if (dateText === "Loading...") {
+                getDate();
+              }
+            }}
+          >
+            {name}:{" "}
+          </span>
           {message}
         </p>
       </div>
