@@ -21,7 +21,7 @@ export default function GuestbookItem({
     <div className="flex flex-col space-y-1 mb-4">
       <div className="flex w-full text-sm items-center gap-2">
         <a
-          className="tooltip tooltip-right md:tooltip-top"
+          className="tooltip tooltip-right md:tooltip-top w-6 h-6"
           data-tip={userData.text}
           onMouseEnter={() => {
             if (!userData.url) {
