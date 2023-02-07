@@ -1,5 +1,6 @@
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
+import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 import { Icon } from "@iconify/react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Send, LogOut, XCircle, Edit, Trash2 } from "lucide-react";
@@ -23,11 +24,13 @@ export default function Actions({ userMessage }: ActionsProps) {
     text: "Loading...",
     url: "",
   });
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    setLoading(true);
     try {
       if (editing) {
         await axios.put("/api/guestbook", {
@@ -42,16 +45,19 @@ export default function Actions({ userMessage }: ActionsProps) {
       router.reload();
     } catch {
       setError("Something went wrong. Please try again later.");
+      setLoading(false);
     }
   }
 
   async function deleteMessage() {
+    setLoading(true);
     try {
       await axios.delete("/api/guestbook");
 
       router.reload();
     } catch {
       setError("Something went wrong. Please try again later.");
+      setLoading(false);
     }
   }
 
@@ -87,7 +93,7 @@ export default function Actions({ userMessage }: ActionsProps) {
             <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
           </button>
         </>
-      ) : (
+      ) : session.status === "authenticated" ? (
         <div className="form-control">
           <label className="label">
             <span className="label-text-alt">
@@ -119,13 +125,17 @@ export default function Actions({ userMessage }: ActionsProps) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required={true}
+              disabled={loading}
             />
             <button
               className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
               data-tip={editing ? "Edit" : "Send"}
               type="submit"
+              disabled={loading}
             >
-              {editing ? (
+              {loading ? (
+                <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
+              ) : editing ? (
                 <Edit className="h-6 w-6" size={24} />
               ) : (
                 <Send className="h-6 w-6" size={24} />
@@ -157,6 +167,8 @@ export default function Actions({ userMessage }: ActionsProps) {
             ) : undefined}
           </label>
         </div>
+      ) : (
+        <Icon icon={icon90RingWithBg} className="h-8 w-8" scale={32} />
       )}
       {error ? (
         <div className="toast">

@@ -84,6 +84,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify/icons-svg-spinners@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-svg-spinners/-/icons-svg-spinners-1.2.0.tgz#c5802f0be4441eec55f9e005b5bc13d68b744a0b"
+  integrity sha512-oCrot596PEDppzY6aDbW4+vI0VyuXzsvSvmOBYJhH35p5Uw3qMDcafSP5xNa9xiROBDOSlYlC8EyzpedKiH5mA==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/react@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@iconify/react/-/react-4.1.0.tgz#5ea86acae6e209a2f5b1b52922ab85d0d22f9b45"
