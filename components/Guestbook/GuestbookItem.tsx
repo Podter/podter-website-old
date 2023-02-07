@@ -19,7 +19,7 @@ export default function GuestbookItem({
         <div
           className="tooltip tooltip-right md:tooltip-top"
           data-tip={`${username} on ${
-            provider === "GITHUB" ? "Github" : "Discord"
+            provider === "GITHUB" ? "GitHub" : "Discord"
           } ${updated ? "(edited)" : ""}`}
         >
           <div className="avatar hover:cursor-pointer">
