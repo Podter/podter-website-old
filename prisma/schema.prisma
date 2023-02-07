@@ -13,15 +13,8 @@ model GuestbookMessage {
   created   DateTime @default(now())
   updatedAt DateTime @updatedAt
   updated   Boolean  @default(false)
-  name      String
-  username  String
-  avatar    String?
-  provider  Provider
   email     String
+  name      String
+  avatar    String?
   message   String
-}
-
-enum Provider {
-  GITHUB
-  DISCORD
 }

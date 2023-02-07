@@ -3,16 +3,13 @@ import Container from "@/components/Container";
 import GuestbookItem from "@/components/Guestbook/GuestbookItem";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
-import { Provider } from "@prisma/client";
 import Actions from "@/components/Guestbook/Actions";
 
 export type GuestbookData = {
   id: string;
   updated: boolean;
   name: string;
-  username: string;
   avatar: string | null;
-  provider: Provider;
   message: string;
 };
 
@@ -24,9 +21,7 @@ export const getServerSideProps: GetServerSideProps<{
       id: true,
       updated: true,
       name: true,
-      username: true,
       avatar: true,
-      provider: true,
       message: true,
     },
     orderBy: {
