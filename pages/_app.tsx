@@ -1,8 +1,10 @@
 import "@/styles/globals.css";
+import "@/styles/nprogress.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
+import NProgress from "nprogress";
 
 import AppContainer from "@/components/AppContainer";
 import Navbar from "@/components/Navbar";
@@ -19,7 +21,14 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
-  const { loadingGuestbook } = useAppLoading();
+  const { loadingGuestbook } = useAppLoading(
+    () => NProgress.start(),
+    () => NProgress.done(true)
+  );
+
+  NProgress.configure({
+    showSpinner: false,
+  });
 
   return (
     <SessionProvider session={session}>
