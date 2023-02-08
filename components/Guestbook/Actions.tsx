@@ -78,11 +78,14 @@ export default function Actions({
   }, [error]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
+    <div className="flex flex-col md:flex-row md:items-center gap-2 w-60 pt-3">
       {loading || parentLoading ? (
         <>
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse" />
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse" />
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+          <div>
+            <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
+          </div>
         </>
       ) : session.status === "unauthenticated" ? (
         <>
