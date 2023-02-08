@@ -6,6 +6,8 @@ import { SessionProvider } from "next-auth/react";
 
 import AppContainer from "@/components/AppContainer";
 import Navbar from "@/components/Navbar";
+import useAppLoading from "@/hooks/useAppLoading";
+import Guestbook from "@/components/Guestbook";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -17,6 +19,8 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
+  const { loadingGuestbook } = useAppLoading();
+
   return (
     <SessionProvider session={session}>
       <ThemeProvider
@@ -28,7 +32,11 @@ export default function App({
           className={`${poppins.className} flex flex-col min-h-screen`}
         >
           <Navbar />
-          <Component {...pageProps} />
+          {loadingGuestbook ? (
+            <Guestbook loading={true} />
+          ) : (
+            <Component {...pageProps} />
+          )}
         </AppContainer>
       </ThemeProvider>
     </SessionProvider>

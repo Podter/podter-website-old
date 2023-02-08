@@ -47,7 +47,7 @@ export default function GuestbookItem({
           }}
           href={userData.url}
         >
-          <div className="avatar hover:cursor-pointer">
+          <div className="avatar cursor-pointer">
             <center className="flex justify-center items-center w-6 h-6 rounded-full bg-base-200">
               {avatar ? (
                 <Image

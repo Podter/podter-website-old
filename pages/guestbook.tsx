@@ -1,10 +1,8 @@
 import Head from "next/head";
-import Container from "@/components/Container";
-import GuestbookItem from "@/components/Guestbook/Item";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
-import Actions from "@/components/Guestbook/Actions";
 import { getSession } from "next-auth/react";
+import Guestbook from "@/components/Guestbook";
 
 export const getServerSideProps: GetServerSideProps<{
   data: GuestbookData[];
@@ -43,34 +41,16 @@ export const getServerSideProps: GetServerSideProps<{
   };
 };
 
-export default function Guestbook({
-  data,
-  userMessage,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function GuestbookPage(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
   return (
     <>
       <Head>
         <title>Guestbook | Podter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Container>
-        <h1 className="text-5xl font-bold">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
-            Guestbook
-          </span>
-        </h1>
-        <p className="pt-6">
-          Sign my guestbook and leave your mark. Feel free to leave any message
-          here.
-        </p>
-        <Actions userMessage={userMessage} />
-        <div className="divider" />
-        <div>
-          {data.map((item) => (
-            <GuestbookItem key={item.id} {...item} />
-          ))}
-        </div>
-      </Container>
+      <Guestbook {...props} loading={false} />
     </>
   );
 }

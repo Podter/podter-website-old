@@ -11,9 +11,13 @@ import getUsername, { UserData } from "@/lib/getUsername";
 
 type ActionsProps = {
   userMessage: GuestbookUser | null;
+  parentLoading?: boolean;
 };
 
-export default function Actions({ userMessage }: ActionsProps) {
+export default function Actions({
+  userMessage,
+  parentLoading = false,
+}: ActionsProps) {
   const session = useSession();
   const router = useRouter();
 
@@ -75,7 +79,12 @@ export default function Actions({ userMessage }: ActionsProps) {
 
   return (
     <div className="flex flex-col md:flex-row gap-2 w-60 pt-3">
-      {session.status === "unauthenticated" ? (
+      {loading || parentLoading ? (
+        <>
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse" />
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse" />
+        </>
+      ) : session.status === "unauthenticated" ? (
         <>
           <button
             className="btn w-full gap-3 duration-75 transition-colors"
@@ -167,7 +176,7 @@ export default function Actions({ userMessage }: ActionsProps) {
           </label>
         </div>
       ) : (
-        <Icon icon={icon90RingWithBg} className="h-8 w-8" scale={32} />
+        ""
       )}
       {error ? (
         <div className="toast">
