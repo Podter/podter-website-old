@@ -44,13 +44,5 @@ export const getServerSideProps: GetServerSideProps<{
 export default function GuestbookPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  return (
-    <>
-      <Head>
-        <title>Guestbook | Podter</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <Guestbook {...props} loading={false} />
-    </>
-  );
+  return <Guestbook {...props} loading={false} />;
 }
