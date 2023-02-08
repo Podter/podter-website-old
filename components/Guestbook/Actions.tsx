@@ -7,11 +7,10 @@ import { Send, LogOut, XCircle, Edit, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { UserMessage } from "@/pages/guestbook";
 import getUsername, { UserData } from "@/lib/getUsername";
 
 type ActionsProps = {
-  userMessage: UserMessage | null;
+  userMessage: GuestbookUser | null;
 };
 
 export default function Actions({ userMessage }: ActionsProps) {

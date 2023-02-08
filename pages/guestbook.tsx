@@ -1,26 +1,14 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import GuestbookItem from "@/components/Guestbook/GuestbookItem";
+import GuestbookItem from "@/components/Guestbook/Item";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
 import Actions from "@/components/Guestbook/Actions";
 import { getSession } from "next-auth/react";
 
-export type GuestbookData = {
-  id: string;
-  providerAccountId: string | null;
-  name: string;
-  avatar: string | null;
-  message: string;
-};
-
-export type UserMessage = {
-  message: string;
-};
-
 export const getServerSideProps: GetServerSideProps<{
   data: GuestbookData[];
-  userMessage: UserMessage | null;
+  userMessage: GuestbookUser | null;
 }> = async ({ req }) => {
   const session = await getSession({ req });
 

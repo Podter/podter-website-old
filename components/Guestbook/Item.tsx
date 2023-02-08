@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { User } from "lucide-react";
-import { GuestbookData } from "@/pages/guestbook";
 import { useState } from "react";
 import getUsername, { UserData } from "@/lib/getUsername";
 import axios from "axios";
