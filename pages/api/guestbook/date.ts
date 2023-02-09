@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prismadb";
+import { format } from "date-fns";
 
 export default async function handler(
   req: NextApiRequest,
@@ -33,8 +34,8 @@ export default async function handler(
       return res.status(200).json({
         message: "Success",
         data: {
-          created: data.created.toDateString(),
-          updatedAt: data.updatedAt.toDateString(),
+          created: format(data.created, "do MMM yyyy"),
+          updatedAt: format(data.updatedAt, "do MMM yyyy"),
           updated: data.updated,
         },
         code: res.statusCode,
