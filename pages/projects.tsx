@@ -33,7 +33,7 @@ export default function Projects() {
             sourceUrl="https://github.com/Podter/podter.xyz"
           >
             The website that you are currently on right now. Built with Next.js,
-            Tailwind CSS, daisyUI and MongoDB.
+            Tailwind CSS, daisyUI and PlanetScale.
           </ProjectCard>
           <ProjectCard
             title="Cozmo Bot"
