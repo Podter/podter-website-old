@@ -6,7 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 
-import AppContainer from "@/components/AppContainer";
+import Drawer from "@/components/Drawer";
 import Navbar from "@/components/Navbar";
 import useAppLoading from "@/hooks/useAppLoading";
 import Guestbook from "@/components/Guestbook";
@@ -37,16 +37,16 @@ export default function App({
         themes={["ctp-latte", "ctp-mocha"]}
         value={{ light: "ctp-latte", dark: "ctp-mocha" }}
       >
-        <AppContainer
-          className={`${poppins.className} flex flex-col min-h-screen`}
-        >
-          <Navbar />
-          {loadingGuestbook ? (
-            <Guestbook loading={true} />
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </AppContainer>
+        <Drawer>
+          <main className={`${poppins.className} flex flex-col min-h-screen`}>
+            <Navbar />
+            {loadingGuestbook ? (
+              <Guestbook loading={true} />
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </main>
+        </Drawer>
       </ThemeProvider>
     </SessionProvider>
   );

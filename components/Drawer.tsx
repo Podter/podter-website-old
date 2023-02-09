@@ -8,19 +8,15 @@ import twitterIcon from "@iconify/icons-fa6-brands/twitter";
 import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 import { X } from "lucide-react";
 
-type DrawerContainerProps = {
+type DrawerProps = {
   children?: ReactNode;
-  className?: string;
 };
 
-export default function DrawerContainer({
-  children,
-  className,
-}: DrawerContainerProps) {
+export default function Drawer({ children }: DrawerProps) {
   const closeRef = useRef<HTMLLabelElement>(null);
 
   return (
-    <div className={`drawer ${className}`}>
+    <div className="drawer">
       <input id="menu-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">{children}</div>
       <div className="drawer-side">

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[data-theme="ctp-mocha"] {
+  @apply ctp-mocha;
+}
