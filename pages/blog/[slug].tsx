@@ -49,10 +49,7 @@ export default function BlogLayout({
             {post.title}
           </span>
         </h1>
-        <p className="pt-6">
-          A collection of blog posts that I&apos;ve written.
-        </p>
-        <div className="flex flex-row gap-2 pt-1">
+        <div className="flex flex-row gap-2 pt-5">
           <p className="text-sm text-ctp-subtext0">
             <Eye
               className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
