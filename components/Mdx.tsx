@@ -1,5 +1,4 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
-import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,14 +7,15 @@ function CustomLink(props: any) {
 }
 
 function CustomImage(props: any) {
-  if (props.src.startsWith("http")) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img alt={props.alt} className="rounded-lg" {...props} />
-    );
-  }
-
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <Image
+      alt={props.alt}
+      className="rounded-lg"
+      {...props}
+      width={1280}
+      height={720}
+    />
+  );
 }
 
 type MdxProps = {

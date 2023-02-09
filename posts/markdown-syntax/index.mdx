@@ -3,21 +3,27 @@ title: Markdown syntax
 date: 2023-02-09
 ---
 
-Some Markdown syntax for testing with podter.xyz
+Some Markdown syntax for testing with podter.xyz blog page
 
 ## Headers
 
 ## This is a Heading h2
 
+### This is a Heading h3
+
+#### This is a Heading h4
+
+##### This is a Heading h5
+
 ###### This is a Heading h6
 
 ## Emphasis
 
-_This text will be italic_  
-_This will also be italic_
+_This text will be italic_
 
-**This text will be bold**  
-**This will also be bold**
+**This text will be bold**
+
+_**This text will be both bold and italic**_
 
 _You **can** combine them_
 
@@ -40,7 +46,7 @@ _You **can** combine them_
 
 ## Images
 
-![This is a alt text.](https://media.discordapp.net/attachments/1072094454581825639/1073256333308088361/image.png)
+![This is a alt text.](/shoes.jpg)
 
 ## Links
 
@@ -55,10 +61,16 @@ You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
 ## Tables
 
 | Left columns | Right columns |
-| ------------ | :-----------: |
-| left foo     |   right foo   |
-| left bar     |   right bar   |
-| left baz     |   right baz   |
+| ------------ | ------------- |
+| left foo     | right foo     |
+| left bar     | right bar     |
+| left baz     | right baz     |
+
+| Left columns | Right columns | Left columns | Right columns |
+| ------------ | ------------- | ------------ | ------------- |
+| left foo     | right foo     | left foo     | right foo     |
+| left bar     | right bar     | left bar     | right bar     |
+| left baz     | right baz     | left baz     | right baz     |
 
 ## Blocks of code
 
@@ -70,9 +82,3 @@ alert(message);
 ## Inline code
 
 This web site is using `markedjs/marked`.
-
-## Checkbox
-
-- [ ] Buy something
-- [ ] Finish that work
-- [x] I'm done!
