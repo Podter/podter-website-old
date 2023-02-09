@@ -23,13 +23,13 @@ export default function Blog() {
           <BlogPost
             href="/blog"
             title="How to make a chat app"
-            posted="2022-01-12"
+            date="2022-01-12"
             views={1203}
           />
           <BlogPost
             href="/blog"
             title="Hello, world!"
-            posted="2022-02-09"
+            date="2022-02-09"
             views={2374}
           />
         </div>
