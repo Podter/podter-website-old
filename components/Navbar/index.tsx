@@ -28,6 +28,8 @@ export default function Navbar() {
 
       setConfetti(true);
       setTimeout(() => setConfetti(false), 100);
+    } else {
+      router.push("/");
     }
   }
 
@@ -42,13 +44,12 @@ export default function Navbar() {
         </label>
       </div>
       <div className="flex-1">
-        <Link
+        <button
           onClick={navClick}
-          href="/"
           className="btn btn-ghost normal-case text-xl font-bold bg-gradient-to-r hover:text-transparent from-ctp-red to-ctp-blue bg-clip-text transition-colors duration-75 hover:duration-300"
         >
           Podter
-        </Link>
+        </button>
         <ul className="menu menu-horizontal px-1 md:inline-flex hidden">
           {menus.map((item, index) => (
             <li key={index}>
