@@ -4,6 +4,8 @@ import { allPosts, Post } from "contentlayer/generated";
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
 import { format, parseISO } from "date-fns";
 import { Eye, CalendarDays } from "lucide-react";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { notFound } from "next/navigation";
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allPosts.map((post) => post.url);
@@ -29,6 +31,12 @@ export const getStaticProps: GetStaticProps<{
 export default function BlogLayout({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  if (!post) {
+    notFound();
+  }
+
+  const MDXContent = useMDXComponent(post.body.code || "");
+
   return (
     <>
       <Head>
@@ -38,7 +46,7 @@ export default function BlogLayout({
       <Container>
         <h1 className="text-5xl font-bold">
           <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
-            {post?.title}
+            {post.title}
           </span>
         </h1>
         <p className="pt-6">
@@ -57,14 +65,11 @@ export default function BlogLayout({
               className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
               size={14}
             />
-            Published on {format(parseISO(post?.date || ""), "do MMMM, yyyy")}
+            Published on {format(parseISO(post.date || ""), "do MMMM, yyyy")}
           </p>
         </div>
         <div className="divider" />
-        <div
-          className="grid grid-cols-1 gap-4"
-          dangerouslySetInnerHTML={{ __html: post?.body.html || "" }}
-        />
+        <MDXContent />
       </Container>
     </>
   );
