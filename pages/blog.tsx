@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import BlogCard from "@/components/BlogCard";
+import BlogPost from "@/components/BlogPost";
 
 export default function Blog() {
   return (
@@ -19,9 +19,19 @@ export default function Blog() {
           A collection of blog posts that I&apos;ve written.
         </p>
         <div className="divider" />
-        <div className="grid md:grid-cols-2 gap-4">
-          <BlogCard />
-          <BlogCard />
+        <div className="grid grid-cols-1 gap-4">
+          <BlogPost
+            href="/blog"
+            title="How to make a chat app"
+            posted="2022-01-12"
+            views={1203}
+          />
+          <BlogPost
+            href="/blog"
+            title="Hello, world!"
+            posted="2022-02-09"
+            views={2374}
+          />
         </div>
       </Container>
     </>
