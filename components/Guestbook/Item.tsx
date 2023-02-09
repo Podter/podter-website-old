@@ -45,7 +45,7 @@ export default function GuestbookItem({
               getUsername(providerAccountId || "", setUserData);
             }
           }}
-          href={userData.url}
+          href={userData.url || undefined}
         >
           <div className="avatar cursor-pointer">
             <center className="flex justify-center items-center w-6 h-6 rounded-full bg-base-200">
