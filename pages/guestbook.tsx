@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prismadb";
 import { getSession } from "next-auth/react";
