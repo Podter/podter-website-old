@@ -4,8 +4,8 @@ import { allPosts, Post } from "contentlayer/generated";
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
 import { format, parseISO } from "date-fns";
 import { Eye, CalendarDays } from "lucide-react";
-import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
+import Mdx from "@/components/Mdx";
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allPosts.map((post) => post.url);
@@ -34,8 +34,6 @@ export default function BlogLayout({
   if (!post) {
     notFound();
   }
-
-  const MDXContent = useMDXComponent(post.body.code || "");
 
   return (
     <>
@@ -66,7 +64,7 @@ export default function BlogLayout({
           </p>
         </div>
         <div className="divider" />
-        <MDXContent />
+        <Mdx code={post.body.code} />
       </Container>
     </>
   );

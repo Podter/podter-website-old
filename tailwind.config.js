@@ -17,11 +17,11 @@ module.exports = {
   },
   plugins: [
     require("daisyui"),
-    require("tailwind-scrollbar"),
     require("@catppuccin/tailwindcss")({
       prefix: "ctp",
       defaultFlavour: "latte",
     }),
+    require("@tailwindcss/typography"),
   ],
   daisyui: {
     themes: [
