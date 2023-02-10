@@ -182,7 +182,7 @@ export default function Actions() {
         <>
           <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
           <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
-          <div>
+          <div className="hidden md:block">
             <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
           </div>
         </>
