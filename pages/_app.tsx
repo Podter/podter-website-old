@@ -21,10 +21,7 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
-  const { loadingGuestbook } = useAppLoading(
-    () => NProgress.start(),
-    () => NProgress.done(true)
-  );
+  useAppLoading();
 
   NProgress.configure({
     showSpinner: false,
@@ -40,11 +37,7 @@ export default function App({
         <Drawer>
           <main className={`${poppins.className} flex flex-col min-h-screen`}>
             <Navbar />
-            {loadingGuestbook ? (
-              <Guestbook loading={true} />
-            ) : (
-              <Component {...pageProps} />
-            )}
+            <Component {...pageProps} />
           </main>
         </Drawer>
       </ThemeProvider>

@@ -9,26 +9,18 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import getUsername, { UserData } from "@/lib/getUsername";
 
-type ActionsProps = {
-  userMessage: GuestbookUser | null;
-  parentLoading?: boolean;
-};
-
-export default function Actions({
-  userMessage,
-  parentLoading = false,
-}: ActionsProps) {
+export default function Actions() {
   const session = useSession();
   const router = useRouter();
 
   const [message, setMessage] = useState("");
   const [editing, setEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [userData, setUserData] = useState<UserData>({
     text: "Loading...",
     url: "",
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -65,29 +57,34 @@ export default function Actions({
   }
 
   useEffect(() => {
-    if (userMessage) {
-      setEditing(true);
-      setMessage(userMessage.message);
-    }
-  }, []);
+    setTimeout(() => setError(""), 5000);
+  }, [error]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setError("");
-    }, 5000);
-  }, [error]);
+    setLoading(true);
+    async function fetchData() {
+      try {
+        if (session.status === "authenticated") {
+          const res = await axios.get("/api/guestbook/getcurrentuser");
+
+          const data = res.data.data as GuestbookData;
+
+          setMessage(data.message);
+          setEditing(true);
+          setLoading(false);
+        }
+      } catch {
+        setEditing(false);
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [session.status]);
 
   return (
     <div className="flex flex-col md:flex-row md:items-center gap-2 w-60 pt-3">
-      {(loading || parentLoading) && !message ? (
-        <>
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
-          <div>
-            <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
-          </div>
-        </>
-      ) : session.status === "unauthenticated" ? (
+      {session.status === "unauthenticated" ? (
         <>
           <button
             className="btn w-full gap-3 duration-75 transition-colors"
@@ -120,7 +117,7 @@ export default function Actions({
                     );
                   }
                 }}
-                href={userData.url}
+                href={userData.url || undefined}
               >
                 <span className="font-semibold">
                   {session.data?.user?.name}
@@ -156,7 +153,10 @@ export default function Actions({
           <label className="label">
             <span
               className="label-text-alt link link-hover"
-              onClick={() => signOut()}
+              onClick={() => {
+                setLoading(true);
+                signOut();
+              }}
             >
               <LogOut
                 className="inline mr-1 align-[-0.125em] h-3 w-3"
@@ -179,7 +179,13 @@ export default function Actions({
           </label>
         </div>
       ) : (
-        ""
+        <>
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+          <div>
+            <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
+          </div>
+        </>
       )}
       {error ? (
         <div className="toast">

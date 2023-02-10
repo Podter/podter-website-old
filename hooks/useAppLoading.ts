@@ -1,31 +1,15 @@
 import Router from "next/router";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import NProgress from "nprogress";
 
-export default function useAppLoading(
-  onLoadStart?: () => void,
-  onLoadEnd?: () => void
-) {
-  const [loadingGuestbook, setLoadingGuestbook] = useState(false);
-
+export default function useAppLoading() {
   useEffect(() => {
-    function start(e: any) {
-      if (typeof e === "string" && e === "/guestbook" ? true : false) {
-        setLoadingGuestbook(true);
-      } else {
-        setLoadingGuestbook(false);
-      }
-
-      if (onLoadStart) {
-        onLoadStart();
-      }
+    function start() {
+      NProgress.start();
     }
 
     function end() {
-      setLoadingGuestbook(false);
-
-      if (onLoadEnd) {
-        onLoadEnd();
-      }
+      NProgress.done(true);
     }
 
     Router.events.on("routeChangeStart", start);
@@ -38,5 +22,5 @@ export default function useAppLoading(
     };
   }, []);
 
-  return { loadingGuestbook };
+  return {};
 }

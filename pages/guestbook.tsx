@@ -1,47 +1,55 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import prisma from "@/lib/prismadb";
-import { getSession } from "next-auth/react";
-import Guestbook from "@/components/Guestbook";
+import Container from "@/components/Container";
+import Actions from "@/components/Guestbook/Actions";
+import LoadingGuestbookItem from "@/components/Guestbook/LoadingItem";
+import Head from "next/head";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import GuestbookItem from "@/components/Guestbook/Item";
 
-export const getServerSideProps: GetServerSideProps<{
-  data: GuestbookData[];
-  userMessage: GuestbookUser | null;
-}> = async ({ req }) => {
-  const session = await getSession({ req });
+export default function Guestbook() {
+  const [data, setData] = useState<GuestbookData[]>();
 
-  const data = await prisma.guestbookMessage.findMany({
-    select: {
-      id: true,
-      name: true,
-      avatar: true,
-      message: true,
-      providerAccountId: true,
-    },
-    orderBy: {
-      updatedAt: "desc",
-    },
-  });
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("/api/guestbook");
+      setData(res.data.data);
+    }
 
-  const userMessage = await prisma.guestbookMessage.findFirst({
-    where: {
-      email: session?.user.email || "",
-      providerAccountId: session?.user.providerAccountId,
-    },
-    select: {
-      message: true,
-    },
-  });
+    fetchData();
+  }, []);
 
-  return {
-    props: {
-      data,
-      userMessage,
-    },
-  };
-};
-
-export default function GuestbookPage(
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
-) {
-  return <Guestbook {...props} loading={false} />;
+  return (
+    <>
+      <Head>
+        <title>Guestbook | Podter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Container>
+        <h1 className="text-5xl font-bold">
+          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+            Guestbook
+          </span>
+        </h1>
+        <p className="pt-6">
+          Sign my guestbook and leave your mark. Feel free to leave any message
+          here.
+        </p>
+        <Actions />
+        <div className="divider" />
+        <div>
+          {data ? (
+            data.map((item) => <GuestbookItem {...item} key={item.id} />)
+          ) : (
+            <>
+              <LoadingGuestbookItem />
+              <LoadingGuestbookItem />
+              <LoadingGuestbookItem />
+              <LoadingGuestbookItem />
+              <LoadingGuestbookItem />
+            </>
+          )}
+        </div>
+      </Container>
+    </>
+  );
 }

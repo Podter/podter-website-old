@@ -1,11 +1,46 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import prisma from "@/lib/prismadb";
+import { format } from "date-fns";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (req.method === "GET") {
+    try {
+      const rawData = await prisma.guestbookMessage.findMany({
+        select: {
+          id: true,
+          avatar: true,
+          created: true,
+          message: true,
+          name: true,
+          providerAccountId: true,
+          updated: true,
+          updatedAt: true,
+        },
+      });
+
+      const data: GuestbookData[] = [];
+      rawData.forEach((item) => {
+        data.push({
+          ...item,
+          created: format(item.created, "do MMM yyyy"),
+          updatedAt: format(item.updatedAt, "do MMM yyyy"),
+        });
+      });
+
+      return res
+        .status(200)
+        .json({ message: "Success", data: data, code: res.statusCode });
+    } catch {
+      return res
+        .status(500)
+        .json({ message: "Internal Server Error", code: res.statusCode });
+    }
+  }
+
   const session = await getSession({ req });
 
   if (!session || !session.user || !session.user.email || !session.user.name) {

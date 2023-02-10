@@ -2,37 +2,20 @@ import Image from "next/image";
 import { User } from "lucide-react";
 import { useState } from "react";
 import getUsername, { UserData } from "@/lib/getUsername";
-import axios from "axios";
-
-type GuestbookItemProps = GuestbookData;
 
 export default function GuestbookItem({
   name,
   message,
   avatar,
   providerAccountId,
-  id,
-}: GuestbookItemProps) {
+  created,
+  updated,
+  updatedAt,
+}: GuestbookData) {
   const [userData, setUserData] = useState<UserData>({
     text: "Loading...",
     url: "",
   });
-  const [dateText, setDateText] = useState("Loading...");
-
-  async function getDate() {
-    try {
-      const res = await axios.get(`/api/guestbook/date?id=${id}`);
-      const data = res.data.data;
-
-      if (data.updated) {
-        setDateText(`Updated: ${data.updatedAt}`);
-      } else {
-        setDateText(`Created: ${data.created}`);
-      }
-    } catch {
-      setDateText("Failed to load.");
-    }
-  }
 
   return (
     <div className="flex flex-col space-y-1 mb-4">
@@ -66,12 +49,7 @@ export default function GuestbookItem({
         <p>
           <span
             className="text-ctp-subtext0 mr-1 tooltip tooltip-right md:tooltip-top"
-            data-tip={dateText}
-            onMouseEnter={() => {
-              if (dateText === "Loading...") {
-                getDate();
-              }
-            }}
+            data-tip={updated ? `Updated: ${updatedAt}` : `Created: ${created}`}
           >
             {name}:{" "}
           </span>
