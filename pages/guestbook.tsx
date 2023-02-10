@@ -6,9 +6,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import GuestbookItem from "@/components/Guestbook/Item";
 import NProgress from "nprogress";
+import { useRouter } from "next/router";
+import { XCircle } from "lucide-react";
 
 export default function Guestbook() {
+  const router = useRouter();
+
   const [data, setData] = useState<GuestbookData[]>();
+  const [error, setError] = useState(true);
 
   if (data) {
     NProgress.done(true);
@@ -23,6 +28,10 @@ export default function Guestbook() {
 
     fetchData();
   }, []);
+
+  if (router.query.unauthorized) {
+    setTimeout(() => setError(false), 5000);
+  }
 
   return (
     <>
@@ -56,6 +65,16 @@ export default function Guestbook() {
           )}
         </div>
       </Container>
+      {error && router.query.unauthorized ? (
+        <div className="toast">
+          <div className="alert alert-error">
+            <div>
+              <XCircle size={24} className="h-6 w-6" />
+              <span>Account already exists. Please try again later.</span>
+            </div>
+          </div>
+        </div>
+      ) : undefined}
     </>
   );
 }
