@@ -8,7 +8,11 @@ export default function useAppLoading() {
       NProgress.start();
     }
 
-    function end() {
+    function end(e: any) {
+      if (typeof e === "string" && e === "/guestbook") {
+        return;
+      }
+
       NProgress.done(true);
     }
 

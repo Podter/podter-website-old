@@ -5,14 +5,20 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import GuestbookItem from "@/components/Guestbook/Item";
+import NProgress from "nprogress";
 
 export default function Guestbook() {
   const [data, setData] = useState<GuestbookData[]>();
+
+  if (data) {
+    NProgress.done(true);
+  }
 
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("/api/guestbook");
       setData(res.data.data);
+      NProgress.done(true);
     }
 
     fetchData();
