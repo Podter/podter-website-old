@@ -9,7 +9,6 @@ import NProgress from "nprogress";
 import Drawer from "@/components/Drawer";
 import Navbar from "@/components/Navbar";
 import useAppLoading from "@/hooks/useAppLoading";
-import Guestbook from "@/components/Guestbook";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
