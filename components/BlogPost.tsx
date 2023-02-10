@@ -42,7 +42,8 @@ export default function BlogPost({
               className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
               size={14}
             />
-            Published on {format(parseISO(date), "do MMMM, yyyy")}
+            <span className="hidden md:inline-block md:mr-1">Published on</span>
+            {format(parseISO(date), "do MMMM, yyyy")}
           </p>
         </div>
       </div>
