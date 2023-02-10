@@ -356,6 +356,20 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify/icons-simple-icons@^1.2.42":
+  version "1.2.42"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-simple-icons/-/icons-simple-icons-1.2.42.tgz#facea29f11cd54a989e20ac91ae7f9cd3579eae4"
+  integrity sha512-2DGo+dSsQnNvj23j3sXDN0uJ109mQgYqdDXviLbS+ceVlK84/ZORKIqHTqsUAgYJJnRvyeipqfBv7tc8Ui3AcA==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/icons-skill-icons@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-skill-icons/-/icons-skill-icons-1.2.1.tgz#ee2ac0a61ae8d791da6a1ffac6d3f43f8a3d80e0"
+  integrity sha512-863jRF5JMV2vZmOnNpf+oTbjGAZ0BSsUTu2r9Fkk1rWG53iRCWGteuAKIaMbK8EsRiCSzbQUTb55T0HzzXn9oQ==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/icons-svg-spinners@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@iconify/icons-svg-spinners/-/icons-svg-spinners-1.2.0.tgz#c5802f0be4441eec55f9e005b5bc13d68b744a0b"
