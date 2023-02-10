@@ -19,3 +19,9 @@ model GuestbookMessage {
   avatar            String?
   message           String
 }
+
+model BlogViews {
+  id    String @id @default(cuid())
+  slug  String
+  views Int
+}
