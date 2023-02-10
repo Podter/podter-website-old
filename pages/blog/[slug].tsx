@@ -6,6 +6,10 @@ import { format, parseISO } from "date-fns";
 import { Eye, CalendarDays } from "lucide-react";
 import { notFound } from "next/navigation";
 import Mdx from "@/components/Mdx";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
+import { Icon } from "@iconify/react";
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allPosts.map((post) => post.url);
@@ -35,6 +39,21 @@ export default function BlogLayout({
     notFound();
   }
 
+  const [views, setViews] = useState("0");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      await axios.put(`/api/blog/${post?._raw.flattenedPath}`);
+
+      const res = await axios.get(`/api/blog/${post?._raw.flattenedPath}`);
+      setViews(res.data.data.views);
+      setLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -49,11 +68,19 @@ export default function BlogLayout({
         </h1>
         <div className="flex flex-row gap-2 pt-5">
           <p className="text-sm text-ctp-subtext0">
-            <Eye
-              className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
-              size={14}
-            />
-            {123} views
+            {loading ? (
+              <Icon
+                className="inline mr-1"
+                icon={icon90RingWithBg}
+                inline={true}
+              />
+            ) : (
+              <Eye
+                className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
+                size={14}
+              />
+            )}
+            {views} views
           </p>
           <p className="text-sm text-ctp-subtext0">
             <CalendarDays

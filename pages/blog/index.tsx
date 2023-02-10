@@ -4,6 +4,8 @@ import BlogPost from "@/components/BlogPost";
 import { allPosts, Post } from "contentlayer/generated";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { compareDesc } from "date-fns";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const getStaticProps: GetStaticProps<{
   posts: Post[];
@@ -17,6 +19,19 @@ export const getStaticProps: GetStaticProps<{
 export default function Blog({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [viewsData, setViewsData] = useState<BlogViewsData[]>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("/api/blog");
+      setViewsData(res.data.data);
+      setLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -34,9 +49,20 @@ export default function Blog({
         </p>
         <div className="divider" />
         <div className="grid grid-cols-1 gap-4">
-          {posts.map((post, i) => (
-            <BlogPost {...post} key={i} views={8233} />
-          ))}
+          {posts.map((post, i) => {
+            const views = viewsData?.find(
+              (data) => data.slug === post._raw.flattenedPath
+            )?.views;
+
+            return (
+              <BlogPost
+                {...post}
+                key={i}
+                views={views || "0"}
+                loading={loading}
+              />
+            );
+          })}
         </div>
       </Container>
     </>
