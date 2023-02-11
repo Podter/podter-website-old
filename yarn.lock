@@ -4881,6 +4881,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-lanyard@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/use-lanyard/-/use-lanyard-1.4.2.tgz#d022b2a3878c7b1c7b5058bad1c6dac74af6f6bf"
+  integrity sha512-XXsrBpq6omD0uXh6mXOh/723+5fHhhjpWEPbeFXj1Bp3GfGJkFIJpSbuejAOn3ASc4b/9UIZ/G66WFEMRX4XEA==
+
 util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"

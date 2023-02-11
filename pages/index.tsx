@@ -7,6 +7,7 @@ import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import twitterIcon from "@iconify/icons-fa6-brands/twitter";
 import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
+import Lanyard from "@/components/Lanyard";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
           Hey, I&apos;m Podter. I&apos;m a student and self taught developer
           from Thailand.
         </p>
-        <div className="flex flex-row gap-2 w-28">
+        <div className="flex flex-row gap-2 w-28 pb-3">
           <Link
             className="btn btn-ghost btn-circle duration-75"
             href="https://github.com/Podter"
@@ -52,6 +53,9 @@ export default function Home() {
           >
             <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
           </Link>
+        </div>
+        <div className="flex flex-row">
+          <Lanyard />
         </div>
       </Container>
     </>
