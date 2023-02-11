@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 import { useRef } from "react";
+import { useScroll } from "react-use";
 
 import Drawer from "@/components/Drawer";
 import Navbar from "@/components/Navbar";
@@ -29,6 +30,7 @@ export default function App({
   });
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { y: scrollY } = useScroll(scrollRef);
 
   return (
     <SessionProvider session={session}>
@@ -41,7 +43,7 @@ export default function App({
           <main className={`${poppins.className} flex flex-col min-h-screen`}>
             <Navbar />
             <Component {...pageProps} />
-            <ScrollToTop scrollRef={scrollRef} />
+            <ScrollToTop scrollRef={scrollRef} y={scrollY} />
           </main>
         </Drawer>
       </ThemeProvider>

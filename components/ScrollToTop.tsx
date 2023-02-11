@@ -1,14 +1,12 @@
 import { useState, useEffect, RefObject } from "react";
 import { ArrowUp } from "lucide-react";
-import { useScroll } from "react-use";
 
 type ScrollToTopProps = {
   scrollRef: RefObject<HTMLElement>;
+  y: number;
 };
 
-export default function ScrollToTop({ scrollRef }: ScrollToTopProps) {
-  const { y } = useScroll(scrollRef);
-
+export default function ScrollToTop({ scrollRef, y }: ScrollToTopProps) {
   const [visible, setVisible] = useState(false);
 
   function scrollToTop() {
