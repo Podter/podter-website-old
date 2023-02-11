@@ -8,5 +8,5 @@ type TimestampsProps = {
 export default function Timestamps({ timestamps }: TimestampsProps) {
   const time = useTime(timestamps);
 
-  return <p className="text-sm font-semi">{time?.start} elapsed</p>;
+  return <p className="text-sm ">{time?.start} elapsed</p>;
 }

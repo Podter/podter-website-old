@@ -55,7 +55,7 @@ export default function Lanyard() {
           </div>
           <div className="divider" />
           {data.activities[0] ? (
-            <div className="flex flex-row items-center h-full gap-4">
+            <div className="flex flex-row items-center h-full">
               <div className="flex-shrink-0 relative">
                 <Image
                   src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets?.large_image}.png?size=64`}
@@ -72,14 +72,13 @@ export default function Lanyard() {
                   className="rounded-full bg-ctp-crust bg-opacity-20 h-6 -right-1 -bottom-1 ring-[3px] ring-ctp-crust ring-opacity-20 w-6 absolute"
                 />
               </div>
+              <div className="divider divider-horizontal" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
                   {data.activities[0].name}
                 </p>
-                <p className="text-sm font-semi">
-                  {data.activities[0].details}
-                </p>
-                <p className="text-sm font-semi">{data.activities[0].state}</p>
+                <p className="text-sm ">{data.activities[0].details}</p>
+                <p className="text-sm ">{data.activities[0].state}</p>
                 <Timestamps timestamps={data.activities[0].timestamps} />
               </div>
             </div>
