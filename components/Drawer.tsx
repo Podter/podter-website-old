@@ -1,6 +1,6 @@
 import menus from "@/lib/menus";
 import Link from "next/link";
-import { ReactNode, useRef } from "react";
+import { ReactNode, RefObject, useRef } from "react";
 import { Icon } from "@iconify/react";
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
@@ -10,15 +10,18 @@ import { X } from "lucide-react";
 
 type DrawerProps = {
   children?: ReactNode;
+  scrollRef: RefObject<HTMLDivElement>;
 };
 
-export default function Drawer({ children }: DrawerProps) {
+export default function Drawer({ children, scrollRef }: DrawerProps) {
   const closeRef = useRef<HTMLLabelElement>(null);
 
   return (
     <div className="drawer">
       <input id="menu-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">{children}</div>
+      <div className="drawer-content" ref={scrollRef}>
+        {children}
+      </div>
       <div className="drawer-side">
         <label htmlFor="menu-drawer" className="drawer-overlay"></label>
         <div className="pt-4 p-2 w-80 bg-base-100 text-base-content">
