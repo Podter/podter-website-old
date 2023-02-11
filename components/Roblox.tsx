@@ -55,7 +55,7 @@ export default function Roblox() {
           <div className="divider" />
           {data.presences.userPresenceType === 2 ||
           data.presences.userPresenceType === 3 ? (
-            <div className="flex flex-row items-center h-full gap-4">
+            <div className="flex flex-row items-center h-full">
               <div className="flex-shrink-0 relative">
                 <Image
                   src={data.presences.placeThumbnail}
@@ -65,6 +65,7 @@ export default function Roblox() {
                   className="rounded-xl h-16 w-16"
                 />
               </div>
+              <div className="divider divider-horizontal" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
                   {data.presences.userPresenceType === 2
@@ -82,7 +83,7 @@ export default function Roblox() {
                   width={64}
                   height={64}
                   alt="Podter's Roblox boody avatar"
-                  className="rounded-2xl h-16 w-16 bg-base-300 p-2"
+                  className="rounded-xl h-16 w-16 bg-base-300 p-2"
                 />
               </div>
               <div className="divider divider-horizontal" />
