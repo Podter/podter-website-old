@@ -8,6 +8,7 @@ import discordIcon from "@iconify/icons-fa6-brands/discord";
 import twitterIcon from "@iconify/icons-fa6-brands/twitter";
 import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 import Lanyard from "@/components/Lanyard";
+import Roblox from "@/components/Roblox";
 
 export default function Home() {
   return (
@@ -54,8 +55,9 @@ export default function Home() {
             <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
           </Link>
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row gap-4">
           <Lanyard />
+          <Roblox />
         </div>
       </Container>
     </>

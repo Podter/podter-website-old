@@ -25,6 +25,7 @@
     "next": "13.1.6",
     "next-auth": "^4.19.2",
     "next-contentlayer": "^0.3.0",
+    "noblox.js": "https://github.com/noblox/noblox.js",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remark-gfm": "^3.0.1",

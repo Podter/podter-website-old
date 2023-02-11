@@ -25,6 +25,12 @@ const nextConfig = {
         port: "",
         pathname: "/u/**",
       },
+      {
+        protocol: "https",
+        hostname: "*.rbxcdn.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
