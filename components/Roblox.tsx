@@ -20,7 +20,10 @@ export default function Roblox() {
   }, []);
 
   return (
-    <div className="flex flex-col h-60 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-default">
+    <a
+      className="flex flex-col h-60 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
+      href="https://www.roblox.com/users/126064549/profile"
+    >
       {data ? (
         <>
           <div className="flex flex-row items-center h-full gap-4">
@@ -105,6 +108,6 @@ export default function Roblox() {
           <Icon icon={icon90RingWithBg} className="h-8 w-8" scale={32} />
         </div>
       )}
-    </div>
+    </a>
   );
 }
