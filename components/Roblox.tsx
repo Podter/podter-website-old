@@ -46,7 +46,7 @@ export default function Roblox() {
                   width={40}
                   height={40}
                   alt="Podter's Roblox headshot avatar"
-                  className="bg-base-300"
+                  className="bg-ctp-crust"
                 />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Roblox() {
                   width={64}
                   height={64}
                   alt="Place thumbnail"
-                  className="rounded-xl h-16 w-16"
+                  className="rounded-xl h-16 w-16 bg-ctp-crust"
                 />
               </div>
               <div className="divider divider-horizontal" />
@@ -86,7 +86,7 @@ export default function Roblox() {
                   width={64}
                   height={64}
                   alt="Podter's Roblox boody avatar"
-                  className="rounded-xl h-16 w-16 bg-base-300 p-2"
+                  className="rounded-xl h-16 w-16 bg-ctp-crust p-2"
                 />
               </div>
               <div className="divider divider-horizontal" />

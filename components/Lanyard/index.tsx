@@ -3,6 +3,7 @@ import Image from "next/image";
 import Timestamps from "./Timestamps";
 import { Icon } from "@iconify/react";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
+import { HelpCircle } from "lucide-react";
 
 export default function Lanyard() {
   const data = useLanyardWS(
@@ -58,30 +59,43 @@ export default function Lanyard() {
           </div>
           <div className="divider" />
           {data.activities[0] ? (
-            <div className="flex flex-row items-center h-full">
+            <div className="flex flex-row items-center h-full gap-4 md:gap-0">
               <div className="flex-shrink-0 relative">
-                <Image
-                  src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets?.large_image}.png?size=64`}
-                  width={64}
-                  height={64}
-                  alt="Large image"
-                  className="rounded-xl h-16 w-16"
-                />
-                <Image
-                  src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets?.small_image}.png?size=24`}
-                  width={24}
-                  height={24}
-                  alt="Small image"
-                  className="rounded-full bg-ctp-crust bg-opacity-20 h-6 -right-1 -bottom-1 ring-[3px] ring-ctp-crust ring-opacity-20 w-6 absolute"
-                />
+                {!data.activities[0].assets ? (
+                  <HelpCircle
+                    size={64}
+                    className="rounded-xl h-16 w-16 bg-ctp-crust p-3"
+                  />
+                ) : (
+                  <>
+                    <Image
+                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.png?size=64`}
+                      width={64}
+                      height={64}
+                      alt="Large image"
+                      className="rounded-xl h-16 w-16 bg-ctp-crust"
+                    />
+                    <Image
+                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.png?size=24`}
+                      width={24}
+                      height={24}
+                      alt="Small image"
+                      className="rounded-full bg-ctp-crust bg-opacity-20 h-6 -right-1 -bottom-1 ring-[3px] ring-ctp-crust ring-opacity-20 w-6 absolute"
+                    />
+                  </>
+                )}
               </div>
-              <div className="divider divider-horizontal" />
+              <div className="divider divider-horizontal hidden md:flex" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
                   {data.activities[0].name}
                 </p>
-                <p className="text-sm ">{data.activities[0].details}</p>
-                <p className="text-sm ">{data.activities[0].state}</p>
+                <p className="text-sm hidden md:block">
+                  {data.activities[0].details}
+                </p>
+                <p className="text-sm hidden md:block">
+                  {data.activities[0].state}
+                </p>
                 <Timestamps timestamps={data.activities[0].timestamps} />
               </div>
             </div>
