@@ -1,5 +1,5 @@
+import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-import noblox from "noblox.js";
 
 const userId = 126064549;
 
@@ -9,53 +9,57 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      if (!process.env.ROBLOX_COOKIE) {
-        throw new Error();
-      }
-
-      await noblox.setCookie(process.env.ROBLOX_COOKIE);
-
-      const playerInfo = await noblox.getPlayerInfo(userId);
-      const playerHeadshot = await noblox.getPlayerThumbnail(
-        userId,
-        48,
-        "png",
-        true,
-        "headshot"
+      const playerHeadshot = await axios.get(
+        `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId}&size=48x48&format=Png&isCircular=true`
       );
-      const playerBody = await noblox.getPlayerThumbnail(
-        userId,
-        60,
-        "png",
-        true,
-        "body"
+      const playerBody = await axios.get(
+        `https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=60x60&format=Png&isCircular=true`
       );
-      const playerPresences = await noblox.getPresences([userId]);
-      const placeThumbnail = await noblox.getThumbnails([
+
+      const playerInfo = await axios.get(
+        `https://users.roblox.com/v1/users/${userId}`
+      );
+      const friendCount = await axios.get(
+        `https://friends.roblox.com/v1/users/${userId}/friends/count`
+      );
+      const followerCount = await axios.get(
+        `https://friends.roblox.com/v1/users/${userId}/followers/count`
+      );
+
+      const playerPresences = await axios.post(
+        "https://presence.roblox.com/v1/presence/users",
         {
-          size: "150x150",
-          type: "PlaceIcon",
-          targetId: playerPresences.userPresences[0].rootPlaceId,
+          userIds: [userId],
         },
-      ]);
+        {
+          withCredentials: true,
+          headers: {
+            cookie: `.ROBLOSECURITY=${process.env.ROBLOX_COOKIE}`,
+          },
+        }
+      );
+      const placeThumbnail = await axios.get(
+        `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${playerPresences.data.userPresences[0].rootPlaceId}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
+      );
 
       return res.status(200).json({
         message: "Success",
         data: {
           thumbnails: {
-            headshot: playerHeadshot[0].imageUrl,
-            body: playerBody[0].imageUrl,
+            headshot: playerHeadshot.data.data[0].imageUrl,
+            body: playerBody.data.data[0].imageUrl,
           },
           info: {
-            username: playerInfo.username,
-            displayName: playerInfo.displayName,
-            friendCount: playerInfo.friendCount,
-            followerCount: playerInfo.followerCount,
+            username: playerInfo.data.name,
+            displayName: playerInfo.data.displayName,
+            friendCount: friendCount.data.count,
+            followerCount: followerCount.data.count,
           },
           presences: {
-            userPresenceType: playerPresences.userPresences[0].userPresenceType,
-            location: playerPresences.userPresences[0].lastLocation,
-            placeThumbnail: placeThumbnail[0].imageUrl,
+            userPresenceType:
+              playerPresences.data.userPresences[0].userPresenceType,
+            location: playerPresences.data.userPresences[0].lastLocation,
+            placeThumbnail: placeThumbnail.data.data[0].imageUrl,
           },
         },
         code: res.statusCode,
