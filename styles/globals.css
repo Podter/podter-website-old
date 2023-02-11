@@ -5,3 +5,16 @@
 [data-theme="ctp-mocha"] {
   @apply ctp-mocha;
 }
+
+::-webkit-scrollbar {
+  @apply w-2 h-2 bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ctp-red rounded-md;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ctp-crust;
+}
+::-webkit-scrollbar-button {
+  @apply hidden;
+}
