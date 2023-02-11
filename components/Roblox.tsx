@@ -91,11 +91,14 @@ export default function Roblox() {
               </div>
               <div className="divider divider-horizontal" />
               <div className="flex flex-col">
-                <p>
+                <p className="text-base font-semibold">
+                  {data.presences.userPresenceType === 1 ? "Online" : "Offline"}
+                </p>
+                <p className="text-sm">
                   <span className="text-ctp-subtext0 mr-1">Friends: </span>
                   {data.info.friendCount}
                 </p>
-                <p>
+                <p className="text-sm">
                   <span className="text-ctp-subtext0 mr-1">Followers: </span>
                   {data.info.followerCount}
                 </p>
