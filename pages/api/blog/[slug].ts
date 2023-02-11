@@ -70,9 +70,24 @@ export default async function handler(
       });
 
       if (!dataToUpdate) {
-        return res
-          .status(404)
-          .json({ message: "Not Found", code: res.statusCode });
+        if (!allPosts.find((post) => post._raw.flattenedPath === slug)) {
+          return res
+            .status(404)
+            .json({ message: "Not Found", code: res.statusCode });
+        }
+
+        await prisma.blogViews.create({
+          data: {
+            slug: slug,
+            views: 1,
+          },
+          select: {
+            slug: true,
+            views: true,
+          },
+        });
+
+        return res.status(204).end();
       }
 
       await prisma.blogViews.update({
