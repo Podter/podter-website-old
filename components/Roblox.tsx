@@ -92,7 +92,7 @@ export default function Roblox() {
                   {data.info.friendCount}
                 </p>
                 <p>
-                  <span className="text-ctp-subtext0 mr-1">Followers: </span>1
+                  <span className="text-ctp-subtext0 mr-1">Followers: </span>
                   {data.info.followerCount}
                 </p>
               </div>
