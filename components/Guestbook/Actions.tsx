@@ -3,7 +3,7 @@ import discordIcon from "@iconify/icons-fa6-brands/discord";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 import { Icon } from "@iconify/react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Send, LogOut, XCircle, Edit, Trash2 } from "lucide-react";
+import { LogOut, XCircle, Edit3, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -137,16 +137,14 @@ export default function Actions() {
             />
             <button
               className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
-              data-tip={editing ? "Edit" : "Send"}
+              data-tip={editing ? "Edit" : "Sign"}
               type="submit"
               disabled={loading}
             >
               {loading ? (
                 <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
-              ) : editing ? (
-                <Edit className="h-6 w-6" size={24} />
               ) : (
-                <Send className="h-6 w-6" size={24} />
+                <Edit3 className="h-6 w-6" size={24} />
               )}
             </button>
           </form>
