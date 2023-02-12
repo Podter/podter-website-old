@@ -18,7 +18,7 @@ export default function Document() {
         <meta property="og:locale" content="en-US" />
         <meta
           property="og:image:url"
-          content="http://preview.podter.xyz/api/og?title=podter.xyz"
+          content="https://podter.xyz/api/og?title=podter.xyz"
         />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image:height" content="1080" />

@@ -23,7 +23,7 @@ export default async function handler(req: NextRequest) {
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "flex-end",
-          backgroundImage: "url(https://preview.podter.xyz/og-bg.png)",
+          backgroundImage: "url(https://podter.xyz/og-bg.png)",
         }}
       >
         <div

@@ -69,7 +69,7 @@ export default function BlogLayout({
         />
         <meta
           property="og:image:url"
-          content={`https://preview.podter.xyz/api/og?title=${post.title}`}
+          content={`https://podter.xyz/api/og?title=${post.title}`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

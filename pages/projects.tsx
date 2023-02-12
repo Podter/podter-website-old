@@ -24,7 +24,7 @@ export default function Projects() {
         />
         <meta
           property="og:image:url"
-          content="http://preview.podter.xyz/api/og?title=Projects"
+          content="https://podter.xyz/api/og?title=Projects"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

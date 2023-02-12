@@ -25,7 +25,7 @@ const Error: NextPage<Props> = ({ statusCode }) => {
         />
         <meta
           property="og:image:url"
-          content="https://preview.podter.xyz/api/og?title=Error"
+          content="https://podter.xyz/api/og?title=Error"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

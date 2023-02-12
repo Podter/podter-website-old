@@ -19,7 +19,7 @@ export default function About() {
         />
         <meta
           property="og:image:url"
-          content="http://preview.podter.xyz/api/og?title=About%20me"
+          content="https://podter.xyz/api/og?title=About%20me"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

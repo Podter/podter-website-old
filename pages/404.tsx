@@ -20,7 +20,7 @@ export default function NoPage() {
         />
         <meta
           property="og:image:url"
-          content="https://preview.podter.xyz/api/og?title=404%20Not%20found"
+          content="https://podter.xyz/api/og?title=404%20Not%20found"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
