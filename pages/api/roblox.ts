@@ -32,9 +32,15 @@ export default async function handler(
       );
 
       let placeThumbnail;
-      if (playerPresences.data.data.rootPlaceId) {
+      if (
+        playerPresences.data.data.rootPlaceId ||
+        playerPresences.data.data.placeId
+      ) {
         placeThumbnail = await axios.get(
-          `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${playerPresences.data.data.rootPlaceId}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
+          `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${
+            playerPresences.data.data.rootPlaceId ||
+            playerPresences.data.data.placeId
+          }&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
         );
       }
 

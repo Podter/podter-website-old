@@ -12,7 +12,7 @@ type RobloxData = {
   presences: {
     userPresenceType: "offline" | "online" | "inGame" | "studio" | "unknown";
     location: string;
-    placeThumbnail: string;
+    placeThumbnail: string | null;
     lastOnline: string;
   };
 };

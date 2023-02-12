@@ -4,6 +4,7 @@ import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { format, parseISO } from "date-fns";
+import robloxPlaceholder from "@/public/roblox-placeholder.png";
 
 export default function Roblox() {
   const [data, setData] = useState<RobloxData>();
@@ -60,22 +61,36 @@ export default function Roblox() {
           data.presences.userPresenceType === "studio" ? (
             <div className="flex flex-row items-center h-full gap-4 md:gap-0">
               <div className="flex-shrink-0 relative">
-                <Image
-                  src={data.presences.placeThumbnail}
-                  width={64}
-                  height={64}
-                  alt="Place thumbnail"
-                  className="rounded-xl h-16 w-16 bg-ctp-crust"
-                />
+                {data.presences.placeThumbnail ? (
+                  <Image
+                    src={data.presences.placeThumbnail}
+                    width={64}
+                    height={64}
+                    alt="Place thumbnail"
+                    className="rounded-xl h-16 w-16 bg-ctp-crust"
+                  />
+                ) : (
+                  <Image
+                    src={robloxPlaceholder}
+                    width={64}
+                    height={64}
+                    alt="Place thumbnail"
+                    className="rounded-xl h-16 w-16 bg-ctp-crust"
+                  />
+                )}
               </div>
               <div className="divider divider-horizontal hidden md:flex" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
                   {data.presences.userPresenceType === "studio"
-                    ? "Developing"
+                    ? "In Roblox Studio"
                     : "Playing"}
                 </p>
-                <p className="text-sm ">{data.presences.location}</p>
+                <p className="text-sm ">
+                  {data.presences.userPresenceType === "studio"
+                    ? data.presences.location.slice(9)
+                    : data.presences.location}
+                </p>
               </div>
             </div>
           ) : (
