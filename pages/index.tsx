@@ -9,6 +9,7 @@ import twitterIcon from "@iconify/icons-fa6-brands/twitter";
 import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 import Lanyard from "@/components/Lanyard";
 import Roblox from "@/components/Roblox";
+import WakaTime from "@/components/WakaTime";
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
           Hey, I&apos;m Podter. I&apos;m a student and self taught developer
           from Thailand.
         </p>
-        <div className="flex flex-row gap-2 w-28 pb-4">
+        <div className="flex flex-row gap-2 w-28 pb-1">
           <Link
             className="btn btn-ghost btn-circle duration-75"
             href="https://github.com/Podter"
@@ -55,9 +56,12 @@ export default function Home() {
             <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
           </Link>
         </div>
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4 py-3">
           <Lanyard />
           <Roblox />
+        </div>
+        <div className="flex flex-col md:flex-row gap-4 py-3">
+          <WakaTime />
         </div>
       </Container>
     </>
