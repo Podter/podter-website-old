@@ -26,21 +26,17 @@ export default async function handler(
         `https://friends.roblox.com/v1/users/${userId}/followers/count`
       );
 
-      const playerPresences = await axios.post(
-        "https://presence.roblox.com/v1/presence/users",
-        {
-          userIds: [userId],
-        },
-        {
-          withCredentials: true,
-          headers: {
-            cookie: `.ROBLOSECURITY=${process.env.ROBLOX_COOKIE}`,
-          },
-        }
+      // See https://github.com/Podter/roblox-presence-api
+      const playerPresences = await axios.get(
+        `https://roblox-presence-api.podter.xyz/api/presence/${userId}`
       );
-      const placeThumbnail = await axios.get(
-        `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${playerPresences.data.userPresences[0].rootPlaceId}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
-      );
+
+      let placeThumbnail;
+      if (playerPresences.data.data.rootPlaceId) {
+        placeThumbnail = await axios.get(
+          `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${playerPresences.data.data.rootPlaceId}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
+        );
+      }
 
       return res.status(200).json({
         message: "Success",
@@ -56,15 +52,18 @@ export default async function handler(
             followerCount: followerCount.data.count,
           },
           presences: {
-            userPresenceType:
-              playerPresences.data.userPresences[0].userPresenceType,
-            location: playerPresences.data.userPresences[0].lastLocation,
-            placeThumbnail: placeThumbnail.data.data[0].imageUrl,
+            userPresenceType: playerPresences.data.data.userPresenceType,
+            location: playerPresences.data.data.lastLocation,
+            placeThumbnail: placeThumbnail
+              ? placeThumbnail.data.data[0].imageUrl
+              : null,
+            lastOnline: playerPresences.data.data.lastOnline,
           },
         },
         code: res.statusCode,
       });
-    } catch {
+    } catch (e) {
+      console.log(e);
       return res
         .status(500)
         .json({ message: "Internal Server Error", code: res.statusCode });

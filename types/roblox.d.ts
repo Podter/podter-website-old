@@ -1,5 +1,3 @@
-import type { UserPresenceType } from "noblox.js";
-
 type RobloxData = {
   thumbnails: {
     headshot: string;
@@ -12,8 +10,9 @@ type RobloxData = {
     followerCount: string;
   };
   presences: {
-    userPresenceType: UserPresenceType;
+    userPresenceType: "offline" | "online" | "inGame" | "studio" | "unknown";
     location: string;
     placeThumbnail: string;
+    lastOnline: string;
   };
 };

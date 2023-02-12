@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { RobloxData } from "@/types/roblox";
+import { format, parseISO } from "date-fns";
 
 export default function Roblox() {
   const [data, setData] = useState<RobloxData>();
@@ -21,22 +21,22 @@ export default function Roblox() {
 
   return (
     <a
-      className="flex flex-col h-60 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
+      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
       href="https://www.roblox.com/users/126064549/profile"
     >
       {data ? (
         <>
-          <div className="flex flex-row items-center h-full gap-4">
+          <div className="flex flex-row items-center h-9 gap-4">
             <div className="avatar">
               <div
                 className={`w-10 rounded-full ring ring-offset-base-100 ring-offset-2 ${
-                  data.presences.userPresenceType === 1
+                  data.presences.userPresenceType === "online"
                     ? "ring-ctp-blue"
-                    : data.presences.userPresenceType === 2
+                    : data.presences.userPresenceType === "inGame"
                     ? "ring-success"
-                    : data.presences.userPresenceType === 3
+                    : data.presences.userPresenceType === "studio"
                     ? "ring-warning"
-                    : data.presences.userPresenceType === 0
+                    : data.presences.userPresenceType === "offline"
                     ? "ring-gray-500"
                     : ""
                 }`}
@@ -56,9 +56,9 @@ export default function Roblox() {
             </div>
           </div>
           <div className="divider" />
-          {data.presences.userPresenceType === 2 ||
-          data.presences.userPresenceType === 3 ? (
-            <div className="flex flex-row items-center h-full">
+          {data.presences.userPresenceType === "inGame" ||
+          data.presences.userPresenceType === "studio" ? (
+            <div className="flex flex-row items-center h-full gap-4 md:gap-0">
               <div className="flex-shrink-0 relative">
                 <Image
                   src={data.presences.placeThumbnail}
@@ -68,18 +68,18 @@ export default function Roblox() {
                   className="rounded-xl h-16 w-16 bg-ctp-crust"
                 />
               </div>
-              <div className="divider divider-horizontal" />
+              <div className="divider divider-horizontal hidden md:flex" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
-                  {data.presences.userPresenceType === 2
-                    ? "Playing"
-                    : "Developing"}
+                  {data.presences.userPresenceType === "studio"
+                    ? "Developing"
+                    : "Playing"}
                 </p>
                 <p className="text-sm ">{data.presences.location}</p>
               </div>
             </div>
           ) : (
-            <div className="flex flex-row items-center h-full">
+            <div className="flex flex-row items-center h-full gap-4 md:gap-0">
               <div className="flex-shrink-0 relative">
                 <Image
                   src={data.thumbnails.body}
@@ -89,10 +89,12 @@ export default function Roblox() {
                   className="rounded-xl h-16 w-16 bg-ctp-crust p-2"
                 />
               </div>
-              <div className="divider divider-horizontal" />
+              <div className="divider divider-horizontal hidden md:flex" />
               <div className="flex flex-col">
                 <p className="text-base font-semibold">
-                  {data.presences.userPresenceType === 1 ? "Online" : "Offline"}
+                  {data.presences.userPresenceType === "online"
+                    ? "Online"
+                    : "Offline"}
                 </p>
                 <p className="text-sm">
                   <span className="text-ctp-subtext0 mr-1">Friends: </span>
@@ -101,6 +103,10 @@ export default function Roblox() {
                 <p className="text-sm">
                   <span className="text-ctp-subtext0 mr-1">Followers: </span>
                   {data.info.followerCount}
+                </p>
+                <p className="text-sm hidden md:block">
+                  <span className="text-ctp-subtext0 mr-1">Last seen: </span>
+                  {format(parseISO(data.presences.lastOnline), "do MMM yyyy")}
                 </p>
               </div>
             </div>
