@@ -2,6 +2,8 @@
 
 ![A student and self taught developer from Thailand.](public/og-bg.png)
 
+[![GitHub deployments](https://img.shields.io/github/deployments/Podter/podter.xyz/Production?label=vercel&logo=vercel&logoColor=white&style=for-the-badge)](https://podter.xyz/)
+
 Podter's Website. Built with Next.js, Tailwind CSS, daisyUI, PlanetScale and deployed using Vercel.
 
 https://podter.xyz/
