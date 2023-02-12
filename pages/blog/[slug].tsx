@@ -58,6 +58,19 @@ export default function BlogLayout({
     <>
       <Head>
         <title>Blog | Podter</title>
+        <meta
+          name="description"
+          content={`Read more about "${post.title}" on Podter's blog`}
+        />
+        <meta property="og:title" content={post.title} />
+        <meta
+          property="og:description"
+          content={`Read more about "${post.title}" on Podter's blog`}
+        />
+        <meta
+          property="og:image:url"
+          content={`https://preview.podter.xyz/api/og?title=${post.title}`}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

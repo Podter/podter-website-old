@@ -8,6 +8,19 @@ export default function About() {
     <>
       <Head>
         <title>About | Podter</title>
+        <meta
+          name="description"
+          content="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
+        />
+        <meta property="og:title" content="About me" />
+        <meta
+          property="og:description"
+          content="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
+        />
+        <meta
+          property="og:image:url"
+          content="http://preview.podter.xyz/api/og?title=About%20me"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

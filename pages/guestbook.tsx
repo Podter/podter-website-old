@@ -37,6 +37,19 @@ export default function Guestbook() {
     <>
       <Head>
         <title>Guestbook | Podter</title>
+        <meta
+          name="description"
+          content="Sign my guestbook and leave your mark. Feel free to leave any message here."
+        />
+        <meta property="og:title" content="Guestbook" />
+        <meta
+          property="og:description"
+          content="Sign my guestbook and leave your mark. Feel free to leave any message here."
+        />
+        <meta
+          property="og:image:url"
+          content="http://preview.podter.xyz/api/og?title=Guestbook"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

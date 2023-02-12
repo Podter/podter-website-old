@@ -14,6 +14,19 @@ const Error: NextPage<Props> = ({ statusCode }) => {
     <>
       <Head>
         <title>Error | Podter</title>
+        <meta
+          name="description"
+          content="Look like something went wrong on server side that rarely happens."
+        />
+        <meta property="og:title" content="Error" />
+        <meta
+          property="og:description"
+          content="Look like something went wrong on server side that rarely happens."
+        />
+        <meta
+          property="og:image:url"
+          content="https://preview.podter.xyz/api/og?title=Error"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

@@ -9,6 +9,19 @@ export default function NoPage() {
     <>
       <Head>
         <title>404 Not found | Podter</title>
+        <meta
+          name="description"
+          content="You are looking for something that doesn't actually exist."
+        />
+        <meta property="og:title" content="404 Not found" />
+        <meta
+          property="og:description"
+          content="You are looking for something that doesn't actually exist."
+        />
+        <meta
+          property="og:image:url"
+          content="https://preview.podter.xyz/api/og?title=404%20Not%20found"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

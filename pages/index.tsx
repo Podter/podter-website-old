@@ -12,6 +12,19 @@ export default function Home() {
     <>
       <Head>
         <title>Podter</title>
+        <meta
+          name="description"
+          content="A student and self taught developer from Thailand."
+        />
+        <meta property="og:title" content="Podter" />
+        <meta
+          property="og:description"
+          content="A student and self taught developer from Thailand."
+        />
+        <meta
+          property="og:image:url"
+          content="http://preview.podter.xyz/api/og?title=podter.xyz"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

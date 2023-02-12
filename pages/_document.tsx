@@ -23,11 +23,8 @@ export default function Document() {
         <meta property="og:image:width" content="1920" />
         <meta property="og:image:height" content="1080" />
         <meta property="og:type" content="website" />
-        <meta name="robots" content="index, follow" />
-        <meta
-          name="googlebot"
-          content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
-        />
+        <meta name="theme-color" content="#d20f39" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <body>

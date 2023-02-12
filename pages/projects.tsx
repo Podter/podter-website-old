@@ -13,6 +13,19 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects | Podter</title>
+        <meta
+          name="description"
+          content="I spend my free time or hobby coding or working on projects just for fun and learning."
+        />
+        <meta property="og:title" content="Projects" />
+        <meta
+          property="og:description"
+          content="I spend my free time or hobby coding or working on projects just for fun and learning."
+        />
+        <meta
+          property="og:image:url"
+          content="http://preview.podter.xyz/api/og?title=Projects"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>

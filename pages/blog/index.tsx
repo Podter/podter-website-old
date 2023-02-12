@@ -36,6 +36,19 @@ export default function Blog({
     <>
       <Head>
         <title>Blog | Podter</title>
+        <meta
+          name="description"
+          content="A collection of blog posts that I've written."
+        />
+        <meta property="og:title" content="Blog" />
+        <meta
+          property="og:description"
+          content="A collection of blog posts that I've written."
+        />
+        <meta
+          property="og:image:url"
+          content="https://preview.podter.xyz/api/og?title=Blog"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>
