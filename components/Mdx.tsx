@@ -6,17 +6,17 @@ function CustomLink(props: any) {
   return <Link {...props}>{props.children}</Link>;
 }
 
-function CustomImage(props: any) {
-  return (
-    <Image
-      alt={props.alt}
-      className="rounded-lg"
-      {...props}
-      width={1280}
-      height={720}
-    />
-  );
-}
+// function CustomImage(props: any) {
+//   return (
+//     <Image
+//       alt={props.alt}
+//       className="rounded-lg"
+//       {...props}
+//       width={1280}
+//       height={720}
+//     />
+//   );
+// }
 
 type MdxProps = {
   code: string;
@@ -30,7 +30,7 @@ export default function Mdx({ code }: MdxProps) {
       <MDXContent
         components={{
           a: CustomLink,
-          img: CustomImage,
+          // img: CustomImage,
         }}
       />
     </article>
