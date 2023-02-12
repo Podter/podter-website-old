@@ -12,12 +12,12 @@ export default function Lanyard() {
 
   return (
     <a
-      className="flex flex-col h-60 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
+      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
       href="https://discord.com/users/331793642689789962"
     >
       {data ? (
         <>
-          <div className="flex flex-row items-center h-full gap-4">
+          <div className="flex flex-row items-center h-9 gap-4">
             <div className="avatar">
               <div
                 className={`w-10 rounded-full ring ring-offset-base-100 ring-offset-2 ${

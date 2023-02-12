@@ -26,7 +26,7 @@ export default function ScrollToTop({ scrollRef, y }: ScrollToTopProps) {
 
   return (
     <div
-      className={`fixed z-50 bottom-6 right-6 md:right-8 ${
+      className={`fixed z-50 bottom-6 right-8 ${
         visible ? "opacity-100" : "opacity-0"
       } transition-opacity`}
     >
