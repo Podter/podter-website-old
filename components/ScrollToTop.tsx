@@ -30,7 +30,11 @@ export default function ScrollToTop({ scrollRef, y }: ScrollToTopProps) {
         visible ? "opacity-100" : "opacity-0"
       } transition-opacity`}
     >
-      <button className="btn btn-primary btn-circle" onClick={scrollToTop}>
+      <button
+        className="btn btn-primary btn-circle"
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+      >
         <ArrowUp className="h-6 w-6" size={24} />
       </button>
     </div>

@@ -1,12 +1,8 @@
 import menus from "@/lib/menus";
 import Link from "next/link";
 import { ReactNode, RefObject, useRef } from "react";
-import { Icon } from "@iconify/react";
-import githubIcon from "@iconify/icons-fa6-brands/github";
-import discordIcon from "@iconify/icons-fa6-brands/discord";
-import twitterIcon from "@iconify/icons-fa6-brands/twitter";
-import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 import { X } from "lucide-react";
+import SocialLinks from "./SocialLinks";
 
 type DrawerProps = {
   children?: ReactNode;
@@ -18,7 +14,12 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
 
   return (
     <div className="drawer">
-      <input id="menu-drawer" type="checkbox" className="drawer-toggle" />
+      <input
+        id="menu-drawer"
+        type="checkbox"
+        className="drawer-toggle"
+        aria-label="Toggle drawer"
+      />
       <div className="drawer-content overflow-x-hidden" ref={scrollRef}>
         {children}
       </div>
@@ -60,30 +61,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
           </ul>
           <div className="absolute bottom-8">
             <div className="flex flex-row gap-1 ml-2 mt-2">
-              <Link
-                className="btn btn-ghost btn-circle duration-75"
-                href="https://github.com/Podter"
-              >
-                <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
-              </Link>
-              <Link
-                className="btn btn-ghost btn-circle duration-75"
-                href="https://discord.com/users/331793642689789962"
-              >
-                <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
-              </Link>
-              <Link
-                className="btn btn-ghost btn-circle duration-75"
-                href="https://twitter.com/Real_Podter"
-              >
-                <Icon icon={twitterIcon} className="h-6 w-6" scale={24} />
-              </Link>
-              <Link
-                className="btn btn-ghost btn-circle duration-75"
-                href="mailto:me@podter.xyz"
-              >
-                <Icon icon={mailRounded} className="h-6 w-6" scale={24} />
-              </Link>
+              <SocialLinks />
             </div>
           </div>
         </div>

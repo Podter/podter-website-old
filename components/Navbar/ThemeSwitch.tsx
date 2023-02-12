@@ -35,6 +35,9 @@ export default function ThemeSwitch() {
           currentTheme === "dark" ? "swap-active" : null
         } transition-none`}
         onClick={changeTheme}
+        aria-label={`Switch to ${
+          currentTheme === "dark" ? "light" : "dark"
+        } mode`}
       >
         <Sun className="swap-on h-6 w-6" size={24} />
         <Moon className="swap-off h-6 w-6" size={24} />
