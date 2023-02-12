@@ -20,7 +20,7 @@ export default function WakaTime() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full h-[22rem] bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-default">
+    <div className="flex flex-col w-full h-[34rem] md:h-[22rem] bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-default">
       {data ? (
         <>
           <div className="flex flex-row items-center h-6 gap-4">
@@ -30,13 +30,13 @@ export default function WakaTime() {
             </div>
           </div>
           <div className="divider" />
-          <div className="flex flex-row items-center h-full gap-4 md:gap-0">
-            <div className="flex flex-col justify-center items-center h-full">
+          <div className="flex flex-col md:flex-row items-center w-full md:h-full md:w-auto">
+            <div className="flex flex-col justify-center items-center w-full md:h-full md:w-auto">
               <Total title="Total" time={data.total} />
-              <div className="divider" />
+              <div className="py-3 md:divider" />
               <Total title="Daily average" time={data.dailyAverage} />
             </div>
-            <div className="divider divider-horizontal hidden md:flex" />
+            <div className="divider md:divider-horizontal" />
             <div className="flex flex-col w-full gap-1">
               <p className="text-base font-semibold">Most used languages</p>
               {data.languages.map((language, index) => (
