@@ -35,7 +35,7 @@ export default function GuestbookItem({
               {avatar ? (
                 <Image
                   src={avatar}
-                  alt="Shoes"
+                  alt="Avatar"
                   className="rounded-full"
                   width={24}
                   height={24}
