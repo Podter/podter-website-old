@@ -29,7 +29,7 @@ export default function Home() {
           Hey, I&apos;m Podter. I&apos;m a student and self taught developer
           from Thailand.
         </p>
-        <div className="flex flex-row gap-2 w-28 pb-3">
+        <div className="flex flex-row gap-2 w-28 pb-4">
           <Link
             className="btn btn-ghost btn-circle duration-75"
             href="https://github.com/Podter"
