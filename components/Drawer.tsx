@@ -19,7 +19,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
   return (
     <div className="drawer">
       <input id="menu-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content" ref={scrollRef}>
+      <div className="drawer-content overflow-x-hidden" ref={scrollRef}>
         {children}
       </div>
       <div className="drawer-side">

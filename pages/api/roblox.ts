@@ -10,10 +10,10 @@ export default async function handler(
   if (req.method === "GET") {
     try {
       const playerHeadshot = await axios.get(
-        `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId}&size=48x48&format=Png&isCircular=true`
+        `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId}&size=150x150&format=Png&isCircular=true`
       );
       const playerBody = await axios.get(
-        `https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=60x60&format=Png&isCircular=true`
+        `https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=150x150&format=Png&isCircular=true`
       );
 
       const playerInfo = await axios.get(
@@ -40,7 +40,7 @@ export default async function handler(
           `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${
             playerPresences.data.data.rootPlaceId ||
             playerPresences.data.data.placeId
-          }&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false`
+          }&returnPolicy=PlaceHolder&size=150x150&format=Png&isCircular=false`
         );
       }
 

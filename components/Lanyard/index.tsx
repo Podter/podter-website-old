@@ -33,7 +33,7 @@ export default function Lanyard() {
                 }`}
               >
                 <Image
-                  src={`https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=40`}
+                  src={`https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=96`}
                   width={40}
                   height={40}
                   alt="Podter's Discord avatar"
@@ -69,14 +69,14 @@ export default function Lanyard() {
                 ) : (
                   <>
                     <Image
-                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.png?size=64`}
+                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.png?size=128`}
                       width={64}
                       height={64}
                       alt="Large image"
                       className="rounded-xl h-16 w-16 bg-ctp-crust"
                     />
                     <Image
-                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.png?size=24`}
+                      src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.png?size=48`}
                       width={24}
                       height={24}
                       alt="Small image"
