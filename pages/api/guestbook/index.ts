@@ -20,6 +20,9 @@ export default async function handler(
           updated: true,
           updatedAt: true,
         },
+        orderBy: {
+          updatedAt: "desc",
+        },
       });
 
       const data: GuestbookData[] = [];
