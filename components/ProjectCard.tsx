@@ -20,14 +20,14 @@ export default function ProjectCard({
   sourceUrl,
 }: ProjectCardProps) {
   return (
-    <div className="card bg-base-100 shadow-xl hover:scale-[1.025] transition-all duration-75 h-[30rem]">
-      <figure>
-        <Image src={img} alt="Shoes" />
+    <div className="card bg-base-100 shadow-xl hover:scale-[1.025] transition-all duration-75 md:h-[32rem]">
+      <figure className="h-56">
+        <Image src={img} alt="Project image" />
       </figure>
-      <div className="card-body">
+      <div className="card-body h-72">
         <h2 className="card-title">{title}</h2>
         <p>{children}</p>
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-end h-10">
           {url ? (
             <Link href={url} className="btn btn-primary gap-3">
               {action}
