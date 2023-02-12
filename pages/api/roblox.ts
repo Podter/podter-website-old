@@ -68,8 +68,7 @@ export default async function handler(
         },
         code: res.statusCode,
       });
-    } catch (e) {
-      console.log(e);
+    } catch {
       return res
         .status(500)
         .json({ message: "Internal Server Error", code: res.statusCode });
