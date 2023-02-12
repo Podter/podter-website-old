@@ -33,7 +33,7 @@ export default function WakaTime() {
           <div className="flex flex-col md:flex-row items-center w-full md:h-full md:w-auto">
             <div className="flex flex-col justify-center items-center w-full md:h-full md:w-auto">
               <Total title="Total" time={data.total} />
-              <div className="py-3 md:divider" />
+              <div className="py-3 md:divider md:py-0" />
               <Total title="Daily average" time={data.dailyAverage} />
             </div>
             <div className="divider md:divider-horizontal" />
