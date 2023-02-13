@@ -1,12 +1,11 @@
 import { DefaultSeoProps } from "next-seo";
-import { variants } from "@catppuccin/palette";
 
 const config: DefaultSeoProps = {
   title: undefined,
   titleTemplate: "%s | Podter",
   defaultTitle: "Podter",
   description: "A student and self taught developer from Thailand.",
-  themeColor: "#1e66f5",
+  themeColor: "#d20f39",
   openGraph: {
     title: "Podter",
     description: "A student and self taught developer from Thailand.",
