@@ -6,7 +6,7 @@ const config: DefaultSeoProps = {
   titleTemplate: "%s | Podter",
   defaultTitle: "Podter",
   description: "A student and self taught developer from Thailand.",
-  themeColor: `${variants.latte.blue}`,
+  themeColor: "#1e66f5",
   openGraph: {
     title: "Podter",
     description: "A student and self taught developer from Thailand.",
