@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -11,23 +11,10 @@ import JIAmusic from "@/public/projects/jiamusic.png";
 export default function Projects() {
   return (
     <>
-      <Head>
-        <title>Projects | Podter</title>
-        <meta
-          name="description"
-          content="I spend my free time or hobby coding or working on projects just for fun and learning."
-        />
-        <meta property="og:title" content="Projects" />
-        <meta
-          property="og:description"
-          content="I spend my free time or hobby coding or working on projects just for fun and learning."
-        />
-        <meta
-          property="og:image:url"
-          content="https://podter.xyz/api/og?title=Projects"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <Seo
+        title="Projects"
+        description="I spend my free time or hobby coding or working on projects just for fun and learning."
+      />
       <Container>
         <h1 className="text-5xl font-bold">
           <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">

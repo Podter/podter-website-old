@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Container from "@/components/Container";
 import { allPosts, Post } from "contentlayer/generated";
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
@@ -56,23 +56,13 @@ export default function BlogLayout({
 
   return (
     <>
-      <Head>
-        <title>Blog | Podter</title>
-        <meta
-          name="description"
-          content={`Read more about "${post.title}" on Podter's blog`}
-        />
-        <meta property="og:title" content={post.title} />
-        <meta
-          property="og:description"
-          content={`Read more about "${post.title}" on Podter's blog`}
-        />
-        <meta
-          property="og:image:url"
-          content={`https://podter.xyz/api/og?title=${post.title}`}
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <Seo
+        article={{
+          title: post.title,
+          publishedTime: post.date,
+          url: `https://podter.xyz/blog/${post._raw.flattenedPath}`,
+        }}
+      />
       <Container>
         <h1 className="text-5xl font-bold">
           <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">

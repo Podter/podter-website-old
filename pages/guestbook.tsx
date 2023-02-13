@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import Actions from "@/components/Guestbook/Actions";
 import LoadingGuestbookItem from "@/components/Guestbook/LoadingItem";
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import GuestbookItem from "@/components/Guestbook/Item";
@@ -35,23 +35,10 @@ export default function Guestbook() {
 
   return (
     <>
-      <Head>
-        <title>Guestbook | Podter</title>
-        <meta
-          name="description"
-          content="Sign my guestbook and leave your mark. Feel free to leave any message here."
-        />
-        <meta property="og:title" content="Guestbook" />
-        <meta
-          property="og:description"
-          content="Sign my guestbook and leave your mark. Feel free to leave any message here."
-        />
-        <meta
-          property="og:image:url"
-          content="https://podter.xyz/api/og?title=Guestbook"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <Seo
+        title="Guestbook"
+        description="Sign my guestbook and leave your mark. Feel free to leave any message here."
+      />
       <Container>
         <h1 className="text-5xl font-bold">
           <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">

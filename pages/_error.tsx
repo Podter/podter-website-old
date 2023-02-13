@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Container from "@/components/Container";
 import { Icon } from "@iconify/react";
 import alertCircle from "@iconify/icons-line-md/alert-circle";
@@ -12,23 +12,10 @@ type Props = {
 const Error: NextPage<Props> = ({ statusCode }) => {
   return (
     <>
-      <Head>
-        <title>Error | Podter</title>
-        <meta
-          name="description"
-          content="Look like something went wrong on server side that rarely happens."
-        />
-        <meta property="og:title" content="Error" />
-        <meta
-          property="og:description"
-          content="Look like something went wrong on server side that rarely happens."
-        />
-        <meta
-          property="og:image:url"
-          content="https://podter.xyz/api/og?title=Error"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <Seo
+        title={`Error ${statusCode}`}
+        description="Look like something went wrong on server side that rarely happens."
+      />
       <Container>
         <h1 className="text-5xl font-bold">
           <Icon className="inline" icon={alertCircle} inline={true} /> An error{" "}
