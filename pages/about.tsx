@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "@/components/Seo";
 import Container from "@/components/Container";
 import Skills from "@/components/Skills";
 import Socials from "@/components/Socials";
@@ -6,23 +6,10 @@ import Socials from "@/components/Socials";
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About | Podter</title>
-        <meta
-          name="description"
-          content="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
-        />
-        <meta property="og:title" content="About me" />
-        <meta
-          property="og:description"
-          content="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
-        />
-        <meta
-          property="og:image:url"
-          content="https://podter.xyz/api/og?title=About%20me"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <Seo
+        title="About"
+        description="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
+      />
       <Container>
         <h1 className="text-5xl font-bold">
           <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">

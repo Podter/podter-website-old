@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Container from "@/components/Container";
 import { Icon } from "@iconify/react";
 import wavingHand from "@iconify/icons-fluent-emoji-flat/waving-hand";
@@ -10,23 +9,6 @@ import SocialLinks from "@/components/SocialLinks";
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Podter</title>
-        <meta
-          name="description"
-          content="A student and self taught developer from Thailand."
-        />
-        <meta property="og:title" content="Podter" />
-        <meta
-          property="og:description"
-          content="A student and self taught developer from Thailand."
-        />
-        <meta
-          property="og:image:url"
-          content="https://podter.xyz/api/og?title=podter.xyz"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <Container>
         <h1 className="text-5xl font-bold">
           Hello, I&apos;m{" "}
