@@ -25,3 +25,9 @@ model BlogViews {
   slug  String
   views Int
 }
+
+model Roblox {
+  id         String   @id @default(cuid())
+  userId     String
+  lastOnline DateTime
+}
