@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import prisma from "@/lib/prismadb";
 import { format } from "date-fns";
+import checkBadWord from "@/lib/checkBadWord";
 
 export default async function handler(
   req: NextApiRequest,
@@ -54,6 +55,20 @@ export default async function handler(
 
   if (req.method === "POST") {
     try {
+      const isBadWord = await checkBadWord(req.body.message || "");
+
+      if (isBadWord === true) {
+        res.status(403).json({
+          message: "Forbidden",
+          data: {
+            reason: "Bad words are not allowed",
+          },
+          code: res.statusCode,
+        });
+      } else if (isBadWord === undefined) {
+        throw new Error();
+      }
+
       const data = await prisma.guestbookMessage.create({
         data: {
           email: session.user.email,
@@ -104,6 +119,20 @@ export default async function handler(
 
   if (req.method === "PUT") {
     try {
+      const isBadWord = await checkBadWord(req.body.message || "");
+
+      if (isBadWord === true) {
+        res.status(403).json({
+          message: "Forbidden",
+          data: {
+            reason: "Bad words are not allowed",
+          },
+          code: res.statusCode,
+        });
+      } else if (isBadWord === undefined) {
+        throw new Error();
+      }
+
       const dataToUpdate = await prisma.guestbookMessage.findFirst({
         where: {
           email: session.user.email,

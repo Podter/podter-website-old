@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { LogOut, XCircle, Edit3, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useRouter } from "next/router";
 import getUsername, { UserData } from "@/lib/getUsername";
 
@@ -38,8 +38,18 @@ export default function Actions() {
       }
 
       router.reload();
-    } catch {
-      setError("Something went wrong. Please try again later.");
+    } catch (e) {
+      const error = e as AxiosError<any, any>;
+
+      if (error.response?.status === 403) {
+        setError(
+          `${
+            error.response.data?.data.reason || "Something went wrong."
+          }. Please try again later.`
+        );
+      } else {
+        setError("Something went wrong. Please try again later.");
+      }
       setLoading(false);
     }
   }
