@@ -1,4 +1,6 @@
+import prisma from "@/lib/prismadb";
 import axios from "axios";
+import { parseISO } from "date-fns";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const userId = 126064549;
@@ -44,6 +46,28 @@ export default async function handler(
         );
       }
 
+      let lastOnline = parseISO(playerPresences.data.data.lastOnline);
+      const dbLastOnline = await prisma.roblox.findFirst({
+        where: {
+          userId: `${userId}`,
+        },
+        select: {
+          lastOnline: true,
+        },
+      });
+      if (!dbLastOnline) {
+        await prisma.roblox.create({
+          data: {
+            userId: `${userId}`,
+            lastOnline: lastOnline,
+          },
+        });
+      } else {
+        if (lastOnline < dbLastOnline.lastOnline) {
+          lastOnline = dbLastOnline.lastOnline;
+        }
+      }
+
       return res.status(200).json({
         message: "Success",
         data: {
@@ -63,7 +87,7 @@ export default async function handler(
             placeThumbnail: placeThumbnail
               ? placeThumbnail.data.data[0].imageUrl
               : null,
-            lastOnline: playerPresences.data.data.lastOnline,
+            lastOnline: lastOnline.toISOString(),
           },
         },
         code: res.statusCode,
