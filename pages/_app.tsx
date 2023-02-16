@@ -17,9 +17,10 @@ import {
 } from "framer-motion";
 import { useRouter } from "next/router";
 
+import useAppLoading from "@/hooks/useAppLoading";
+
 import Drawer from "@/components/Drawer";
 import Navbar from "@/components/Navbar";
-import useAppLoading from "@/hooks/useAppLoading";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const poppins = Poppins({
@@ -42,6 +43,18 @@ const variants: Variants = {
     },
   },
 };
+
+console.log(
+  `%c
+  ██████   ██████  ██████  ████████ ███████ ██████  
+  ██   ██ ██    ██ ██   ██    ██    ██      ██   ██ 
+  ██████  ██    ██ ██   ██    ██    █████   ██████  
+  ██      ██    ██ ██   ██    ██    ██      ██   ██ 
+  ██       ██████  ██████     ██    ███████ ██   ██ 
+                                                    
+  A student and self taught developer from Thailand.`,
+  "font-family: monospace; color: #d20f39;"
+);
 
 export default function App({
   Component,
@@ -77,8 +90,6 @@ export default function App({
                   variants={!shouldReduceMotion ? variants : undefined}
                   animate="in"
                   initial="initial"
-                  onAnimationStart={() => console.log("start")}
-                  onAnimationComplete={() => console.log("Stop")}
                 >
                   <Component {...pageProps} />
                 </motion.div>
