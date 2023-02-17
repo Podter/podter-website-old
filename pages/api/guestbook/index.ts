@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import prisma from "@/lib/prismadb";
 import { format } from "date-fns";
 import checkBadWord from "@/lib/checkBadWord";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(
   req: NextApiRequest,
@@ -45,7 +46,7 @@ export default async function handler(
     }
   }
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session || !session.user || !session.user.email || !session.user.name) {
     return res
