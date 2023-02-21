@@ -93,7 +93,11 @@ export default function Actions() {
   }, [session.status]);
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center gap-2 w-60 pt-3">
+    <div
+      className={`flex flex-col md:flex-row md:items-center gap-2 pt-3 w-full ${
+        session.status === "authenticated" ? "md:w-72" : "md:w-60"
+      }`}
+    >
       {session.status === "unauthenticated" ? (
         <>
           <button
@@ -139,7 +143,9 @@ export default function Actions() {
             <input
               type="text"
               placeholder="your message"
-              className={`input input-bordered ${error ? "input-error" : ""}`}
+              className={`input input-bordered w-full ${
+                error ? "input-error" : ""
+              }`}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required={true}
