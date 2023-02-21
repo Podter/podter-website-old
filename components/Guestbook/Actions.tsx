@@ -93,7 +93,11 @@ export default function Actions() {
   }, [session.status]);
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center gap-2 w-full md:w-72 pt-3">
+    <div
+      className={`flex flex-col md:flex-row md:items-center gap-2 pt-3 w-full ${
+        session.status === "authenticated" ? "md:w-72" : "md:w-60"
+      }`}
+    >
       {session.status === "unauthenticated" ? (
         <>
           <button
