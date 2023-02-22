@@ -5,6 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  res.setHeader("Cache-Control", "max-age=0, s-maxage=300");
+
   if (req.method === "GET") {
     try {
       const data = await prisma.blogViews.findMany({

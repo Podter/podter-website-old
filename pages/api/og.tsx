@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 

@@ -13,6 +13,8 @@ export default async function handler(
   }
 
   if (req.method === "GET") {
+    res.setHeader("Cache-Control", "max-age=0, s-maxage=300");
+
     try {
       const data = await prisma.blogViews.findFirst({
         where: {
