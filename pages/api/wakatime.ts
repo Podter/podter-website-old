@@ -5,6 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  res.setHeader("Cache-Control", "max-age=0, s-maxage=86400");
+
   if (req.method === "GET") {
     try {
       if (!process.env.WAKATIME_SECRET_API_KEY) {

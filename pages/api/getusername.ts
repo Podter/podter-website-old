@@ -5,6 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  res.setHeader("Cache-Control", "max-age=0, s-maxage=86400");
+
   const { id } = req.query;
 
   if (!id || typeof id !== "string") {
