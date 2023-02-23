@@ -5,8 +5,6 @@ import Lanyard from "@/components/Cards/Lanyard";
 import Roblox from "@/components/Cards/Roblox";
 import WakaTime from "@/components/Cards/WakaTime";
 import SocialLinks from "@/components/SocialLinks";
-import Birthday from "@/components/Cards/Birthday";
-import Contact from "@/components/Cards/Contact";
 
 export default function Home() {
   return (
@@ -33,17 +31,6 @@ export default function Home() {
         </div>
         <div className="flex flex-col md:flex-row gap-4 py-3">
           <WakaTime />
-        </div>
-        <div className="flex flex-col md:flex-row gap-4 py-3">
-          <div className="flex flex-row md:flex-col gap-4">
-            <Birthday />
-            <Birthday />
-          </div>
-          <div className="flex flex-row md:flex-col gap-4">
-            <Birthday />
-            <Birthday />
-          </div>
-          <Contact />
         </div>
       </Container>
     </>
