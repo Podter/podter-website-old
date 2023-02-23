@@ -20,7 +20,7 @@ export default function WakaTime() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full h-[34rem] md:h-[22rem] bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-default">
+    <div className="flex flex-col w-full h-[34rem] md:h-[22rem] bg-base-100 shadow-lg shadow-base-300 p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-default">
       {data ? (
         <>
           <div className="flex flex-row items-center h-6 gap-4">

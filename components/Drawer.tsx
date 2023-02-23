@@ -29,7 +29,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
           <div className="my-2 flex flex-row">
             <Link
               href="/"
-              className="btn btn-ghost normal-case text-2xl font-bold bg-gradient-to-r text-transparent from-ctp-red to-ctp-blue bg-clip-text"
+              className="btn btn-ghost normal-case text-2xl font-bold bg-gradient-to-r text-transparent from-primary to-secondary bg-clip-text"
               onClick={() => closeRef.current?.click()}
             >
               Podter

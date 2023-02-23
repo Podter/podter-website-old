@@ -12,7 +12,7 @@ export default function Home() {
       <Container>
         <h1 className="text-5xl font-bold">
           Hello, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Podter
           </span>{" "}
           <Icon className="inline" icon={wavingHand} inline={true} />

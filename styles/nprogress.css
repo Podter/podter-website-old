@@ -4,7 +4,7 @@
 }
 
 #nprogress .bar {
-  @apply bg-ctp-red;
+  @apply bg-primary;
 
   position: fixed;
   z-index: 1031;
@@ -17,7 +17,7 @@
 
 /* Fancy blur effect */
 #nprogress .peg {
-  @apply shadow-sm shadow-ctp-red;
+  @apply shadow-sm shadow-primary;
 
   display: block;
   position: absolute;
@@ -41,7 +41,7 @@
 }
 
 #nprogress .spinner-icon {
-  @apply border-t-ctp-red border-l-ctp-red;
+  @apply border-t-primary border-l-primary;
 
   width: 18px;
   height: 18px;

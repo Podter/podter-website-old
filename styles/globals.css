@@ -10,10 +10,10 @@
   @apply w-2 h-2 bg-transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-ctp-red rounded-md;
+  @apply bg-primary rounded-md;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-ctp-crust;
+  @apply bg-neutral;
 }
 ::-webkit-scrollbar-button {
   @apply hidden;

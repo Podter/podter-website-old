@@ -12,7 +12,7 @@ export default function About() {
       />
       <Container>
         <h1 className="text-5xl font-bold">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             About me
           </span>
         </h1>
@@ -35,7 +35,7 @@ export default function About() {
           Node.js applications and containerized with Docker.
         </p>
         <h2 className="text-3xl font-bold pb-6">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             My skills
           </span>
         </h2>
@@ -52,7 +52,7 @@ export default function About() {
           <Skills />
         </div>
         <h2 className="text-3xl font-bold pb-6">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             My socials
           </span>
         </h2>

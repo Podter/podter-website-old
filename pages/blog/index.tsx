@@ -40,7 +40,7 @@ export default function Blog({
       />
       <Container>
         <h1 className="text-5xl font-bold">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Blog
           </span>
         </h1>
