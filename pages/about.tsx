@@ -1,7 +1,7 @@
 import Seo from "@/components/Seo";
 import Container from "@/components/Container";
-import Skills from "@/components/Skills";
-import Socials from "@/components/Socials";
+import Skills from "@/components/About/Skills";
+import Socials from "@/components/About/Socials";
 
 export default function About() {
   return (

@@ -5,7 +5,7 @@ import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
 import { format, parseISO } from "date-fns";
 import { Eye, CalendarDays } from "lucide-react";
 import { notFound } from "next/navigation";
-import Mdx from "@/components/Mdx";
+import Mdx from "@/components/Blog/Mdx";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";

@@ -1,6 +1,6 @@
 import Seo from "@/components/Seo";
 import Container from "@/components/Container";
-import BlogPost from "@/components/BlogPost";
+import BlogPost from "@/components/Blog/BlogPost";
 import { allPosts, Post } from "contentlayer/generated";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { compareDesc } from "date-fns";

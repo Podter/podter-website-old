@@ -1,12 +1,12 @@
 import Container from "@/components/Container";
 import { Icon } from "@iconify/react";
 import wavingHand from "@iconify/icons-fluent-emoji-flat/waving-hand";
-import Lanyard from "@/components/Lanyard";
-import Roblox from "@/components/Roblox";
-import WakaTime from "@/components/WakaTime";
+import Lanyard from "@/components/Cards/Lanyard";
+import Roblox from "@/components/Cards/Roblox";
+import WakaTime from "@/components/Cards/WakaTime";
 import SocialLinks from "@/components/SocialLinks";
-import Birthday from "@/components/Birthday";
-import Contact from "@/components/Contact";
+import Birthday from "@/components/Cards/Birthday";
+import Contact from "@/components/Cards/Contact";
 
 export default function Home() {
   return (
