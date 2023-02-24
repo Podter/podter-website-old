@@ -9,13 +9,6 @@ import NProgress from "nprogress";
 import { useRef } from "react";
 import { useScroll } from "react-use";
 import { DefaultSeo } from "next-seo";
-import {
-  motion,
-  AnimatePresence,
-  useReducedMotion,
-  Variants,
-} from "framer-motion";
-import { useRouter } from "next/router";
 
 import useAppLoading from "@/hooks/useAppLoading";
 
@@ -28,21 +21,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
 });
-
-const variants: Variants = {
-  initial: {
-    opacity: 0,
-    y: 50,
-  },
-  in: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.225,
-      ease: "easeOut",
-    },
-  },
-};
 
 console.log(
   `%c
@@ -60,9 +38,6 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
-  const { asPath } = useRouter();
-  const shouldReduceMotion = useReducedMotion();
-
   useAppLoading();
 
   NProgress.configure({
@@ -84,16 +59,7 @@ export default function App({
           <Drawer scrollRef={scrollRef}>
             <main className={`${poppins.className} flex flex-col min-h-screen`}>
               <Navbar />
-              <AnimatePresence initial={false} mode="wait">
-                <motion.div
-                  key={asPath}
-                  variants={!shouldReduceMotion ? variants : undefined}
-                  animate="in"
-                  initial="initial"
-                >
-                  <Component {...pageProps} />
-                </motion.div>
-              </AnimatePresence>
+              <Component {...pageProps} />
               <ScrollToTop scrollRef={scrollRef} y={scrollY} />
             </main>
           </Drawer>
