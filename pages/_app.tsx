@@ -1,5 +1,5 @@
-import "@/styles/globals.css";
-import "@/styles/nprogress.css";
+import "@/styles/globals.scss";
+import "@/styles/nprogress.scss";
 import SEO from "@/next-seo.config";
 import type { AppProps } from "next/app";
 import { Poppins } from "@next/font/google";
