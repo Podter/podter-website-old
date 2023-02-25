@@ -93,114 +93,120 @@ export default function Actions() {
   }, [session.status]);
 
   return (
-    <div
-      className={`flex flex-col md:flex-row md:items-center gap-2 pt-3 w-full ${
-        session.status === "authenticated" ? "md:w-72" : "md:w-60"
-      }`}
-    >
-      {session.status === "unauthenticated" ? (
-        <>
-          <button
-            className="btn w-full gap-3 duration-75 transition-colors"
-            onClick={() => signIn("github")}
-          >
-            Sign in with GitHub
-            <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
-          </button>
-          <button
-            className="btn w-full gap-3 duration-75 transition-colors"
-            onClick={() => signIn("discord")}
-          >
-            Sign in with Discord
-            <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
-          </button>
-        </>
-      ) : session.status === "authenticated" ? (
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text-alt">
-              Signed in as{" "}
-              <a
-                className="tooltip tooltip-top cursor-pointer"
-                data-tip={userData.text}
-                onMouseEnter={() => {
-                  if (!userData.url) {
-                    getUsername(
-                      session?.data?.user.providerAccountId || "",
-                      setUserData
-                    );
-                  }
-                }}
-                href={userData.url || undefined}
-              >
-                <span className="font-semibold">
-                  {session.data?.user?.name}
-                </span>
-              </a>
-            </span>
-          </label>
-          <form className="input-group" onSubmit={submit}>
-            <input
-              type="text"
-              placeholder="your message"
-              className={`input input-bordered w-full ${
-                error ? "input-error" : ""
-              }`}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required={true}
-              disabled={loading}
-            />
+    <>
+      <div
+        className={`flex flex-col md:flex-row md:items-center gap-2 pt-3 w-full ${
+          session.status === "authenticated" ? "md:w-72" : "md:w-60"
+        }`}
+      >
+        {session.status === "unauthenticated" ? (
+          <>
             <button
-              className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
-              data-tip={editing ? "Edit" : "Sign"}
-              type="submit"
-              disabled={loading}
+              className="btn w-full gap-3 duration-75 transition-colors"
+              onClick={() => signIn("github")}
             >
-              {loading ? (
-                <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
-              ) : (
-                <Edit3 className="h-6 w-6" size={24} />
-              )}
+              Sign in with GitHub
+              <Icon icon={githubIcon} className="h-6 w-6" scale={24} />
             </button>
-          </form>
-          <label className="label">
-            <span
-              className="label-text-alt link link-hover"
-              onClick={() => {
-                setLoading(true);
-                signOut();
-              }}
+            <button
+              className="btn w-full gap-3 duration-75 transition-colors"
+              onClick={() => signIn("discord")}
             >
-              <LogOut
-                className="inline mr-1 align-[-0.125em] h-3 w-3"
-                size={12}
+              Sign in with Discord
+              <Icon icon={discordIcon} className="h-6 w-6" scale={24} />
+            </button>
+          </>
+        ) : session.status === "authenticated" ? (
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text-alt">
+                Signed in as{" "}
+                <a
+                  className="tooltip tooltip-top cursor-pointer"
+                  data-tip={userData.text}
+                  onMouseEnter={() => {
+                    if (!userData.url) {
+                      getUsername(
+                        session?.data?.user.providerAccountId || "",
+                        setUserData
+                      );
+                    }
+                  }}
+                  href={userData.url || undefined}
+                >
+                  <span className="font-semibold">
+                    {session.data?.user?.name}
+                  </span>
+                </a>
+              </span>
+            </label>
+            <form className="input-group" onSubmit={submit}>
+              <input
+                type="text"
+                placeholder="your message"
+                className={`input input-bordered w-full ${
+                  error ? "input-error" : ""
+                }`}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required={true}
+                disabled={loading}
               />
-              Sign out
-            </span>
-            {editing ? (
-              <span
-                className="label-text-alt link link-hover link-error"
-                onClick={deleteMessage}
+              <button
+                className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
+                data-tip={editing ? "Edit" : "Sign"}
+                type="submit"
+                disabled={loading}
               >
-                <Trash2
+                {loading ? (
+                  <Icon
+                    icon={icon90RingWithBg}
+                    className="h-6 w-6"
+                    scale={24}
+                  />
+                ) : (
+                  <Edit3 className="h-6 w-6" size={24} />
+                )}
+              </button>
+            </form>
+            <label className="label">
+              <span
+                className="label-text-alt link link-hover"
+                onClick={() => {
+                  setLoading(true);
+                  signOut();
+                }}
+              >
+                <LogOut
                   className="inline mr-1 align-[-0.125em] h-3 w-3"
                   size={12}
                 />
-                Delete
+                Sign out
               </span>
-            ) : undefined}
-          </label>
-        </div>
-      ) : (
-        <>
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
-          <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
-          <div className="hidden md:block">
-            <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
+              {editing ? (
+                <span
+                  className="label-text-alt link link-hover link-error"
+                  onClick={deleteMessage}
+                >
+                  <Trash2
+                    className="inline mr-1 align-[-0.125em] h-3 w-3"
+                    size={12}
+                  />
+                  Delete
+                </span>
+              ) : undefined}
+            </label>
           </div>
-        </>
-      )}
+        ) : (
+          <>
+            <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+            <div className="btn btn-active no-animation w-full gap-3 duration-75 transition-colors animate-pulse cursor-not-allowed" />
+            <div className="hidden md:block">
+              <Icon icon={icon90RingWithBg} className="h-6 w-6" scale={24} />
+            </div>
+          </>
+        )}
+      </div>
       {error ? (
         <div className="toast">
           <div className="alert alert-error">
@@ -211,6 +217,6 @@ export default function Actions() {
           </div>
         </div>
       ) : undefined}
-    </div>
+    </>
   );
 }
