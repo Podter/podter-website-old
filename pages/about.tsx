@@ -45,9 +45,9 @@ export default function About() {
           <p className="pb-6 leading-8">
             I started coding since I was <b>12 years old</b>. My first
             programming language was <b>Lua</b> (or Luau) in Roblox Studio. Lua
-            is the easiest language to learn or getting getting started. And
-            then <b>JavaScript</b> and <b>TypeScript</b> for building Discord
-            bot (Cozmo bot). Now I stuck here forever because good ecosystem
+            is the easiest language to learn or getting started. And then{" "}
+            <b>JavaScript</b> and <b>TypeScript</b> for building Discord bot
+            (Cozmo bot). Now I&apos;m stuck here forever because good ecosystem
             like npm packages.
           </p>
           <p className="pb-3 leading-8 font-semibold">This is what can I do:</p>
