@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import Transition from "./Transition";
 
 type ContainerProps = {
   children?: ReactNode;
