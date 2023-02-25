@@ -1,28 +1,25 @@
-import axios from "axios";
+import wordList from "bad-words/lib/lang.json";
 
-export default async function checkBadWord(
-  message: string
-): Promise<boolean | undefined> {
-  try {
-    const res = await axios.post(
-      "https://neutrinoapi.net/bad-word-filter",
-      {
-        content: message,
-        catalog: "strict",
-      },
-      {
-        headers: {
-          "User-ID": process.env.NEUTRINO_API_USER_ID,
-          "API-Key": process.env.NEUTRINO_API_KEY,
-        },
-      }
-    );
+const badWords = [
+  ...wordList.words,
+  "gay",
+  "gays",
+  "pousay",
+  "deek",
+  "deeks",
+  "penıs",
+];
 
-    if (res.data["is-bad"] === true) {
+export default function checkBadWord(message: string): boolean {
+  const words = badWords.filter((word) => {
+    if (message.includes(word)) {
       return true;
     }
+  });
+
+  if (words.length) {
+    return true;
+  } else {
     return false;
-  } catch {
-    return undefined;
   }
 }

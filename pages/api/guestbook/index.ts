@@ -57,7 +57,7 @@ export default async function handler(
 
   if (req.method === "POST") {
     try {
-      const isBadWord = await checkBadWord(req.body.message || "");
+      const isBadWord = checkBadWord(req.body.message || "");
       const isBlacklisted = await checkBlacklisted(
         session.user.email,
         session.user.providerAccountId
@@ -130,7 +130,7 @@ export default async function handler(
 
   if (req.method === "PUT") {
     try {
-      const isBadWord = await checkBadWord(req.body.message || "");
+      const isBadWord = checkBadWord(req.body.message || "");
       const isBlacklisted = await checkBlacklisted(
         session.user.email,
         session.user.providerAccountId
