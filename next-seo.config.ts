@@ -32,6 +32,10 @@ const config: DefaultSeoProps = {
   additionalLinkTags: [{ rel: "icon", href: "/favicon.svg" }],
   additionalMetaTags: [
     { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      name: "google-site-verification",
+      content: "5fsIu1i2wz0cT91raewFWk7jkTLLeKihn7jdMUkLxCo",
+    },
   ],
 };
 
