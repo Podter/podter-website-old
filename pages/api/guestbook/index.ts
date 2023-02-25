@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth/next";
 import prisma from "@/lib/prismadb";
 import { format } from "date-fns";
 import checkBadWord from "@/utils/checkBadWord";
+import checkBlacklisted from "@/utils/checkBlacklisted";
 import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(
@@ -57,16 +58,24 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       const isBadWord = await checkBadWord(req.body.message || "");
+      const isBlacklisted = await checkBlacklisted(
+        session.user.email,
+        session.user.providerAccountId
+      );
 
-      if (isBadWord === true) {
-        res.status(403).json({
+      if (isBadWord === true || isBlacklisted === true) {
+        return res.status(403).json({
           message: "Forbidden",
           data: {
-            reason: "Bad words are not allowed",
+            reason: isBadWord
+              ? "Bad words are not allowed"
+              : isBlacklisted
+              ? "You are blacklisted"
+              : undefined,
           },
           code: res.statusCode,
         });
-      } else if (isBadWord === undefined) {
+      } else if (isBadWord === undefined || isBlacklisted === undefined) {
         throw new Error();
       }
 
@@ -83,7 +92,8 @@ export default async function handler(
       return res
         .status(201)
         .json({ message: "Created", data: data, code: res.statusCode });
-    } catch {
+    } catch (e) {
+      console.error(e);
       return res
         .status(500)
         .json({ message: "Internal Server Error", code: res.statusCode });
@@ -121,16 +131,24 @@ export default async function handler(
   if (req.method === "PUT") {
     try {
       const isBadWord = await checkBadWord(req.body.message || "");
+      const isBlacklisted = await checkBlacklisted(
+        session.user.email,
+        session.user.providerAccountId
+      );
 
-      if (isBadWord === true) {
-        res.status(403).json({
+      if (isBadWord === true || isBlacklisted === true) {
+        return res.status(403).json({
           message: "Forbidden",
           data: {
-            reason: "Bad words are not allowed",
+            reason: isBadWord
+              ? "Bad words are not allowed"
+              : isBlacklisted
+              ? "You are blacklisted"
+              : undefined,
           },
           code: res.statusCode,
         });
-      } else if (isBadWord === undefined) {
+      } else if (isBadWord === undefined || isBlacklisted === undefined) {
         throw new Error();
       }
 

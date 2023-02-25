@@ -21,6 +21,7 @@ export default function Actions() {
     text: "Loading...",
     url: "",
   });
+  const [blacklisted, setBlacklisted] = useState(false);
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,12 +76,18 @@ export default function Actions() {
     async function fetchData() {
       try {
         if (session.status === "authenticated") {
+          const blacklistedRes = await axios.get(
+            "/api/guestbook/isblacklisted"
+          );
+          const blacklistedData = blacklistedRes.data.data as boolean;
+
+          setBlacklisted(blacklistedData);
+
           const res = await axios.get("/api/guestbook/getcurrentuser");
+          const data = res.data.data as GuestbookData | undefined;
 
-          const data = res.data.data as GuestbookData;
-
-          setMessage(data.message);
-          setEditing(true);
+          setMessage(data?.message || "");
+          setEditing(!data ? false : true);
           setLoading(false);
         }
       } catch {
@@ -143,20 +150,22 @@ export default function Actions() {
             <form className="input-group" onSubmit={submit}>
               <input
                 type="text"
-                placeholder="your message"
+                placeholder={
+                  blacklisted ? "You are blacklisted" : "your message"
+                }
                 className={`input input-bordered w-full ${
                   error ? "input-error" : ""
                 }`}
-                value={message}
+                value={blacklisted ? "" : message}
                 onChange={(e) => setMessage(e.target.value)}
                 required={true}
-                disabled={loading}
+                disabled={loading || blacklisted}
               />
               <button
                 className="btn btn-square tooltip tooltip-top inline-flex font-normal normal-case duration-100"
                 data-tip={editing ? "Edit" : "Sign"}
                 type="submit"
-                disabled={loading}
+                disabled={loading || blacklisted}
                 aria-label={editing ? "Edit" : "Sign"}
               >
                 {loading ? (

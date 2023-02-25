@@ -31,3 +31,9 @@ model Roblox {
   userId     String
   lastOnline DateTime
 }
+
+model Blacklist {
+  id                String  @id @default(cuid())
+  email             String
+  providerAccountId String?
+}
