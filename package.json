@@ -23,7 +23,6 @@
     "date-fns": "^2.29.3",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
-    "framer-motion": "^9.0.2",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
     "next-contentlayer": "^0.3.0",
@@ -56,6 +55,7 @@
     "prisma": "^4.9.0",
     "react-confetti": "^6.1.0",
     "react-use": "^17.4.0",
+    "sass": "^1.58.3",
     "tailwindcss": "^3.2.4",
     "use-lanyard": "^1.4.2"
   }

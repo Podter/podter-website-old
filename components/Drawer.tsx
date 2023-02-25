@@ -1,4 +1,4 @@
-import menus from "@/lib/menus";
+import pages from "@/data/pages";
 import Link from "next/link";
 import { ReactNode, RefObject, useRef } from "react";
 import { X } from "lucide-react";
@@ -29,7 +29,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
           <div className="my-2 flex flex-row">
             <Link
               href="/"
-              className="btn btn-ghost normal-case text-2xl font-bold bg-gradient-to-r text-transparent from-ctp-red to-ctp-blue bg-clip-text"
+              className="btn btn-ghost normal-case text-2xl font-bold bg-gradient-to-r text-transparent from-primary to-secondary bg-clip-text"
               onClick={() => closeRef.current?.click()}
             >
               Podter
@@ -48,7 +48,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
                 Home
               </Link>
             </li>
-            {menus.map((item, index) => (
+            {pages.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.href}

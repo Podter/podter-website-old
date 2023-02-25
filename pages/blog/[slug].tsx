@@ -5,7 +5,7 @@ import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
 import { format, parseISO } from "date-fns";
 import { Eye, CalendarDays } from "lucide-react";
 import { notFound } from "next/navigation";
-import Mdx from "@/components/Mdx";
+import Mdx from "@/components/Blog/Mdx";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
@@ -65,7 +65,7 @@ export default function BlogLayout({
       />
       <Container>
         <h1 className="text-5xl font-bold">
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {post.title}
           </span>
         </h1>

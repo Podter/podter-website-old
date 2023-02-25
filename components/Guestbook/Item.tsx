@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { User } from "lucide-react";
 import { useState } from "react";
-import getUsername, { UserData } from "@/lib/getUsername";
+import getUsername, { UserData } from "@/utils/getUsername";
 
 export default function GuestbookItem({
   name,

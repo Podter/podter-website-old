@@ -22,7 +22,7 @@ export default function Roblox() {
 
   return (
     <a
-      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
+      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-lg shadow-base-300 p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
       href="https://www.roblox.com/users/126064549/profile"
     >
       {data ? (
@@ -30,9 +30,9 @@ export default function Roblox() {
           <div className="flex flex-row items-center h-9 gap-4">
             <div className="avatar">
               <div
-                className={`w-10 rounded-full ring ring-offset-base-100 ring-offset-2 ${
+                className={`w-10 rounded-full ring ring-offset-base-200 ring-offset-2 ${
                   data.presences.userPresenceType === "online"
-                    ? "ring-ctp-blue"
+                    ? "ring-info"
                     : data.presences.userPresenceType === "inGame"
                     ? "ring-success"
                     : data.presences.userPresenceType === "studio"
@@ -47,7 +47,7 @@ export default function Roblox() {
                   width={40}
                   height={40}
                   alt="Podter's Roblox headshot avatar"
-                  className="bg-ctp-crust"
+                  className="bg-base-200"
                 />
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function Roblox() {
                     width={64}
                     height={64}
                     alt="Place thumbnail"
-                    className="rounded-xl h-16 w-16 bg-ctp-crust"
+                    className="rounded-xl h-16 w-16 bg-base-200"
                   />
                 ) : (
                   <Image
@@ -75,7 +75,7 @@ export default function Roblox() {
                     width={64}
                     height={64}
                     alt="Place thumbnail"
-                    className="rounded-xl h-16 w-16 bg-ctp-crust"
+                    className="rounded-xl h-16 w-16 bg-base-200"
                   />
                 )}
               </div>
@@ -101,7 +101,7 @@ export default function Roblox() {
                   width={64}
                   height={64}
                   alt="Podter's Roblox boody avatar"
-                  className="rounded-xl h-16 w-16 bg-ctp-crust p-2"
+                  className="rounded-xl h-16 w-16 bg-base-200 p-2"
                 />
               </div>
               <div className="divider divider-horizontal hidden md:flex" />

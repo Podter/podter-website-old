@@ -19,7 +19,7 @@ const Error: NextPage<Props> = ({ statusCode }) => {
       <Container>
         <h1 className="text-5xl font-bold">
           <Icon className="inline" icon={alertCircle} inline={true} /> An error{" "}
-          <span className="bg-gradient-to-r from-ctp-red to-ctp-blue bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {statusCode}
           </span>{" "}
           occurred

@@ -20,7 +20,7 @@ export default function ProjectCard({
   sourceUrl,
 }: ProjectCardProps) {
   return (
-    <div className="card bg-base-100 shadow-xl hover:scale-[1.025] transition-all duration-75 md:h-[32rem]">
+    <div className="card bg-base-100 shadow-lg shadow-base-300 hover:scale-[1.025] transition-all duration-75 md:h-[32rem]">
       <figure className="h-56">
         <Image src={img} alt="Project image" />
       </figure>

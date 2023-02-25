@@ -1,6 +1,6 @@
 import ThemeSwitch from "./ThemeSwitch";
 import Link from "next/link";
-import menus from "@/lib/menus";
+import menus from "@/data/pages";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRef, useState, MouseEvent } from "react";
@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="flex-1">
         <button
           onClick={navClick}
-          className="btn btn-ghost normal-case text-xl font-bold bg-gradient-to-r hover:text-transparent from-ctp-red to-ctp-blue bg-clip-text transition-colors duration-75 hover:duration-300"
+          className="btn btn-ghost normal-case text-xl font-bold bg-gradient-to-r hover:text-transparent from-primary to-secondary bg-clip-text transition-colors duration-75 hover:duration-300"
         >
           Podter
         </button>

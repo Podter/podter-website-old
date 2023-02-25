@@ -12,7 +12,7 @@ export default function Lanyard() {
 
   return (
     <a
-      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-xl p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
+      className="flex flex-col h-56 w-full md:w-96 bg-base-100 shadow-lg shadow-base-300 p-8 rounded-2xl hover:scale-[1.025] transition-all duration-75 cursor-pointer"
       href="https://discord.com/users/331793642689789962"
     >
       {data ? (
@@ -20,7 +20,7 @@ export default function Lanyard() {
           <div className="flex flex-row items-center h-9 gap-4">
             <div className="avatar">
               <div
-                className={`w-10 rounded-full ring ring-offset-base-100 ring-offset-2 ${
+                className={`w-10 rounded-full ring ring-offset-base-200 ring-offset-2 ${
                   data.discord_status === "online"
                     ? "ring-success"
                     : data.discord_status === "idle"
@@ -64,7 +64,7 @@ export default function Lanyard() {
                 {!data.activities[0].assets ? (
                   <HelpCircle
                     size={64}
-                    className="rounded-xl h-16 w-16 bg-ctp-crust p-3"
+                    className="rounded-xl h-16 w-16 bg-base-200 p-3"
                   />
                 ) : (
                   <>
@@ -73,14 +73,14 @@ export default function Lanyard() {
                       width={64}
                       height={64}
                       alt="Large image"
-                      className="rounded-xl h-16 w-16 bg-ctp-crust"
+                      className="rounded-xl h-16 w-16 bg-base-200"
                     />
                     <Image
                       src={`https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.png?size=48`}
                       width={24}
                       height={24}
                       alt="Small image"
-                      className="rounded-full bg-ctp-crust bg-opacity-20 h-6 -right-1 -bottom-1 ring-[3px] ring-ctp-crust ring-opacity-20 w-6 absolute"
+                      className="rounded-full bg-base-200 bg-opacity-20 h-6 -right-1 -bottom-1 ring-[3px] ring-base-200 ring-opacity-20 w-6 absolute"
                     />
                   </>
                 )}
