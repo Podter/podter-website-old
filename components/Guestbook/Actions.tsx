@@ -157,6 +157,7 @@ export default function Actions() {
                 data-tip={editing ? "Edit" : "Sign"}
                 type="submit"
                 disabled={loading}
+                aria-label={editing ? "Edit" : "Sign"}
               >
                 {loading ? (
                   <Icon
