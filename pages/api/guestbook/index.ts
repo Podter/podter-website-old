@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import prisma from "@/lib/prismadb";
 import { format } from "date-fns";
-import checkBadWord from "@/lib/checkBadWord";
+import checkBadWord from "@/utils/checkBadWord";
 import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(

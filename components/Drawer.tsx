@@ -1,4 +1,4 @@
-import menus from "@/lib/menus";
+import pages from "@/data/pages";
 import Link from "next/link";
 import { ReactNode, RefObject, useRef } from "react";
 import { X } from "lucide-react";
@@ -48,7 +48,7 @@ export default function Drawer({ children, scrollRef }: DrawerProps) {
                 Home
               </Link>
             </li>
-            {menus.map((item, index) => (
+            {pages.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.href}

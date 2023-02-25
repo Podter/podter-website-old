@@ -1,9 +1,9 @@
-interface MenuItem {
+interface PageItem {
   name: string;
   href: string;
 }
 
-const menus: MenuItem[] = [
+const pages: PageItem[] = [
   {
     name: "About",
     href: "/about",
@@ -22,4 +22,4 @@ const menus: MenuItem[] = [
   },
 ];
 
-export default menus;
+export default pages;

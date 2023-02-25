@@ -7,7 +7,7 @@ import { LogOut, XCircle, Edit3, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/router";
-import getUsername, { UserData } from "@/lib/getUsername";
+import getUsername, { UserData } from "@/utils/getUsername";
 
 export default function Actions() {
   const session = useSession();

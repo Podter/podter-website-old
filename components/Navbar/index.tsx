@@ -1,6 +1,6 @@
 import ThemeSwitch from "./ThemeSwitch";
 import Link from "next/link";
-import menus from "@/lib/menus";
+import menus from "@/data/pages";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRef, useState, MouseEvent } from "react";
