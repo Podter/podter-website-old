@@ -37,8 +37,8 @@ export default async function handler(
 
       if (!rawData) {
         return res
-          .status(404)
-          .json({ message: "Not Found", code: res.statusCode });
+          .status(200)
+          .json({ message: "Success", data: undefined, code: res.statusCode });
       }
 
       const data: GuestbookData = {
