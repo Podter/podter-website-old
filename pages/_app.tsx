@@ -30,7 +30,7 @@ console.log(
   ██      ██    ██ ██   ██    ██    ██      ██   ██ 
   ██       ██████  ██████     ██    ███████ ██   ██ 
                                                     
-  A student and self taught developer from Thailand.`,
+  A student and self-taught developer from Thailand.`,
   "font-family: monospace; color: #d20f39;"
 );
 

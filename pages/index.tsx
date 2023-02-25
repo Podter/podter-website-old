@@ -18,7 +18,7 @@ export default function Home() {
           <Icon className="inline" icon={wavingHand} inline={true} />
         </h1>
         <p className="py-6">
-          Hey, I&apos;m Podter. I&apos;m a student and self taught developer
+          Hey, I&apos;m Podter. I&apos;m a student and self-taught developer
           from Thailand.
         </p>
         <div className="flex flex-row gap-2 w-28 pb-1">

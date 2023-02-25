@@ -8,7 +8,7 @@ export default function About() {
     <>
       <Seo
         title="About"
-        description="Hey, I'm Podter. I'm a student and self taught developer from Thailand."
+        description="Hey, I'm Podter. I'm a student and self-taught developer from Thailand."
       />
       <Container>
         <h1 className="text-5xl font-bold">
@@ -23,7 +23,7 @@ export default function About() {
             short. Sometimes I call myself <b>Potter</b>.
           </p>
           <p className="pb-6 leading-8">
-            I&apos;m a <b>student</b> and <b>self taught developer</b>. I come
+            I&apos;m a <b>student</b> and <b>self-taught developer</b>. I come
             from Thailand and English is my secondary language. Sometimes I play{" "}
             games like Roblox, Minecraft or anything else. Or maybe spending my
             time chatting in Discord and listening to musics.

@@ -1,6 +1,6 @@
 # podter.xyz
 
-![A student and self taught developer from Thailand.](public/og-bg.png)
+![A student and self-taught developer from Thailand.](public/og-bg.png)
 
 [![Tech stack](https://skillicons.dev/icons?i=nextjs,nodejs,planetscale,prisma,react,tailwind,ts,vercel)](https://skillicons.dev)
 

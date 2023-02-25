@@ -4,11 +4,11 @@ const config: DefaultSeoProps = {
   title: undefined,
   titleTemplate: "%s | Podter",
   defaultTitle: "Podter",
-  description: "A student and self taught developer from Thailand.",
+  description: "A student and self-taught developer from Thailand.",
   themeColor: "#d20f39",
   openGraph: {
     title: "Podter",
-    description: "A student and self taught developer from Thailand.",
+    description: "A student and self-taught developer from Thailand.",
     url: "https://podter.xyz",
     siteName: "Podter",
     locale: "en-US",
