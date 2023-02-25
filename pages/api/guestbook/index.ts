@@ -75,7 +75,7 @@ export default async function handler(
           },
           code: res.statusCode,
         });
-      } else if (isBadWord === undefined || isBlacklisted === undefined) {
+      } else if (isBlacklisted === undefined) {
         throw new Error();
       }
 
@@ -148,7 +148,7 @@ export default async function handler(
           },
           code: res.statusCode,
         });
-      } else if (isBadWord === undefined || isBlacklisted === undefined) {
+      } else if (isBlacklisted === undefined) {
         throw new Error();
       }
 
