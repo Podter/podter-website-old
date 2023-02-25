@@ -17,10 +17,10 @@ export default function LoadingGuestbookItem() {
       <div className="flex w-full text-sm items-center gap-2">
         <div className="w-6 h-6">
           <div className="avatar">
-            <div className="flex justify-center items-center w-6 h-6 rounded-full bg-base-300 animate-pulse" />
+            <div className="flex justify-center items-center w-6 h-6 rounded-full bg-neutral animate-pulse" />
           </div>
         </div>
-        <p className="bg-base-300 rounded text-base-300 select-none animate-pulse">
+        <p className="bg-neutral rounded text-neutral select-none animate-pulse md:max-w-none max-w-[75ch] overflow-hidden text-ellipsis whitespace-nowrap">
           <span>Someone: </span>
           {message}
         </p>
