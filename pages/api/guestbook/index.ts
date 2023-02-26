@@ -2,9 +2,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import prisma from "@/lib/prismadb";
 import { format } from "date-fns";
-import checkBadWord from "@/utils/checkBadWord";
+import BadWordsFilter from "bad-words";
 import checkBlacklisted from "@/utils/checkBlacklisted";
 import { authOptions } from "../auth/[...nextauth]";
+import badWords from "@/data/badWords";
+
+const filter = new BadWordsFilter();
+filter.addWords(...badWords);
 
 export default async function handler(
   req: NextApiRequest,
@@ -57,7 +61,7 @@ export default async function handler(
 
   if (req.method === "POST") {
     try {
-      const isBadWord = checkBadWord(req.body.message || "");
+      const isBadWord = filter.isProfane(req.body.message || "");
       const isBlacklisted = await checkBlacklisted(
         session.user.email,
         session.user.providerAccountId
@@ -130,7 +134,7 @@ export default async function handler(
 
   if (req.method === "PUT") {
     try {
-      const isBadWord = checkBadWord(req.body.message || "");
+      const isBadWord = filter.isProfane(req.body.message || "");
       const isBlacklisted = await checkBlacklisted(
         session.user.email,
         session.user.providerAccountId
