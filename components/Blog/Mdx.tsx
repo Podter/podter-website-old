@@ -10,7 +10,7 @@ function CustomImage(props: any) {
   return (
     <Image
       alt={props.alt}
-      className="rounded-lg"
+      className="rounded-lg w-full"
       {...props}
       width={1280}
       height={720}
