@@ -9,6 +9,7 @@ import NProgress from "nprogress";
 import { useRef } from "react";
 import { useScroll } from "react-use";
 import { DefaultSeo } from "next-seo";
+import { Analytics } from "@vercel/analytics/react";
 
 import useAppLoading from "@/hooks/useAppLoading";
 
@@ -65,6 +66,7 @@ export default function App({
           </Drawer>
         </ThemeProvider>
       </SessionProvider>
+      <Analytics />
     </>
   );
 }
