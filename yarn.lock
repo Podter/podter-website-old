@@ -357,10 +357,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/icons-fluent-emoji-flat@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-fluent-emoji-flat/-/icons-fluent-emoji-flat-1.2.7.tgz#929b72a4e1530cbdc5540b5c4a525c349ed5a103"
-  integrity sha512-WnzUSkXWD3HvsHj+aIsG8l1pzfU8cerF1Po/upnRi3qorzWxowpc0u2gEvt07z1hMHqtsFQCKn3zwbSdCxXhXQ==
+"@iconify/icons-fluent-emoji-flat@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-fluent-emoji-flat/-/icons-fluent-emoji-flat-1.2.8.tgz#d4bcea05a3e2a8afc5861e36cd4617c392a15395"
+  integrity sha512-S1E9jUNmCxt/3DaIPQ1mI7lR2akRvrWcdB/VYna02AWV/e960NK80xKizRH2M+3u1cgTC8YksqfkKjDUOaNMeQ==
   dependencies:
     "@iconify/types" "*"
 
@@ -371,17 +371,17 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/icons-material-symbols@^1.2.32":
-  version "1.2.32"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-material-symbols/-/icons-material-symbols-1.2.32.tgz#ae73977e007fe88d15041ead5e2b7419a8ca751b"
-  integrity sha512-zBqia4sx1eN+fuxxpfPKdYIwFqHkbRccBSedLIAnfyq2yDYFODLDffa0f01D/cDWCafGu9oiyDtIQ9T54JMPBw==
+"@iconify/icons-material-symbols@^1.2.33":
+  version "1.2.33"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-material-symbols/-/icons-material-symbols-1.2.33.tgz#159cc98adbf625e2648195b7cfb0d3992215d596"
+  integrity sha512-9pv+PnBIMFM0ZJN3IiEutcRFmy9oH+SeF0rnQmhyW9exmHfdtnkX2km5W2yojmRM58JiarNcUwN1BdaHAdt05Q==
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/icons-simple-icons@^1.2.45":
-  version "1.2.45"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-simple-icons/-/icons-simple-icons-1.2.45.tgz#d605ea1050f356b74f1dadbf950a8318c30e9d9d"
-  integrity sha512-56Wyp8DNZ6tTF+agpdR17MYgnPH7kF9rZXRGWxnkAQK2fBjOFO6zSeuriejtQB8mHRy7Fi9eaOEQBH75mHxC+Q==
+"@iconify/icons-simple-icons@^1.2.46":
+  version "1.2.46"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-simple-icons/-/icons-simple-icons-1.2.46.tgz#4c8de1c3f46e5fce804f92a68b9319c1fe2d7dc6"
+  integrity sha512-Suj/PnMDdIO1obdmQ7DKC/anEmZtZqYMeye1AnSGr7SSei8641Y/n5bFfnnG9lDVWwE+qAaP1UU8nbS9XH4D9w==
   dependencies:
     "@iconify/types" "*"
 
@@ -897,10 +897,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@18.15.3":
-  version "18.15.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.3.tgz#f0b991c32cfc6a4e7f3399d6cb4b8cf9a0315014"
-  integrity sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==
+"@types/node@18.15.5":
+  version "18.15.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.5.tgz#3af577099a99c61479149b716183e70b5239324a"
+  integrity sha512-Ark2WDjjZO7GmvsyFFf81MXuGTA/d6oP38anyxWOL6EREyBKAxKoFHwBhaZxCfLRLpO8JgVXwqOwSwa7jRcjew==
 
 "@types/node@>=12.12.47", "@types/node@>=13.7.0":
   version "18.13.0"
@@ -1011,10 +1011,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-0.1.11.tgz#727a0ac655a4a89104cdea3e6925476470299428"
   integrity sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==
 
-"@vercel/og@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@vercel/og/-/og-0.4.0.tgz#f11ffe7b922257a0a6f9cba7dff0e6b503b97b3f"
-  integrity sha512-FFjXYCD5ZM0VotC9niy11qf4m6D99JVQ73P/uCLJl/r2PeOj0l26xwTEQ4HHJ/yZ6ncByCNoWAjk+S0fjMJmwg==
+"@vercel/og@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@vercel/og/-/og-0.4.1.tgz#4c151939c45296ceda675b618dcd0948cf9a6530"
+  integrity sha512-N8SXkbmQQRK0iHpqwUe50Fe8JO3sx2ByV6hgPTi16ONiMdqOM9uzE4QMWoY1Oa0uYZuUVA30sEB84mVMn+gT3w==
   dependencies:
     "@resvg/resvg-wasm" "2.4.1"
     satori "0.4.1"
@@ -1536,10 +1536,10 @@ csstype@^3.0.2, csstype@^3.0.6:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
-daisyui@^2.51.4:
-  version "2.51.4"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.51.4.tgz#dd4f70aeb603af9dfe42d1a1e2a8456fc57c5110"
-  integrity sha512-TGYD2BQCduxkKbDALlaWWaUdi33tryUuO/MxxBtAmLJ9zKn04gF6xduMxbrAUesR4AFr6LZW187TqF2H5c1AoA==
+daisyui@^2.51.5:
+  version "2.51.5"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.51.5.tgz#9caf846ef602d949a468bc2d5f0a7f877cdce5f5"
+  integrity sha512-L05dRw0tasmz2Ha+10LhftEGLq4kaA8vRR/T0wDaXfHwqcgsf81jfXDJ6NlZ63Z7Rl1k3rj7UHs0l0p7CM3aYA==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
@@ -3081,10 +3081,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lucide-react@^0.125.0:
-  version "0.125.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.125.0.tgz#6ba26efe49d36c15d76cbfc2d11bb5a9218aacd2"
-  integrity sha512-tadphtB6TPytEitR9vX75hqu9PQT/uz5RcvXMq976nC190eukAM9+cHMgBxfvfEGDXwIhIT9aFxTUGdAjxw9uQ==
+lucide-react@^0.127.0:
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.127.0.tgz#859d7c77cc0499abe7e0ddc934932a9520c0808d"
+  integrity sha512-9xxwl2FbdwWDjB0L6FEsOSbeOVp7Pj+L3urz+xDJNx1xggmQgGjeKDJQ28i/9ON8rV9HaqwQveBtsYnHqtWLqg==
 
 markdown-extensions@^1.0.0:
   version "1.1.1"
