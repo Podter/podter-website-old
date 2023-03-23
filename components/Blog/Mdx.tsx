@@ -10,10 +10,13 @@ function CustomImage(props: any) {
   return (
     <Image
       alt={props.alt}
+      blurDataURL={props.blurDataURL}
+      placeholder={props.blurDataURL ? "blur" : "empty"}
+      src={props.src}
+      width={Number(props.width)}
+      height={Number(props.height)}
       className="rounded-lg w-full"
       {...props}
-      width={1280}
-      height={720}
     />
   );
 }
@@ -26,7 +29,7 @@ export default function Mdx({ code }: MdxProps) {
   const MDXContent = useMDXComponent(code);
 
   return (
-    <article className="prose">
+    <article className="prose min-w-full">
       <MDXContent
         components={{
           a: CustomLink,
