@@ -2,7 +2,7 @@ import "@/styles/globals.scss";
 import "@/styles/nprogress.scss";
 import SEO from "@/next-seo.config";
 import type { AppProps } from "next/app";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
