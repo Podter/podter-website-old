@@ -26,12 +26,6 @@ model BlogViews {
   views Int
 }
 
-model Roblox {
-  id         String   @id @default(cuid())
-  userId     String
-  lastOnline DateTime
-}
-
 model Blacklist {
   id                String  @id @default(cuid())
   email             String

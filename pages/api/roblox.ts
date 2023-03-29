@@ -1,6 +1,4 @@
-import prisma from "@/lib/prismadb";
 import axios from "axios";
-import { parseISO } from "date-fns";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const userId = 126064549;
@@ -29,6 +27,12 @@ export default async function handler(
       const followerCount = await axios.get(
         `https://friends.roblox.com/v1/users/${userId}/followers/count`
       );
+      const lastOnline = await axios.post(
+        "https://presence.roblox.com/v1/presence/last-online",
+        {
+          userIds: [userId],
+        }
+      );
 
       // See https://github.com/Podter/roblox-presence-api
       const playerPresences = await axios.get(
@@ -46,28 +50,6 @@ export default async function handler(
             playerPresences.data.data.placeId
           }&returnPolicy=PlaceHolder&size=150x150&format=Png&isCircular=false`
         );
-      }
-
-      let lastOnline = parseISO(playerPresences.data.data.lastOnline);
-      const dbLastOnline = await prisma.roblox.findFirst({
-        where: {
-          userId: `${userId}`,
-        },
-        select: {
-          lastOnline: true,
-        },
-      });
-      if (!dbLastOnline) {
-        await prisma.roblox.create({
-          data: {
-            userId: `${userId}`,
-            lastOnline: lastOnline,
-          },
-        });
-      } else {
-        if (lastOnline < dbLastOnline.lastOnline) {
-          lastOnline = dbLastOnline.lastOnline;
-        }
       }
 
       return res.status(200).json({
@@ -89,7 +71,7 @@ export default async function handler(
             placeThumbnail: placeThumbnail
               ? placeThumbnail.data.data[0].imageUrl
               : null,
-            lastOnline: lastOnline.toISOString(),
+            lastOnline: lastOnline.data.lastOnlineTimestamps[0].lastOnline,
           },
         },
         code: res.statusCode,
