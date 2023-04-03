@@ -37,9 +37,7 @@ export default function Roblox() {
                     ? "ring-success"
                     : data.presences.userPresenceType === "studio"
                     ? "ring-warning"
-                    : data.presences.userPresenceType === "offline"
-                    ? "ring-gray-500"
-                    : ""
+                    : "ring-gray-500"
                 }`}
               >
                 <Image

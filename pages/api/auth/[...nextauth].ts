@@ -33,7 +33,9 @@ export const authOptions: AuthOptions = {
 
       return true;
     },
-    async session({ session, token }) {
+    async session({ session: nextAuthSession, token }) {
+      const session = nextAuthSession as any;
+
       session.user.providerAccountId = token.sub;
       return session;
     },

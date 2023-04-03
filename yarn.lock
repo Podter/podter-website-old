@@ -14,10 +14,10 @@
   resolved "https://registry.yarnpkg.com/@catppuccin/palette/-/palette-0.1.5.tgz#79350555c86707913942bf4feaac9fe9bc0c1d7c"
   integrity sha512-IQLsZwXDMpLc5CFGjIMa/gFnnFL/QLB280F11B51JweZHerZ/FgPXdIR4eQqn1CgrqI3wGfgnj1LVPx12DV/Uw==
 
-"@catppuccin/palette@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@catppuccin/palette/-/palette-0.1.7.tgz#c5c0a1f182a37984cdd90cddd8952eddf857e769"
-  integrity sha512-tgYE1PQLEs4Nz/OA28/kD0WhJKQEvXcuL2BPVdyHYQr0zb9l03lAwRXt7ZAP5PPuczFq0BgemPPdAdG+T2FZug==
+"@catppuccin/palette@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@catppuccin/palette/-/palette-0.1.8.tgz#2a47372d523213fc86c80462904265c56bb648b9"
+  integrity sha512-41quIj08vgPMy8kQxQb0+VqxuTlo2xfNYGSgOuiJXNojWnGuhLxBc61jgu2jiZYGNXVqgVNGWwmWEUf6s32jiA==
 
 "@catppuccin/tailwindcss@^0.1.1":
   version "0.1.1"
@@ -944,10 +944,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@18.0.31":
-  version "18.0.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.31.tgz#a69ef8dd7bfa849734d258c793a8fe343a338205"
-  integrity sha512-EEG67of7DsvRDU6BLLI0p+k1GojDLz9+lZsnCpCRTa/lOokvyPBvp8S5x+A24hME3yyQuIipcP70KJ6H7Qupww==
+"@types/react@18.0.32":
+  version "18.0.32"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.32.tgz#5e88b2af6833251d54ec7fe86d393224499f41d5"
+  integrity sha512-gYGXdtPQ9Cj0w2Fwqg5/ak6BcK3Z15YgjSqtyDizWUfx7mQ8drs0NBUzRRsAdoFVTO8kJ8L2TL8Skm7OFPnLUw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3212,10 +3212,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lucide-react@^0.129.0:
-  version "0.129.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.129.0.tgz#c0eeedd1f64c1e8bb8cd40a931204da9e50b043f"
-  integrity sha512-kGEZ+pOk9FLKsCr4luL4HYqr23lQdVbmN+3cgTj0Ye6s95FED3CX/DNzB3o8/TimgNmKKw+iq+g3mnTbtS7/ew==
+lucide-react@^0.130.0:
+  version "0.130.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.130.0.tgz#69ee8451f79066a96ec83bb343cad9635cc5278e"
+  integrity sha512-9RrBRQAxx7SZUpV7z0T0XLR6EWMydd+G77WijyKmK1+MW9Icx0PM+/HstiMSsi/3EIyw7RgMIV9BO0+iUfZYtA==
 
 markdown-extensions@^1.0.0:
   version "1.1.1"
@@ -3930,10 +3930,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-auth@^4.20.1:
-  version "4.20.1"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.20.1.tgz#6e65c4fde14171f6ce64f05f672f80f39fc418c7"
-  integrity sha512-ZcTUN4qzzZ/zJYgOW0hMXccpheWtAol8QOMdMts+LYRcsPGsqf2hEityyaKyECQVw1cWInb9dF3wYwI5GZdEmQ==
+next-auth@^4.21.0:
+  version "4.21.0"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.21.0.tgz#e9d62245fbe9f6d08b9b278ae935b0b836e7d757"
+  integrity sha512-KbqFQAPG5GVqszrjMFv5LXAkpmG1hs9sOkC6T+DshmfJ8COm3y/rIdIw9nEEZ17lqZNXy2/1+mVmwVDrPbLeng==
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@panva/hkdf" "^1.0.2"
@@ -3953,10 +3953,10 @@ next-contentlayer@^0.3.1:
     "@contentlayer/core" "0.3.1"
     "@contentlayer/utils" "0.3.1"
 
-next-seo@^5.15.0:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.15.0.tgz#b1a90508599774982909ea44803323c6fb7b50f4"
-  integrity sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==
+next-seo@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.0.0.tgz#4568dc61a44dbdf5fe5ff44156cd0ff8804889a2"
+  integrity sha512-jKKt1p1z4otMA28AyeoAONixVjdYmgFCWwpEFtu+DwRHQDllVX3RjtyXbuCQiUZEfQ9rFPBpAI90vDeLZlMBdg==
 
 next-themes@^0.2.1:
   version "0.2.1"
@@ -5099,10 +5099,10 @@ tailwindcss@^3, tailwindcss@^3.0.24:
     quick-lru "^5.1.1"
     resolve "^1.22.1"
 
-tailwindcss@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.0.tgz#8cab40e5a10a10648118c0859ba8bfbc744a761e"
-  integrity sha512-hOXlFx+YcklJ8kXiCAfk/FMyr4Pm9ck477G0m/us2344Vuj355IpoEDB5UmGAsSpTBmr+4ZhjzW04JuFXkb/fw==
+tailwindcss@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.1.tgz#b6662fab6a9b704779e48d083a9fef5a81d2b81e"
+  integrity sha512-Vkiouc41d4CEq0ujXl6oiGFQ7bA3WEhUZdTgXAhtKxSy49OmKs8rEfQmupsfF0IGW8fv2iQkp1EVUuapCFrZ9g==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
@@ -5304,10 +5304,10 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.2.tgz#891e1a90c5189d8506af64b9ef929fca99ba1ee5"
-  integrity sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==
+typescript@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.3.tgz#fe976f0c826a88d0a382007681cbb2da44afdedf"
+  integrity sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

@@ -23,17 +23,19 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-console.log(
-  `%c
-  ██████   ██████  ██████  ████████ ███████ ██████  
-  ██   ██ ██    ██ ██   ██    ██    ██      ██   ██ 
-  ██████  ██    ██ ██   ██    ██    █████   ██████  
-  ██      ██    ██ ██   ██    ██    ██      ██   ██ 
-  ██       ██████  ██████     ██    ███████ ██   ██ 
-                                                    
-  A student and self-taught developer from Thailand.`,
-  "font-family: monospace; color: #d20f39;"
-);
+if (process.env.NODE_ENV === "production") {
+  console.log(
+    `%c
+    ██████   ██████  ██████  ████████ ███████ ██████  
+    ██   ██ ██    ██ ██   ██    ██    ██      ██   ██ 
+    ██████  ██    ██ ██   ██    ██    █████   ██████  
+    ██      ██    ██ ██   ██    ██    ██      ██   ██ 
+    ██       ██████  ██████     ██    ███████ ██   ██ 
+                                                      
+    A student and self-taught developer from Thailand.`,
+    "font-family: monospace; color: #d20f39;"
+  );
+}
 
 export default function App({
   Component,
