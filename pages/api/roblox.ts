@@ -1,3 +1,4 @@
+import getUserPresenceType from "@/utils/getUserPresenceType";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -34,20 +35,27 @@ export default async function handler(
         }
       );
 
-      // See https://github.com/Podter/roblox-presence-api
-      const playerPresences = await axios.get(
-        `https://roblox-presence-api.podter.xyz/api/presence/${userId}`
+      const playerPresences = await axios.post(
+        `https://presence.roblox.com/v1/presence/users`,
+        {
+          userIds: [userId],
+        },
+        {
+          headers: {
+            Cookie: `.ROBLOSECURITY=${process.env.ROBLOX_COOKIE}`,
+          },
+        }
       );
 
       let placeThumbnail;
       if (
-        playerPresences.data.data.rootPlaceId ||
-        playerPresences.data.data.placeId
+        playerPresences.data.userPresences[0].rootPlaceId ||
+        playerPresences.data.userPresences[0].placeId
       ) {
         placeThumbnail = await axios.get(
           `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${
-            playerPresences.data.data.rootPlaceId ||
-            playerPresences.data.data.placeId
+            playerPresences.data.userPresences[0].rootPlaceId ||
+            playerPresences.data.userPresences[0].placeId
           }&returnPolicy=PlaceHolder&size=150x150&format=Png&isCircular=false`
         );
       }
@@ -66,8 +74,10 @@ export default async function handler(
             followerCount: followerCount.data.count,
           },
           presences: {
-            userPresenceType: playerPresences.data.data.userPresenceType,
-            location: playerPresences.data.data.lastLocation,
+            userPresenceType: getUserPresenceType(
+              playerPresences.data.userPresences[0].userPresenceType
+            ),
+            location: playerPresences.data.userPresences[0].lastLocation,
             placeThumbnail: placeThumbnail
               ? placeThumbnail.data.data[0].imageUrl
               : null,

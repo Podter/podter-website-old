@@ -10,7 +10,7 @@ type RobloxData = {
     followerCount: string;
   };
   presences: {
-    userPresenceType: "offline" | "online" | "inGame" | "studio" | "unknown";
+    userPresenceType: "offline" | "online" | "inGame" | "studio";
     location: string;
     placeThumbnail: string | null;
     lastOnline: string;
