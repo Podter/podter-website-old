@@ -1,6 +1,11 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
 import Image from "next/image";
+import { JetBrains_Mono } from "next/font/google";
+
+const jbMono = JetBrains_Mono({
+  subsets: ["latin"],
+});
 
 function CustomLink(props: any) {
   return <Link {...props}>{props.children}</Link>;
@@ -21,6 +26,14 @@ function CustomImage(props: any) {
   );
 }
 
+function CustomCode(props: any) {
+  return (
+    <code {...props} className={`${jbMono.className} ${props.className}`}>
+      {props.children}
+    </code>
+  );
+}
+
 type MdxProps = {
   code: string;
 };
@@ -34,6 +47,7 @@ export default function Mdx({ code }: MdxProps) {
         components={{
           a: CustomLink,
           img: CustomImage,
+          code: CustomCode,
         }}
       />
     </article>
