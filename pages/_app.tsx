@@ -1,5 +1,6 @@
 import "@/styles/globals.scss";
 import "@/styles/nprogress.scss";
+import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss";
 import SEO from "@/next-seo.config";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
