@@ -11,6 +11,7 @@ export default function Lanyard() {
     {
       api: {
         hostname: "lanyard.podter.xyz",
+        secure: true,
       },
     }
   );
