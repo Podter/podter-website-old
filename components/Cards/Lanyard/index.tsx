@@ -7,7 +7,12 @@ import { HelpCircle } from "lucide-react";
 
 export default function Lanyard() {
   const data = useLanyardWS(
-    (process.env.NEXT_PUBLIC_DISCORD_USER_ID || "") as Snowflake
+    (process.env.NEXT_PUBLIC_DISCORD_USER_ID || "") as Snowflake,
+    {
+      api: {
+        hostname: "lanyard.podter.xyz",
+      },
+    }
   );
 
   return (
