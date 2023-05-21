@@ -1,6 +1,5 @@
 "use client";
 
-import usePrevious from "@/hooks/usePrevious";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutGroup, motion } from "framer-motion";
@@ -10,7 +9,6 @@ import { cn } from "@/lib/utils";
 export default function Navbar() {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog/")) pathname = "/blog";
-  const previousPathname = usePrevious(pathname);
 
   return (
     <header className="flex flex-row justify-between items-center w-full h-10 mx-auto max-w-4xl px-8 md:my-20 mt-6 mb-10">
@@ -44,12 +42,6 @@ export default function Navbar() {
                         type: "spring",
                         stiffness: 350,
                         damping: 30,
-                      }}
-                      initial={{
-                        opacity: previousPathname === "/" ? 0 : 1,
-                      }}
-                      animate={{
-                        opacity: 1,
                       }}
                     />
                   )}
