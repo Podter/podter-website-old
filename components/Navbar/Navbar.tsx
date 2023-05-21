@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { LayoutGroup, motion } from "framer-motion";
 import pages from "@/constants/pages";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   let pathname = usePathname() || "/";
@@ -52,7 +53,7 @@ export default function Navbar() {
         </LayoutGroup>
       </nav>
       <div className="flex flex-row items-center h-full gap-2">
-        <p>asdf</p>
+        <ThemeToggle />
       </div>
     </header>
   );
