@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import type { PropsWithChildren } from "react";
 import Navbar from "@/components/Navbar";
 import { siteConfig } from "@/constants/site";
+import Providers from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,12 +79,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.variable
         )}
       >
-        <Navbar />
-        <div className="h-full w-full lg:px-0 px-10">
-          <main className="flex flex-col max-w-3xl mx-auto mb-16 sm:px-0">
-            {children}
-          </main>
-        </div>
+        <Providers>
+          <Navbar />
+          <div className="h-full w-full lg:px-0 px-10">
+            <main className="flex flex-col max-w-3xl mx-auto mb-16 sm:px-0">
+              {children}
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
