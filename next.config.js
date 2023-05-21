@@ -1,39 +1,4 @@
-const { withContentlayer } = require("next-contentlayer");
-
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.discordapp.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-        port: "",
-        pathname: "/u/**",
-      },
-      {
-        protocol: "https",
-        hostname: "*.rbxcdn.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-};
+const nextConfig = {}
 
-module.exports = withContentlayer(withMDX(nextConfig));
+module.exports = nextConfig
