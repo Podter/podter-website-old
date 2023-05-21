@@ -14,8 +14,12 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@iconify/icons-fa6-brands": "^1.2.10",
     "@iconify/icons-fluent-emoji-flat": "^1.2.8",
+    "@iconify/icons-material-symbols": "^1.2.40",
+    "@iconify/icons-simple-icons": "^1.2.52",
     "@iconify/react": "^4.1.0",
+    "@iconify/types": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.1",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@types/node": "^20.2.1",

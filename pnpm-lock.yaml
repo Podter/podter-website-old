@@ -12,12 +12,24 @@ dependencies:
     version: 18.2.0(react@18.2.0)
 
 devDependencies:
+  '@iconify/icons-fa6-brands':
+    specifier: ^1.2.10
+    version: 1.2.10
   '@iconify/icons-fluent-emoji-flat':
     specifier: ^1.2.8
     version: 1.2.8
+  '@iconify/icons-material-symbols':
+    specifier: ^1.2.40
+    version: 1.2.40
+  '@iconify/icons-simple-icons':
+    specifier: ^1.2.52
+    version: 1.2.52
   '@iconify/react':
     specifier: ^4.1.0
     version: 4.1.0(react@18.2.0)
+  '@iconify/types':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@radix-ui/react-slot':
     specifier: ^1.0.1
     version: 1.0.1(react@18.2.0)
@@ -181,8 +193,26 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify/icons-fa6-brands@1.2.10:
+    resolution: {integrity: sha512-DadamvCDolGPiPx1BflWHMWdVGt/eOhmUXZCcpUpRTR/aSGF7NXnCdlub/zy9UNqZ+43GbCh73qgSTrEWcLoBg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/icons-fluent-emoji-flat@1.2.8:
     resolution: {integrity: sha512-S1E9jUNmCxt/3DaIPQ1mI7lR2akRvrWcdB/VYna02AWV/e960NK80xKizRH2M+3u1cgTC8YksqfkKjDUOaNMeQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-material-symbols@1.2.40:
+    resolution: {integrity: sha512-STZlIlH4soJV+9TD/DI/L7TKZ0J+LRFiVPQnHxPCMqsU7X4lf6Ald/xD0LxGI3S1QoALZoun+7n+wVejjnw0+g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-simple-icons@1.2.52:
+    resolution: {integrity: sha512-XbtdZI/hIASMtILacEMcr6nJshRSWa7LVBHND8VonxbjfMAPwOnxmkDWzt954l/8FMPFkT4IaI+AIPbITc99+w==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
