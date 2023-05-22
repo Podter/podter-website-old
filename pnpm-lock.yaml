@@ -33,6 +33,9 @@ devDependencies:
   '@iconify/icons-simple-icons':
     specifier: ^1.2.52
     version: 1.2.52
+  '@iconify/icons-skill-icons':
+    specifier: ^1.2.1
+    version: 1.2.1
   '@iconify/react':
     specifier: ^4.1.0
     version: 4.1.0(react@18.2.0)
@@ -228,6 +231,12 @@ packages:
 
   /@iconify/icons-simple-icons@1.2.52:
     resolution: {integrity: sha512-XbtdZI/hIASMtILacEMcr6nJshRSWa7LVBHND8VonxbjfMAPwOnxmkDWzt954l/8FMPFkT4IaI+AIPbITc99+w==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-skill-icons@1.2.1:
+    resolution: {integrity: sha512-863jRF5JMV2vZmOnNpf+oTbjGAZ0BSsUTu2r9Fkk1rWG53iRCWGteuAKIaMbK8EsRiCSzbQUTb55T0HzzXn9oQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

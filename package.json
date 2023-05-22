@@ -21,6 +21,7 @@
     "@iconify/icons-fluent-emoji-flat": "^1.2.8",
     "@iconify/icons-material-symbols": "^1.2.40",
     "@iconify/icons-simple-icons": "^1.2.52",
+    "@iconify/icons-skill-icons": "^1.2.1",
     "@iconify/react": "^4.1.0",
     "@iconify/types": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.1",
