@@ -102,6 +102,9 @@ devDependencies:
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
+  use-lanyard:
+    specifier: ^1.4.3
+    version: 1.4.3
 
 packages:
 
@@ -4170,6 +4173,11 @@ packages:
     dependencies:
       '@types/react': 18.2.6
       react: 18.2.0
+    dev: true
+
+  /use-lanyard@1.4.3:
+    resolution: {integrity: sha512-dGQNFaqjqE0qCgptJUOfd+0WAVwUZ9Tobqgx4cE3UfEbKxBAchVRqLmfLA9jpXUfDQ7B+tjiKWP0umvxXBpKfg==}
+    engines: {node: '>=14'}
     dev: true
 
   /util-deprecate@1.0.2:
