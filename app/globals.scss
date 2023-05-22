@@ -78,4 +78,23 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      @apply w-2 h-2 bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-primary rounded-md;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+    ::-webkit-scrollbar-button {
+      @apply hidden;
+    }
+  }
+
+  ::selection {
+    @apply bg-foreground text-background;
+  }
 }
