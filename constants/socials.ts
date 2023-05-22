@@ -1,4 +1,5 @@
-import { IconifyIcon } from "@iconify/types";
+import type { IconifyIcon } from "@iconify/types";
+
 import githubIcon from "@iconify/icons-fa6-brands/github";
 import discordIcon from "@iconify/icons-fa6-brands/discord";
 import twitterIcon from "@iconify/icons-fa6-brands/twitter";

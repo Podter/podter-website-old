@@ -1,4 +1,4 @@
-import { IconifyIcon } from "@iconify/types";
+import type { IconifyIcon } from "@iconify/types";
 
 import bashDark from "@iconify/icons-skill-icons/bash-dark";
 import cloudflareDark from "@iconify/icons-skill-icons/cloudflare-dark";
