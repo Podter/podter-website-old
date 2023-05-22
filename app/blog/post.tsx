@@ -3,7 +3,7 @@ import { Blog } from "contentlayer/generated";
 import { TypographyP, TypographyMuted } from "@/components/ui/Typography";
 import { CalendarDays } from "lucide-react";
 import { format, parseISO } from "date-fns";
-// import ViewCounter from "./views";
+import ViewCounter from "./views";
 
 export default function Post({ title, date, url, slug }: Blog) {
   return (
@@ -12,7 +12,7 @@ export default function Post({ title, date, url, slug }: Blog) {
         {title}
       </TypographyP>
       <div className="flex flex-row w-full gap-2">
-        {/* <ViewCounter slug={slug} /> */}
+        <ViewCounter slug={slug} />
         <TypographyMuted>
           <CalendarDays
             className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
