@@ -1,7 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-// import remarkGfm from "remark-gfm";
-// import rehypeHighlight from "rehype-highlight";
-// import pwsh from "highlight.js/lib/languages/powershell";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import pwsh from "highlight.js/lib/languages/powershell";
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -33,16 +33,16 @@ export default makeSource({
   contentDirPath: "content",
   documentTypes: [Blog],
   mdx: {
-    // remarkPlugins: [remarkGfm],
-    // rehypePlugins: [
-    //   [
-    //     rehypeHighlight,
-    //     {
-    //       languages: {
-    //         pwsh,
-    //       },
-    //     },
-    //   ],
-    // ],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      [
+        rehypeHighlight,
+        {
+          languages: {
+            pwsh,
+          },
+        },
+      ],
+    ],
   },
 });
