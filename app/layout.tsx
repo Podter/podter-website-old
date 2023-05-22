@@ -82,7 +82,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Providers>
           <Navbar />
           <div className="h-full w-full lg:px-0 px-10">
-            <main className="flex flex-col max-w-3xl mx-auto mb-16 sm:px-0">
+            <main className="flex flex-col max-w-3xl mx-auto mb-16 sm:px-0 page-transition">
               {children}
             </main>
           </div>
