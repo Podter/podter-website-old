@@ -7,6 +7,7 @@ import pages from "@/constants/pages";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
 import Menu from "./Menu";
+import styles from "./Navbar.module.scss";
 
 export default function Navbar() {
   let pathname = usePathname() || "/";
@@ -19,7 +20,10 @@ export default function Navbar() {
         <nav className="flex flex-row items-center">
           <Link
             href="/"
-            className="mr-3 hover:text-accent-foreground scroll-m-20 text-xl font-bold"
+            className={cn(
+              "mr-3 hover:text-accent-foreground scroll-m-20 text-xl font-bold",
+              styles.fadein
+            )}
           >
             Podter.
           </Link>
