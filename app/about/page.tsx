@@ -1,3 +1,5 @@
+import About from "./about.mdx";
+
 export default function Page() {
-  return <div>about</div>;
+  return <About />;
 }
