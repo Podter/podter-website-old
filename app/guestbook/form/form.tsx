@@ -22,9 +22,13 @@ import { useState } from "react";
 import { Icon } from "@iconify/react/dist/offline";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 import Delete from "./delete";
+import filter from "@/lib/filter";
 
 const formSchema = z.object({
-  message: z.string().nonempty("Please enter a message"),
+  message: z
+    .string()
+    .nonempty("Please enter a message")
+    .refine((s) => !filter.isProfane(s), "Bad words are not allowed"),
 });
 
 type GuestbookFormProps = {

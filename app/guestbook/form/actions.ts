@@ -1,5 +1,6 @@
 "use server";
 
+import filter from "@/lib/filter";
 import prisma from "@/lib/prismadb";
 import type { Session } from "next-auth";
 
@@ -8,8 +9,8 @@ export async function submitMessage(
   session: Session,
   blacklisted: boolean
 ) {
-  if (blacklisted) {
-    throw new Error("User is blacklisted");
+  if (blacklisted || filter.isProfane(message)) {
+    throw new Error("Message contains profanity or user is blacklisted");
   }
 
   const existing = await prisma.guestbookMessage.findFirst({
