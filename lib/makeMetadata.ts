@@ -1,5 +1,6 @@
 import { siteConfig } from "@/constants/site";
 import { Metadata } from "next";
+import { metadata } from "@/app/layout";
 
 export default function makeMetadata(
   title: string,
@@ -9,6 +10,7 @@ export default function makeMetadata(
     title,
     description,
     openGraph: {
+      ...metadata.openGraph,
       title,
       description,
       images: [
@@ -21,6 +23,7 @@ export default function makeMetadata(
       ],
     },
     twitter: {
+      ...metadata.twitter,
       title,
       description,
       images: [`${siteConfig.ogApi}?title=${title}`],
