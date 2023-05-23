@@ -37,8 +37,10 @@ export default async function Page() {
   const blacklist = await prisma.blacklist.findFirst({
     where: {
       OR: {
-        email: session?.user.email || "",
-        providerAccountId: session?.user.providerAccountId || "",
+        email: session?.user.email as string | undefined,
+        providerAccountId: session?.user.providerAccountId as
+          | string
+          | undefined,
       },
     },
     select: {

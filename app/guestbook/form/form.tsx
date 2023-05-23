@@ -13,9 +13,15 @@ import {
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { TypographyMuted } from "@/components/ui/Typography";
-import { LogOut } from "lucide-react";
+import { Edit, Edit3, LogOut } from "lucide-react";
 import { signOut } from "next-auth/react";
 import type { Session } from "next-auth";
+import { submitMessage } from "./actions";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Icon } from "@iconify/react/dist/offline";
+import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
+import Delete from "./delete";
 
 const formSchema = z.object({
   message: z.string().nonempty("Please enter a message"),
@@ -32,6 +38,8 @@ export default function GuestbookForm({
   initialMessage,
   blacklisted,
 }: GuestbookFormProps) {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,8 +47,24 @@ export default function GuestbookForm({
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const [loading, setLoading] = useState(false);
+  const [editing, setEditing] = useState(initialMessage ? true : false);
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      if (blacklisted) {
+        return;
+      }
+
+      setLoading(true);
+      await submitMessage(values.message, session, blacklisted);
+      setEditing(true);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      router.refresh();
+      setLoading(false);
+    }
   }
 
   return (
@@ -57,8 +81,27 @@ export default function GuestbookForm({
               </TypographyMuted>
               <FormControl>
                 <div className="flex items-center space-x-2">
-                  <Input placeholder="your message" {...field} />
-                  <Button type="submit">Submit</Button>
+                  <Input
+                    placeholder={
+                      blacklisted ? "you are blacklisted" : "your message"
+                    }
+                    {...field}
+                    disabled={loading || blacklisted}
+                  />
+                  <Button type="submit" disabled={loading || blacklisted}>
+                    {loading ? (
+                      <Icon
+                        icon={icon90RingWithBg}
+                        className="mr-2 h-4 w-4"
+                        fontSize={16}
+                      />
+                    ) : editing ? (
+                      <Edit className="mr-2 h-4 w-4" size={16} />
+                    ) : (
+                      <Edit3 className="mr-2 h-4 w-4" size={16} />
+                    )}
+                    {editing ? "Edit" : "Sign"}
+                  </Button>
                 </div>
               </FormControl>
               <div className="flex flex-row justify-between">
@@ -72,6 +115,14 @@ export default function GuestbookForm({
                   />
                   Sign out
                 </TypographyMuted>
+                {editing && (
+                  <Delete
+                    reset={form.reset}
+                    session={session}
+                    setEditing={setEditing}
+                    setLoading={setLoading}
+                  />
+                )}
               </div>
               <FormMessage />
             </FormItem>
