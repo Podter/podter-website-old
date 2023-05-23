@@ -1,0 +1,227 @@
+// Sprites
+.toaster {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-image: url("/flying-toasters/toaster-sprite.gif");
+  z-index: -20;
+}
+
+.toast {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-image: url("/flying-toasters/toast.gif");
+  z-index: -20;
+}
+
+// Toaster Animations
+.t1 {
+  animation: flap 0.2s steps(4) infinite alternate, fly 10s linear infinite;
+}
+.t2 {
+  animation: flap 0.2s steps(4) infinite alternate-reverse,
+    fly 16s linear infinite;
+}
+.t3 {
+  animation: flap 0.2s steps(4) infinite alternate, fly 24s linear infinite;
+}
+.t4 {
+  animation: flap 0.2s steps(4) infinite alternate, fly 10s 5s linear infinite;
+}
+.t5 {
+  animation: flap 0.2s steps(4) infinite alternate-reverse,
+    fly 24s 4s linear infinite;
+}
+.t6 {
+  animation: flap 0.2s steps(4) infinite alternate, fly 24s 8s linear infinite;
+}
+.t7 {
+  animation: flap 0.2s steps(4) infinite alternate-reverse,
+    fly 24s 12s linear infinite;
+}
+.t8 {
+  animation: flap 0.2s steps(4) infinite alternate, fly 24s 16s linear infinite;
+}
+.t9 {
+  animation: flap 0.2s steps(4) infinite alternate-reverse,
+    fly 24s 20s linear infinite;
+}
+
+// Toast Animations
+.tst1 {
+  animation: fly 10s linear infinite;
+}
+.tst2 {
+  animation: fly 16s linear infinite;
+}
+.tst3 {
+  animation: fly 24s linear infinite;
+}
+.tst4 {
+  animation: fly 24s 12s linear infinite;
+}
+
+// Starting positions of objects
+
+// Batch 1 (-10% to -20%)
+// Top edge, from right to left
+.p6 {
+  right: -2%;
+  top: -17%;
+}
+.p7 {
+  right: 10%;
+  top: -19%;
+}
+.p8 {
+  right: 20%;
+  top: -18%;
+}
+.p9 {
+  right: 30%;
+  top: -20%;
+}
+.p10 {
+  right: 40%;
+  top: -21%;
+}
+.p11 {
+  right: 50%;
+  top: -18%;
+}
+.p12 {
+  right: 60%;
+  top: -20%;
+}
+// Right side, from top to bottom
+.p13 {
+  right: -17%;
+  top: 10%;
+}
+.p14 {
+  right: -19%;
+  top: 20%;
+}
+.p15 {
+  right: -21%;
+  top: 30%;
+}
+.p16 {
+  right: -23%;
+  top: 50%;
+}
+.p17 {
+  right: -25%;
+  top: 70%;
+}
+
+// Batch 2 (-20% to -40%)
+// Top edge, from right to left
+.p18 {
+  right: 0%;
+  top: -26%;
+}
+.p19 {
+  right: 10%;
+  top: -20%;
+}
+.p20 {
+  right: 20%;
+  top: -36%;
+}
+.p21 {
+  right: 30%;
+  top: -24%;
+}
+.p22 {
+  right: 40%;
+  top: -33%;
+}
+.p23 {
+  right: 60%;
+  top: -40%;
+}
+// Right side, from top to bottom
+.p24 {
+  right: -26%;
+  top: 10%;
+}
+.p25 {
+  right: -36%;
+  top: 30%;
+}
+.p26 {
+  right: -29%;
+  top: 50%;
+}
+
+// Batch 3 (-40% to -60%)
+// Top edge, from right to left
+.p27 {
+  right: 0;
+  top: -46%;
+}
+.p28 {
+  right: 10%;
+  top: -56%;
+}
+.p29 {
+  right: 20%;
+  top: -49%;
+}
+.p30 {
+  right: 30%;
+  top: -60%;
+}
+// Right side, from top to bottom
+.p31 {
+  right: -46%;
+  top: 10%;
+}
+.p32 {
+  right: -56%;
+  top: 20%;
+}
+.p33 {
+  right: -49%;
+  top: 30%;
+}
+
+// Flapping animation
+@keyframes flap {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -256px;
+  }
+}
+
+// Gliding animation using translate
+@keyframes fly {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-1600px, 1600px);
+  }
+}
+
+// Fade in
+.fadein {
+  animation-name: toaster-fade-in;
+  animation-duration: 1.2s;
+  animation-delay: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes toaster-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

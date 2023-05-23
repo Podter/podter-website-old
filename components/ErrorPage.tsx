@@ -1,5 +1,5 @@
 import { TypographyH1, TypographyP } from "./ui/Typography";
-// import FlyingToasters from "./FlyingToasters/FlyingToasters";
+import FlyingToasters from "./FlyingToasters/FlyingToasters";
 import { PropsWithChildren } from "react";
 
 type ErrorPageProps = {
@@ -24,7 +24,7 @@ export default function ErrorPage({
       </div>
       <div className="fixed top-0 left-0 lg:-top-[12.5%] lg:-left-[12.5%] lg:absolute lg:w-[125%] w-full h-screen lg:h-[125%] overflow-hidden -z-30">
         <div className="relative w-full h-full">
-          {/* <FlyingToasters className="absolute top-0 left-0 w-full h-full -z-20" /> */}
+          <FlyingToasters className="absolute top-0 left-0 w-full h-full -z-20" />
           <div className="absolute top-0 left-0 w-full h-full -z-10 lg:shadow-[inset_0px_0px_50px_125px_hsl(var(--background))]"></div>
         </div>
       </div>
