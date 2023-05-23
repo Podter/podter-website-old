@@ -5,6 +5,7 @@ const withMDX = require("@next/mdx")();
 const nextConfig = {
   experimental: {
     mdxRs: true,
+    serverActions: true,
   },
   images: {
     remotePatterns: [
