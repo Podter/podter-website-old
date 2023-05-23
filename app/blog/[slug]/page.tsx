@@ -8,7 +8,6 @@ import NotFound from "@/app/[...slug]/page";
 import { Metadata } from "next";
 import { metadata as notFoundMetadata } from "@/app/[...slug]/page";
 import makeMetadata from "@/lib/makeMetadata";
-import { siteConfig } from "@/constants/site";
 import ViewCounter from "../views";
 
 type BlogPostParams = {
@@ -37,7 +36,7 @@ export function generateMetadata({ params }: BlogPostParams): Metadata {
     ),
     openGraph: {
       type: "article",
-      url: siteConfig.url + post.url,
+      url: post.url,
     },
   };
 }
