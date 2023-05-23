@@ -53,6 +53,10 @@ export default function GuestbookForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       if (blacklisted) {
+        form.setError("message", {
+          type: "manual",
+          message: "You are blacklisted",
+        });
         return;
       }
 
@@ -61,6 +65,10 @@ export default function GuestbookForm({
       setEditing(true);
     } catch (e) {
       console.error(e);
+      form.setError("message", {
+        type: "manual",
+        message: "Something went wrong",
+      });
     } finally {
       router.refresh();
       setLoading(false);
@@ -117,7 +125,7 @@ export default function GuestbookForm({
                 </TypographyMuted>
                 {editing && (
                   <Delete
-                    reset={form.reset}
+                    form={form}
                     session={session}
                     setEditing={setEditing}
                     setLoading={setLoading}

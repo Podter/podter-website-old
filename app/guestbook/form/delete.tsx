@@ -14,7 +14,7 @@ import {
 import { TypographyMuted } from "@/components/ui/Typography";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import type { UseFormReset } from "react-hook-form";
+import type { UseFormReturn } from "react-hook-form";
 import type { Dispatch, SetStateAction } from "react";
 import { deleteMessage } from "./actions";
 import type { Session } from "next-auth";
@@ -22,14 +22,19 @@ import type { Session } from "next-auth";
 type DeleteProps = {
   setLoading: Dispatch<SetStateAction<boolean>>;
   setEditing: Dispatch<SetStateAction<boolean>>;
-  reset: UseFormReset<GuestbookForm>;
+  form: UseFormReturn<
+    {
+      message: string;
+    },
+    any
+  >;
   session: Session;
 };
 
 export default function Delete({
   setLoading,
   setEditing,
-  reset,
+  form,
   session,
 }: DeleteProps) {
   const router = useRouter();
@@ -38,12 +43,16 @@ export default function Delete({
     try {
       setLoading(true);
       await deleteMessage(session);
-      reset({
+      form.reset({
         message: "",
       });
       setEditing(false);
     } catch (e) {
       console.error(e);
+      form.setError("message", {
+        type: "manual",
+        message: "Something went wrong",
+      });
     } finally {
       router.refresh();
       setLoading(false);

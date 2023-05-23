@@ -1,7 +1,3 @@
-type GuestbookForm = {
-  message: string;
-};
-
 type GuestbookMessageData = {
   created: Date;
   updatedAt: Date;
