@@ -22,6 +22,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "@iconify/icons-fa6-brands": "^1.2.10",
     "@iconify/icons-fluent-emoji-flat": "^1.2.8",
     "@iconify/icons-material-symbols": "^1.2.40",
@@ -52,6 +53,7 @@
     "next-themes": "^0.2.1",
     "postcss": "^8.4.23",
     "prisma": "^4.14.1",
+    "react-hook-form": "^7.43.9",
     "rehype-highlight": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "sass": "^1.62.1",
@@ -60,6 +62,7 @@
     "tailwindcss": "^3.3.2",
     "tailwindcss-animate": "^1.0.5",
     "typescript": "^5.0.4",
-    "use-lanyard": "^1.4.3"
+    "use-lanyard": "^1.4.3",
+    "zod": "^3.21.4"
   }
 }
