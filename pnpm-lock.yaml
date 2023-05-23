@@ -84,6 +84,9 @@ devDependencies:
   '@radix-ui/react-tooltip':
     specifier: ^1.0.5
     version: 1.0.5(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)
+  '@types/bad-words':
+    specifier: ^3.0.1
+    version: 3.0.1
   '@types/mdx':
     specifier: ^2.0.5
     version: 2.0.5
@@ -99,6 +102,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.23)
+  bad-words:
+    specifier: ^3.0.4
+    version: 3.0.4
   class-variance-authority:
     specifier: ^0.6.0
     version: 0.6.0(typescript@5.0.4)
@@ -1645,6 +1651,10 @@ packages:
       '@types/estree': 1.0.1
     dev: false
 
+  /@types/bad-words@3.0.1:
+    resolution: {integrity: sha512-7la3ZDJG1tlRqySO+pnXycZpacaMEw/iLEm8kc4l+I+jN8KjBfoQVwO6jm98xzXVLrxV8vDrB5TaMoop8sKclQ==}
+    dev: true
+
   /@types/debug@4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
@@ -2090,6 +2100,17 @@ packages:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
     dependencies:
       deep-equal: 2.2.1
+    dev: true
+
+  /bad-words@3.0.4:
+    resolution: {integrity: sha512-v/Q9uRPH4+yzDVLL4vR1+S9KoFgOEUl5s4axd6NIAq8SV2mradgi4E8lma/Y0cw1ltVdvyegCQQKffCPRCp8fg==}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      badwords-list: 1.0.0
+    dev: true
+
+  /badwords-list@1.0.0:
+    resolution: {integrity: sha512-oWhaSG67e+HQj3OGHQt2ucP+vAPm1wTbdp2aDHeuh4xlGXBdWwzZ//pfu6swf5gZ8iX0b7JgmSo8BhgybbqszA==}
     dev: true
 
   /bail@2.0.2:
