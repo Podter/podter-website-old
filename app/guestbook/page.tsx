@@ -4,6 +4,8 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import prisma from "@/lib/prismadb";
 import getUser from "@/lib/getUser";
 import Message from "./message";
+import SignIn from "./signin";
+import GuestbookForm from "./form";
 
 export const metadata = makeMetadata(
   "Guestbook",
@@ -46,6 +48,15 @@ export default async function Page() {
 
   return (
     <>
+      {session ? (
+        <GuestbookForm
+          session={session}
+          initialMessage={user?.message}
+          blacklisted={blacklist ? true : false}
+        />
+      ) : (
+        <SignIn />
+      )}
       <div className="flex flex-col mt-8 gap-4">
         {await Promise.all(
           data.map(async ({ id, providerAccountId, ...props }) => {
