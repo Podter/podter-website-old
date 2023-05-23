@@ -20,7 +20,7 @@ export async function GET(req: Request) {
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "flex-end",
-          backgroundImage: `url(${siteConfig.url}}/og-bg.png)`,
+          backgroundImage: `url(${siteConfig.url}/og-bg.png)`,
         }}
       >
         <div
