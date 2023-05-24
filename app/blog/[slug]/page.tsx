@@ -1,3 +1,4 @@
+import "./styles.scss";
 import "./highlightjs.scss";
 import { allBlogs } from "contentlayer/generated";
 import { TypographyH1, TypographyMuted } from "@/components/ui/Typography";

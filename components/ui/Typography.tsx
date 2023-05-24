@@ -159,7 +159,8 @@ export function TypographyAnchor({
     <a
       {...props}
       className={cn(
-        "font-medium text-primary underline underline-offset-4",
+        !className?.includes("rehype-autolink-headings") &&
+          "font-medium text-primary underline underline-offset-4",
         className
       )}
     />

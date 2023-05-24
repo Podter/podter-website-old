@@ -2,6 +2,9 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import pwsh from "highlight.js/lib/languages/powershell";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import toc from "@jsdevtools/rehype-toc";
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -41,6 +44,23 @@ export default makeSource({
           languages: {
             pwsh,
           },
+        },
+      ],
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          test: ["h2", "h3"],
+          properties: {
+            class: "rehype-autolink-headings",
+          },
+        },
+      ],
+      [
+        toc,
+        {
+          headings: ["h2", "h3"],
         },
       ],
     ],

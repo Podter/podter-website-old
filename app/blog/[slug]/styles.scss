@@ -1,0 +1,17 @@
+.rehype-autolink-headings {
+  &::after {
+    @apply content-[url('/icons/link.svg')] dark:content-[url('/icons/link-dark.svg')];
+
+    display: none;
+    margin-left: 0.5rem;
+  }
+
+  &:hover::after {
+    display: inline;
+  }
+}
+
+.toc-item > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0px;
+}
