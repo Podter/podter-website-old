@@ -17,7 +17,7 @@ export default function Page() {
         and learning.
       </TypographyP>
       {projects.map(({ ...props }, i) => (
-        <ProjectCard key={i} {...props} />
+        <ProjectCard key={i} shineBottom={Math.abs(i % 2) == 1} {...props} />
       ))}
     </>
   );

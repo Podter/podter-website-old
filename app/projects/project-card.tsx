@@ -12,6 +12,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Icon } from "@iconify/react/dist/offline";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import ShineCover from "@/components/ShineCover/ShineCover";
 
 export default function ProjectCard({
   title,
@@ -21,9 +22,13 @@ export default function ProjectCard({
   sourceUrl,
   action = "Open",
   techStack,
-}: Project) {
+  shineBottom,
+}: Project & {
+  shineBottom?: boolean;
+}) {
   return (
     <Card className="mt-6 overflow-hidden group relative">
+      <ShineCover shineBottom={shineBottom} />
       <div className="relative bg-transparent overflow-hidden rounded-b-md aspect-video md:aspect-[24/9]">
         <Image
           src={img}
