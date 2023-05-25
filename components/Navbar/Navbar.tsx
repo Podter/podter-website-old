@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
 import Menu from "./Menu";
 import styles from "./Navbar.module.scss";
+import Cmdk from "../Cmdk";
 
 export default function Navbar() {
   let pathname = usePathname() || "/";
@@ -62,6 +63,7 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex flex-row items-center h-full gap-2">
+        <Cmdk />
         <ThemeToggle />
       </div>
     </header>
