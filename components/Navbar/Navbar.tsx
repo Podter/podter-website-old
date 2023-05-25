@@ -28,7 +28,7 @@ export default function Navbar() {
             Podter.
           </Link>
           <LayoutGroup>
-            {Object.entries(pages).map(([path, { name }], i) => {
+            {Object.entries(pages).map(([path, { name, icon: Icon }], i) => {
               const isActive = path === pathname;
 
               return (
@@ -40,8 +40,9 @@ export default function Navbar() {
                     !isActive && "sm:text-muted-foreground"
                   )}
                 >
-                  <span className="relative py-2 px-3">
-                    {name}
+                  <div className="relative py-2 px-3 flex flex-row justify-center items-center">
+                    <Icon size={16} className="mr-1" />
+                    <span>{name}</span>
                     {isActive && (
                       <motion.div
                         className="absolute inset-0 bg-accent rounded-md -z-10 hidden sm:block"
@@ -53,7 +54,7 @@ export default function Navbar() {
                         }}
                       />
                     )}
-                  </span>
+                  </div>
                 </Link>
               );
             })}

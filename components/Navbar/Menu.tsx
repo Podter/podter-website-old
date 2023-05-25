@@ -72,19 +72,24 @@ export default function Menu() {
                   </Link>
                 </CardHeader>
                 <CardContent className="flex flex-col">
-                  {Object.entries(pages).map(([path, { name }], i) => (
-                    <Link
-                      key={i}
-                      href={path}
-                      className="flex flex-row justify-between items-center py-4"
-                      onClick={() => setOpen(false)}
-                    >
-                      <TypographyLarge className="font-medium">
-                        {name}
-                      </TypographyLarge>
-                      <ChevronRight size={24} className="h-6 w-6" />
-                    </Link>
-                  ))}
+                  {Object.entries(pages).map(
+                    ([path, { name, icon: Icon }], i) => (
+                      <Link
+                        key={i}
+                        href={path}
+                        className="flex flex-row justify-between items-center py-4"
+                        onClick={() => setOpen(false)}
+                      >
+                        <div className="flex flex-row items-center">
+                          <Icon size={24} className="mr-3 h-6 w-6" />
+                          <TypographyLarge className="font-medium">
+                            {name}
+                          </TypographyLarge>
+                        </div>
+                        <ChevronRight size={18} className="h-5 w-5" />
+                      </Link>
+                    )
+                  )}
                 </CardContent>
                 <CardFooter className="absolute bottom-0">
                   <TypographyMuted>
