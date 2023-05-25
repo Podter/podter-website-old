@@ -5,11 +5,10 @@ import { TypographyH1, TypographyMuted } from "@/components/ui/Typography";
 import { CalendarDays } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import Content from "./content";
-import NotFound from "@/app/[...slug]/page";
 import { Metadata } from "next";
-import { metadata as notFoundMetadata } from "@/app/[...slug]/page";
 import makeMetadata from "@/lib/makeMetadata";
 import ViewCounter from "../views";
+import { redirect } from "next/navigation";
 
 type BlogPostParams = {
   params: {
@@ -27,7 +26,11 @@ export function generateMetadata({ params }: BlogPostParams): Metadata {
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
-    return notFoundMetadata;
+    return {
+      robots: {
+        index: false,
+      },
+    };
   }
 
   return {
@@ -46,7 +49,7 @@ export default function Page({ params }: BlogPostParams) {
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
-    return <NotFound />;
+    redirect("/notfound");
   }
 
   return (
