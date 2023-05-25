@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/Typography";
 import { Progress } from "@/components/ui/Progress";
 import { Separator } from "@/components/ui/Separator";
+import ShineCover from "@/components/ShineCover/ShineCover";
 
 type WakaTimeTotalProps = {
   title: string;
@@ -32,7 +33,8 @@ function WakaTimeTotal({ title, children: text }: WakaTimeTotalProps) {
 
 export default function WakaTime(data: WakaTimeData) {
   return (
-    <Card className="w-full overflow-hidden relative">
+    <Card className="w-full overflow-hidden relative hover:scale-[1.03] transition-transform">
+      <ShineCover />
       <CardHeader>
         <CardTitle asChild>
           <p>WakaTime stats</p>

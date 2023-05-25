@@ -12,11 +12,16 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import robloxPlaceholder from "@/public/roblox-placeholder.png";
 import Link from "next/link";
+import ShineCover from "@/components/ShineCover/ShineCover";
 
 export default function Roblox(data: RobloxData) {
   return (
-    <Card className="w-full overflow-hidden relative" asChild>
+    <Card
+      className="w-full overflow-hidden relative hover:scale-[1.03] transition-transform"
+      asChild
+    >
       <Link href={`https://www.roblox.com/users/${data.id}/profile`}>
+        <ShineCover shineBottom />
         <CardHeader className="flex-row items-center justify-between">
           <div className="flex flex-row items-center gap-2">
             <div className="flex relative">

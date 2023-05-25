@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import useTimestamps from "@/hooks/useTimestamps";
 import Link from "next/link";
 import { lanyardConfig } from "@/constants/site";
+import ShineCover from "@/components/ShineCover";
 
 type LanyardProps = {
   initialData?: Data;
@@ -51,8 +52,12 @@ export default function Lanyard({ initialData }: LanyardProps) {
   const activity = data.activities[0];
 
   return (
-    <Card className="w-full overflow-hidden relative" asChild>
+    <Card
+      className="w-full overflow-hidden relative hover:scale-[1.03] transition-transform"
+      asChild
+    >
       <Link href={`https://discord.com/users/${data.discord_user.id}`}>
+        <ShineCover />
         <CardHeader className="flex-row items-center justify-between">
           <div className="flex flex-row items-center gap-2">
             <div className="flex relative">
