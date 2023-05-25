@@ -66,9 +66,6 @@ devDependencies:
   '@iconify/types':
     specifier: ^2.0.0
     version: 2.0.0
-  '@jsdevtools/rehype-toc':
-    specifier: ^3.0.2
-    version: 3.0.2
   '@radix-ui/react-alert-dialog':
     specifier: ^1.0.3
     version: 1.0.3(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)
@@ -820,11 +817,6 @@ packages:
       jsbi: 4.3.0
       tslib: 2.5.2
     dev: false
-
-  /@jsdevtools/rehype-toc@3.0.2:
-    resolution: {integrity: sha512-n5JEf16Wr4mdkRMZ8wMP/wN9/sHmTjRPbouXjJH371mZ2LEGDl72t8tEsMRNFerQN/QJtivOxqK1frdGa4QK5Q==}
-    engines: {node: '>=10'}
-    dev: true
 
   /@mdx-js/esbuild@2.3.0(esbuild@0.17.19):
     resolution: {integrity: sha512-r/vsqsM0E+U4Wr0DK+0EfmABE/eg+8ITW4DjvYdh3ve/tK2safaqHArNnaqbOk1DjYGrhxtoXoGaM3BY8fGBTA==}
