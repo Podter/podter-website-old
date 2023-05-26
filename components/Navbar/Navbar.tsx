@@ -42,7 +42,7 @@ export default function Navbar() {
                   )}
                 >
                   <div className="relative py-2 px-3 flex flex-row justify-center items-center">
-                    <Icon size={16} className="mr-1" />
+                    <Icon size={16} className="mr-1 hidden md:block" />
                     <span>{name}</span>
                     {isActive && (
                       <motion.div
