@@ -6,13 +6,13 @@ import { LayoutGroup, motion } from "framer-motion";
 import pages from "@/constants/pages";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
-import Menu from "./Menu";
 import styles from "./Navbar.module.scss";
-import Cmdk from "../Cmdk";
 import { useRef, useState } from "react";
 import { useMouse } from "react-use";
 import { useWindowSize } from "react-use";
 import dynamic from "next/dynamic";
+const Menu = dynamic(() => import("./Menu"));
+const Cmdk = dynamic(() => import("../Cmdk"));
 const Confetti = dynamic(() => import("react-confetti"));
 
 export default function Navbar() {
@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <header className="flex flex-row justify-between items-center w-full h-10 mx-auto max-w-4xl px-8 md:my-20 mt-6 mb-10">
       <div className="flex flex-row items-center h-full">
-        <Menu />
+        {!(width >= 640) && <Menu />}
         <nav className="flex flex-row items-center">
           <Link
             href="/"
@@ -85,7 +85,7 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex flex-row items-center h-full gap-2">
-        <Cmdk />
+        {width >= 640 && <Cmdk />}
         <ThemeToggle />
       </div>
       {pathname === "/" && (
