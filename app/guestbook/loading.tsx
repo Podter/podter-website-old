@@ -11,15 +11,13 @@ export default function Loading() {
         <div
           className={buttonVariants({
             variant: "secondary",
-            className:
-              "w-full sm:w-48 bg-muted hover:bg-muted text-muted-foreground animate-pulse",
+            className: "w-full sm:w-48 bg-muted animate-pulse",
           })}
         />
         <div
           className={buttonVariants({
             variant: "secondary",
-            className:
-              "w-full sm:w-48 bg-muted hover:bg-muted text-muted-foreground animate-pulse",
+            className: "w-full sm:w-48 bg-muted animate-pulse",
           })}
         />
       </div>
