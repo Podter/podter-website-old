@@ -9,10 +9,30 @@ import ThemeToggle from "./ThemeToggle";
 import Menu from "./Menu";
 import styles from "./Navbar.module.scss";
 import Cmdk from "../Cmdk";
+import { useRef, useState } from "react";
+import { useMouse } from "react-use";
+import { useWindowSize } from "react-use";
+import dynamic from "next/dynamic";
+const Confetti = dynamic(() => import("react-confetti"));
 
 export default function Navbar() {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog/")) pathname = "/blog";
+
+  const navRef = useRef(null);
+  const { width, height } = useWindowSize(
+    window.innerWidth,
+    window.innerHeight
+  );
+  const { docX, docY } = useMouse(navRef);
+  const [confetti, setConfetti] = useState(false);
+
+  function triggerConfetti() {
+    if (window.scrollY <= 90 && pathname === "/") {
+      setConfetti(true);
+      setTimeout(() => setConfetti(false), 100);
+    }
+  }
 
   return (
     <header className="flex flex-row justify-between items-center w-full h-10 mx-auto max-w-4xl px-8 md:my-20 mt-6 mb-10">
@@ -25,6 +45,8 @@ export default function Navbar() {
               "mr-3 hover:text-accent-foreground scroll-m-20 text-xl font-bold",
               styles.fadein
             )}
+            onClick={triggerConfetti}
+            ref={navRef}
           >
             Podter.
           </Link>
@@ -66,6 +88,25 @@ export default function Navbar() {
         <Cmdk />
         <ThemeToggle />
       </div>
+      {pathname === "/" && (
+        <Confetti
+          style={{ position: "fixed" }}
+          numberOfPieces={confetti ? 200 : 0}
+          initialVelocityX={50}
+          initialVelocityY={-50}
+          gravity={0.05}
+          width={width}
+          height={height}
+          confettiSource={{
+            w: 0,
+            h: 0,
+            x: docX,
+            y: docY,
+          }}
+          recycle={confetti}
+          tweenDuration={10}
+        />
+      )}
     </header>
   );
 }
