@@ -52,7 +52,11 @@ export default function ThemeSwitch() {
     <>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button onClick={toggleTheme} variant="outline" className="w-10 p-2">
+          <Button
+            onClick={toggleTheme}
+            variant="outline"
+            className="w-10 p-2 shadow-sm"
+          >
             <motion.div
               initial={false}
               animate={isDark ? "active" : "inactive"}

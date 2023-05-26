@@ -175,7 +175,7 @@ export function TypographyPre({
     <pre
       {...props}
       className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg border py-4 dark:bg-background bg-white",
+        "mb-4 mt-6 overflow-x-auto rounded-lg border py-4 dark:bg-background bg-white shadow-sm",
         className
       )}
     />

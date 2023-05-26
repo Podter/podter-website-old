@@ -31,7 +31,7 @@ export default function CmdkToggle({ setOpen }: CmdkToggleProps) {
       <TooltipTrigger asChild>
         <Button
           variant="outline"
-          className="w-10 p-0 hidden sm:inline-flex"
+          className="w-10 p-0 hidden sm:inline-flex shadow-sm"
           onClick={() => setOpen(true)}
         >
           <Command size={24} />

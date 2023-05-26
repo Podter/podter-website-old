@@ -11,7 +11,7 @@ import {
 
 export default function Image({ src, alt, className, ...props }: ImageProps) {
   return (
-    <div className="bg-transparent overflow-hidden rounded-xl w-full group mt-8 relative">
+    <div className="bg-transparent overflow-hidden rounded-xl w-full group mt-8 relative shadow-md">
       <Tooltip>
         <TooltipTrigger className="absolute top-3 right-3 z-20">
           <Button
