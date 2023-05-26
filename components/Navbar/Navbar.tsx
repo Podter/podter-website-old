@@ -37,7 +37,7 @@ export default function Navbar() {
                   key={i}
                   href={path}
                   className={cn(
-                    "transition-all hover:text-accent-foreground align-middle text-sm font-medium hidden sm:flex",
+                    "transition-all hover:text-foreground align-middle text-sm font-medium hidden sm:flex",
                     !isActive && "sm:text-muted-foreground"
                   )}
                 >

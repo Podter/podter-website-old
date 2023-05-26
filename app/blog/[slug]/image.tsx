@@ -14,7 +14,11 @@ export default function Image({ src, alt, className, ...props }: ImageProps) {
     <div className="bg-transparent overflow-hidden rounded-xl w-full group mt-8 relative">
       <Tooltip>
         <TooltipTrigger className="absolute top-3 right-3 z-20">
-          <Button asChild className="w-10 p-2 hidden group-hover:inline-flex">
+          <Button
+            asChild
+            className="w-10 p-2 hidden group-hover:inline-flex"
+            variant="secondary"
+          >
             <Link href={src.toString()} target="_blank">
               <ExternalLink size={16} className="h-4 w-4" />
               <span className="sr-only">Open image in new tab</span>

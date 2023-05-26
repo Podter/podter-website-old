@@ -100,7 +100,11 @@ export default function GuestbookForm({
                     {...field}
                     disabled={loading || blacklisted}
                   />
-                  <Button type="submit" disabled={loading || blacklisted}>
+                  <Button
+                    type="submit"
+                    disabled={loading || blacklisted}
+                    variant="secondary"
+                  >
                     {loading ? (
                       <Icon
                         icon={icon90RingWithBg}
