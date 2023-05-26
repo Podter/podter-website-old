@@ -21,8 +21,8 @@ export default function Navbar() {
 
   const navRef = useRef(null);
   const { width, height } = useWindowSize(
-    window.innerWidth,
-    window.innerHeight
+    typeof window !== "undefined" ? window.innerWidth : undefined,
+    typeof window !== "undefined" ? window.innerHeight : undefined
   );
   const { docX, docY } = useMouse(navRef);
   const [confetti, setConfetti] = useState(false);
