@@ -27,7 +27,7 @@ export default function ProjectCard({
   shineBottom?: boolean;
 }) {
   return (
-    <Card className="mt-6 overflow-hidden group relative">
+    <Card className="mt-6 overflow-hidden group relative shadow-md bg-white dark:bg-card">
       <ShineCover shineBottom={shineBottom} />
       <div className="relative bg-transparent overflow-hidden rounded-b-md aspect-video md:aspect-[24/9]">
         <Image
