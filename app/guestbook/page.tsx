@@ -1,6 +1,6 @@
 import makeMetadata from "@/lib/makeMetadata";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 import prisma from "@/lib/prismadb";
 import getUser from "@/lib/getUser";
 import Message from "./message";
