@@ -9,11 +9,11 @@
 .shine {
   background: linear-gradient(
     to right,
-    transparent 35%,
-    hsl(var(--foreground)) 55%,
+    transparent 45%,
+    hsl(var(--foreground)) 65%,
     transparent 100%
   );
-  opacity: 0.3;
+  opacity: 0.35;
   background-size: 200% auto;
   transform: scale(3) rotate(var(--shine-rotate));
 
