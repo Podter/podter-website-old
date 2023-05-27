@@ -8,7 +8,7 @@ import ViewCounter from "./views";
 export default function Post({ title, date, url, slug }: Blog) {
   return (
     <Link href={url} className="flex flex-col mt-6 group w-full gap-1">
-      <TypographyP className="text-popover-foreground group-hover:text-foreground transition-colors">
+      <TypographyP className="group-hover:opacity-70 transition-opacity">
         {title}
       </TypographyP>
       <div className="flex flex-row w-full gap-2">
