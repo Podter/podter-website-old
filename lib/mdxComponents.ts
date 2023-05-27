@@ -11,7 +11,6 @@ import {
   TypographyInlineCode,
   TypographySmall,
   TypographyAnchor,
-  TypographyPre,
 } from "@/components/ui/Typography";
 import { Table, Tr, Th, Td } from "@/components/ui/Table";
 
@@ -28,7 +27,6 @@ const mdxComponents: MDXComponents = {
   code: TypographyInlineCode,
   small: TypographySmall,
   a: TypographyAnchor,
-  pre: TypographyPre,
   // Table
   table: Table,
   tr: Tr,

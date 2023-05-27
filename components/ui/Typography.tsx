@@ -166,18 +166,3 @@ export function TypographyAnchor({
     />
   );
 }
-
-export function TypographyPre({
-  className,
-  ...props
-}: JSX.IntrinsicElements["pre"]) {
-  return (
-    <pre
-      {...props}
-      className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg border py-4 bg-background shadow-sm",
-        className
-      )}
-    />
-  );
-}
