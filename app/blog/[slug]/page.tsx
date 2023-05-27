@@ -8,7 +8,7 @@ import Content from "./content";
 import { Metadata } from "next";
 import makeMetadata from "@/lib/makeMetadata";
 import ViewCounter from "../views";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 type BlogPostParams = {
   params: {
@@ -49,7 +49,7 @@ export default function Page({ params }: BlogPostParams) {
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
-    redirect("/notfound");
+    notFound();
   }
 
   return (
