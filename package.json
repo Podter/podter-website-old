@@ -24,6 +24,8 @@
     "sharp": "^0.32.1"
   },
   "devDependencies": {
+    "@catppuccin/highlightjs": "^0.1.2",
+    "@catppuccin/palette": "^0.1.8",
     "@hookform/resolvers": "^3.1.0",
     "@iconify/icons-fa6-brands": "^1.2.10",
     "@iconify/icons-fluent-emoji-flat": "^1.2.8",

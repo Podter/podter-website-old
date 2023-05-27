@@ -39,6 +39,12 @@ dependencies:
     version: 0.32.1
 
 devDependencies:
+  '@catppuccin/highlightjs':
+    specifier: ^0.1.2
+    version: 0.1.2
+  '@catppuccin/palette':
+    specifier: ^0.1.8
+    version: 0.1.8
   '@hookform/resolvers':
     specifier: ^3.1.0
     version: 3.1.0(react-hook-form@7.43.9)
@@ -208,6 +214,14 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+
+  /@catppuccin/highlightjs@0.1.2:
+    resolution: {integrity: sha512-QbNIkD6fI7ZLY4f6GRUX3DK8HxiuwSkIIYFqAjLu9XKIA11yWtHkWGKUbfLueYeguUQovq1+wufQ3+8iILepzQ==}
+    dev: true
+
+  /@catppuccin/palette@0.1.8:
+    resolution: {integrity: sha512-41quIj08vgPMy8kQxQb0+VqxuTlo2xfNYGSgOuiJXNojWnGuhLxBc61jgu2jiZYGNXVqgVNGWwmWEUf6s32jiA==}
+    dev: true
 
   /@contentlayer/cli@0.3.2(esbuild@0.17.19):
     resolution: {integrity: sha512-KLzB2z3Klbl4bU7VTJ8EaY1d17GCBFtwgvtNAVLOqUJ4LRw46+jT+qBMk8gyy7R1xDNF2H1a/yGYs8t8rlFVmg==}
