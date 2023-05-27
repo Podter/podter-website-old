@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import { useMouse } from "react-use";
 import { useWindowSize } from "react-use";
 import dynamic from "next/dynamic";
-const Menu = dynamic(() => import("./Menu"));
+import Menu from "./Menu";
 const Cmdk = dynamic(() => import("../Cmdk"));
 const Confetti = dynamic(() => import("react-confetti"));
 
@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <header className="flex flex-row justify-between items-center w-full h-10 mx-auto max-w-4xl px-8 md:my-20 mt-6 mb-10">
       <div className="flex flex-row items-center h-full">
-        {!(width >= 640) && <Menu />}
+        <Menu />
         <nav className="flex flex-row items-center">
           <Link
             href="/"
