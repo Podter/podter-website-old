@@ -15,7 +15,10 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
       <TypographyH1>
-        Hello, I&apos;m Podter.{" "}
+        Hello, I&apos;m{" "}
+        <span className="bg-gradient-to-br text-transparent from-primary to-destructive bg-clip-text">
+          Podter.
+        </span>{" "}
         <Icon className="inline" icon={wavingHand} inline />
       </TypographyH1>
       <TypographyP>

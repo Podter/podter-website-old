@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link
             href="/"
             className={cn(
-              "mr-3 hover:text-accent-foreground scroll-m-20 text-xl font-bold",
+              "mr-3 scroll-m-20 text-xl font-bold bg-gradient-to-br from-primary to-destructive bg-clip-text hover:text-transparent transition-colors",
               styles.fadein
             )}
             onClick={triggerConfetti}
