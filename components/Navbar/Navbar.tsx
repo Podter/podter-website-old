@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 import styles from "./Navbar.module.scss";
 import { useRef, useState } from "react";
 import { useMouse } from "react-use";
-import { useWindowSize } from "react-use";
+import useWindowSize from "@/hooks/useWindowSize";
 import dynamic from "next/dynamic";
 import Menu from "./Menu";
 const Cmdk = dynamic(() => import("../Cmdk"));
@@ -20,10 +20,7 @@ export default function Navbar() {
   if (pathname.includes("/blog/")) pathname = "/blog";
 
   const navRef = useRef(null);
-  const { width, height } = useWindowSize(
-    typeof window !== "undefined" ? window.innerWidth : undefined,
-    typeof window !== "undefined" ? window.innerHeight : undefined
-  );
+  const { width, height } = useWindowSize();
   const { docX, docY } = useMouse(navRef);
   const [confetti, setConfetti] = useState(false);
 
