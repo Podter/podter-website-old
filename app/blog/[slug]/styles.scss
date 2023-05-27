@@ -5,14 +5,15 @@ code {
 
   &.hljs {
     background-color: hsl(var(--background)) !important;
-
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0px;
-    padding-bottom: 0px;
-
+    padding: 1rem;
     display: block;
     overflow-x: auto;
+
+    @media (min-width: 768px) {
+      &::-webkit-scrollbar-thumb {
+        @apply bg-foreground/10;
+      }
+    }
   }
 }
 

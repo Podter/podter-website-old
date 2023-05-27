@@ -52,7 +52,7 @@ export default function PreformattedText({
     <pre
       {...props}
       className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg border py-4 bg-background shadow-sm relative group font-sans",
+        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-background shadow-sm relative group font-sans",
         className
       )}
       ref={ref}
