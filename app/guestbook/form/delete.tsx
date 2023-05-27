@@ -18,6 +18,7 @@ import type { UseFormReturn } from "react-hook-form";
 import type { Dispatch, SetStateAction } from "react";
 import { deleteMessage } from "./actions";
 import type { Session } from "next-auth";
+import { Button } from "@/components/ui/Button";
 
 type DeleteProps = {
   setLoading: Dispatch<SetStateAction<boolean>>;
@@ -62,7 +63,7 @@ export default function Delete({
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <TypographyMuted className="underline-offset-4 hover:underline cursor-pointer w-auto">
+        <TypographyMuted className="underline-offset-4 hover:underline cursor-pointer w-auto hover:text-destructive transition-colors">
           <Trash2 className="inline mr-1 align-[-0.125em] h-3 w-3" size={12} />
           Delete
         </TypographyMuted>
@@ -77,7 +78,9 @@ export default function Delete({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={onDelete}>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={onDelete} asChild>
+            <Button variant="destructive">Continue</Button>
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
