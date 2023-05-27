@@ -1,3 +1,21 @@
+@use "@catppuccin/highlightjs/sass/theme";
+
+code {
+  @include theme.highlights("latte", "hex");
+
+  &.hljs {
+    background-color: hsl(var(--background)) !important;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    display: block;
+    overflow-x: auto;
+  }
+}
+
 .rehype-autolink-headings {
   &::after {
     @apply content-[url('/icons/link.svg')] dark:content-[url('/icons/link-dark.svg')];
@@ -8,5 +26,11 @@
 
   &:hover::after {
     display: inline;
+  }
+}
+
+.dark {
+  code {
+    @include theme.highlights("mocha", "hex");
   }
 }
