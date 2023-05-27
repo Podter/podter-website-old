@@ -9,6 +9,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/Tooltip";
+import { useAudio } from "react-use";
 
 const duration = 0.7;
 
@@ -40,10 +41,19 @@ export default function ThemeSwitch() {
   const pathLengthMoon = useTransform(scaleMoon, [0.6, 1], [0, 1]);
   const pathLengthSun = useTransform(scaleSun, [0.6, 1], [0, 1]);
 
+  const [onAudio, _onState, onControls] = useAudio({
+    src: "/sounds/light-switch-on.mp3",
+  });
+  const [offAudio, _offState, offControls] = useAudio({
+    src: "/sounds/light-switch-off.mp3",
+  });
+
   function toggleTheme() {
     if (isDark) {
+      onControls.play();
       setTheme("light");
     } else {
+      offControls.play();
       setTheme("dark");
     }
   }
@@ -218,6 +228,8 @@ export default function ThemeSwitch() {
           <p>Toggle theme</p>
         </TooltipContent>
       </Tooltip>
+      {onAudio}
+      {offAudio}
     </>
   );
 }
