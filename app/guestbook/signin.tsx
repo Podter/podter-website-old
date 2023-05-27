@@ -9,11 +9,11 @@ import { signIn } from "next-auth/react";
 export default function SignIn() {
   return (
     <div className="flex flex-col gap-3 mt-6 sm:flex-row">
-      <Button onClick={() => signIn("github")}>
+      <Button onClick={() => signIn("github")} variant="secondary">
         <Icon className="mr-2 h-4 w-4" fontSize={16} icon={githubIcon} /> Sign
         in with GitHub
       </Button>
-      <Button onClick={() => signIn("discord")}>
+      <Button onClick={() => signIn("discord")} variant="secondary">
         <Icon className="mr-2 h-4 w-4" fontSize={16} icon={discordIcon} /> Sign
         in with Discord
       </Button>
