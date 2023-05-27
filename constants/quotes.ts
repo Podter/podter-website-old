@@ -7,5 +7,5 @@ export const loadingQuotes: string[] = [
   "Patience is a virtue.",
   "Great things take time.",
   "Enjoy the anticipation.",
-  "Data is on its way.",
+  "Data is on it's way.",
 ];
