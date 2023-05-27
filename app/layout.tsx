@@ -1,5 +1,5 @@
 import "./globals.scss";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import type { PropsWithChildren } from "react";
 import Navbar from "@/components/Navbar";
@@ -11,6 +11,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+});
+
 export const metadata = defaultMetadata;
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -19,7 +24,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body
         className={cn(
           "bg-background font-sans antialiased flex flex-col min-h-screen w-full justify-start items-center overflow-x-hidden",
-          inter.variable
+          inter.variable,
+          jetbrains.variable
         )}
       >
         <Providers>

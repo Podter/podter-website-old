@@ -59,6 +59,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
+        mono: ["var(--font-jetbrains)", ...fontFamily.mono],
       },
       keyframes: {
         "accordion-down": {
