@@ -18,10 +18,11 @@ code {
 
 .rehype-autolink-headings {
   &::after {
-    @apply content-[url('/icons/link.svg')] dark:content-[url('/icons/link-dark.svg')];
+    content: url("/icons/link.svg");
 
     display: none;
     margin-left: 0.5rem;
+    opacity: 0.5;
   }
 
   &:hover::after {
@@ -32,5 +33,9 @@ code {
 .dark {
   code {
     @include theme.highlights("mocha", "hex");
+  }
+
+  .rehype-autolink-headings::after {
+    filter: invert(1);
   }
 }
