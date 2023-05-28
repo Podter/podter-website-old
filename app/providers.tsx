@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
 
 export default function Providers({ children }: PropsWithChildren) {
   return (
-    <PlausibleProvider domain={plausibleConfig.domain} enabled>
+    <PlausibleProvider domain={plausibleConfig.domain} trackOutboundLinks>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <MotionConfig reducedMotion="user">
           <TooltipProvider>{children}</TooltipProvider>
