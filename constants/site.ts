@@ -16,4 +16,5 @@ export const lanyardConfig: Options["api"] = {
 
 export const plausibleConfig = {
   domain: "podter.me",
+  customDomain: "https://plausible.podter.me",
 };

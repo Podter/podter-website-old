@@ -55,7 +55,7 @@ export default function Page({ params }: BlogPostParams) {
     <>
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex flex-row w-full gap-2 mt-6">
-        <ViewCounter slug={post.slug} trackView />
+        <ViewCounter slug={post.slug} />
         <TypographyMuted>
           <CalendarDays
             className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"

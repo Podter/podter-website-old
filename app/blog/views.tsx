@@ -4,33 +4,18 @@ import { TypographyMuted } from "@/components/ui/Typography";
 import { Eye } from "lucide-react";
 import useSWR from "swr";
 import { httpFetch } from "@/lib/utils";
-import { useEffect } from "react";
 import { Icon } from "@iconify/react/dist/offline";
 import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
 
 type ViewCounterProps = {
   slug: string;
-  trackView?: boolean;
 };
 
-export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
+export default function ViewCounter({ slug }: ViewCounterProps) {
   const { data, isLoading } = useSWR(
     `/api/blog/${slug}`,
     httpFetch<{ views: number }>
   );
-
-  useEffect(() => {
-    async function registerView() {
-      await httpFetch(`/api/blog/${slug}`, {
-        method: "POST",
-      });
-    }
-
-    if (trackView) {
-      registerView();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <TypographyMuted>
