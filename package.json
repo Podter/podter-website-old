@@ -60,6 +60,7 @@
     "framer-motion": "^10.12.16",
     "highlight.js": "^11.8.0",
     "lucide-react": "^0.221.0",
+    "next-plausible": "^3.7.2",
     "next-themes": "^0.2.1",
     "postcss": "^8.4.23",
     "prisma": "^4.14.1",

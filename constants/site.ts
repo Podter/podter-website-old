@@ -13,3 +13,7 @@ export const lanyardConfig: Options["api"] = {
   hostname: "lanyard.podter.xyz",
   secure: true,
 };
+
+export const plausibleConfig = {
+  domain: "podter.me",
+};

@@ -4,6 +4,8 @@ import type { PropsWithChildren } from "react";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/Tooltip";
 import { MotionConfig } from "framer-motion";
+import PlausibleProvider from "next-plausible";
+import { plausibleConfig } from "@/constants/site";
 
 if (process.env.NODE_ENV === "production") {
   console.log(
@@ -20,10 +22,12 @@ if (process.env.NODE_ENV === "production") {
 
 export default function Providers({ children }: PropsWithChildren) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <MotionConfig reducedMotion="user">
-        <TooltipProvider>{children}</TooltipProvider>
-      </MotionConfig>
-    </ThemeProvider>
+    <PlausibleProvider domain={plausibleConfig.domain}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <MotionConfig reducedMotion="user">
+          <TooltipProvider>{children}</TooltipProvider>
+        </MotionConfig>
+      </ThemeProvider>
+    </PlausibleProvider>
   );
 }

@@ -1,5 +1,6 @@
 const { withContentlayer } = require("next-contentlayer");
 const withMDX = require("@next/mdx")();
+const withPlausibleProxy = require("next-plausible");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -31,4 +32,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentlayer(withMDX(nextConfig));
+module.exports = withPlausibleProxy({
+  customDomain: "https://plausible.podter.me",
+})(withContentlayer(withMDX(nextConfig)));
