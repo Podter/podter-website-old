@@ -1,6 +1,6 @@
 const { withContentlayer } = require("next-contentlayer");
 const withMDX = require("@next/mdx")();
-const withPlausibleProxy = require("next-plausible");
+const { withPlausibleProxy } = require("next-plausible");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
