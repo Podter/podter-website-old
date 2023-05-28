@@ -3,6 +3,7 @@ import Link from "next/link";
 import Back from "@/components/Back";
 import makeMetadata from "@/lib/makeMetadata";
 import ErrorPage from "@/components/ErrorPage";
+import TrackNotFound from "@/components/TrackNotFound";
 
 export const metadata = {
   ...makeMetadata(
@@ -25,6 +26,7 @@ export default function NotFound() {
         <Link href="/">Home</Link>
       </Button>
       <Back />
+      <TrackNotFound />
     </ErrorPage>
   );
 }

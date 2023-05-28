@@ -4,6 +4,9 @@ import Link from "next/link";
 import makeMetadata from "@/lib/makeMetadata";
 import ErrorPage from "@/components/ErrorPage";
 import { Button } from "@/components/ui/Button";
+import { usePlausible } from "next-plausible";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export const metadata = {
   ...makeMetadata(
@@ -17,9 +20,24 @@ export const metadata = {
 
 type ErrorProps = {
   reset: () => void;
+  error: Error;
 };
 
-export default function Error({ reset }: ErrorProps) {
+export default function Error({ reset, error }: ErrorProps) {
+  const plausible = usePlausible<PlausibleEvents>();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    plausible("error", {
+      props: {
+        error: error.message,
+        path: pathname,
+      },
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ErrorPage
       title="500"
