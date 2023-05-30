@@ -43,7 +43,9 @@ export default function ProjectCard({
         </div>
       </div>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle asChild>
+          <p>{title}</p>
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <TypographyP>{description}</TypographyP>
