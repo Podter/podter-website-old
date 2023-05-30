@@ -37,7 +37,7 @@ const projects: Project[] = [
   {
     title: "podter.me",
     description:
-      "The website that you are currently on right now. Built with Next.js, Tailwind CSS, shadcn/ui and PlanetScale.",
+      "The website that you are currently on right now. Built with Next.js app router, Tailwind CSS, shadcn/ui and PlanetScale.",
     img: PodWeb,
     sourceUrl: "https://github.com/Podter/podter.me",
     techStack: [
