@@ -39,7 +39,7 @@ export default function Roblox(data: RobloxData) {
                 className={cn(
                   "rounded-full h-[0.625rem] w-[0.625rem] absolute right-px bottom-px bg-slate-600",
                   {
-                    "bg-sky-400": data.userPresenceType === "online",
+                    "bg-social-sky": data.userPresenceType === "online",
                     "bg-social-green": data.userPresenceType === "inGame",
                     "bg-social-yellow": data.userPresenceType === "studio",
                   }
