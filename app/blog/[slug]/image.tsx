@@ -1,4 +1,4 @@
-import NextImage, { ImageProps } from "next/image";
+import NextImage, { type ImageProps as NextImageProps } from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
@@ -9,7 +9,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/Tooltip";
 
-export default function Image({ src, alt, className, ...props }: ImageProps) {
+type ImageProps = NextImageProps & {
+  href?: string;
+};
+
+export default function Image({
+  src,
+  alt,
+  className,
+  href,
+  ...props
+}: ImageProps) {
   return (
     <div className="bg-transparent overflow-hidden rounded-xl w-full group mt-8 relative shadow-md">
       <Tooltip>
@@ -19,7 +29,7 @@ export default function Image({ src, alt, className, ...props }: ImageProps) {
             className="w-10 p-2 hidden group-hover:inline-flex"
             variant="secondary"
           >
-            <Link href={src.toString()} target="_blank">
+            <Link href={href || src.toString()} target="_blank">
               <ExternalLink size={16} className="h-4 w-4" />
               <span className="sr-only">Open image in new tab</span>
             </Link>
@@ -31,7 +41,7 @@ export default function Image({ src, alt, className, ...props }: ImageProps) {
         </TooltipContent>
       </Tooltip>
       <Link
-        href={src.toString()}
+        href={href || src.toString()}
         className="w-full h-full z-10 absolute"
         target="_blank"
       >
