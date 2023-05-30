@@ -2,8 +2,8 @@ import NextAuth, { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface Session {
-    user: DefaultSession["user"] & {
-      providerAccountId?: string;
-    };
+    user: {
+      providerAccountId?: string | null;
+    } & DefaultSession["user"];
   }
 }

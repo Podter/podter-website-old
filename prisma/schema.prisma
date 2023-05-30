@@ -9,25 +9,17 @@ datasource db {
 }
 
 model GuestbookMessage {
-  id                String   @id @default(cuid())
+  id                Int      @id @default(autoincrement())
   created           DateTime @default(now())
   updatedAt         DateTime @updatedAt
   updated           Boolean  @default(false)
   email             String
-  providerAccountId String?
-  name              String
-  avatar            String?
+  providerAccountId String
   message           String
 }
 
-model BlogViews {
-  id    String @id @default(cuid())
-  slug  String
-  views Int
-}
-
 model Blacklist {
-  id                String  @id @default(cuid())
+  id                Int     @id @default(autoincrement())
   email             String
   providerAccountId String?
 }

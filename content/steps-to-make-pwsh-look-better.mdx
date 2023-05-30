@@ -1,0 +1,241 @@
+---
+title: Steps to make PowerShell look better
+date: 2023-04-09
+---
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/final.png"
+  alt="Final result"
+  width={1138}
+  height={718}
+/>
+
+Everytime when I use Windows, The biggest thing I missed is ZSH with Oh My Zsh.
+I tried to use PowerShell or CMD, but it's not as good as ZSH.
+
+So I decided to make it better and feel like I'm using ZSH.
+
+## What do I need from a terminal?
+
+These are all the capabilities I need from a terminal:
+
+- Jazzy colors
+- Intergrations like git, nvm, etc
+- Familiarity with ZSH
+- Autocompletion for commands and files
+- sudo command
+
+## Let's get started
+
+### Chocolatey (optional)
+
+Chocolatey is a package manager for Windows. Like Homebrew for macOS or `apt` for Debian based distros.
+
+This is optional but it will help installing software from terminal easily. You can install it from [here](https://chocolatey.org/install).
+
+### PowerShell 7
+
+First, we need to install PowerShell 7. I'm going to download it from [here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell). Or you can install it using Chocolatey.
+
+```txt
+choco install powershell-core
+```
+
+We don't use Windows PowerShell (The pre-installed one) because it doesn't support some features we need.
+
+For who confused what's difference between Windows PowerShell and PowerShell Core 7, you can check out this [YouTube video](https://www.youtube.com/watch?v=PqHfuaF2EiY).
+
+### Nerd Fonts
+
+Nerd Fonts is a font that supports icons. We need this font to make our terminal look better. Choose your favorite font from [here](https://www.nerdfonts.com/font-downloads). I choose `JetBrainsMono Nerd Font` and I'm going to install it using Chocolatey.
+
+```pwsh
+choco install jetbrainsmononf
+```
+
+### Windows Terminal
+
+Windows Terminal is a terminal emulator for Windows. I'm going to install from [Microsoft Store](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701). But you can also install it using Chocolatey.
+
+```txt
+choco install microsoft-windows-terminal
+```
+
+Open Windows terminal and then set default profile to PowerShell 7:
+
+1. Settings (That down arrow in the top bar)
+2. Set Default Profile as "PowerShell" (the black icon, not the blue Windows PowerShell one)
+
+Also don't forget to set the fonts:
+
+1. Settings
+2. Profiles (left menu)
+3. PowerShell (or Defaults if you want to change globally)
+4. Appearance
+5. Font face
+6. Select the installed Nerd font, I choose `JetBrainsMono NF`
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/wt-font.png"
+  alt="Windows Terminal profile"
+  width={1138}
+  height={709}
+/>
+
+You can change the color scheme too.
+
+### Oh My Posh
+
+Oh My Posh is a theme engine for PowerShell. It's like Oh My Zsh for ZSH. You can follow the installation guide [here](https://ohmyposh.dev/docs/installation/windows). But I'm going install it using Chocolatey.
+
+```txt
+choco install oh-my-posh
+```
+
+After installing, we need to create PowerShell profile. The PowerShell profile is same as `.zshrc` or `.bashrc`. You can provide initial commands, aliases, etc.
+
+You can create it by running this command:
+
+```pwsh
+New-Item -Path $PROFILE -ItemType File -Force
+```
+
+The file should be located at `~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`.
+
+Open the profile using your text editor.
+
+```pwsh
+# Open in VS Code
+code $PROFILE
+
+# Or open in Notepad
+notepad $PROFILE
+```
+
+And set Oh My Posh as the default shell. Put this inside the profile file so that every time you open the terminal, it loads Oh My Posh.
+
+```pwsh
+oh-my-posh init pwsh | Invoke-Expression
+```
+
+To set custom theme, you need to change the `--config` option of the `oh-my-posh init` command. For example:
+
+```pwsh
+# Load amro theme
+oh-my-posh init --config amro pwsh | Invoke-Expression
+
+# Load from file
+oh-my-posh init pwsh --config 'C:/Users/Posh/jandedobbeleer.omp.json' | Invoke-Expression
+
+# Load from URL
+oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json' | Invoke-Expression
+```
+
+You can find more themes [here](https://ohmyposh.dev/docs/themes). Or learn more about customizing Oh My Posh [here](https://ohmyposh.dev/docs/installation/customize).
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/oh-my-posh-theme.png"
+  alt="Modified montys theme"
+  width={558}
+  height={184}
+/>
+
+You can download my modified version of `montys` theme [here](https://gist.github.com/Podter/59f8874dcec39b706fd46ad1049daf2f). Or import from URL directly:
+
+```pwsh
+oh-my-posh init pwsh --config 'https://gist.github.com/Podter/59f8874dcec39b706fd46ad1049daf2f/raw/7cfe4e98eb81ecf80519f8de0a9ae4c1f9483025/montys.omp.json' | Invoke-Expression
+```
+
+### lsd
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/lsd.png"
+  alt="lsd"
+  width={1141}
+  height={279}
+/>
+
+lsd is a `ls` command with colors and icons. You can follow the installation guide [here](https://github.com/lsd-rs/lsd#installation). I'm going to compile manually but you can install it using Chocolatey.
+
+```pwsh
+choco install lsd
+```
+
+And then replace the PowerShell's default `ls` command with `lsd`:
+
+```pwsh
+Set-Alias ls lsd
+```
+
+You can also add some aliases for `ls` command:
+
+```pwsh
+function l { lsd -l $args }
+function la { lsd -a $args }
+function lla { lsd -la $args }
+function lt { lsd --tree $args }
+```
+
+These will add `l`, `la`, `lla`, and `lt` aliases for `ls` command.
+
+### gsudo
+
+gsudo is a sudo command for Windows. This will allow us to run commands with elevated privileges. It's like `sudo` for Linux. You can the follow the installation guide [here](https://gerardog.github.io/gsudo/docs/install). I'm going to install it using Chocolatey.
+
+```pwsh
+choco install gsudo
+```
+
+And `sudo` command should be available now.
+
+```pwsh
+# Run PowerShell as Administrator
+sudo pwsh
+```
+
+### rm -rf
+
+When I use Linux machine, I always use `rm -rf` command to delete files and alias `rm` to it. But in Windows, we need to use `Remove-Item` command. So I create an alias for it.
+
+```pwsh
+Remove-Alias -Name rm # Remove default rm command
+function rm { Remove-Item -Recurse -Force $args } # Create new rm command
+```
+
+### Autocompletion
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/autocompletion.png"
+  alt="Autocompletion"
+  width={587}
+  height={138}
+/>
+
+Put the following lines in your profile file and you are done.
+
+```pwsh
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+```
+
+### Alias
+
+You can add some aliases to your profile file. For example:
+
+```pwsh
+# Alias `g` to `git`
+Set-Alias g git;
+```
+
+## Conclusion
+
+That's it. You can now use PowerShell as your daily driver. I hope this guide helps you to make your terminal look better.
+
+<Image
+  src="/content/steps-to-make-pwsh-look-better/terminal.gif"
+  alt="Terminal Operating System GIF"
+  width={668}
+  height={331}
+  href="https://giphy.com/gifs/terminal-cybernetics-windows-JmJMzlXOiI0dq"
+/>

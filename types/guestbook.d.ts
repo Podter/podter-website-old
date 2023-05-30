@@ -1,10 +1,15 @@
-type GuestbookData = {
-  id: string;
-  created: string;
-  updatedAt: string;
+type GuestbookMessageData = {
+  created: Date;
+  updatedAt: Date;
   updated: boolean;
-  providerAccountId: string | null;
-  name: string;
-  avatar: string | null;
+  user: UserData;
   message: string;
+};
+
+type UserData = {
+  name: string;
+  username: string;
+  url: string;
+  provider: string;
+  avatar: string;
 };

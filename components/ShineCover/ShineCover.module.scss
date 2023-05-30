@@ -1,0 +1,42 @@
+.shinetop {
+  --shine-rotate: 315deg;
+}
+
+.shinebottom {
+  --shine-rotate: 45deg;
+}
+
+.shine {
+  background: linear-gradient(
+    to right,
+    transparent 45%,
+    hsl(var(--foreground)) 65%,
+    transparent 100%
+  );
+  opacity: 0.35;
+  background-size: 200% auto;
+  transform: scale(3) rotate(var(--shine-rotate));
+
+  &:hover {
+    animation-name: shine;
+    animation-duration: 1.1s;
+    animation-timing-function: ease;
+  }
+}
+
+:is(.dark, .shine) {
+  opacity: 0.15;
+}
+
+@media (min-width: 1024px) {
+  .shine {
+    transform: scale(2.25) rotate(var(--shine-rotate));
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200%;
+    opacity: 0;
+  }
+}

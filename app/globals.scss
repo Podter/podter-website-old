@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 23% 95%;
+    --foreground: 0 0% 0%;
+
+    --muted: 220 21% 89%;
+    --muted-foreground: 233 13% 41%;
+
+    --popover: 220 23% 95%;
+    --popover-foreground: 234 16% 35%;
+
+    --card: 220 23% 95%;
+    --card-foreground: 0 0% 0%;
+
+    --border: 220 21% 89%;
+    --input: 220 21% 89%;
+
+    --primary: 347 87% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 21% 89%;
+    --secondary-foreground: 0 0% 0%;
+
+    --accent: 220 21% 89%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 355 76% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 220 21% 89%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 23% 9%;
+    --foreground: 0 0% 100%;
+
+    --muted: 240 21% 12%;
+    --muted-foreground: 230 13% 55%;
+
+    --popover: 240 23% 9%;
+    --popover-foreground: 228 17% 64%;
+
+    --card: 240 23% 9%;
+    --card-foreground: 0 0% 100%;
+
+    --border: 240 21% 15%;
+    --input: 240 21% 15%;
+
+    --primary: 347 87% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 21% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 240 21% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 355 76% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 240 21% 15%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      @apply w-2 h-2 bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-primary rounded-md;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+    ::-webkit-scrollbar-button {
+      @apply hidden;
+    }
+  }
+
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+
+  .page-transition > * {
+    animation-name: page-transition;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.14, 0.64, 0.51, 0.94);
+  }
+
+  @for $i from 1 through 24 {
+    .page-transition > :nth-child(#{$i}) {
+      animation-delay: #{$i / 20}s;
+    }
+  }
+
+  @keyframes page-transition {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

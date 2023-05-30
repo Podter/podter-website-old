@@ -1,56 +1,87 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
-
-const { variants } = require("@catppuccin/palette");
-
 module.exports = {
+  darkMode: ["class"],
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        social: {
+          green: "hsl(109, 58%, 40%)",
+          yellow: "hsl(35, 77%, 49%)",
+          red: "hsl(347, 87%, 44%)",
+          sky: "hsl(197, 97%, 46%)",
+        },
+      },
+      borderRadius: {
+        lg: `var(--radius)`,
+        md: `calc(var(--radius) - 2px)`,
+        sm: "calc(var(--radius) - 4px)",
+      },
       fontFamily: {
-        poppins: ["var(--font-poppins)"],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
+        mono: ["var(--font-jetbrains)", ...fontFamily.mono],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [
-    require("daisyui"),
-    require("@catppuccin/tailwindcss")({
-      prefix: "ctp",
-      defaultFlavour: "latte",
-    }),
-    require("@tailwindcss/typography"),
-  ],
-  daisyui: {
-    themes: [
-      {
-        "ctp-latte": {
-          primary: variants.latte.red.hex,
-          secondary: variants.latte.blue.hex,
-          accent: variants.latte.teal.hex,
-          neutral: variants.latte.crust.hex,
-          "base-100": variants.latte.base.hex,
-          info: variants.latte.sky.hex,
-          success: variants.latte.green.hex,
-          warning: variants.latte.yellow.hex,
-          error: variants.latte.maroon.hex,
-        },
-      },
-      {
-        "ctp-mocha": {
-          primary: variants.latte.red.hex,
-          secondary: variants.latte.blue.hex,
-          accent: variants.latte.teal.hex,
-          neutral: variants.mocha.base.hex,
-          "base-100": variants.mocha.crust.hex,
-          info: variants.latte.sky.hex,
-          success: variants.latte.green.hex,
-          warning: variants.latte.yellow.hex,
-          error: variants.latte.maroon.hex,
-        },
-      },
-    ],
-  },
+  plugins: [require("tailwindcss-animate")],
 };

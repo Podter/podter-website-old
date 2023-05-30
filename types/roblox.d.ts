@@ -1,18 +1,23 @@
+type ThumbnailsResponse = {
+  data: {
+    imageUrl: string;
+  }[];
+};
+
+type UserCount = {
+  count: number;
+};
+
 type RobloxData = {
-  thumbnails: {
-    headshot: string;
-    body: string;
-  };
-  info: {
-    username: string;
-    displayName: string;
-    friendCount: string;
-    followerCount: string;
-  };
-  presences: {
-    userPresenceType: "offline" | "online" | "inGame" | "studio";
-    location: string;
-    placeThumbnail: string | null;
-    lastOnline: string;
-  };
+  id: string;
+  playerHeadshot: string;
+  playerBody: string;
+  name: string;
+  displayName: string;
+  friendCount: number;
+  followerCount: number;
+  lastOnline: string;
+  userPresenceType: "online" | "inGame" | "studio" | "offline";
+  lastLocation: string;
+  placeThumbnail: string | undefined;
 };

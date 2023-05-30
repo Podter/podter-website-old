@@ -1,11 +1,9 @@
-type WakaTimeLanguage = {
-  name: string;
-  time: string;
-  percent: number;
-};
-
 type WakaTimeData = {
-  total: string;
-  dailyAverage: string;
-  languages: WakaTimeLanguage[];
+  human_readable_total_including_other_language: string;
+  human_readable_daily_average_including_other_language: string;
+  languages: {
+    name: string;
+    text: string;
+    percent: number;
+  }[];
 };

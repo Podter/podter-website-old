@@ -1,16 +1,13 @@
 const { withContentlayer } = require("next-contentlayer");
-
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
+const withMDX = require("@next/mdx")();
+const { withPlausibleProxy } = require("next-plausible");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  experimental: {
+    mdxRs: true,
+    serverActions: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -21,9 +18,9 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "avatars.githubusercontent.com",
+        hostname: "lanyard.podter.me",
         port: "",
-        pathname: "/u/**",
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -33,7 +30,8 @@ const nextConfig = {
       },
     ],
   },
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 };
 
-module.exports = withContentlayer(withMDX(nextConfig));
+module.exports = withPlausibleProxy({
+  customDomain: "https://plausible.podter.me",
+})(withContentlayer(withMDX(nextConfig)));

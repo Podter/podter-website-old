@@ -1,52 +1,58 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
-import mdxImage from "./lib/mdxImage";
 import rehypeHighlight from "rehype-highlight";
 import pwsh from "highlight.js/lib/languages/powershell";
-import path from "path";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-export const Post = defineDocumentType(() => ({
-  name: "Post",
+export const Blog = defineDocumentType(() => ({
+  name: "Blog",
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
-      description: "The title of the post",
       required: true,
     },
     date: {
       type: "date",
-      description: "The date of the post",
       required: true,
     },
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      resolve: (doc) => `/blog/${doc._raw.flattenedPath}`,
+    },
+    slug: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath,
     },
   },
 }));
 
 export default makeSource({
-  contentDirPath: "posts",
-  documentTypes: [Post],
+  contentDirPath: "content",
+  documentTypes: [Blog],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
-      [
-        mdxImage,
-        {
-          publicDir: path.join(process.cwd(), "public", "posts"),
-          resourcePath: "/posts",
-        },
-      ],
       [
         rehypeHighlight,
         {
           languages: {
             pwsh,
+          },
+        },
+      ],
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          test: ["h2", "h3"],
+          properties: {
+            class: "rehype-autolink-headings",
           },
         },
       ],
