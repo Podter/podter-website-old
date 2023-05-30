@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "lanyard.podter.xyz",
+        hostname: "lanyard.podter.me",
         port: "",
         pathname: "/**",
       },

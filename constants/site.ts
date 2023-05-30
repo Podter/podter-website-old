@@ -10,7 +10,7 @@ export const siteConfig = {
 };
 
 export const lanyardConfig: Options["api"] = {
-  hostname: "lanyard.podter.xyz",
+  hostname: "lanyard.podter.me",
   secure: true,
 };
 
