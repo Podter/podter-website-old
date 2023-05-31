@@ -12,7 +12,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Icon } from "@iconify/react/dist/offline";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
-import ShineCover from "@/components/ShineCover/ShineCover";
+import ShineCover from "@/components/ShineCover";
 
 export default function ProjectCard({
   title,
