@@ -1,8 +1,5 @@
 import { buttonVariants } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-
-const min = 128;
-const max = 256;
+import Skeletons from "./skeletons";
 
 export default function Loading() {
   return (
@@ -21,19 +18,7 @@ export default function Loading() {
           })}
         />
       </div>
-      <div className="flex flex-col mt-8 gap-4">
-        {[...Array(5)].map((_, i) => (
-          <div className="flex flex-row items-center" key={i}>
-            <Skeleton className="h-6 w-6 rounded-full mr-2" />
-            <Skeleton
-              className="h-5 rounded-md"
-              style={{
-                width: Math.floor(Math.random() * (max - min + 1)) + min,
-              }}
-            />
-          </div>
-        ))}
-      </div>
+      <Skeletons />
     </>
   );
 }

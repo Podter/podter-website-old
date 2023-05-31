@@ -12,7 +12,11 @@ export const metadata = makeMetadata(
   "Sign my guestbook and leave your mark. Feel free to leave any message here."
 );
 
+const delay = () => new Promise((resolve) => setTimeout(resolve, 3000));
+
 export default async function Page() {
+  await delay();
+
   const [session, data] = await Promise.all([
     getServerSession(authOptions),
     prisma.guestbookMessage.findMany({
