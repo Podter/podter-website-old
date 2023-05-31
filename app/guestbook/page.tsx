@@ -17,7 +17,7 @@ export default async function Page() {
     getServerSession(authOptions),
     prisma.guestbookMessage.findMany({
       orderBy: {
-        updatedAt: "desc",
+        created: "desc",
       },
       select: {
         id: true,
@@ -60,7 +60,7 @@ export default async function Page() {
       ) : (
         <SignIn />
       )}
-      <div className="flex flex-col-reverse mt-8 gap-4">
+      <div className="flex flex-col mt-8 gap-4">
         {await Promise.all(
           data.map(async ({ id, provider, providerAccountId, ...props }) => {
             const user = await getUser(providerAccountId, provider);
