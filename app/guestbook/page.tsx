@@ -59,7 +59,7 @@ export default async function Page() {
       ) : (
         <SignIn />
       )}
-      <div className="flex flex-col mt-8 gap-4">
+      <div className="flex flex-col-reverse mt-8 gap-4">
         {await Promise.all(
           data.map(async ({ id, providerAccountId, ...props }) => {
             const user = await getUser(providerAccountId);
