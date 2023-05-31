@@ -8,6 +8,7 @@ import {
 import { CalendarDays, Edit } from "lucide-react";
 import { format } from "date-fns";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export default function Message({
   message,
@@ -17,10 +18,15 @@ export default function Message({
   user,
 }: GuestbookMessageData) {
   return (
-    <div className="flex flex-row items-center">
+    <div
+      className={cn(
+        "flex flex-col justify-center border border-border p-4 rounded-lg shadow-md bg-card text-card-foreground",
+        "sm:flex-row sm:justify-start sm:items-center sm:border-0 sm:p-0 sm:shadow-none sm:bg-auto sm:text-auto"
+      )}
+    >
       <HoverCard>
         <HoverCardTrigger asChild>
-          <div className="flex flex-row items-center gap-2 cursor-default">
+          <div className="flex flex-row items-center gap-2 cursor-default mb-3 sm:mb-0">
             <Avatar className="h-6 w-6">
               <AvatarImage src={user.avatar} alt={user.username} />
               <AvatarFallback className="text-xs">
@@ -31,11 +37,14 @@ export default function Message({
               className="text-sm text-muted-foreground mr-1 font-medium underline-offset-4 hover:underline cursor-pointer"
               href={user.url}
             >
-              {user.name}:{" "}
+              {user.name}
+              <span className="hidden sm:inline-block">: </span>
             </Link>
           </div>
         </HoverCardTrigger>
-        <HoverCardContent className="w-80">
+        <HoverCardContent
+          className={cn("w-80", user.username.length >= 15 && "w-96")}
+        >
           <div className="flex justify-start space-x-4">
             <Avatar>
               <AvatarImage src={user.avatar} alt={user.username} />

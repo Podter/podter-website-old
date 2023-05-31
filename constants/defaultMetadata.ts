@@ -59,6 +59,9 @@ const defaultMetadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "Jfc2vKkk95YzKNp4NaKjW08FQd11KPabjnJucKPeKVc",
+  },
 };
 
 export default defaultMetadata;

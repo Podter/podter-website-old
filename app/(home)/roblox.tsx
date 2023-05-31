@@ -12,7 +12,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import robloxPlaceholder from "@/public/roblox-placeholder.png";
 import Link from "next/link";
-import ShineCover from "@/components/ShineCover/ShineCover";
+import ShineCover from "@/components/ShineCover";
 
 export default function Roblox(data: RobloxData) {
   return (
