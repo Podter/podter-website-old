@@ -23,6 +23,7 @@ export default async function Page() {
         id: true,
         created: true,
         message: true,
+        provider: true,
         providerAccountId: true,
         updated: true,
         updatedAt: true,
@@ -61,8 +62,8 @@ export default async function Page() {
       )}
       <div className="flex flex-col-reverse mt-8 gap-4">
         {await Promise.all(
-          data.map(async ({ id, providerAccountId, ...props }) => {
-            const user = await getUser(providerAccountId);
+          data.map(async ({ id, provider, providerAccountId, ...props }) => {
+            const user = await getUser(providerAccountId, provider);
             return <Message key={id} user={user} {...props} />;
           })
         )}
