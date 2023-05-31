@@ -42,7 +42,9 @@ export default function Message({
             </Link>
           </div>
         </HoverCardTrigger>
-        <HoverCardContent className="w-80">
+        <HoverCardContent
+          className={cn("w-80", user.username.length >= 15 && "w-96")}
+        >
           <div className="flex justify-start space-x-4">
             <Avatar>
               <AvatarImage src={user.avatar} alt={user.username} />
