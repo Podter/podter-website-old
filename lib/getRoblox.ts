@@ -29,11 +29,11 @@ export default async function getRoblox(): Promise<RobloxData> {
   ] = await Promise.all([
     httpFetch<ThumbnailsResponse>(
       `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${socialId.roblox}&size=150x150&format=Png&isCircular=false`,
-      { next: { revalidate } }
+      { next: { revalidate } },
     ),
     httpFetch<ThumbnailsResponse>(
       `https://thumbnails.roblox.com/v1/users/avatar?userIds=${socialId.roblox}&size=150x150&format=Png&isCircular=false`,
-      { next: { revalidate } }
+      { next: { revalidate } },
     ),
     httpFetch<{
       name: string;
@@ -43,11 +43,11 @@ export default async function getRoblox(): Promise<RobloxData> {
     }),
     httpFetch<UserCount>(
       `https://friends.roblox.com/v1/users/${socialId.roblox}/friends/count`,
-      { next: { revalidate } }
+      { next: { revalidate } },
     ),
     httpFetch<UserCount>(
       `https://friends.roblox.com/v1/users/${socialId.roblox}/followers/count`,
-      { next: { revalidate } }
+      { next: { revalidate } },
     ),
     httpFetch<{
       lastOnlineTimestamps: {
@@ -83,7 +83,7 @@ export default async function getRoblox(): Promise<RobloxData> {
   const playerBody = playerBodyRes.data[0].imageUrl;
   const lastOnline = format(
     parseISO(lastOnlineRes.lastOnlineTimestamps[0].lastOnline),
-    "do MMM yyyy"
+    "do MMM yyyy",
   );
   const playerPresences = playerPresencesRes.userPresences[0];
   const userPresenceType: "online" | "inGame" | "studio" | "offline" =
@@ -95,7 +95,7 @@ export default async function getRoblox(): Promise<RobloxData> {
           `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${
             playerPresences.rootPlaceId || playerPresences.placeId
           }&returnPolicy=PlaceHolder&size=150x150&format=Png&isCircular=false`,
-          { next: { revalidate } }
+          { next: { revalidate } },
         )
       : undefined;
   const placeThumbnail = placeThumbnailRes?.data[0].imageUrl;

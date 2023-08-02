@@ -17,34 +17,48 @@
 
 // Toaster Animations
 .t1 {
-  animation: flap 0.2s steps(4) infinite alternate, fly 10s linear infinite;
+  animation:
+    flap 0.2s steps(4) infinite alternate,
+    fly 10s linear infinite;
 }
 .t2 {
-  animation: flap 0.2s steps(4) infinite alternate-reverse,
+  animation:
+    flap 0.2s steps(4) infinite alternate-reverse,
     fly 16s linear infinite;
 }
 .t3 {
-  animation: flap 0.2s steps(4) infinite alternate, fly 24s linear infinite;
+  animation:
+    flap 0.2s steps(4) infinite alternate,
+    fly 24s linear infinite;
 }
 .t4 {
-  animation: flap 0.2s steps(4) infinite alternate, fly 10s 5s linear infinite;
+  animation:
+    flap 0.2s steps(4) infinite alternate,
+    fly 10s 5s linear infinite;
 }
 .t5 {
-  animation: flap 0.2s steps(4) infinite alternate-reverse,
+  animation:
+    flap 0.2s steps(4) infinite alternate-reverse,
     fly 24s 4s linear infinite;
 }
 .t6 {
-  animation: flap 0.2s steps(4) infinite alternate, fly 24s 8s linear infinite;
+  animation:
+    flap 0.2s steps(4) infinite alternate,
+    fly 24s 8s linear infinite;
 }
 .t7 {
-  animation: flap 0.2s steps(4) infinite alternate-reverse,
+  animation:
+    flap 0.2s steps(4) infinite alternate-reverse,
     fly 24s 12s linear infinite;
 }
 .t8 {
-  animation: flap 0.2s steps(4) infinite alternate, fly 24s 16s linear infinite;
+  animation:
+    flap 0.2s steps(4) infinite alternate,
+    fly 24s 16s linear infinite;
 }
 .t9 {
-  animation: flap 0.2s steps(4) infinite alternate-reverse,
+  animation:
+    flap 0.2s steps(4) infinite alternate-reverse,
     fly 24s 20s linear infinite;
 }
 

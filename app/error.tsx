@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 export const metadata = {
   ...makeMetadata(
     "500 Internal Server Error",
-    "How did you get here? This rarely happens."
+    "How did you get here? This rarely happens.",
   ),
   robots: {
     index: false,

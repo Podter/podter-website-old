@@ -5,7 +5,7 @@ import Post from "./post";
 
 export const metadata = makeMetadata(
   "Blog",
-  "A collection of blog posts that I've written."
+  "A collection of blog posts that I've written.",
 );
 
 export default function Page() {

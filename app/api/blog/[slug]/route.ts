@@ -18,7 +18,7 @@ export async function GET(_: Request, { params }: RouterContext) {
           Authorization: `Bearer ${process.env.PLAUSIBLE_API_KEY}`,
         },
         next: { revalidate: 300 },
-      }
+      },
     );
 
     return NextResponse.json({ views: data.results.visitors.value });
@@ -26,7 +26,7 @@ export async function GET(_: Request, { params }: RouterContext) {
     console.error(e);
     return NextResponse.json(
       { message: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

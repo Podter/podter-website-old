@@ -14,7 +14,7 @@ type ViewCounterProps = {
 export default function ViewCounter({ slug }: ViewCounterProps) {
   const { data, isLoading } = useSWR(
     `/api/blog/${slug}`,
-    httpFetch<{ views: number }>
+    httpFetch<{ views: number }>,
   );
 
   return (

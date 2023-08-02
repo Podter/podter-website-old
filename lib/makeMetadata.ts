@@ -4,7 +4,7 @@ import defaultMetadata from "@/constants/defaultMetadata";
 
 export default function makeMetadata(
   title: string,
-  description: string
+  description: string,
 ): Metadata {
   return {
     title,

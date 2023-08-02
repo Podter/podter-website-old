@@ -88,7 +88,7 @@ export default function Menu() {
                         </div>
                         <ChevronRight size={18} className="h-5 w-5" />
                       </Link>
-                    )
+                    ),
                   )}
                 </CardContent>
                 <CardFooter className="absolute bottom-0">

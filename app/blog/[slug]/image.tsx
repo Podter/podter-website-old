@@ -53,7 +53,7 @@ export default function Image({
         alt={alt}
         className={cn(
           "object-cover transition-all group-hover:scale-[1.025] w-full",
-          className
+          className,
         )}
       />
     </div>

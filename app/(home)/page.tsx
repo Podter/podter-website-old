@@ -13,7 +13,7 @@ export default async function Page() {
       `${lanyardConfig.secure ? "https" : "http"}://${
         lanyardConfig.hostname
       }/v1/users/${socialId.discord}`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     ),
     getRoblox(),
     httpFetch<{ data: WakaTimeData }>(
@@ -21,11 +21,11 @@ export default async function Page() {
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            process.env.WAKATIME_SECRET_API_KEY || ""
+            process.env.WAKATIME_SECRET_API_KEY || "",
           ).toString("base64")}`,
         },
         next: { revalidate: 86400 },
-      }
+      },
     ),
   ]);
 

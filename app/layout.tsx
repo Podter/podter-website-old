@@ -25,7 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         className={cn(
           "bg-background font-sans antialiased flex flex-col min-h-screen w-full justify-start items-center overflow-x-hidden",
           inter.variable,
-          jetbrains.variable
+          jetbrains.variable,
         )}
       >
         <Providers>

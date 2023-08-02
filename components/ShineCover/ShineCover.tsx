@@ -13,7 +13,7 @@ export default function ShineCover({
         "absolute -top-px -left-px w-full h-full z-10",
         styles.shine,
         shineBottom ? styles.shinebottom : styles.shinetop,
-        className
+        className,
       )}
       aria-hidden
     >

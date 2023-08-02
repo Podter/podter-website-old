@@ -8,7 +8,7 @@ import TrackNotFound from "@/components/TrackNotFound";
 export const metadata = {
   ...makeMetadata(
     "404 Not found",
-    "You are looking for something that doesn't actually exist."
+    "You are looking for something that doesn't actually exist.",
   ),
   robots: {
     index: false,

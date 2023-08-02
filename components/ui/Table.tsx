@@ -23,7 +23,7 @@ export function Th({ className, ...props }: JSX.IntrinsicElements["th"]) {
       {...props}
       className={cn(
         "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
     />
   );
@@ -35,7 +35,7 @@ export function Td({ className, ...props }: JSX.IntrinsicElements["td"]) {
       {...props}
       className={cn(
         "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
     />
   );

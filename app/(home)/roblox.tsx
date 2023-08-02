@@ -42,7 +42,7 @@ export default function Roblox(data: RobloxData) {
                     "bg-social-sky": data.userPresenceType === "online",
                     "bg-social-green": data.userPresenceType === "inGame",
                     "bg-social-yellow": data.userPresenceType === "studio",
-                  }
+                  },
                 )}
               />
             </div>

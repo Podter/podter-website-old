@@ -35,7 +35,7 @@ export function generateMetadata({ params }: BlogPostParams): Metadata {
   return {
     ...makeMetadata(
       post.title,
-      `Read more about "${post.title}" on Podter's blog`
+      `Read more about "${post.title}" on Podter's blog`,
     ),
     openGraph: {
       type: "article",
