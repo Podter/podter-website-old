@@ -26,7 +26,7 @@ export const socials: Record<
     url: "https://discord.com/users/331793642689789962",
     icon: discordIcon,
     homePage: true,
-    username: "@Podter#5146",
+    username: "@podter",
   },
   Twitter: {
     url: "https://twitter.com/Real_Podter",
