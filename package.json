@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -57,12 +58,15 @@
     "date-fns": "^2.30.0",
     "eslint": "^8.46.0",
     "eslint-config-next": "^13.4.12",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "framer-motion": "^10.15.0",
     "highlight.js": "^11.8.0",
     "lucide-react": "^0.263.1",
     "next-plausible": "^3.10.1",
     "next-themes": "^0.2.1",
     "postcss": "^8.4.27",
+    "prettier": "^3.0.0",
     "prisma": "^5.1.0",
     "react-confetti": "^6.1.0",
     "react-hook-form": "^7.45.2",
