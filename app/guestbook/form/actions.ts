@@ -8,7 +8,7 @@ import type { Session } from "next-auth";
 export async function submitMessage(
   message: string,
   session: Session,
-  blacklisted: boolean
+  blacklisted: boolean,
 ) {
   if (blacklisted || filter.isProfane(message)) {
     throw new Error("Message contains profanity or user is blacklisted");
@@ -25,10 +25,12 @@ export async function submitMessage(
 
   const existing = await prisma.guestbookMessage.findFirst({
     where: {
-      OR: {
-        email: session.user.email,
-        providerAccountId: session.user.providerAccountId,
-      },
+      OR: [
+        {
+          email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
+        },
+      ],
     },
     select: {
       id: true,
@@ -81,10 +83,12 @@ export async function deleteMessage(session: Session) {
 
   await prisma.guestbookMessage.deleteMany({
     where: {
-      OR: {
-        email: session.user.email,
-        providerAccountId: session.user.providerAccountId,
-      },
+      OR: [
+        {
+          email: session.user.email,
+          providerAccountId: session.user.providerAccountId,
+        },
+      ],
     },
   });
 }

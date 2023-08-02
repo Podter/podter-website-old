@@ -40,7 +40,7 @@ export default function Navbar() {
             href="/"
             className={cn(
               "mr-3 scroll-m-20 text-xl font-bold bg-gradient-to-br from-primary to-destructive bg-clip-text hover:text-transparent transition-colors",
-              styles.fadein
+              styles.fadein,
             )}
             onClick={triggerConfetti}
             ref={navRef}
@@ -57,7 +57,7 @@ export default function Navbar() {
                   href={path}
                   className={cn(
                     "transition-all hover:text-foreground align-middle text-sm font-medium hidden sm:flex",
-                    !isActive && "sm:text-muted-foreground"
+                    !isActive && "sm:text-muted-foreground",
                   )}
                 >
                   <div className="relative py-2 px-3 flex flex-row justify-center items-center">

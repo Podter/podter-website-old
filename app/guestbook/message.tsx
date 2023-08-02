@@ -21,7 +21,7 @@ export default function Message({
     <div
       className={cn(
         "flex flex-col justify-center border border-border p-4 rounded-lg shadow-md bg-card text-card-foreground",
-        "sm:flex-row sm:justify-start sm:items-center sm:border-0 sm:p-0 sm:shadow-none sm:bg-auto sm:text-auto"
+        "sm:flex-row sm:justify-start sm:items-center sm:border-0 sm:p-0 sm:shadow-none sm:bg-auto sm:text-auto",
       )}
     >
       <HoverCard>

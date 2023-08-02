@@ -9,7 +9,7 @@ export function TypographyH1({
       {...props}
       className={cn(
         "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-        className
+        className,
       )}
     />
   );
@@ -24,7 +24,7 @@ export function TypographyH2({
       {...props}
       className={cn(
         "mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
-        className
+        className,
       )}
     />
   );
@@ -39,7 +39,7 @@ export function TypographyH3({
       {...props}
       className={cn(
         "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
     />
   );
@@ -54,7 +54,7 @@ export function TypographyH4({
       {...props}
       className={cn(
         "mt-6 scroll-m-20 text-xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
     />
   );
@@ -117,7 +117,7 @@ export function TypographyInlineCode({
       {...props}
       className={cn(
         "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm break-words",
-        className
+        className,
       )}
     />
   );
@@ -161,7 +161,7 @@ export function TypographyAnchor({
       className={cn(
         !className?.includes("rehype-autolink-headings") &&
           "font-medium underline underline-offset-4",
-        className
+        className,
       )}
     />
   );

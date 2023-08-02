@@ -4,7 +4,7 @@ const revalidate = 86400;
 
 export default async function getUser(
   userId: string,
-  provider: string
+  provider: string,
 ): Promise<UserData> {
   try {
     if (provider === "discord") {

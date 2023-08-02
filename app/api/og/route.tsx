@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   const title = searchParams.get("title");
 
   const interFont = await fetch(
-    new URL("../../../public/fonts/inter-bold.ttf", import.meta.url)
+    new URL("../../../public/fonts/inter-bold.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -50,6 +50,6 @@ export async function GET(req: Request) {
           weight: 700,
         },
       ],
-    }
+    },
   );
 }

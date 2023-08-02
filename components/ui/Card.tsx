@@ -14,12 +14,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           "rounded-lg border bg-card text-card-foreground shadow-md",
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 Card.displayName = "Card";
 
@@ -46,12 +46,12 @@ const CardTitle = React.forwardRef<HTMLParagraphElement, CardTitleProps>(
         ref={ref}
         className={cn(
           "text-lg font-semibold leading-none tracking-tight",
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 CardTitle.displayName = "CardTitle";
 

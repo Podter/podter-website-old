@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export async function httpFetch<T = any>(
   input: RequestInfo,
-  init?: RequestInit
+  init?: RequestInit,
 ): Promise<T> {
   const res = await fetch(input, init);
 

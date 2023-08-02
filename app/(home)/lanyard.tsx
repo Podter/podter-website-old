@@ -69,7 +69,7 @@ export default function Lanyard({ initialData }: LanyardProps) {
                   alt="Discord avatar"
                 />
                 <AvatarFallback>
-                  {data.discord_user.username.charAt(0).toUpperCase()}
+                  {data.discord_user.global_name?.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div
@@ -79,15 +79,13 @@ export default function Lanyard({ initialData }: LanyardProps) {
                     "bg-social-green": data.discord_status === "online",
                     "bg-social-yellow": data.discord_status === "idle",
                     "bg-social-red": data.discord_status === "dnd",
-                  }
+                  },
                 )}
               />
             </div>
             <div className="flex flex-col">
               <CardTitle asChild>
-                <p>
-                  {data.discord_user.username}#{data.discord_user.discriminator}
-                </p>
+                <p>{data.discord_user.global_name}</p>
               </CardTitle>
               <CardDescription>
                 {data.discord_status === "online"

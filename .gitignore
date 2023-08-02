@@ -39,3 +39,6 @@ next-env.d.ts
 
 # unlighthouse
 .unlighthouse
+
+# jetbrains ide
+.idea

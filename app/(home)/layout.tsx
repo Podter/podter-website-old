@@ -41,7 +41,7 @@ export default function Layout({ children }: PropsWithChildren) {
                   <p>{social}</p>
                 </TooltipContent>
               </Tooltip>
-            )
+            ),
         )}
       </div>
       {children}

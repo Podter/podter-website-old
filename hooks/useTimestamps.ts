@@ -50,7 +50,7 @@ const getTime = (timestamps?: Timestamps): Times | null => {
 
     return {
       start: `${hours ? `${hours}:` : ""}${padding(minutes)}:${padding(
-        seconds
+        seconds,
       )}`,
       end: null,
       completion: null,
@@ -69,7 +69,7 @@ const getTime = (timestamps?: Timestamps): Times | null => {
     return {
       start: null,
       end: `${endHours ? `${endHours}:` : ""}${padding(endMinutes)}:${padding(
-        endSeconds
+        endSeconds,
       )}`,
       completion: calc > 100 ? 100 : calc,
     };
@@ -78,7 +78,7 @@ const getTime = (timestamps?: Timestamps): Times | null => {
   return {
     start: `${hours ? `${hours}:` : ""}${padding(minutes)}:${padding(seconds)}`,
     end: `${endHours ? `${endHours}:` : ""}${padding(endMinutes)}:${padding(
-      endSeconds
+      endSeconds,
     )}`,
     completion: calc > 100 ? 100 : calc,
   };
