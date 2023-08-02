@@ -9,7 +9,7 @@ import GuestbookForm from "./form";
 
 export const metadata = makeMetadata(
   "Guestbook",
-  "Sign my guestbook and leave your mark. Feel free to leave any message here."
+  "Sign my guestbook and leave your mark. Feel free to leave any message here.",
 );
 
 export default async function Page() {
@@ -32,17 +32,19 @@ export default async function Page() {
   ]);
 
   const user = data.find(
-    (data) => data.providerAccountId === session?.user.providerAccountId
+    (data) => data.providerAccountId === session?.user.providerAccountId,
   );
 
   const blacklist = await prisma.blacklist.findFirst({
     where: {
-      OR: {
-        email: session?.user.email as string | undefined,
-        providerAccountId: session?.user.providerAccountId as
-          | string
-          | undefined,
-      },
+      OR: [
+        {
+          email: session?.user.email as string | undefined,
+          providerAccountId: session?.user.providerAccountId as
+            | string
+            | undefined,
+        },
+      ],
     },
     select: {
       id: true,
@@ -65,7 +67,7 @@ export default async function Page() {
           data.map(async ({ id, provider, providerAccountId, ...props }) => {
             const user = await getUser(providerAccountId, provider);
             return <Message key={id} user={user} {...props} />;
-          })
+          }),
         )}
       </div>
     </>
