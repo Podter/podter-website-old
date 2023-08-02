@@ -84,11 +84,11 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "JIAmusic",
+    title: "JIΛmusic",
     description:
       "A music streaming service built with Tauri, React and PocketBase. Made for one of the flop companies.",
     img: JIAmusic,
-    sourceUrl: "https://github.com/jiafeitech/jiamusic",
+    sourceUrl: "https://github.com/Podter/jiamusic",
     techStack: [
       reactDark,
       typescriptIcon,
