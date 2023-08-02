@@ -10,7 +10,6 @@ export default async function getUser(
     if (provider === "discord") {
       const data = await httpFetch<{
         username: string;
-        discriminator: string;
         id: string;
         avatar: string;
       }>(`https://discord.com/api/v9/users/${userId}`, {
@@ -22,7 +21,7 @@ export default async function getUser(
 
       return {
         name: data.username,
-        username: `@${data.username}#${data.discriminator}`,
+        username: `@${data.username}`,
         url: `https://discord.com/users/${data.id}`,
         provider: "Discord",
         avatar: `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=48`,
