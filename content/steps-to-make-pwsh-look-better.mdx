@@ -31,11 +31,11 @@ These are all the capabilities I need from a terminal:
 
 Chocolatey is a package manager for Windows. Like Homebrew for macOS or `apt` for Debian based distros.
 
-This is optional but it will help installing software from terminal easily. You can install it from [here](https://chocolatey.org/install).
+This is optional but it will help installing software from terminal easily. You can follow their [documentation](https://chocolatey.org/install) to install it.
 
 ### PowerShell 7
 
-First, we need to install PowerShell 7. I'm going to download it from [here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell). Or you can install it using Chocolatey.
+First, we need to install PowerShell 7. I'm going to download it from their [website](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell). Or you can install it using Chocolatey.
 
 ```txt
 choco install powershell-core
@@ -47,7 +47,7 @@ For who confused what's difference between Windows PowerShell and PowerShell Cor
 
 ### Nerd Fonts
 
-Nerd Fonts is a font that supports icons. We need this font to make our terminal look better. Choose your favorite font from [here](https://www.nerdfonts.com/font-downloads). I choose `JetBrainsMono Nerd Font` and I'm going to install it using Chocolatey.
+Nerd Fonts is a font that supports icons. We need this font to make our terminal look better. Choose your favorite font from their [website](https://www.nerdfonts.com/font-downloads). I choose `JetBrainsMono Nerd Font` and I'm going to install it using Chocolatey.
 
 ```pwsh
 choco install jetbrainsmononf
@@ -86,7 +86,7 @@ You can change the color scheme too.
 
 ### Oh My Posh
 
-Oh My Posh is a theme engine for PowerShell. It's like Oh My Zsh for ZSH. You can follow the installation guide [here](https://ohmyposh.dev/docs/installation/windows). But I'm going install it using Chocolatey.
+Oh My Posh is a theme engine for PowerShell. It's like Oh My Zsh for ZSH. You can follow their [installation guide](https://ohmyposh.dev/docs/installation/windows) to install it. But I'm going install it using Chocolatey.
 
 ```txt
 choco install oh-my-posh
@@ -131,7 +131,7 @@ oh-my-posh init pwsh --config 'C:/Users/Posh/jandedobbeleer.omp.json' | Invoke-E
 oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json' | Invoke-Expression
 ```
 
-You can find more themes [here](https://ohmyposh.dev/docs/themes). Or learn more about customizing Oh My Posh [here](https://ohmyposh.dev/docs/installation/customize).
+You can find more themes on theme [documentation](https://ohmyposh.dev/docs/themes). Or learn more about customizing Oh My Posh on customize [documentation](https://ohmyposh.dev/docs/installation/customize).
 
 <Image
   src="/content/steps-to-make-pwsh-look-better/oh-my-posh-theme.png"
@@ -140,7 +140,7 @@ You can find more themes [here](https://ohmyposh.dev/docs/themes). Or learn more
   height={184}
 />
 
-You can download my modified version of `montys` theme [here](https://gist.github.com/Podter/59f8874dcec39b706fd46ad1049daf2f). Or import from URL directly:
+You can download my modified version of `montys` theme from this [gist](https://gist.github.com/Podter/59f8874dcec39b706fd46ad1049daf2f). Or import from URL directly:
 
 ```pwsh
 oh-my-posh init pwsh --config 'https://gist.github.com/Podter/59f8874dcec39b706fd46ad1049daf2f/raw/7cfe4e98eb81ecf80519f8de0a9ae4c1f9483025/montys.omp.json' | Invoke-Expression
@@ -155,7 +155,7 @@ oh-my-posh init pwsh --config 'https://gist.github.com/Podter/59f8874dcec39b706f
   height={279}
 />
 
-lsd is a `ls` command with colors and icons. You can follow the installation guide [here](https://github.com/lsd-rs/lsd#installation). I'm going to compile manually but you can install it using Chocolatey.
+lsd is a `ls` command with colors and icons. You can follow the installation guide on their [GitHub readme](https://github.com/lsd-rs/lsd#installation). I'm going to compile manually but you can install it using Chocolatey.
 
 ```pwsh
 choco install lsd
@@ -180,7 +180,7 @@ These will add `l`, `la`, `lla`, and `lt` aliases for `ls` command.
 
 ### gsudo
 
-gsudo is a sudo command for Windows. This will allow us to run commands with elevated privileges. It's like `sudo` for Linux. You can the follow the installation guide [here](https://gerardog.github.io/gsudo/docs/install). I'm going to install it using Chocolatey.
+gsudo is a sudo command for Windows. This will allow us to run commands with elevated privileges. It's like `sudo` for Linux. You can the follow the installation guide on their [documentation](https://gerardog.github.io/gsudo/docs/install). I'm going to install it using Chocolatey.
 
 ```pwsh
 choco install gsudo
