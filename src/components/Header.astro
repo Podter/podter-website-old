@@ -1,6 +1,7 @@
 ---
 import { Button } from "@/components/ui/button";
 import { Sun, Command } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 ---
 
 <header class="flex items-center justify-between h-8 mb-8">
@@ -9,8 +10,6 @@ import { Sun, Command } from "lucide-react";
     <Button size="xs" variant="outline">
       <Command size={16} />
     </Button>
-    <Button size="xs" variant="outline">
-      <Sun size={16} />
-    </Button>
+    <ThemeToggle client:only />
   </div>
 </header>
