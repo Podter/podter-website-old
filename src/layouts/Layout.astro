@@ -5,6 +5,7 @@ import "@fontsource-variable/jetbrains-mono";
 
 import { SEO } from "astro-seo";
 import { siteConfig } from "@/constants/site";
+import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
@@ -101,6 +102,11 @@ const ogImage =
     />
   </head>
   <body>
-    <slot />
+    <div class="mx-auto max-w-2xl px-4">
+      <Header />
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

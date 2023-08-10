@@ -78,7 +78,7 @@ $mocha: map-get(catppuccin.$palette, "mocha");
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased mx-auto max-w-2xl px-4;
+    @apply bg-background text-foreground font-sans antialiased px-4 py-8;
   }
 
   ::selection {
