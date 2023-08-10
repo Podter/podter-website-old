@@ -9,16 +9,9 @@ import { siteConfig } from "@/constants/site";
 interface Props {
   title: string;
   description?: string;
-  displayTitle?: boolean;
-  displayDescription?: boolean;
 }
 
-const {
-  title,
-  description,
-  displayTitle = true,
-  displayDescription = true,
-} = Astro.props;
+const { title, description } = Astro.props;
 
 const ogImage =
   title !== "Podter"
