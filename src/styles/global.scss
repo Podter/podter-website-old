@@ -1,75 +1,68 @@
-@use "@catppuccin/palette/scss/catppuccin";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-$latte: map-get(catppuccin.$palette, "latte");
-$mocha: map-get(catppuccin.$palette, "mocha");
-
 @layer base {
   :root {
-    --background: #{map-get($latte, "base")};
-    --foreground: #000000;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
 
-    --muted: #{map-get($latte, "crust")};
-    --muted-foreground: #{map-get($latte, "subtext1")};
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
 
-    --popover: #{map-get($latte, "base")};
-    --popover-foreground: #{map-get($latte, "text")};
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
 
-    --card: #{map-get($latte, "base")};
-    --card-foreground: #000000;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
 
-    --border: #{map-get($latte, "crust")};
-    --input: #{map-get($latte, "crust")};
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
 
-    --primary: #{map-get($latte, "red")};
-    --primary-foreground: #ffffff;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
 
-    --secondary: #{map-get($latte, "crust")};
-    --secondary-foreground: #000000;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
 
-    --accent: #{map-get($latte, "crust")};
-    --accent-foreground: #000000;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --destructive: #{map-get($latte, "maroon")};
-    --destructive-foreground: #ffffff;
-
-    --ring: #{map-get($latte, "crust")};
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: #{map-get($mocha, "crust")};
-    --foreground: #ffffff;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --muted: #{map-get($mocha, "mantle")};
-    --muted-foreground: #{map-get($mocha, "overlay1")};
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: #{map-get($mocha, "crust")};
-    --popover-foreground: #{map-get($mocha, "overlay2")};
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --card: #{map-get($mocha, "crust")};
-    --card-foreground: #ffffff;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
 
-    --border: #{map-get($mocha, "base")};
-    --input: #{map-get($mocha, "base")};
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    --primary: #{map-get($latte, "red")};
-    --primary-foreground: #ffffff;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
 
-    --secondary: #{map-get($mocha, "base")};
-    --secondary-foreground: #ffffff;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
 
-    --accent: #{map-get($mocha, "base")};
-    --accent-foreground: #ffffff;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --destructive: #{map-get($latte, "maroon")};
-    --destructive-foreground: #ffffff;
-
-    --ring: #{map-get($mocha, "base")};
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
@@ -79,24 +72,5 @@ $mocha: map-get(catppuccin.$palette, "mocha");
   }
   body {
     @apply bg-background text-foreground font-sans antialiased px-4 py-8;
-  }
-
-  ::selection {
-    @apply bg-foreground text-background;
-  }
-
-  @media (min-width: 768px) {
-    ::-webkit-scrollbar {
-      @apply w-2 h-2 bg-transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      @apply bg-primary rounded-md;
-    }
-    ::-webkit-scrollbar-track {
-      @apply bg-muted;
-    }
-    ::-webkit-scrollbar-button {
-      @apply hidden;
-    }
   }
 }
