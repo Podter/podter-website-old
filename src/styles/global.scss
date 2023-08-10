@@ -80,4 +80,23 @@ $mocha: map-get(catppuccin.$palette, "mocha");
   body {
     @apply bg-background text-foreground;
   }
+
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      @apply w-2 h-2 bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-primary rounded-md;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+    ::-webkit-scrollbar-button {
+      @apply hidden;
+    }
+  }
 }
