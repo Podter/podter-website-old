@@ -1,22 +1,109 @@
 ---
 import "@/styles/global.scss";
 
+import { SEO } from "astro-seo";
+import { siteConfig } from "@/constants/site";
+
 interface Props {
   title: string;
+  description?: string;
+  displayTitle?: boolean;
+  displayDescription?: boolean;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description,
+  displayTitle = true,
+  displayDescription = true,
+} = Astro.props;
+
+const ogImage =
+  title !== "Podter"
+    ? `${siteConfig.ogApi}?title=${title}`
+    : siteConfig.ogImage;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title !== "Podter" ? title : undefined}
+      titleTemplate={`%s | ${siteConfig.name}`}
+      titleDefault={siteConfig.name}
+      description={description ?? siteConfig.description}
+      charset="UTF-8"
+      openGraph={{
+        basic: {
+          title,
+          url: siteConfig.url,
+          type: "website",
+          image: ogImage,
+        },
+        image: {
+          url: ogImage,
+          width: 1920,
+          height: 1080,
+          alt: title,
+        },
+        optional: {
+          description: description ?? siteConfig.description,
+          locale: "en-US",
+          siteName: siteConfig.name,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title,
+        description: description ?? siteConfig.description,
+        image: ogImage,
+        imageAlt: title,
+        creator: siteConfig.twitter,
+      }}
+      extend={{
+        link: [
+          {
+            rel: "icon",
+            type: "image/svg+xml",
+            href: "/favicon.svg",
+          },
+          {
+            rel: "sitemap",
+            href: "/sitemap-index.xml",
+          },
+          {
+            rel: "author",
+            href: siteConfig.url,
+          },
+        ],
+        meta: [
+          { name: "viewport", content: "width=device-width" },
+          { name: "generator", content: Astro.generator },
+          {
+            name: "theme-color",
+            media: "(prefers-color-scheme: light)",
+            content: "white",
+          },
+          {
+            name: "theme-color",
+            media: "(prefers-color-scheme: dark)",
+            content: "black",
+          },
+          { name: "author", content: siteConfig.username },
+          { name: "creator", content: siteConfig.username },
+          { name: "darkreader-lock", content: "true" },
+          {
+            name: "googlebot",
+            content:
+              "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+          },
+          {
+            name: "google-site-verification",
+            content: "Jfc2vKkk95YzKNp4NaKjW08FQd11KPabjnJucKPeKVc",
+          },
+        ],
+      }}
+    />
   </head>
   <body>
     <slot />
