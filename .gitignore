@@ -1,5 +1,6 @@
 # build output
 dist/
+.vercel/
 
 # generated types
 .astro/
@@ -21,5 +22,4 @@ pnpm-debug.log*
 .DS_Store
 
 # jetbrains
-.idea
-
+.idea/

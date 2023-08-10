@@ -3,11 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "astro": "astro",
+    "dev": "astro dev",
+    "build": "astro build",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "format": "prettier --write ."
@@ -19,6 +17,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^2.2.1",
+    "@astrojs/vercel": "^3.8.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
