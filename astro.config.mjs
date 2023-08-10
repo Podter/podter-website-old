@@ -13,5 +13,10 @@ export default defineConfig({
   experimental: {
     assets: true,
   },
-  integrations: [react(), tailwind()],
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
