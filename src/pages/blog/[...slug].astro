@@ -1,0 +1,23 @@
+---
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import mdxComponents from "@/constants/mdxComponents";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <Content components={mdxComponents} />
+</Layout>
