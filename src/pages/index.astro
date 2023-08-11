@@ -1,37 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import {
-  TypographyP,
-  TypographyMuted,
-  TypographyH2,
-} from "@/components/ui/typography";
-import { getCollection } from "astro:content";
-
-const posts = (await getCollection("blog"))
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-  .slice(0, 4);
+import Content from "@/components/home/Content.mdx";
+import mdxComponents from "@/constants/mdxComponents";
 ---
 
 <Layout title="Podter">
-  <TypographyMuted>I'm not currently doing anything!</TypographyMuted>
-  <TypographyP className="!mt-1">
-    Hey, I'm Podter. Some folks call me Pod. I'm a student and self-taught
-    developer from Thailand. I like playing games and listening to music. I
-    enjoy web development and Linux stuff.
-  </TypographyP>
-  <TypographyP>
-    I'm currently trying to manage my life between school and playing games. I'm
-    also working on a few projects in my free time.
-  </TypographyP>
-  <h2 class="mt-10 scroll-m-20 text-xl font-semibold tracking-tight">
-    Projects
-  </h2>
-  <TypographyP>
-    Rerum veniam earum est vel quis distinctio repudiandae error. Exercitationem
-    autem eligendi cupiditate nam enim exercitationem omnis.
-  </TypographyP>
-  <h2 class="mt-10 scroll-m-20 text-xl font-semibold tracking-tight">Blog</h2>
-  <div class="flex flex-col gap-4 mt-6">
-    {posts.map((post) => <a href={"/blog/" + post.slug}>{post.data.title}</a>)}
-  </div>
+  <Content components={mdxComponents} />
 </Layout>
