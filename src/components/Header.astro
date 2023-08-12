@@ -1,8 +1,7 @@
 ---
-import { Button } from "@/components/ui/button";
-import { Command } from "lucide-react";
 import PodterConfetti from "./PodterConfetti";
 import ThemeToggle from "./ThemeToggle";
+import CmdkToggle from "./CmdkToggle";
 ---
 
 <header class="flex items-center justify-between h-8 mb-8">
@@ -19,9 +18,7 @@ import ThemeToggle from "./ThemeToggle";
     )
   }
   <div class="flex gap-1">
-    <Button size="xs" variant="outline">
-      <Command size={16} />
-    </Button>
+    <CmdkToggle client:media="(min-width: 640px)" />
     <ThemeToggle client:only />
   </div>
 </header>

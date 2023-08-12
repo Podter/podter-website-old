@@ -4,14 +4,23 @@ import "@carrot-kpi/switzer-font/latin.css";
 import "@fontsource-variable/jetbrains-mono";
 
 import { SEO } from "astro-seo";
+import { getCollection } from "astro:content";
 import { siteConfig } from "@/constants/site";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Cmdk, { type Post } from "@/components/Cmdk";
 
 interface Props {
   title: string;
   description?: string;
 }
+
+const posts: Post[] = (await getCollection("blog"))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .map((post) => ({
+    title: post.data.title,
+    href: "/blog/" + post.slug,
+  }));
 
 const { title, description } = Astro.props;
 
@@ -104,12 +113,13 @@ const ogImage =
     <script src="@/lib/themeHandler.ts"></script>
   </head>
   <body>
-    <div class="mx-auto max-w-2xl px-4">
+    <div class="mx-auto max-w-2xl p-4 md:p-8">
       <Header />
       <main>
         <slot />
       </main>
       <Footer />
     </div>
+    <Cmdk client:media="(min-width: 640px)" posts={posts} />
   </body>
 </html>
