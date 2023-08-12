@@ -4,7 +4,9 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import mdxComponents from "@/constants/mdxComponents";
-import { TypographyH1 } from "@/components/ui/typography";
+import { TypographyH1, TypographyMuted } from "@/components/ui/typography";
+import { CalendarDays } from "lucide-react";
+import { format } from "date-fns";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -21,5 +23,16 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title} description={post.data.description}>
   <TypographyH1>{post.data.title}</TypographyH1>
-  <Content components={mdxComponents} />
+  <div class="mt-3">
+    <TypographyMuted>
+      <CalendarDays
+        className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
+        size={14}
+      />
+       Published on {format(post.data.date, "do MMMM, yyyy")}
+    </TypographyMuted>
+  </div>
+  <article class="mt-6">
+    <Content components={mdxComponents} />
+  </article>
 </Layout>
