@@ -45,21 +45,23 @@ export default function Lanyard({ initialData }: Props) {
   const activity = getActivity(data?.activities[0]);
 
   return (
-    <LanyardHoverCard data={data}>
-      <a
-        href={`https://discord.com/users/${discordId}`}
-        className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
-      >
-        {activity ? (
-          <>
-            <span>{activity.type}</span>{" "}
-            <span className="font-semibold">{activity.details}</span>{" "}
-            {time && <span>• {time.start} elapsed</span>}
-          </>
-        ) : (
-          <span>I&apos;m not currently doing anything!</span>
-        )}
-      </a>
-    </LanyardHoverCard>
+    <div className="-mb-5">
+      <LanyardHoverCard data={data}>
+        <a
+          href={`https://discord.com/users/${discordId}`}
+          className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+        >
+          {activity ? (
+            <>
+              <span>{activity.type}</span>{" "}
+              <span className="font-semibold">{activity.details}</span>{" "}
+              {time && <span>• {time.start} elapsed</span>}
+            </>
+          ) : (
+            <span>I&apos;m not currently doing anything!</span>
+          )}
+        </a>
+      </LanyardHoverCard>
+    </div>
   );
 }
