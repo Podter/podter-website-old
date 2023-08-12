@@ -14,6 +14,7 @@ export type Social = {
 export type Socials = Record<string, Social>;
 
 export const discordId = "331793642689789962" as const;
+export const discordJoinDate = "4th July, 2017" as const;
 
 export const socials: Socials = {
   GitHub: {
