@@ -1,6 +1,6 @@
 import { lanyardConfig } from "@/constants/site";
 import { discordId } from "@/constants/socials";
-import { TypographyMuted } from "@/components/ui/typography";
+import { LanyardHoverCard } from "./LanyardHoverCard";
 import { useLanyardWS, type Activity, type Data } from "use-lanyard";
 import useTimestamps from "@/hooks/useTimestamps";
 
@@ -45,19 +45,21 @@ export default function Lanyard({ initialData }: Props) {
   const activity = getActivity(data?.activities[0]);
 
   return (
-    <a
-      href={`https://discord.com/users/${discordId}`}
-      className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50 -mb-5"
-    >
-      {activity ? (
-        <>
-          <span>{activity.type}</span>{" "}
-          <span className="font-semibold">{activity.details}</span>{" "}
-          {time && <span>• {time.start} elapsed</span>}
-        </>
-      ) : (
-        <span>I&apos;m not currently doing anything!</span>
-      )}
-    </a>
+    <LanyardHoverCard data={data}>
+      <a
+        href={`https://discord.com/users/${discordId}`}
+        className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+      >
+        {activity ? (
+          <>
+            <span>{activity.type}</span>{" "}
+            <span className="font-semibold">{activity.details}</span>{" "}
+            {time && <span>• {time.start} elapsed</span>}
+          </>
+        ) : (
+          <span>I&apos;m not currently doing anything!</span>
+        )}
+      </a>
+    </LanyardHoverCard>
   );
 }
