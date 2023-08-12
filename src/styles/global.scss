@@ -71,6 +71,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased px-0 py-4 text-sm md:px-4 md:py-8 md:text-base;
+    @apply bg-background text-foreground font-sans antialiased text-sm md:text-base;
   }
 }
