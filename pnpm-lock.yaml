@@ -37,6 +37,12 @@ devDependencies:
   '@fontsource-variable/jetbrains-mono':
     specifier: ^5.0.9
     version: 5.0.9
+  '@iconify/icons-fa6-brands':
+    specifier: ^1.2.11
+    version: 1.2.11
+  '@iconify/icons-material-symbols':
+    specifier: ^1.2.52
+    version: 1.2.52
   '@iconify/types':
     specifier: ^2.0.0
     version: 2.0.0
@@ -1024,6 +1030,18 @@ packages:
 
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify/icons-fa6-brands@1.2.11:
+    resolution: {integrity: sha512-M45384DjmylDO74UJpL1E//B8R0bKu36Tkf80w394Iuo7BP5u1k4Ca3QgB9L5NzMyIwbhAKKEBFOo0NcfsSg5Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/icons-material-symbols@1.2.52:
+    resolution: {integrity: sha512-YAALKwgDAuLLRvmOpffEOwh8ZYoMzjo+k0dsb2bO40V9IQQHzJ/xGU1X5YTcC3eon84pViZH9sEvB6NUr9lyLw==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types@2.0.0:
