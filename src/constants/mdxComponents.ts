@@ -9,7 +9,7 @@ import {
   TypographyOrderedList,
   TypographyInlineCode,
   TypographySmall,
-  // TypographyAnchor,
+  TypographyAnchor,
 } from "@/components/ui/typography";
 import { Table, Tr, Th, Td } from "@/components/ui/table";
 
@@ -25,7 +25,7 @@ const mdxComponents = {
   ol: TypographyOrderedList,
   code: TypographyInlineCode,
   small: TypographySmall,
-  // a: TypographyAnchor,
+  a: TypographyAnchor,
   // Table
   table: Table,
   tr: Tr,
