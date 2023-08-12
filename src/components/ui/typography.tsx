@@ -64,21 +64,6 @@ export const TypographyH4 = forwardRef<
 ));
 TypographyH4.displayName = "TypographyH4";
 
-export const TypographyCardTitle = forwardRef<
-  HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    {...props}
-    ref={ref}
-    className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
-      className,
-    )}
-  />
-));
-TypographyCardTitle.displayName = "TypographyCardTitle";
-
 export const TypographyP = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLParagraphElement>
@@ -135,7 +120,7 @@ export const TypographyInlineCode = forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm break-words",
+      "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs md:text-sm break-words",
       className,
     )}
   />
@@ -161,7 +146,7 @@ export const TypographySmall = forwardRef<
   <small
     {...props}
     ref={ref}
-    className={cn("text-sm font-medium leading-none", className)}
+    className={cn("text-xs md:text-sm font-medium leading-none", className)}
   />
 ));
 TypographySmall.displayName = "TypographySmall";
@@ -173,7 +158,7 @@ export const TypographyMuted = forwardRef<
   <p
     {...props}
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-xs md:text-sm text-muted-foreground", className)}
   />
 ));
 TypographyMuted.displayName = "TypographyMuted";

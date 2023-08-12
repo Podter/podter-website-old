@@ -49,7 +49,7 @@ export default function Lanyard({ initialData }: Props) {
       <LanyardHoverCard data={data}>
         <a
           href={`https://discord.com/users/${discordId}`}
-          className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+          className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
         >
           {activity ? (
             <>
