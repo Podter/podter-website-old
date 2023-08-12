@@ -28,6 +28,7 @@
     "@iconify/icons-material-symbols": "^1.2.52",
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^2.1.7",
+    "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react": "^18.2.20",
