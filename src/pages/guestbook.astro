@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+export const prerender = false;
+
+const delay = () => new Promise((resolve) => setTimeout(resolve, 3000));
+await delay();
+---
+
+<Layout
+  title="Guestbook"
+  description="Sign my guestbook and leave your mark. Feel free to leave any message here."
+>
+  <p>Guestbook</p>
+</Layout>

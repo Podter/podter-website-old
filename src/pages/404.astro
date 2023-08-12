@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+export const prerender = false;
+
+const delay = () => new Promise((resolve) => setTimeout(resolve, 3000));
+await delay();
+---
+
+<Layout
+  title="404 Not found"
+  description="You are looking for something that doesn't actually exist."
+>
+  <p>404 Not found</p>
+</Layout>
