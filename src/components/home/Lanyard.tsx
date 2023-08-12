@@ -55,7 +55,9 @@ export default function Lanyard({ initialData }: Props) {
             <>
               <span>{activity.type}</span>{" "}
               <span className="font-semibold">{activity.details}</span>{" "}
-              {time && <span>• {time.start} elapsed</span>}
+              {time && (
+                <span suppressHydrationWarning>• {time.start} elapsed</span>
+              )}
             </>
           ) : (
             <span>I&apos;m not currently doing anything!</span>
