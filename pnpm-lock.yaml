@@ -130,6 +130,9 @@ devDependencies:
   tailwindcss-animate:
     specifier: ^1.0.6
     version: 1.0.6(tailwindcss@3.3.3)
+  use-lanyard:
+    specifier: ^1.4.4
+    version: 1.4.4
 
 packages:
 
@@ -5799,6 +5802,11 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.0
+    dev: true
+
+  /use-lanyard@1.4.4:
+    resolution: {integrity: sha512-QceDXahv4LlEt+0cTbLwOTgeCA+83BEi26m//2mu/bZkmiHyiF3ZsUYGeukkc0cCLwGm4mm5XVgy71YO6PINxQ==}
+    engines: {node: '>=14'}
     dev: true
 
   /util-deprecate@1.0.2:

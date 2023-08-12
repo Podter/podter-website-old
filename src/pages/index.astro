@@ -2,8 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 import Content from "@/components/home/Content.mdx";
 import mdxComponents from "@/constants/mdxComponents";
+import Lanyard from "@/components/home/Lanyard";
+import { httpFetch } from "@/lib/utils";
+import type { Data } from "use-lanyard";
+import { lanyardConfig } from "@/constants/site";
+import { discordId } from "@/constants/socials";
+
+export const prerender = false;
+
+const lanyardData = await httpFetch<{ data: Data }>(
+  `${lanyardConfig.secure ? "https" : "http"}://${
+    lanyardConfig.hostname
+  }/v1/users/${discordId}`,
+  { cache: "no-store" },
+);
 ---
 
 <Layout title="Podter">
+  <Lanyard client:idle initialData={lanyardData.data} />
   <Content components={mdxComponents} />
 </Layout>
