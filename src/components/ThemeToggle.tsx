@@ -1,18 +1,19 @@
 import useTheme from "@/hooks/useTheme";
 import { Button } from "@/components/ui/button";
 import { Sun, Moon } from "lucide-react";
+import { useCallback } from "react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
 
-  function toggleTheme() {
+  const toggleTheme = useCallback(() => {
     if (isDark) {
       setTheme("light");
     } else {
       setTheme("dark");
     }
-  }
+  }, [isDark, setTheme]);
 
   return (
     <Button onClick={toggleTheme} variant="outline" size="xs">
