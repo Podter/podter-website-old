@@ -51,6 +51,7 @@
     "lucide-react": "^0.265.0",
     "prettier": "^3.0.1",
     "prettier-plugin-astro": "^0.11.0",
+    "react-confetti": "^6.1.0",
     "sass": "^1.65.1",
     "shadcn-ui": "^0.3.0",
     "tailwind-merge": "^1.14.0",

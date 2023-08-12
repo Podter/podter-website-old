@@ -1,11 +1,23 @@
 ---
 import { Button } from "@/components/ui/button";
 import { Command } from "lucide-react";
+import PodterConfetti from "./PodterConfetti";
 import ThemeToggle from "./ThemeToggle";
 ---
 
 <header class="flex items-center justify-between h-8 mb-8">
-  <h1 class="text-muted-foreground">podter._</h1>
+  {
+    Astro.url.pathname === "/" ? (
+      <PodterConfetti client:idle />
+    ) : (
+      <a
+        class="text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+        href="/"
+      >
+        podter._
+      </a>
+    )
+  }
   <div class="flex gap-1">
     <Button size="xs" variant="outline">
       <Command size={16} />
