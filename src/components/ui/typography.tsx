@@ -188,7 +188,7 @@ export const TypographyAnchor = forwardRef<
     className={cn(
       Object.keys(props).includes("data-rehype-autolink-headings")
         ? "rehype-autolink-headings"
-        : "font-medium underline underline-offset-4",
+        : "font-medium underline underline-offset-4 decoration-foreground/25 hover:decoration-foreground/50 transition-colors",
       className,
     )}
   />
