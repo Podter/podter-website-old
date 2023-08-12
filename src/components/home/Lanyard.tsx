@@ -41,22 +41,25 @@ export default function Lanyard({ initialData }: Props) {
     api: lanyardConfig,
   });
 
-  const time = useTimestamps(data?.activities[0].timestamps);
+  const time = useTimestamps(data?.activities[0]?.timestamps);
   const activity = getActivity(data?.activities[0]);
 
   return (
     <div className="flex items-center -mb-5">
-      {activity ? (
-        <TypographyMuted>
-          <span>{activity.type}</span>{" "}
-          <span className="font-semibold">{activity.details}</span>{" "}
-          {time && <span>• {time.start} elapsed</span>}
-        </TypographyMuted>
-      ) : (
-        <TypographyMuted>
-          I&apos;m not currently doing anything!
-        </TypographyMuted>
-      )}
+      <a
+        href={`https://discord.com/users/${discordId}`}
+        className="text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+      >
+        {activity ? (
+          <>
+            <span>{activity.type}</span>{" "}
+            <span className="font-semibold">{activity.details}</span>{" "}
+            {time && <span>• {time.start} elapsed</span>}
+          </>
+        ) : (
+          <span>I&apos;m not currently doing anything!</span>
+        )}
+      </a>
     </div>
   );
 }
