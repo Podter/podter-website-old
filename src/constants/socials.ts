@@ -5,16 +5,15 @@ import discordIcon from "@iconify/icons-fa6-brands/discord";
 import xTwitter from "@iconify/icons-fa6-brands/x-twitter";
 import mailRounded from "@iconify/icons-material-symbols/mail-rounded";
 
-export type Socials = Record<
-  string,
-  {
-    url: string;
-    icon: IconifyIcon;
-    username: string;
-  }
->;
+export type Social = {
+  url: string;
+  icon: IconifyIcon;
+  username: string;
+};
 
-export const discordId = "331793642689789962";
+export type Socials = Record<string, Social>;
+
+export const discordId = "331793642689789962" as const;
 
 export const socials: Socials = {
   GitHub: {
@@ -37,4 +36,4 @@ export const socials: Socials = {
     icon: mailRounded,
     username: "hello@podter.me",
   },
-};
+} as const;

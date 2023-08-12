@@ -31,6 +31,6 @@ const mdxComponents = {
   tr: Tr,
   th: Th,
   td: Td,
-};
+} as const;
 
 export default mdxComponents;

@@ -6,4 +6,4 @@ export const siteConfig = {
   ogImage: "/og.png",
   ogApi: "/api/og",
   description: "A student and self-taught developer from Thailand.",
-};
+} as const;
