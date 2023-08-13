@@ -7,6 +7,9 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
 
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://podter.me",
@@ -26,4 +29,24 @@ export default defineConfig({
     robotsTxt(),
     mdx(),
   ],
+  markdown: {
+    gfm: true,
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "css-variables",
+    },
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          test: ["h2", "h3"],
+          properties: {
+            "data-rehype-autolink-headings": true,
+          },
+        },
+      ],
+    ],
+  },
 });
