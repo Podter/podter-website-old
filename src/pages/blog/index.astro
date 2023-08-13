@@ -1,7 +1,33 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { format } from "date-fns";
+import { TypographyAnchor, TypographyMuted } from "@/components/ui/typography";
+import { CalendarDays } from "lucide-react";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
 ---
 
 <Layout title="Blog" description="A collection of blog posts I've written.">
-  <p>Blog</p>
+  <div class="flex flex-col mt-6 gap-12">
+    {
+      posts.map((post) => (
+        <div class="flex flex-col gap-3">
+          <TypographyAnchor href={"/blog/" + post.slug}>
+            {post.data.title}
+          </TypographyAnchor>
+          <p>{post.data.description}</p>
+          <TypographyMuted>
+            <CalendarDays
+              className="inline mr-1 align-[-0.125em] h-[14px] w-[14px]"
+              size={14}
+            />
+            {format(post.data.date, "do MMMM, yyyy")}
+          </TypographyMuted>
+        </div>
+      ))
+    }
+  </div>
 </Layout>
