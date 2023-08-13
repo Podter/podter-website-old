@@ -1,0 +1,19 @@
+---
+import CopyCode from "./CopyCode";
+
+interface Props extends Record<string, string> {}
+
+const { ...props } = Astro.props;
+const id = (Math.random() + 1).toString(36).substring(7);
+---
+
+<pre
+  class:list={[
+    "mb-4 mt-6 overflow-x-auto rounded-lg border shadow-sm relative group font-sans flex",
+    props.class,
+  ]}
+  {...props}
+  id={id}>
+    <CopyCode id={id} client:only />
+    <slot />
+</pre>
