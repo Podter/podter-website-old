@@ -7,6 +7,7 @@ import { httpFetch } from "@/lib/utils";
 import type { Data } from "use-lanyard";
 import { lanyardConfig } from "@/constants/site";
 import { discordId } from "@/constants/socials";
+import { TypographyHomeSection } from "@/components/ui/typography";
 
 export const prerender = false;
 
@@ -20,5 +21,10 @@ const lanyardData = await httpFetch<{ data: Data }>(
 
 <Layout title="Podter" displayTitle={false} displayDescription={false}>
   <Lanyard client:idle initialData={lanyardData.data} />
-  <Content components={mdxComponents} />
+  <Content
+    components={{
+      ...mdxComponents,
+      h2: TypographyHomeSection,
+    }}
+  />
 </Layout>

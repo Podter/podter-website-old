@@ -64,6 +64,21 @@ export const TypographyH4 = forwardRef<
 ));
 TypographyH4.displayName = "TypographyH4";
 
+export const TypographyHomeSection = forwardRef<
+  HTMLHeadingElement,
+  HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h2
+    {...props}
+    ref={ref}
+    className={cn(
+      "scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 mt-10",
+      className,
+    )}
+  />
+));
+TypographyHomeSection.displayName = "TypographyHomeSection";
+
 export const TypographyP = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLParagraphElement>
