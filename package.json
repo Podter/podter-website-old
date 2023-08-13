@@ -26,6 +26,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.0.9",
     "@iconify/icons-fa6-brands": "^1.2.11",
     "@iconify/icons-material-symbols": "^1.2.52",
+    "@iconify/icons-svg-spinners": "^1.2.0",
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^2.1.7",
     "@nanostores/react": "^0.7.1",
