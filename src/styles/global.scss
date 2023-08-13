@@ -73,4 +73,13 @@
   body {
     @apply bg-background text-foreground font-sans antialiased text-sm md:text-base;
   }
+
+  ::selection {
+    @apply bg-foreground/10;
+  }
+  .dark {
+    ::selection {
+      @apply bg-foreground/[0.15];
+    }
+  }
 }
