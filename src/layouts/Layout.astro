@@ -9,10 +9,13 @@ import { siteConfig } from "@/constants/site";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Cmdk, { type Post } from "@/components/Cmdk";
+import { TypographyH1, TypographyP } from "@/components/ui/typography";
 
 interface Props {
   title: string;
   description?: string;
+  displayTitle?: boolean;
+  displayDescription?: boolean;
 }
 
 const posts: Post[] = (await getCollection("blog"))
@@ -22,7 +25,12 @@ const posts: Post[] = (await getCollection("blog"))
     href: "/blog/" + post.slug,
   }));
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  displayTitle = true,
+  displayDescription = true,
+} = Astro.props;
 
 const ogImage =
   title !== "Podter"
@@ -116,6 +124,12 @@ const ogImage =
     <div class="mx-auto max-w-2xl p-4 md:p-8">
       <Header />
       <main>
+        {displayTitle && <TypographyH1>{title}</TypographyH1>}
+        {
+          displayDescription && (
+            <TypographyP className="!mt-3">{description}</TypographyP>
+          )
+        }
         <slot />
       </main>
       <Footer />

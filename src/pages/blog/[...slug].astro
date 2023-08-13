@@ -19,8 +19,11 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
-  <TypographyH1>{post.data.title}</TypographyH1>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  displayDescription={false}
+>
   <div class="mt-3">
     <TypographyMuted>
       <CalendarDays

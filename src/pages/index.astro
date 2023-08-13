@@ -18,7 +18,7 @@ const lanyardData = await httpFetch<{ data: Data }>(
 );
 ---
 
-<Layout title="Podter">
+<Layout title="Podter" displayTitle={false} displayDescription={false}>
   <Lanyard client:idle initialData={lanyardData.data} />
   <Content components={mdxComponents} />
 </Layout>
