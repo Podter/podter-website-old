@@ -50,7 +50,7 @@ img {
   --astro-code-token-string-expression: #7ee787;
   --astro-code-token-punctuation: #e6edf3;
   --astro-code-token-link: #e6edf3;
-  
+
   .rehype-autolink-headings::after {
     filter: invert(1);
   }

@@ -1,9 +1,11 @@
 ---
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import "@/styles/blog.scss";
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import mdxComponents from "@/constants/mdxComponents";
-import { TypographyH1, TypographyMuted } from "@/components/ui/typography";
+import { TypographyMuted } from "@/components/ui/typography";
 import { CalendarDays } from "lucide-react";
 import { format } from "date-fns";
 import PreformattedText from "@/components/blog/PreformattedText.astro";
