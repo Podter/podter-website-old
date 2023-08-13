@@ -1,15 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-export const prerender = false;
-
-const delay = () => new Promise((resolve) => setTimeout(resolve, 3000));
-await delay();
+import { TypographyP } from "@/components/ui/typography";
+import NotFoundMenu from "@/components/not-found/NotFoundMenu";
 ---
 
 <Layout
   title="404 Not found"
   description="You are looking for something that doesn't actually exist."
+  displayTitle={false}
+  displayDescription={false}
 >
-  <p>404 Not found</p>
+  <div
+    class="flex flex-col justify-center items-center h-[calc(100vh-15rem)] md:h-[calc(100vh-17rem)] w-full"
+  >
+    <h1 class="font-extrabold text-8xl md:text-9xl">404</h1>
+    <h2 class="scroll-m-20 text-3xl font-bold tracking-tight">Not found</h2>
+    <TypographyP className="!mt-3">
+      You're looking for something that doesn't exist.
+    </TypographyP>
+    <NotFoundMenu client:load />
+  </div>
 </Layout>
