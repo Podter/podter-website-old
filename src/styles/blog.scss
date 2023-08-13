@@ -33,6 +33,11 @@
   overflow-x: auto;
 }
 
+img {
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
 .dark {
   --astro-code-color-text: #e6edf3;
   --astro-code-color-background: #0a0a0a;
