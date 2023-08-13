@@ -45,7 +45,7 @@ export default function CopyCode({ id }: Props) {
 
   return (
     <Button
-      className="h-8 w-8 p-0 hidden group-hover:inline-flex shadow-sm absolute top-3 right-3 z-20"
+      className="h-8 w-8 p-0 hidden group-hover:inline-flex absolute top-3 right-3 z-20"
       variant="secondary"
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onClick={copy}
