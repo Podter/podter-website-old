@@ -8,3 +8,14 @@ datasource db {
   directUrl         = env("POSTGRES_URL_NON_POOLING")
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
+
+model Messages {
+  id                Int      @id @default(autoincrement())
+  created           DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  updated           Boolean  @default(false)
+  email             String
+  provider          String
+  providerAccountId String
+  message           String
+}
