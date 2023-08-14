@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.11.1",
+    "@prisma/client": "^5.1.1",
     "astro": "^2.10.7",
     "auth-astro": "github:Podter/auth-astro",
     "cookie": "^0.5.0",
@@ -59,6 +60,7 @@
     "nanostores": "^0.9.3",
     "prettier": "^3.0.1",
     "prettier-plugin-astro": "^0.11.0",
+    "prisma": "^5.1.1",
     "react-confetti": "^6.1.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
