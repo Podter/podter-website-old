@@ -9,6 +9,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "format": "prettier --write .",
+    "postinstall": "prisma generate",
     "ui": "shadcn-ui",
     "prisma": "dotenv -e .env.local -- prisma"
   },
