@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@auth/core':
-    specifier: ^0.9.0
-    version: 0.9.0
+    specifier: ^0.11.1
+    version: 0.11.1
   astro:
     specifier: ^2.10.7
     version: 2.10.7(sass@1.65.1)
   auth-astro:
-    specifier: github:AsyncBanana/auth-astro
-    version: github.com/AsyncBanana/auth-astro/82551e6a43a3c93445b90960efb2f0d3f0f29db5(@auth/core@0.9.0)(astro@2.10.7)(next@13.4.13)(react-dom@18.2.0)(react@18.2.0)
+    specifier: github:Podter/auth-astro
+    version: github.com/Podter/auth-astro/9d7c926b64327c980497d4aa96da62417c7ca8cf(@auth/core@0.11.1)(astro@2.10.7)(next@13.4.13)(react-dom@18.2.0)(react@18.2.0)
   cookie:
     specifier: ^0.5.0
     version: 0.5.0
@@ -365,8 +365,8 @@ packages:
     dependencies:
       undici: 5.23.0
 
-  /@auth/core@0.9.0:
-    resolution: {integrity: sha512-W2WO0WCBg1T3P8+yjQPzurTQhPv6ecBYfJ2oE3uvXPAX5ZLWAMSjKFAIa9oLZy5pwrB+YehJZPnlIxVilhrVcg==}
+  /@auth/core@0.11.1:
+    resolution: {integrity: sha512-PzvebszgJ4NpQNz8Fsjn39oEY8MzULKppr7Um7DX/HLrS3zthgLY0yAnwkA+2/kxwAb36dIkX+C72q6TziiTaA==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -7179,17 +7179,17 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  github.com/AsyncBanana/auth-astro/82551e6a43a3c93445b90960efb2f0d3f0f29db5(@auth/core@0.9.0)(astro@2.10.7)(next@13.4.13)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {tarball: https://codeload.github.com/AsyncBanana/auth-astro/tar.gz/82551e6a43a3c93445b90960efb2f0d3f0f29db5}
-    id: github.com/AsyncBanana/auth-astro/82551e6a43a3c93445b90960efb2f0d3f0f29db5
+  github.com/Podter/auth-astro/9d7c926b64327c980497d4aa96da62417c7ca8cf(@auth/core@0.11.1)(astro@2.10.7)(next@13.4.13)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {tarball: https://codeload.github.com/Podter/auth-astro/tar.gz/9d7c926b64327c980497d4aa96da62417c7ca8cf}
+    id: github.com/Podter/auth-astro/9d7c926b64327c980497d4aa96da62417c7ca8cf
     name: auth-astro
     version: 3.0.1
     engines: {node: '>=17.4'}
     peerDependencies:
-      '@auth/core': ^0.9.0
-      astro: ^2.0.0
+      '@auth/core': ^0.11.1
+      astro: ^2.10.7
     dependencies:
-      '@auth/core': 0.9.0
+      '@auth/core': 0.11.1
       astro: 2.10.7(sass@1.65.1)
       cookie: 0.5.0
       next-auth: 4.23.0(next@13.4.13)(react-dom@18.2.0)(react@18.2.0)
