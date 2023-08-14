@@ -1,6 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { lanyardConfig } from "@/constants/site";
-import { discordId } from "@/constants/socials";
 import { TypographySmall } from "@/components/ui/typography";
 import type { UserData } from "@/lib/getUser";
 
