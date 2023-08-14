@@ -1,11 +1,9 @@
 ---
-import "@/styles/blog.scss";
 import Layout from "@/layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
-import { SignIn, SignOut } from "@/components/guestbook/Auth";
-import PreformattedText from "@/components/blog/PreformattedText.astro";
-import { Code } from "astro/components";
 import { authConfig } from "@/constants/auth";
+import Auth from "@/components/guestbook/Auth";
+import Form from "@/components/guestbook/Form";
 
 export const prerender = false;
 
@@ -14,17 +12,6 @@ const session = await getSession(Astro.request, authConfig);
 
 <Layout title="Guestbook" description="Sign my guestbook and leave your mark.">
   <div class="mt-6">
-    {
-      session ? (
-        <>
-          <PreformattedText>
-            <Code lang="json" code={JSON.stringify(session)} />
-          </PreformattedText>
-          <SignOut client:visible />
-        </>
-      ) : (
-        <SignIn client:visible />
-      )
-    }
+    {session ? <Form client:visible /> : <Auth client:visible />}
   </div>
 </Layout>
