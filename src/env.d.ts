@@ -3,8 +3,6 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client-image" />
 
-import type { Session } from "@auth/core/types";
-
 interface ImportMetaEnv {
   // Auth.js
   readonly AUTH_SECRET: string;
@@ -12,6 +10,7 @@ interface ImportMetaEnv {
   // Discord
   readonly DISCORD_ID: string;
   readonly DISCORD_SECRET: string;
+  readonly DISCORD_BOT_TOKEN: string;
 
   // GitHub
   readonly GITHUB_ID: string;
