@@ -13,4 +13,10 @@ export const authConfig: AuthConfig = {
       clientSecret: import.meta.env.GITHUB_SECRET,
     }),
   ],
+  callbacks: {
+    session({ session, token }) {
+      session.user.providerAccountId = token.sub;
+      return session;
+    },
+  },
 };
