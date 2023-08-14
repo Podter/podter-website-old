@@ -19,7 +19,7 @@ export default defineConfig({
   }),
   experimental: {
     assets: true,
-    viewTransitions: true
+    viewTransitions: true,
   },
   integrations: [
     react(),
