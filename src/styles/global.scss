@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth;
+    @apply border-border scroll-smooth motion-reduce:scroll-auto;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased text-sm md:text-base;
@@ -84,28 +84,26 @@
   }
 }
 
+$transform: 10%;
 @layer base {
   @keyframes slide-from-right {
     from {
-      transform: translateX(10%);
+      transform: translateX(#{$transform});
     }
   }
-
   @keyframes slide-from-left {
     from {
-      transform: translateX(-10%);
+      transform: translateX(-#{$transform});
     }
   }
-
   @keyframes slide-to-right {
     to {
-      transform: translateX(10%);
+      transform: translateX(#{$transform});
     }
   }
-
   @keyframes slide-to-left {
     to {
-      transform: translateX(-10%);
+      transform: translateX(-#{$transform});
     }
   }
 }
