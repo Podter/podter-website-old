@@ -3,6 +3,36 @@ import { getSession } from "auth-astro/server";
 import { authConfig } from "@/constants/auth";
 import prisma from "@/lib/prisma";
 import getProvider from "@/lib/getProvider";
+import getUser from "@/lib/getUser";
+
+export const get: APIRoute = async () => {
+  const data = await prisma.messages.findMany({
+    take: 3,
+    orderBy: {
+      created: "desc",
+    },
+    select: {
+      created: true,
+      updated: true,
+      isUpdated: true,
+      provider: true,
+      providerAccountId: true,
+      message: true,
+    },
+  });
+
+  return new Response(
+    JSON.stringify({
+      data: await Promise.all(
+        data.map(async (message) => ({
+          messageData: message,
+          userData: await getUser(message.providerAccountId, message.provider),
+        })),
+      ),
+    }),
+    { status: 200 },
+  );
+};
 
 export const post: APIRoute = async ({ request }) => {
   const session = await getSession(request, authConfig);
