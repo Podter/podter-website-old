@@ -5,6 +5,8 @@ import prisma from "@/lib/prisma";
 import getProvider from "@/lib/getProvider";
 import getUser from "@/lib/getUser";
 
+export const prerender = false;
+
 export const get: APIRoute = async () => {
   const data = await prisma.messages.findMany({
     take: 3,
