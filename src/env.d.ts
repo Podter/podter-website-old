@@ -4,9 +4,16 @@
 /// <reference types="astro/client-image" />
 
 interface ImportMetaEnv {
+  // Auth.js
   readonly AUTH_SECRET: string;
-  readonly DISCORD_CLIENT_ID: string;
-  readonly DISCORD_CLIENT_SECRET: string;
+
+  // Discord
+  readonly DISCORD_ID: string;
+  readonly DISCORD_SECRET: string;
+
+  // GitHub
+  readonly GITHUB_ID: string;
+  readonly GITHUB_SECRET: string;
 }
 
 interface ImportMeta {
