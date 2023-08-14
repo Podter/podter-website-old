@@ -4,8 +4,10 @@ import "@carrot-kpi/switzer-font/latin.css";
 import "@fontsource-variable/jetbrains-mono";
 
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 import { getCollection } from "astro:content";
 import { siteConfig } from "@/constants/site";
+import { slide } from "@/constants/animation";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Cmdk, { type Post } from "@/components/Cmdk";
@@ -119,11 +121,12 @@ const ogImage =
       }}
     />
     <script src="@/lib/themeHandler.ts"></script>
+    <ViewTransitions />
   </head>
   <body>
     <div class="mx-auto max-w-2xl p-4 md:p-8">
-      <Header />
-      <main>
+      <Header transition:persist />
+      <main transition:animate={slide}>
         {displayTitle && <TypographyH1>{title}</TypographyH1>}
         {
           displayDescription && (
@@ -132,8 +135,8 @@ const ogImage =
         }
         <slot />
       </main>
-      <Footer />
+      <Footer transition:persist />
     </div>
-    <Cmdk client:media="(min-width: 640px)" posts={posts} />
+    <Cmdk transition:persist client:media="(min-width: 640px)" posts={posts} />
   </body>
 </html>

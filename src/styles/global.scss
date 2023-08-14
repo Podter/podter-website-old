@@ -83,3 +83,29 @@
     }
   }
 }
+
+@layer base {
+  @keyframes slide-from-right {
+    from {
+      transform: translateX(10%);
+    }
+  }
+
+  @keyframes slide-from-left {
+    from {
+      transform: translateX(-10%);
+    }
+  }
+
+  @keyframes slide-to-right {
+    to {
+      transform: translateX(10%);
+    }
+  }
+
+  @keyframes slide-to-left {
+    to {
+      transform: translateX(-10%);
+    }
+  }
+}
