@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "astro": "astro",
-    "dev": "astro dev",
+    "dev": "dotenv -e .env.local -- astro dev",
     "build": "astro build",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
@@ -29,6 +29,7 @@
     "@astrojs/vercel": "^3.8.1",
     "@carrot-kpi/switzer-font": "^0.1.0",
     "@fontsource-variable/jetbrains-mono": "^5.0.9",
+    "@hookform/resolvers": "^3.2.0",
     "@iconify/icons-fa6-brands": "^1.2.11",
     "@iconify/icons-material-symbols": "^1.2.52",
     "@iconify/icons-svg-spinners": "^1.2.0",
@@ -64,6 +65,7 @@
     "prettier-plugin-astro": "^0.11.0",
     "prisma": "^5.1.1",
     "react-confetti": "^6.1.0",
+    "react-hook-form": "^7.45.4",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "sass": "^1.65.1",
@@ -71,6 +73,7 @@
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animate": "^1.0.6",
-    "use-lanyard": "^1.4.4"
+    "use-lanyard": "^1.4.4",
+    "zod": "^3.21.4"
   }
 }

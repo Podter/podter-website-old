@@ -49,6 +49,9 @@ devDependencies:
   '@fontsource-variable/jetbrains-mono':
     specifier: ^5.0.9
     version: 5.0.9
+  '@hookform/resolvers':
+    specifier: ^3.2.0
+    version: 3.2.0(react-hook-form@7.45.4)
   '@iconify/icons-fa6-brands':
     specifier: ^1.2.11
     version: 1.2.11
@@ -154,6 +157,9 @@ devDependencies:
   react-confetti:
     specifier: ^6.1.0
     version: 6.1.0(react@18.2.0)
+  react-hook-form:
+    specifier: ^7.45.4
+    version: 7.45.4(react@18.2.0)
   rehype-autolink-headings:
     specifier: ^6.1.1
     version: 6.1.1
@@ -178,6 +184,9 @@ devDependencies:
   use-lanyard:
     specifier: ^1.4.4
     version: 1.4.4
+  zod:
+    specifier: ^3.21.4
+    version: 3.21.4
 
 packages:
 
@@ -1108,6 +1117,14 @@ packages:
 
   /@fontsource-variable/jetbrains-mono@5.0.9:
     resolution: {integrity: sha512-VaF1GjUbSFLJIeTG3WE721IyabL5ghOeseIfPukVrPBo+NNLhfFmHPMO+KH2/KSJ9AO/3/JNMYVkszVAnbMd6Q==}
+    dev: true
+
+  /@hookform/resolvers@3.2.0(react-hook-form@7.45.4):
+    resolution: {integrity: sha512-skXQHhLxq0Sz2xDwCyv5dygBCtXJe1GmWwxDzfdtl0X6agD6qcyTG8HrZWkjJoy8AkiLARqYvSYJ8z7+Nwmi7w==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.45.4(react@18.2.0)
     dev: true
 
   /@humanwhocodes/config-array@0.11.10:
@@ -5940,6 +5957,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  /react-hook-form@7.45.4(react@18.2.0):
+    resolution: {integrity: sha512-HGDV1JOOBPZj10LB3+OZgfDBTn+IeEsNOKiq/cxbQAIbKaiJUe/KV8DBUzsx0Gx/7IG/orWqRRm736JwOfUSWQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: true
 
   /react-property@2.0.0:
     resolution: {integrity: sha512-kzmNjIgU32mO4mmH5+iUyrqlpFQhF8K2k7eZ4fdLSOPFrD1XgEuSBv9LDEgxRXTMBqMd8ppT0x6TIzqE5pdGdw==}
