@@ -12,6 +12,12 @@ const session = await getSession(Astro.request, authConfig);
 
 <Layout title="Guestbook" description="Sign my guestbook and leave your mark.">
   <div class="mt-6">
-    {session ? <Form client:visible /> : <Auth client:visible />}
+    {
+      session ? (
+        <Form session={session} client:visible />
+      ) : (
+        <Auth client:visible />
+      )
+    }
   </div>
 </Layout>
