@@ -14,8 +14,8 @@ datasource db {
 model Messages {
   id                Int      @id @default(autoincrement())
   created           DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  updated           Boolean  @default(false)
+  updated           DateTime @updatedAt
+  isUpdated         Boolean  @default(false)
   email             String
   provider          String
   providerAccountId String
