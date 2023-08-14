@@ -9,7 +9,8 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "format": "prettier --write .",
-    "ui": "shadcn-ui"
+    "ui": "shadcn-ui",
+    "prisma": "dotenv -e .env.local -- prisma"
   },
   "dependencies": {
     "@auth/core": "^0.11.1",
@@ -49,6 +50,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
+    "dotenv-cli": "^7.2.1",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-astro": "^0.28.0",
