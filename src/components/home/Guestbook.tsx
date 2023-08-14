@@ -1,4 +1,5 @@
 import Message, { type MessageData } from "@/components/guestbook/Message";
+import GuestbookSkeletons from "./GuestbookSkeletons";
 import { TypographyP } from "@/components/ui/typography";
 import type { UserData } from "@/lib/getUser";
 import { httpFetch } from "@/lib/utils";
@@ -17,7 +18,7 @@ export default function Guestbook() {
     httpFetch<GuestbookResponse>,
   );
 
-  if (isLoading || !data) return <div>Loading...</div>;
+  if (isLoading || !data) return <GuestbookSkeletons />;
   if (error) {
     return (
       <TypographyP className="text-destructive mt-3 -mb-3">
