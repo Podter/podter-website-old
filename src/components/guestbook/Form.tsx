@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useCallback } from "react";
 import { httpFetch } from "@/lib/utils";
+import Delete from "./Delete";
 
 const formSchema = z.object({
   message: z.string(),
@@ -48,11 +49,14 @@ export default function Form({ session, existing }: Props) {
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <form className="flex flex-col gap-2" onSubmit={handleSubmit(submit)}>
+    <form
+      className="flex flex-col gap-2 w-full sm:w-80"
+      onSubmit={handleSubmit(submit)}
+    >
       <TypographyMuted>
         Signed in as <span className="font-semibold">{session.user.name}</span>
       </TypographyMuted>
-      <div className="flex items-center gap-2 w-full sm:w-80">
+      <div className="flex items-center gap-2">
         <Input
           className="h-9 px-2 py-1"
           required
@@ -71,11 +75,8 @@ export default function Form({ session, existing }: Props) {
             </>
           )}
         </Button>
-        <button type="button" onClick={deleteMessage}>
-          delete test
-        </button>
       </div>
-      <div className="flex">
+      <div className="flex justify-between">
         <button
           className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
           type="button"
@@ -85,6 +86,8 @@ export default function Form({ session, existing }: Props) {
           <LogOut className="inline mr-1 align-[-0.125em] h-3 w-3" size={12} />
           Sign out
         </button>
+        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+        {existing && <Delete action={deleteMessage} />}
       </div>
     </form>
   );
