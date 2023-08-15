@@ -54,7 +54,7 @@ export const post: APIRoute = async ({ request }) => {
       JSON.stringify({
         message: "Something went wrong",
       }),
-      { status: 400 },
+      { status: 500 },
     );
   }
 
@@ -97,4 +97,53 @@ export const post: APIRoute = async ({ request }) => {
     }),
     { status: 200 },
   );
+};
+
+export const del: APIRoute = async ({ request }) => {
+  const session = await getSession(request, authConfig);
+
+  if (!session?.user?.email && !session?.user?.providerAccountId) {
+    return new Response(
+      JSON.stringify({
+        message: "Something went wrong",
+      }),
+      { status: 500 },
+    );
+  }
+
+  const existing = await prisma.messages.findFirst({
+    where: {
+      OR: [
+        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+        { email: session?.user?.email! },
+        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+        { providerAccountId: session?.user?.providerAccountId! },
+      ],
+    },
+    select: {
+      id: true,
+    },
+  });
+
+  if (existing) {
+    await prisma.messages.delete({
+      where: {
+        id: existing.id,
+      },
+    });
+
+    return new Response(
+      JSON.stringify({
+        message: "Success",
+      }),
+      { status: 200 },
+    );
+  } else {
+    return new Response(
+      JSON.stringify({
+        message: "Not found",
+      }),
+      { status: 404 },
+    );
+  }
 };

@@ -41,6 +41,11 @@ export default function Form({ session, existing }: Props) {
     [],
   );
 
+  const deleteMessage = useCallback(async () => {
+    await httpFetch("/api/guestbook", { method: "DELETE" });
+    location.reload();
+  }, []);
+
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className="flex flex-col gap-2" onSubmit={handleSubmit(submit)}>
@@ -66,6 +71,9 @@ export default function Form({ session, existing }: Props) {
             </>
           )}
         </Button>
+        <button type="button" onClick={deleteMessage}>
+          delete test
+        </button>
       </div>
       <div className="flex">
         <button
