@@ -37,6 +37,7 @@
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^2.1.7",
     "@nanostores/react": "^0.7.1",
+    "@radix-ui/react-alert-dialog": "^1.0.4",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.4",
     "@radix-ui/react-hover-card": "^1.0.6",
