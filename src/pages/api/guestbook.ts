@@ -58,14 +58,38 @@ export const post: APIRoute = async ({ request }) => {
     );
   }
 
-  await prisma.messages.create({
-    data: {
-      email: session?.user?.email,
-      provider,
-      providerAccountId: session?.user?.providerAccountId,
-      message,
+  const existing = await prisma.messages.findFirst({
+    where: {
+      OR: [
+        { email: session.user.email },
+        { providerAccountId: session.user.providerAccountId },
+      ],
+    },
+    select: {
+      id: true,
     },
   });
+
+  if (existing) {
+    await prisma.messages.update({
+      where: {
+        id: existing.id,
+      },
+      data: {
+        message,
+        isUpdated: true,
+      },
+    });
+  } else {
+    await prisma.messages.create({
+      data: {
+        email: session?.user?.email,
+        provider,
+        providerAccountId: session?.user?.providerAccountId,
+        message,
+      },
+    });
+  }
 
   return new Response(
     JSON.stringify({

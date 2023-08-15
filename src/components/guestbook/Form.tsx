@@ -1,8 +1,9 @@
 import type { Session } from "@auth/core/types";
+import type { MessageData } from "./Message";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TypographyMuted } from "@/components/ui/typography";
-import { Edit3, LogOut } from "lucide-react";
+import { Edit, Edit3, LogOut } from "lucide-react";
 import { signOut } from "auth-astro/client";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,13 +17,14 @@ const formSchema = z.object({
 
 type Props = {
   session: Session;
+  existing?: MessageData;
 };
 
-export default function Form({ session }: Props) {
+export default function Form({ session, existing }: Props) {
   const { handleSubmit, register } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      message: "",
+      message: existing?.message ?? "",
     },
   });
 
@@ -34,6 +36,7 @@ export default function Form({ session }: Props) {
         method: "POST",
         body: formData,
       });
+      location.reload();
     },
     [],
   );
@@ -51,8 +54,17 @@ export default function Form({ session }: Props) {
           {...register("message", { required: true })}
         />
         <Button size="sm" variant="secondary">
-          <Edit3 className="mr-2 h-4 w-4" size={16} />
-          Sign
+          {existing ? (
+            <>
+              <Edit className="mr-2 h-4 w-4" size={16} />
+              Edit
+            </>
+          ) : (
+            <>
+              <Edit3 className="mr-2 h-4 w-4" size={16} />
+              Sign
+            </>
+          )}
         </Button>
       </div>
       <div className="flex">
