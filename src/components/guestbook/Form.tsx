@@ -48,10 +48,8 @@ export default function Form({ session, existing }: Props) {
   }, []);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form
       className="flex flex-col gap-2 w-full sm:w-80"
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(submit)}
     >
       <TypographyMuted>
@@ -81,13 +79,11 @@ export default function Form({ session, existing }: Props) {
         <button
           className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
           type="button"
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => signOut()}
         >
           <LogOut className="inline mr-1 align-[-0.125em] h-3 w-3" size={12} />
           Sign out
         </button>
-        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         {existing && <Delete action={deleteMessage} />}
       </div>
     </form>

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-
 import { Button } from "@/components/ui/button";
 import Iconify from "@/components/ui/iconify";
 import githubIcon from "@iconify/icons-fa6-brands/github";

@@ -47,7 +47,6 @@ export default function CopyCode({ id }: Props) {
     <Button
       className="h-8 w-8 p-0 hidden group-hover:inline-flex absolute top-3 right-3 z-10"
       variant="secondary"
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onClick={copy}
       disabled={copyState === "copying"}
     >
