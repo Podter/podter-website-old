@@ -51,6 +51,7 @@ export default function Form({ session, existing }: Props) {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form
       className="flex flex-col gap-2 w-full sm:w-80"
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(submit)}
     >
       <TypographyMuted>
