@@ -14,9 +14,6 @@ export const get: APIRoute = async () => {
       created: "desc",
     },
     select: {
-      created: true,
-      updated: true,
-      isUpdated: true,
       provider: true,
       providerAccountId: true,
       message: true,

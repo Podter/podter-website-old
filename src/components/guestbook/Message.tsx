@@ -3,9 +3,6 @@ import { TypographySmall } from "@/components/ui/typography";
 import type { UserData } from "@/lib/getUser";
 
 export type MessageData = {
-  created: Date;
-  updated: Date;
-  isUpdated: boolean;
   provider: string;
   providerAccountId: string;
   message: string;
