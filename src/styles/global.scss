@@ -102,27 +102,3 @@
     }
   }
 }
-
-$transform: 10%;
-@layer base {
-  @keyframes slide-from-right {
-    from {
-      transform: translateX(#{$transform});
-    }
-  }
-  @keyframes slide-from-left {
-    from {
-      transform: translateX(-#{$transform});
-    }
-  }
-  @keyframes slide-to-right {
-    to {
-      transform: translateX(#{$transform});
-    }
-  }
-  @keyframes slide-to-left {
-    to {
-      transform: translateX(-#{$transform});
-    }
-  }
-}
