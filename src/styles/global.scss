@@ -20,7 +20,7 @@
     --secondary-foreground: 0 0% 14.9%;
 
     --muted: 0 0% 89.8%;
-    --muted-foreground: 0 0% 50%;
+    --muted-foreground: 0 0% 32.2%;
 
     --accent: 0 0% 89.8%;
     --accent-foreground: 0 0% 14.9%;
@@ -84,6 +84,21 @@
   .dark {
     ::selection {
       @apply bg-foreground/[0.15];
+    }
+  }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      @apply w-2 h-2 bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-primary;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+    ::-webkit-scrollbar-button {
+      @apply hidden;
     }
   }
 }
