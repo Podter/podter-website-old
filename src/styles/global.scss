@@ -79,12 +79,7 @@
   }
 
   ::selection {
-    @apply bg-foreground/10;
-  }
-  .dark {
-    ::selection {
-      @apply bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white;
-    }
+    @apply bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white;
   }
 
   @media (min-width: 768px) {
@@ -99,6 +94,41 @@
     }
     ::-webkit-scrollbar-button {
       @apply hidden;
+    }
+  }
+}
+
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+
+  .page-transition {
+    animation-name: page-transition;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.14, 0.64, 0.51, 0.94);
+  }
+
+  @keyframes page-transition {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
