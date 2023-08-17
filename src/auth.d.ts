@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Session } from "@auth/core/types";
 
 declare module "@auth/core/types" {
