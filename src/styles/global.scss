@@ -83,7 +83,7 @@
   }
   .dark {
     ::selection {
-      @apply bg-foreground/[0.15];
+      @apply bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white;
     }
   }
 
