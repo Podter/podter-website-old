@@ -11,8 +11,8 @@ export const get: APIRoute = async ({ request }) => {
   const title = searchParams.get("title");
 
   const svg = await satori(OpenGraph({ title }), {
-    width: 1920,
-    height: 1080,
+    width: 1200,
+    height: 630,
     fonts: [
       {
         name: "Switzer",

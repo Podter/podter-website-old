@@ -19,9 +19,9 @@ export default function OpenGraph({ title }: Props) {
     >
       <div
         style={{
-          marginTop: 128,
-          marginRight: 128,
-          fontSize: 128,
+          marginTop: 64,
+          marginRight: 64,
+          fontSize: 96,
           fontWeight: 700,
           color: "#fff",
           fontFamily: "Switzer",
