@@ -8,5 +8,7 @@
       "source": "/stats/api/event",
       "destination": "https://plausible.podter.me/api/event"
     }
-  ]
+  ],
+  "framework": "astro",
+  "installCommand": "pnpm install && prisma generate"
 }
