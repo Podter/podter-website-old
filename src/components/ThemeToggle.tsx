@@ -16,7 +16,13 @@ export default function ThemeToggle() {
   }, [isDark, setTheme]);
 
   return (
-    <Button onClick={toggleTheme} variant="outline" size="xs">
+    <Button
+      onClick={toggleTheme}
+      variant="outline"
+      size="xs"
+      data-tooltip-id="tooltip"
+      data-tooltip-content="Toggle theme"
+    >
       {isDark ? <Moon size={16} /> : <Sun size={16} />}
       <span className="sr-only">Toggle theme</span>
     </Button>

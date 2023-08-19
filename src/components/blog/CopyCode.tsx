@@ -49,6 +49,8 @@ export default function CopyCode({ id }: Props) {
       variant="secondary"
       onClick={copy}
       disabled={copyState === "copying"}
+      data-tooltip-id="tooltip"
+      data-tooltip-content={copyMessage}
     >
       {copyState === "copied" ? (
         <Check size={16} className="h-4 w-4" />

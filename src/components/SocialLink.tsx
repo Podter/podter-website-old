@@ -9,7 +9,14 @@ type Props = {
 
 export default function SocialLink({ name, data }: Props) {
   return (
-    <Button asChild variant="ghost" size="xs" className="h-8 w-8">
+    <Button
+      asChild
+      variant="ghost"
+      size="xs"
+      className="h-8 w-8"
+      data-tooltip-id="tooltip"
+      data-tooltip-content={name}
+    >
       <a href={data.url}>
         <Iconify icon={data.icon} size={16} />
         <span className="sr-only">{name}</span>

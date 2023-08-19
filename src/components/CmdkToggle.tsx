@@ -9,6 +9,8 @@ export default function CmdkToggle() {
       variant="outline"
       onClick={() => isCmdkOpen.set(true)}
       className="hidden sm:inline-flex"
+      data-tooltip-id="tooltip"
+      data-tooltip-content="Open command menu"
     >
       <Command size={16} />
       <span className="sr-only">Open command menu</span>
