@@ -1,4 +1,4 @@
-import { siteConfig } from "@/constants/site";
+// import { siteConfig } from "@/constants/site";
 
 type Props = {
   title: string | null;
@@ -13,7 +13,8 @@ export default function OpenGraph({ title }: Props) {
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-end",
-        backgroundImage: `url(${siteConfig.url}/og-bg.png)`,
+        // backgroundImage: `url(${siteConfig.url}/og-bg.png)`,
+        backgroundImage: `url("https://podter-website-git-dev-podter.vercel.app/og-bg.png")`,
       }}
     >
       <div
