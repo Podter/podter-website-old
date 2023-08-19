@@ -70,6 +70,7 @@
     "prisma": "^5.1.1",
     "react-confetti": "^6.1.0",
     "react-hook-form": "^7.45.4",
+    "react-tooltip": "^5.21.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "sass": "^1.65.1",

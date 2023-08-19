@@ -5,6 +5,7 @@ import "@fontsource-variable/jetbrains-mono";
 
 import { SEO } from "astro-seo";
 import { getCollection } from "astro:content";
+import { Tooltip } from "react-tooltip";
 import { siteConfig } from "@/constants/site";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -149,5 +150,12 @@ const ogImage =
       <Footer />
     </div>
     <Cmdk client:media="(min-width: 640px)" posts={posts} />
+    <Tooltip
+      id="tooltip"
+      client:only
+      disableStyleInjection="core"
+      clickable
+      noArrow
+    />
   </body>
 </html>

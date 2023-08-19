@@ -145,3 +145,10 @@
     }
   }
 }
+
+.react-tooltip {
+  @apply rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md transition-opacity fixed top-0 left-0 opacity-0;
+}
+.react-tooltip__show {
+  @apply opacity-100;
+}
