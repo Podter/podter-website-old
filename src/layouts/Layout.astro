@@ -16,6 +16,7 @@ interface Props {
   description?: string;
   displayTitle?: boolean;
   displayDescription?: boolean;
+  date?: string;
 }
 
 const posts: Post[] = (await getCollection("blog"))
@@ -30,11 +31,12 @@ const {
   description,
   displayTitle = true,
   displayDescription = true,
+  date,
 } = Astro.props;
 
 const ogImage =
   title !== "Podter"
-    ? `${siteConfig.ogApi}?title=${title}`
+    ? siteConfig.ogApi + `?title=${title}` + (date ? `&date=${date}` : "")
     : siteConfig.ogImage;
 ---
 

@@ -27,6 +27,7 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   displayDescription={false}
+  date={format(post.data.date, "d MMMM yyyy")}
 >
   <div class="mt-3">
     <TypographyMuted>
