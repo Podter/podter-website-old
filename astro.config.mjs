@@ -27,7 +27,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    robotsTxt(),
+    robotsTxt({
+      policy: [{ allow: ["/", "/api/og"], userAgent: "*" }],
+    }),
     mdx(),
   ],
   markdown: {
