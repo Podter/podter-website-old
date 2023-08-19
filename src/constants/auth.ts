@@ -1,5 +1,5 @@
 import type { AuthConfig } from "@auth/core";
-import prisma from "@/lib/prisma";
+import initPrisma from "@/lib/prisma";
 import Discord from "@auth/core/providers/discord";
 import GitHub from "@auth/core/providers/github";
 
@@ -16,6 +16,8 @@ export const authConfig: AuthConfig = {
   ],
   callbacks: {
     async signIn({ profile, account }) {
+      const prisma = await initPrisma();
+
       const message = await prisma.messages.findFirst({
         where: {
           // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain

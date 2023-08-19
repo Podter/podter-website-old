@@ -1,13 +1,15 @@
 import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
 import { authConfig } from "@/constants/auth";
-import prisma from "@/lib/prisma";
+import initPrisma from "@/lib/prisma";
 import getProvider from "@/lib/getProvider";
 import getUser from "@/lib/getUser";
 
 export const prerender = false;
 
 export const get: APIRoute = async () => {
+  const prisma = await initPrisma();
+
   const data = await prisma.messages.findMany({
     take: 3,
     orderBy: {
@@ -34,6 +36,8 @@ export const get: APIRoute = async () => {
 };
 
 export const post: APIRoute = async ({ request }) => {
+  const prisma = await initPrisma();
+
   const session = await getSession(request, authConfig);
   const provider = await getProvider(session?.user?.providerAccountId);
 
@@ -97,6 +101,8 @@ export const post: APIRoute = async ({ request }) => {
 };
 
 export const del: APIRoute = async ({ request }) => {
+  const prisma = await initPrisma();
+
   const session = await getSession(request, authConfig);
 
   if (!session?.user?.email && !session?.user?.providerAccountId) {

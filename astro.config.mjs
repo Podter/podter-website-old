@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import fs from "node:fs";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/edge";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";

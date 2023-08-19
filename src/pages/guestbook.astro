@@ -5,9 +5,11 @@ import { authConfig } from "@/constants/auth";
 import Auth from "@/components/guestbook/Auth";
 import Form from "@/components/guestbook/Form";
 import MessageServer from "@/components/guestbook/MessageServer.astro";
-import prisma from "@/lib/prisma";
+import initPrisma from "@/lib/prisma";
 
 export const prerender = false;
+
+const prisma = await initPrisma();
 
 const session = await getSession(Astro.request, authConfig);
 

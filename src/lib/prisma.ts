@@ -1,5 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+import type { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
-
-export default prisma;
+export default async function initPrisma(): Promise<PrismaClient> {
+  if (import.meta.env.MODE === "development") {
+    const mod = await import("@prisma/client");
+    return new mod.PrismaClient();
+  } else {
+    const mod = await import("@prisma/client/edge");
+    return new mod.PrismaClient();
+  }
+}
