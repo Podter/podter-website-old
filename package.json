@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "ui": "shadcn-ui",
     "prisma": "dotenv -e .env.local -- prisma",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate --data-proxy"
   },
   "dependencies": {
     "@auth/core": "^0.11.1",
@@ -80,6 +80,7 @@
     "tailwindcss": "^3.3.3",
     "tailwindcss-animate": "^1.0.6",
     "use-lanyard": "^1.4.4",
+    "vercel": "^31.4.0",
     "zod": "^3.21.4"
   }
 }
