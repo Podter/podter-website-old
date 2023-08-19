@@ -79,7 +79,12 @@
   }
 
   ::selection {
-    @apply bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white;
+    background-color: #e5e5e5;
+    color: black;
+  }
+  .dark ::selection {
+    background-color: #262626;
+    color: white;
   }
 
   @media (min-width: 768px) {
