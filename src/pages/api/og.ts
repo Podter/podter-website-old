@@ -4,6 +4,8 @@ import { Resvg } from "@resvg/resvg-js";
 import SwitzerBold from "@/assets/switzer-bold.ttf";
 import OpenGraph from "@/components/OpenGraph";
 
+export const prerender = false;
+
 export const get: APIRoute = async ({ request }) => {
   const { searchParams } = new URL(request.url);
   const title = searchParams.get("title");
