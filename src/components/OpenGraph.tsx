@@ -20,7 +20,7 @@ export default function OpenGraph({ title, date }: Props) {
       <div tw="absolute flex items-start justify-end top-16 right-16 h-full w-full">
         <span
           style={{
-            fontSize: 64,
+            fontSize: 80,
             fontFamily: "Switzer",
             maxWidth: "58.333333%",
           }}
@@ -32,7 +32,7 @@ export default function OpenGraph({ title, date }: Props) {
       <div tw="absolute flex items-end justify-end bottom-16 right-16 h-full w-full">
         <span
           style={{
-            fontSize: 24,
+            fontSize: 32,
             fontFamily: "Switzer",
           }}
           tw="text-white text-right"
