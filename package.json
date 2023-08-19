@@ -10,7 +10,8 @@
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "format": "prettier --write .",
     "ui": "shadcn-ui",
-    "prisma": "dotenv -e .env.local -- prisma"
+    "prisma": "dotenv -e .env.local -- prisma",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "^0.11.1",

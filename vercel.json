@@ -10,5 +10,5 @@
     }
   ],
   "framework": "astro",
-  "installCommand": "pnpm install && prisma generate"
+  "installCommand": "pnpm install && pnpm prisma:generate"
 }
