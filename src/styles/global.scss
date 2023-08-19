@@ -92,13 +92,22 @@
       @apply w-2 h-2 bg-transparent;
     }
     ::-webkit-scrollbar-thumb {
-      @apply bg-primary;
+      @apply bg-neutral-600;
     }
     ::-webkit-scrollbar-track {
-      @apply bg-muted;
+      @apply bg-neutral-300;
     }
     ::-webkit-scrollbar-button {
       @apply hidden;
+    }
+
+    .dark {
+      ::-webkit-scrollbar-thumb {
+        @apply bg-neutral-400;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-neutral-800;
+      }
     }
   }
 }

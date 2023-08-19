@@ -26,11 +26,19 @@
   }
 }
 
-.astro-code > code {
-  background-color: var(--background) !important;
-  padding: 1rem;
-  display: block;
-  overflow-x: auto;
+.astro-code {
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar-thumb {
+      @apply bg-neutral-400;
+    }
+  }
+
+  & > code {
+    background-color: var(--background) !important;
+    padding: 1rem;
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 img {
@@ -53,5 +61,13 @@ img {
 
   .rehype-autolink-headings::after {
     filter: invert(1);
+  }
+
+  .astro-code {
+    @media (min-width: 768px) {
+      ::-webkit-scrollbar-thumb {
+        @apply bg-neutral-700;
+      }
+    }
   }
 }
