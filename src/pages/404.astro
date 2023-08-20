@@ -2,10 +2,17 @@
 import Error from "@/layouts/Error.astro";
 
 export const prerender = false;
+
+const path = Astro.url.pathname;
 ---
 
 <Error
   title="Not found"
   description="You are looking for something that doesn't actually exist."
   code="404"
-/>
+>
+  <script define:vars={{ path }}>
+    // @ts-ignore
+    window.plausible("404", { props: { message: path } });
+  </script>
+</Error>
