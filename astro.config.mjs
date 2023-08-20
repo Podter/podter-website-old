@@ -25,7 +25,9 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes("/teapot")
+    }),
     robotsTxt({
       policy: [{ allow: ["/"], disallow: ["/teapot"], userAgent: "*" }],
     }),
