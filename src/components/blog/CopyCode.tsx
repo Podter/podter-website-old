@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Copy, AlertCircle, Check } from "lucide-react";
 import { useState, useCallback } from "react";
-import Iconify from "@/components/ui/iconify";
-import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
+import Spinner from "@/components/ui/spinner";
 
 type Props = {
   id: string;
@@ -55,7 +54,7 @@ export default function CopyCode({ id }: Props) {
       {copyState === "copied" ? (
         <Check size={16} className="h-4 w-4" />
       ) : copyState === "copying" ? (
-        <Iconify icon={icon90RingWithBg} size={16} className="h-4 w-4" />
+        <Spinner size={16} className="h-4 w-4" />
       ) : copyState === "error" ? (
         <AlertCircle size={16} className="h-4 w-4" />
       ) : (
