@@ -18,8 +18,8 @@ export default function Spinner({ size = 24, className }: Props) {
     >
       <div className={styles.spinner}>
         {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-        {[...Array(12)].map(() => (
-          <div className={styles.bar} />
+        {[...Array(12)].map((_, i) => (
+          <div className={styles.bar} key={i} />
         ))}
       </div>
     </div>
