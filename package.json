@@ -2,6 +2,8 @@
   "name": "podter.me",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": "Podter",
   "scripts": {
     "astro": "astro",
     "dev": "dotenv -e .env.local -- astro dev",
