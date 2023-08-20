@@ -14,6 +14,6 @@ const id = (Math.random() + 1).toString(36).substring(7);
   ]}
   {...props}
   id={id}>
-    <CopyCode id={id} client:only />
+    <CopyCode id={id} client:only="react" />
     <slot />
 </pre>
