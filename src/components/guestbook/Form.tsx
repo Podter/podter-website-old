@@ -44,9 +44,13 @@ export default function Form({ session, existing }: Props) {
         });
         location.reload();
       } catch (e) {
-        window.plausible("error", {
-          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-          props: { error: `${e}`, path: location.pathname },
+        window.plausible("Error", {
+          props: {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            error: `${e}`,
+            path: location.pathname,
+            action: "Sign guestbook",
+          },
         });
         console.error(e);
       } finally {
@@ -62,9 +66,13 @@ export default function Form({ session, existing }: Props) {
       await httpFetch("/api/guestbook", { method: "DELETE" });
       location.reload();
     } catch (e) {
-      window.plausible("error", {
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        props: { error: `${e}`, path: location.pathname },
+      window.plausible("Error", {
+        props: {
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+          error: `${e}`,
+          path: location.pathname,
+          action: "Delete message",
+        },
       });
       console.error(e);
     } finally {

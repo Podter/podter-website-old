@@ -13,6 +13,6 @@ const path = Astro.url.pathname;
 >
   <script define:vars={{ path }}>
     // @ts-ignore
-    window.plausible("404", { props: { message: path } });
+    window.plausible("Not found", { props: { message: path } });
   </script>
 </Error>

@@ -4,6 +4,7 @@ import { TypographyP } from "@/components/ui/typography";
 import type { UserData } from "@/lib/getUser";
 import { httpFetch } from "@/lib/utils";
 import useSWR from "swr";
+import { useEffect } from "react";
 
 type GuestbookResponse = {
   data: {
@@ -17,6 +18,19 @@ export default function Guestbook() {
     "/api/guestbook",
     httpFetch<GuestbookResponse>,
   );
+
+  useEffect(() => {
+    if (error) {
+      window.plausible("Error", {
+        props: {
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions,@typescript-eslint/no-base-to-string
+          error: `${error}`,
+          path: location.pathname,
+          action: "Fetch messages",
+        },
+      });
+    }
+  }, [error]);
 
   if (isLoading || !data) return <GuestbookSkeletons />;
   if (error) {
