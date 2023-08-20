@@ -1,0 +1,24 @@
+---
+import PodterConfetti from "./PodterConfetti";
+import ThemeToggle from "./ThemeToggle";
+import CmdkToggle from "./CmdkToggle";
+---
+
+<header class="flex items-center justify-between h-8 mb-8">
+  {
+    Astro.url.pathname === "/" ? (
+      <PodterConfetti client:idle />
+    ) : (
+      <a
+        class="text-muted-foreground hover:underline underline-offset-4 decoration-foreground/50"
+        href="/"
+      >
+        podter._
+      </a>
+    )
+  }
+  <div class="flex gap-1">
+    <CmdkToggle client:media="(min-width: 640px)" />
+    <ThemeToggle client:only="react" />
+  </div>
+</header>

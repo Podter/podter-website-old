@@ -3,24 +3,18 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-model GuestbookMessage {
+model Messages {
   id                Int      @id @default(autoincrement())
   created           DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  updated           Boolean  @default(false)
+  updated           DateTime @updatedAt
+  isUpdated         Boolean  @default(false)
   email             String
   provider          String
   providerAccountId String
   message           String
-}
-
-model Blacklist {
-  id                Int     @id @default(autoincrement())
-  email             String
-  providerAccountId String?
 }

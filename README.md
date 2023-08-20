@@ -2,11 +2,11 @@
 
 ![Podter.](public/og.png)
 
-[![Tech stack](https://skillicons.dev/icons?i=nextjs,nodejs,planetscale,prisma,react,tailwind,ts,vercel)](https://skillicons.dev)
+[![Tech stack](https://skillicons.dev/icons?i=astro,ts,react,prisma,postgres,tailwind,vercel)](https://skillicons.dev)
 
 [![GitHub deployments](https://img.shields.io/github/deployments/Podter/podter.me/Production?label=vercel&logo=vercel&logoColor=white&style=for-the-badge)](https://podter.me/)
 
-Podter's Website. Built with Next.js app router, Tailwind CSS, shadcn/ui and PlanetScale and deployed using Vercel.
+Podter's Website. Built with Astro, React, Tailwind CSS, shadcn/ui, Vercel Postgres and deployed on Vercel Edge Network.
 
 https://podter.me/
 

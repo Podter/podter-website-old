@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import projects from "@/constants/projects";
+import Project from "@/components/projects/Project.astro";
+---
+
+<Layout title="Projects" description="A list of projects I've worked on.">
+  <div class="flex flex-col mt-6 gap-12">
+    {projects.map((project) => <Project {project} />)}
+  </div>
+</Layout>
