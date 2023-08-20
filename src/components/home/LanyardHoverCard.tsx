@@ -10,6 +10,7 @@ import {
 import { lanyardConfig } from "@/constants/site";
 import { discordId, discordJoinDate } from "@/constants/socials";
 import { cn } from "@/lib/utils";
+import Spinner from "@/components/ui/spinner";
 
 type Props = {
   data?: Data;
@@ -31,7 +32,7 @@ export function LanyardHoverCard({ data, children }: PropsWithChildren<Props>) {
               alt="Discord avatar"
             />
             <AvatarFallback>
-              {data.discord_user.username.charAt(0).toUpperCase()}
+              <Spinner size={16} />
             </AvatarFallback>
           </Avatar>
           <div
