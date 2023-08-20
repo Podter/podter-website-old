@@ -27,7 +27,7 @@ export default defineConfig({
     }),
     sitemap(),
     robotsTxt({
-      policy: [{ allow: ["/", "/api/og"], userAgent: "*" }],
+      policy: [{ allow: ["/"], disallow: ["/teapot"], userAgent: "*" }],
     }),
     mdx(),
   ],
