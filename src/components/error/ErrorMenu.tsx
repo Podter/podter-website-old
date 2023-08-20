@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-export default function NotFoundMenu() {
+export default function ErrorMenu() {
   return (
     <div className="flex items-center justify-center gap-3 mt-4">
       <Button asChild size="sm" className="w-20">
