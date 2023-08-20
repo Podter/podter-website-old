@@ -37,10 +37,8 @@ export const authConfig: AuthConfig = {
 
       return true;
     },
-    redirect({ baseUrl, url }) {
-      if (url.startsWith("/")) return `${baseUrl}${url}`;
-      else if (new URL(url).origin === baseUrl) return url;
-      return baseUrl;
+    redirect({ baseUrl }) {
+      return baseUrl + "/guestbook";
     },
     session({ session, token }) {
       session.user.providerAccountId = token.sub;
