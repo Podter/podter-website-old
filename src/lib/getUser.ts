@@ -13,7 +13,8 @@ export default async function getUser(
   switch (provider) {
     case "discord": {
       const data = await httpFetch<{
-        global_name: string;
+        global_name: string | null;
+        username: string;
         id: string;
         avatar: string;
       }>(`https://discord.com/api/v9/users/${providerAccountId}`, {
@@ -23,7 +24,7 @@ export default async function getUser(
       });
 
       return {
-        name: data.global_name,
+        name: data.global_name || data.username,
         url: `https://discord.com/users/${data.id}`,
         avatar: `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=48`,
       };
