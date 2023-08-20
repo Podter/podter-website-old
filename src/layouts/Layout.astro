@@ -18,6 +18,7 @@ interface Props {
   displayTitle?: boolean;
   displayDescription?: boolean;
   date?: string;
+  transition?: boolean;
 }
 
 const posts: Post[] = (await getCollection("blog"))
@@ -33,6 +34,7 @@ const {
   displayTitle = true,
   displayDescription = true,
   date,
+  transition = true,
 } = Astro.props;
 
 const ogImage =
@@ -138,7 +140,7 @@ const ogImage =
   <body>
     <div class="mx-auto max-w-2xl p-4 md:p-8">
       <Header />
-      <main class="page-transition">
+      <main class:list={[transition && "page-transition"]}>
         {displayTitle && <TypographyH1>{title}</TypographyH1>}
         {
           displayDescription && (
