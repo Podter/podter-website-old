@@ -12,6 +12,8 @@ interface Props {
 }
 
 const { title, description, code, displayDescription = true } = Astro.props;
+
+Astro.response.headers.set("x-robots-tag", "noindex");
 ---
 
 <Layout
@@ -20,6 +22,7 @@ const { title, description, code, displayDescription = true } = Astro.props;
   displayTitle={false}
   displayDescription={false}
   transition={false}
+  noIndex={true}
 >
   <div
     class="flex flex-col justify-center items-center content-height w-full relative overflow-hidden"

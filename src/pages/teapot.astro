@@ -2,6 +2,8 @@
 import Error from "@/layouts/Error.astro";
 import { TypographyP, TypographyAnchor } from "@/components/ui/typography";
 
+export const prerender = false;
+
 Astro.response.status = 418;
 Astro.response.statusText = "I'm a teapot";
 ---

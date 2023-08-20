@@ -19,6 +19,7 @@ interface Props {
   displayDescription?: boolean;
   date?: string;
   transition?: boolean;
+  noIndex?: boolean;
 }
 
 const posts: Post[] = (await getCollection("blog"))
@@ -35,6 +36,7 @@ const {
   displayDescription = true,
   date,
   transition = true,
+  noIndex = false,
 } = Astro.props;
 
 const ogImage =
@@ -113,8 +115,9 @@ const ogImage =
           { name: "darkreader-lock", content: "true" },
           {
             name: "googlebot",
-            content:
-              "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+            content: `${
+              noIndex ? "noindex" : "index"
+            }, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1`,
           },
           {
             name: "google-site-verification",
