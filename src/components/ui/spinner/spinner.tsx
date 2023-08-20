@@ -1,10 +1,12 @@
 import styles from "./spinner.module.scss";
+import { cn } from "@/lib/utils";
 
 type Props = {
   size?: number;
+  className?: string;
 };
 
-export default function Spinner({ size = 24 }: Props) {
+export default function Spinner({ size = 24, className }: Props) {
   return (
     <div
       style={{
@@ -12,7 +14,7 @@ export default function Spinner({ size = 24 }: Props) {
         // @ts-ignore
         "--spinner-size": `${size}px`,
       }}
-      className={styles.wrapper}
+      className={cn(styles.wrapper, className)}
     >
       <div className={styles.spinner}>
         {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
