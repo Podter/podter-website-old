@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
-import vercel from "@astrojs/vercel/edge";
+import vercel from "@astrojs/vercel/serverless";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
@@ -16,10 +16,8 @@ export default defineConfig({
   output: "hybrid",
   adapter: vercel({
     imageService: true,
+    devImageService: "sharp",
   }),
-  experimental: {
-    assets: true,
-  },
   integrations: [
     react(),
     tailwind({

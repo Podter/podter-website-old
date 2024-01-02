@@ -16,7 +16,7 @@ export const authConfig: AuthConfig = {
   ],
   callbacks: {
     async signIn({ profile, account }) {
-      const prisma = await initPrisma();
+      const prisma = initPrisma();
 
       const message = await prisma.messages.findFirst({
         where: {

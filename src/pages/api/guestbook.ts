@@ -7,8 +7,8 @@ import getUser from "@/lib/getUser";
 
 export const prerender = false;
 
-export const get: APIRoute = async () => {
-  const prisma = await initPrisma();
+export const GET: APIRoute = async () => {
+  const prisma = initPrisma();
 
   const data = await prisma.messages.findMany({
     take: 3,
@@ -35,8 +35,8 @@ export const get: APIRoute = async () => {
   );
 };
 
-export const post: APIRoute = async ({ request }) => {
-  const prisma = await initPrisma();
+export const POST: APIRoute = async ({ request }) => {
+  const prisma = initPrisma();
 
   const session = await getSession(request, authConfig);
   const provider = await getProvider(session?.user?.providerAccountId);
@@ -100,8 +100,8 @@ export const post: APIRoute = async ({ request }) => {
   );
 };
 
-export const del: APIRoute = async ({ request }) => {
-  const prisma = await initPrisma();
+export const DELETE: APIRoute = async ({ request }) => {
+  const prisma = initPrisma();
 
   const session = await getSession(request, authConfig);
 

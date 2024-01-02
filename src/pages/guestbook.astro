@@ -9,7 +9,7 @@ import initPrisma from "@/lib/prisma";
 
 export const prerender = false;
 
-const prisma = await initPrisma();
+const prisma = initPrisma();
 
 const session = await getSession(Astro.request, authConfig);
 
