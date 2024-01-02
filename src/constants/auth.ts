@@ -41,6 +41,7 @@ export const authConfig: AuthConfig = {
       return baseUrl + "/guestbook";
     },
     session({ session, token }) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       session.user.providerAccountId = token.sub;
       return session;
     },
