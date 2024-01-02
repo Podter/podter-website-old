@@ -1,14 +1,14 @@
 import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
 import { authConfig } from "@/constants/auth";
-import initPrisma from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 import getProvider from "@/lib/getProvider";
 import getUser from "@/lib/getUser";
 
 export const prerender = false;
 
 export const GET: APIRoute = async () => {
-  const prisma = initPrisma();
+  const prisma = new PrismaClient();
 
   const data = await prisma.messages.findMany({
     take: 3,
@@ -21,6 +21,7 @@ export const GET: APIRoute = async () => {
       message: true,
     },
   });
+  await prisma.$disconnect();
 
   return new Response(
     JSON.stringify({
@@ -36,7 +37,7 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  const prisma = initPrisma();
+  const prisma = new PrismaClient();
 
   const session = await getSession(request, authConfig);
   const provider = await getProvider(session?.user?.providerAccountId);
@@ -92,6 +93,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
+  await prisma.$disconnect();
+
   return new Response(
     JSON.stringify({
       message: "Success",
@@ -101,7 +104,7 @@ export const POST: APIRoute = async ({ request }) => {
 };
 
 export const DELETE: APIRoute = async ({ request }) => {
-  const prisma = initPrisma();
+  const prisma = new PrismaClient();
 
   const session = await getSession(request, authConfig);
 
@@ -134,6 +137,7 @@ export const DELETE: APIRoute = async ({ request }) => {
         id: existing.id,
       },
     });
+    await prisma.$disconnect();
 
     return new Response(
       JSON.stringify({
@@ -142,6 +146,8 @@ export const DELETE: APIRoute = async ({ request }) => {
       { status: 200 },
     );
   } else {
+    await prisma.$disconnect();
+
     return new Response(
       JSON.stringify({
         message: "Not found",
