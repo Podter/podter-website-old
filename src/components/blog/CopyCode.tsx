@@ -19,10 +19,10 @@ export default function CopyCode({ id }: Props) {
     copyState === "copied"
       ? "Copied!"
       : copyState === "copying"
-      ? "Copying..."
-      : copyState === "error"
-      ? "Something went wrong!"
-      : "Copy";
+        ? "Copying..."
+        : copyState === "error"
+          ? "Something went wrong!"
+          : "Copy";
 
   const copy = useCallback(async () => {
     try {
