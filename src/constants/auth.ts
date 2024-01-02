@@ -1,9 +1,9 @@
-import type { AuthConfig } from "@auth/core";
-import initPrisma from "@/lib/prisma";
+import { defineConfig } from "auth-astro";
+import { PrismaClient } from "@prisma/client";
 import Discord from "@auth/core/providers/discord";
 import GitHub from "@auth/core/providers/github";
 
-export const authConfig: AuthConfig = {
+export default defineConfig({
   providers: [
     Discord({
       clientId: import.meta.env.DISCORD_ID,
@@ -16,7 +16,7 @@ export const authConfig: AuthConfig = {
   ],
   callbacks: {
     async signIn({ profile, account }) {
-      const prisma = await initPrisma();
+      const prisma = new PrismaClient();
 
       const message = await prisma.messages.findFirst({
         where: {
@@ -27,6 +27,7 @@ export const authConfig: AuthConfig = {
           providerAccountId: true,
         },
       });
+      await prisma.$disconnect();
 
       if (message) {
         if (message.providerAccountId !== account?.providerAccountId) {
@@ -40,9 +41,12 @@ export const authConfig: AuthConfig = {
     redirect({ baseUrl }) {
       return baseUrl + "/guestbook";
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     session({ session, token }) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       session.user.providerAccountId = token.sub;
       return session;
     },
   },
-};
+});

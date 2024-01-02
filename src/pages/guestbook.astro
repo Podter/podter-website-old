@@ -1,17 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
-import { authConfig } from "@/constants/auth";
 import Auth from "@/components/guestbook/Auth";
 import Form from "@/components/guestbook/Form";
 import MessageServer from "@/components/guestbook/MessageServer.astro";
-import initPrisma from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 
 export const prerender = false;
 
-const prisma = await initPrisma();
+const prisma = new PrismaClient();
 
-const session = await getSession(Astro.request, authConfig);
+const session = await getSession(Astro.request);
 
 const messages = await prisma.messages.findMany({
   orderBy: {
@@ -23,6 +22,7 @@ const messages = await prisma.messages.findMany({
     message: true,
   },
 });
+await prisma.$disconnect();
 
 const existing = messages.find(
   (message) => message.providerAccountId === session?.user.providerAccountId,

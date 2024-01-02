@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
 
-import vercel from "@astrojs/vercel/edge";
+import vercel from "@astrojs/vercel/serverless";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
+import auth from "auth-astro";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -16,10 +17,8 @@ export default defineConfig({
   output: "hybrid",
   adapter: vercel({
     imageService: true,
+    devImageService: "sharp",
   }),
-  experimental: {
-    assets: true,
-  },
   integrations: [
     react(),
     tailwind({
@@ -29,9 +28,19 @@ export default defineConfig({
       filter: (page) => !page.includes("/teapot"),
     }),
     robotsTxt({
-      policy: [{ allow: ["/"], disallow: ["/teapot"], userAgent: "*" }],
+      policy: [
+        {
+          allow: ["/"],
+          disallow: ["/teapot"],
+          userAgent: "*",
+        },
+      ],
     }),
     mdx(),
+    auth({
+      configFile: "./src/constants/auth",
+      injectEndpoints: false,
+    }),
   ],
   markdown: {
     gfm: true,
