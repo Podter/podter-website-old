@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
+import auth from "auth-astro";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -27,9 +28,19 @@ export default defineConfig({
       filter: (page) => !page.includes("/teapot"),
     }),
     robotsTxt({
-      policy: [{ allow: ["/"], disallow: ["/teapot"], userAgent: "*" }],
+      policy: [
+        {
+          allow: ["/"],
+          disallow: ["/teapot"],
+          userAgent: "*",
+        },
+      ],
     }),
     mdx(),
+    auth({
+      configFile: "./src/constants/auth",
+      injectEndpoints: false,
+    }),
   ],
   markdown: {
     gfm: true,

@@ -1,9 +1,9 @@
-import type { AuthConfig } from "@auth/core";
+import { defineConfig } from "auth-astro";
 import { PrismaClient } from "@prisma/client";
 import Discord from "@auth/core/providers/discord";
 import GitHub from "@auth/core/providers/github";
 
-export const authConfig: AuthConfig = {
+export default defineConfig({
   providers: [
     Discord({
       clientId: import.meta.env.DISCORD_ID,
@@ -49,4 +49,4 @@ export const authConfig: AuthConfig = {
       return session;
     },
   },
-};
+});

@@ -1,6 +1,5 @@
 import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
-import { authConfig } from "@/constants/auth";
 import { PrismaClient } from "@prisma/client";
 import getProvider from "@/lib/getProvider";
 import getUser from "@/lib/getUser";
@@ -39,7 +38,7 @@ export const GET: APIRoute = async () => {
 export const POST: APIRoute = async ({ request }) => {
   const prisma = new PrismaClient();
 
-  const session = await getSession(request, authConfig);
+  const session = await getSession(request);
   const provider = await getProvider(session?.user?.providerAccountId);
 
   const data = await request.formData();
@@ -106,7 +105,7 @@ export const POST: APIRoute = async ({ request }) => {
 export const DELETE: APIRoute = async ({ request }) => {
   const prisma = new PrismaClient();
 
-  const session = await getSession(request, authConfig);
+  const session = await getSession(request);
 
   if (!session?.user?.email && !session?.user?.providerAccountId) {
     return new Response(
