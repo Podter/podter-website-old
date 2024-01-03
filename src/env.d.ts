@@ -3,6 +3,8 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
+import type { UmamiTracker } from "./umami";
+
 interface ImportMetaEnv {
   // Auth.js
   readonly AUTH_SECRET: string;
@@ -21,12 +23,8 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-interface Window {
-  plausible: (
-    eventName: string,
-    options?: {
-      props?: Record<string, string | number | boolean>;
-      callback?: () => void;
-    },
-  ) => void;
+declare global {
+  interface Window {
+    umami: UmamiTracker;
+  }
 }

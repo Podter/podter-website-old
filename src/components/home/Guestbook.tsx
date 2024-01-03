@@ -21,14 +21,15 @@ export default function Guestbook() {
 
   useEffect(() => {
     if (error) {
-      window.plausible("Error", {
-        props: {
-          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions,@typescript-eslint/no-base-to-string
+      void window.umami.track((props) => ({
+        ...props,
+        name: "error",
+        data: {
+          // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
           error: `${error}`,
-          path: location.pathname,
           action: "Fetch messages",
         },
-      });
+      }));
     }
   }, [error]);
 
