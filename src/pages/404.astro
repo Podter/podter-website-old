@@ -12,7 +12,12 @@ const path = Astro.url.pathname;
   code="404"
 >
   <script define:vars={{ path }}>
-    // @ts-ignore
-    window.plausible("Not found", { props: { message: path } });
+    setTimeout(() => {
+      window.umami.track((props) => ({
+        ...props,
+        name: "not-found",
+        data: { path },
+      }));
+    }, 1000);
   </script>
 </Error>

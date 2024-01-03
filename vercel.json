@@ -1,12 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/stats/js/script.js",
-      "destination": "https://plausible.podter.me/js/script.outbound-links.js"
-    },
-    {
-      "source": "/stats/api/event",
-      "destination": "https://plausible.podter.me/api/event"
+      "source": "/stats/:match*",
+      "destination": "https://umami.podter.me/:match*"
     }
   ],
   "framework": "astro",
