@@ -18,7 +18,7 @@ export default function Link({ path, name }: LinkProps) {
     <NextLink
       href={path}
       className={cn(
-        "relative px-2 transition-colors hover:text-foreground",
+        "relative rounded-full px-2 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
         isActive ? "text-accent-foreground" : "text-muted-foreground",
       )}
     >

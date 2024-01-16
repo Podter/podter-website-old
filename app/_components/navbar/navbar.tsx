@@ -9,7 +9,10 @@ export default function Navbar() {
     <header className="mb-10 mt-6 flex h-10 w-full items-center justify-between px-4 md:my-20">
       <div className="flex h-full items-center">
         <nav className="flex h-full items-center gap-1">
-          <Link href="/" className="px-2">
+          <Link
+            href="/"
+            className="rounded-full px-2 font-medium transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          >
             podter._
           </Link>
           <Menu />
