@@ -4,6 +4,39 @@
 
 @layer base {
   :root {
+    --background: 220 23% 95%;
+    --foreground: 234 16% 35%;
+
+    --card: 220 23% 95%;
+    --card-foreground: 234 16% 35%;
+
+    --popover: 220 23% 95%;
+    --popover-foreground: 234 16% 35%;
+
+    --primary: 347 87% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 223 16% 83%;
+    --secondary-foreground: 234 16% 35%;
+
+    // TODO: change muted
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 233 10% 47%;
+
+    --accent: 223 16% 83%;
+    --accent-foreground: 234 16% 35%;
+
+    --destructive: 355 76% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 223 16% 83%;
+    --input: 223 16% 83%;
+    --ring: 225 14% 77%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
     --background: 240 21% 15%;
     --foreground: 226 64% 88%;
 
@@ -26,21 +59,18 @@
     --accent: 237 16% 23%;
     --accent-foreground: 226 64% 88%;
 
-    --destructive: 347 87% 44%;
-    --destructive-foreground: 220 23% 95%;
+    --destructive: 355 76% 59%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 237 16% 23%;
     --input: 237 16% 23%;
     --ring: 234 13% 31%;
-
-    --radius: 0.5rem;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    color-scheme: dark;
   }
   body {
     @apply bg-background text-foreground antialiased;
