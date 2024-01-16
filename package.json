@@ -1,7 +1,9 @@
 {
   "name": "podter.me",
+  "description": "Podter's website",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "author": "Podter",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
