@@ -20,6 +20,7 @@
     "framer-motion": "^10.18.0",
     "geist": "^1.2.1",
     "next": "14.0.5-canary.59",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.0"

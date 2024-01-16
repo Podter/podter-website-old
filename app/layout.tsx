@@ -3,6 +3,7 @@ import type { PropsWithChildren } from "react";
 import { GeistSans } from "geist/font/sans";
 
 import { cn } from "~/lib/utils";
+import { ThemeProvider } from "~/providers/theme-provider";
 import Borders from "./_components/borders";
 import Navbar from "./_components/navbar";
 
@@ -22,9 +23,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
           GeistSans.className,
         )}
       >
-        <Navbar />
-        <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
-        <Borders />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
+          <Borders />
+        </ThemeProvider>
       </body>
     </html>
   );
