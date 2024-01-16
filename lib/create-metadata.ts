@@ -5,11 +5,13 @@ import { defaultMetadata } from "~/constants/metadata";
 interface CreateMetadataOptions {
   title: string;
   description: string;
+  publishedTime?: string;
 }
 
 export const createMetadata = ({
   title,
   description,
+  publishedTime,
 }: CreateMetadataOptions): Metadata => ({
   ...defaultMetadata,
   title,
@@ -18,6 +20,8 @@ export const createMetadata = ({
     ...defaultMetadata.openGraph,
     title,
     description,
+    type: publishedTime ? "article" : "website",
+    publishedTime,
     // images: []
   },
   twitter: {

@@ -15,7 +15,10 @@ export default function Link({ path, name }: LinkProps) {
   const pathname = usePathname();
   const { resolvedTheme: theme } = useTheme();
 
-  const isActive = useMemo(() => path === pathname, [path, pathname]);
+  const isActive = useMemo(
+    () => path === (pathname.includes("/blog/") ? "/blog" : pathname),
+    [path, pathname],
+  );
   const isDark = useMemo(() => theme === "dark", [theme]);
 
   return (

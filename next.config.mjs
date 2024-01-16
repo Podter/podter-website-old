@@ -1,3 +1,5 @@
+import createMDX from "@next/mdx";
+
 import "./env.mjs";
 
 /** @type {import('next').NextConfig} */
@@ -5,8 +7,10 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     ppr: true,
-    mdxRs: true,
+    webpackBuildWorker: true,
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX();
+
+export default withMDX(nextConfig);

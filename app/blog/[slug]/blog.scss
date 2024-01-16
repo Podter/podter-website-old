@@ -1,0 +1,19 @@
+.rehype-autolink-headings {
+  &::after {
+    content: url("/icons/link.svg");
+
+    display: none;
+    margin-left: 0.5rem;
+    opacity: 0.5;
+  }
+
+  &:hover::after {
+    display: inline;
+  }
+}
+
+.dark {
+  .rehype-autolink-headings::after {
+    filter: invert(1);
+  }
+}
