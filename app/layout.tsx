@@ -15,12 +15,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={cn("container relative flex flex-col", GeistSans.className)}
+        className={cn(
+          "container relative flex flex-col overflow-x-hidden",
+          GeistSans.className,
+        )}
       >
         <Navbar />
-        <main className={"mb-16 flex flex-col px-4 md:mx-6"}>{children}</main>
+        <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
         <Borders />
       </body>
     </html>
