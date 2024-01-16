@@ -26,6 +26,7 @@ export default function ThemeSwitch() {
     >
       <SunIcon className="h-4 w-4 dark:hidden" width={16} height={16} />
       <MoonIcon className="hidden h-4 w-4 dark:block" width={16} height={16} />
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 }

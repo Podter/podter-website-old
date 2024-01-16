@@ -22,6 +22,7 @@ export default function Navbar() {
       <div className="flex h-full items-center justify-end gap-1">
         <Button size="icon" className="h-6 w-6" variant="ghost">
           <Component1Icon className="h-4 w-4" width={16} height={16} />
+          <span className="sr-only">Commands</span>
         </Button>
         <ThemeSwitch />
       </div>
