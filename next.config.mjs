@@ -1,3 +1,5 @@
+// TODO: make config look better, add million.js
+
 import createMDX from "@next/mdx";
 
 import "./env.mjs";
