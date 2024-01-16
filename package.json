@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "framer-motion": "^10.18.0",
     "geist": "^1.2.1",
     "next": "14.0.5-canary.59",
     "react": "^18",

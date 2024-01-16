@@ -2,18 +2,17 @@ import Link from "next/link";
 import { Component1Icon } from "@radix-ui/react-icons";
 
 import { Button } from "~/components/ui/button";
+import Menu from "./menu";
 
 export default function Navbar() {
   return (
     <header className="mb-10 mt-6 flex h-10 w-full items-center justify-between px-4 md:my-20">
       <div className="flex h-full items-center">
-        <nav className="flex h-full items-center gap-6">
-          <Link href="/">podter._</Link>
-          <Link href="/">home</Link>
-          <Link href="/">about</Link>
-          <Link href="/">projects</Link>
-          <Link href="/">blog</Link>
-          <Link href="/">guestbook</Link>
+        <nav className="flex h-full items-center gap-1">
+          <Link href="/" className="px-2">
+            podter._
+          </Link>
+          <Menu />
         </nav>
       </div>
       <Button size="icon" className="h-6 w-6" variant="ghost">
