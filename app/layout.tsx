@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 import { GeistSans } from "geist/font/sans";
 
+import { cn } from "~/lib/utils";
+import Borders from "./_components/borders";
 import Navbar from "./_components/navbar";
 
 import "./globals.scss";
-
-import { cn } from "~/lib/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,11 +16,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={cn("container flex flex-col", GeistSans.className)}>
+      <body
+        className={cn("container relative flex flex-col", GeistSans.className)}
+      >
         <Navbar />
-        <main className={cn("mb-16 flex flex-col bg-[#f00] px-4 md:mx-6")}>
-          {children}
-        </main>
+        <main className={"mb-16 flex flex-col px-4 md:mx-6"}>{children}</main>
+        <Borders />
       </body>
     </html>
   );
