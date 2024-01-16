@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import { defaultMetadata } from "~/constants/metadata";
@@ -24,8 +25,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className="dark">
       <body
         className={cn(
-          "container relative flex flex-col overflow-x-hidden",
-          GeistSans.className,
+          "container relative flex flex-col overflow-x-hidden font-sans",
+          GeistSans.variable,
+          GeistMono.variable,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
