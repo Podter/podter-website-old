@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 
 import "./globals.scss";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={GeistSans.className}>{children}</body>
     </html>
   );
 }
