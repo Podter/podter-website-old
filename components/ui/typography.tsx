@@ -109,3 +109,16 @@ export function Code({ className, ...props }: JSX.IntrinsicElements["code"]) {
   );
 }
 Code.displayName = "Code";
+
+export function A({ className, ...props }: JSX.IntrinsicElements["a"]) {
+  return (
+    <a
+      {...props}
+      className={cn(
+        "text-primary underline-offset-4 hover:underline",
+        className,
+      )}
+    />
+  );
+}
+A.displayName = "A";

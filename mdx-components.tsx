@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 
 import {
+  A,
   Blockquote,
   Code,
   H1,
@@ -24,5 +25,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: Ul,
     ol: Ol,
     code: Code,
+    a: A,
   };
 }
