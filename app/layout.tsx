@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 import { GeistSans } from "geist/font/sans";
 
+import Navbar from "./_components/navbar";
+
 import "./globals.scss";
 
 import { cn } from "~/lib/utils";
-import styles from "./layout.module.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +17,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={cn("container flex flex-col", GeistSans.className)}>
-        <header className="bg-[#ff0]">navbr</header>
-        <main className={cn("bg-[#f00]", styles.layout_container)}>
+        <Navbar />
+        <main className={cn("mb-16 flex flex-col bg-[#f00] px-4 md:mx-6")}>
           {children}
         </main>
       </body>
