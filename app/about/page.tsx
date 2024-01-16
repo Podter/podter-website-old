@@ -1,11 +1,11 @@
 import { createMetadata } from "~/lib/create-metadata";
-import About from "./about.mdx";
+import AboutContent from "./about.mdx";
 
 export const metadata = createMetadata({
   title: "About",
   description: "About page",
 });
 
-export default function AboutPage() {
-  return <About />;
+export default function About() {
+  return <AboutContent />;
 }
