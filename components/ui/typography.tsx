@@ -7,7 +7,7 @@ export function H1({ className, ...props }: JSX.IntrinsicElements["h1"]) {
     <h1
       {...props}
       className={cn(
-        "mt-12 scroll-m-20 text-4xl font-extrabold tracking-tight first:mt-0 lg:text-5xl",
+        "font-heading mt-12 scroll-m-20 text-4xl font-semibold first:mt-0 lg:text-5xl",
         className,
       )}
     />

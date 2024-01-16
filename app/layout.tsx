@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import { defaultMetadata } from "~/constants/metadata";
+import { CalSans } from "~/lib/cal-sans";
 import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/providers/theme-provider";
 import Borders from "./_components/borders";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           "container relative flex flex-col overflow-x-hidden font-sans",
           GeistSans.variable,
           GeistMono.variable,
+          CalSans.variable,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
