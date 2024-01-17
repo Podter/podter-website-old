@@ -14,6 +14,7 @@ import { H1 } from "~/components/ui/typography";
 import { getBlogPosts } from "~/lib/blog";
 import { createMetadata } from "~/lib/create-metadata";
 import { mdxComponents } from "~/lib/mdx";
+import PreformattedText from "./preformatted-text";
 
 import "./blog.scss";
 
@@ -56,7 +57,7 @@ export default async function Blog({ params }: PageParams) {
   // TODO: make checkbox, image works
   const { content } = await compileMDX({
     source: post.content,
-    components: mdxComponents,
+    components: { ...mdxComponents, pre: PreformattedText },
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm],

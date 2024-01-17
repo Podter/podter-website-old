@@ -8,9 +8,10 @@ import {
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
 
+import { Button } from "~/components/ui/button";
+import Spinner from "~/components/ui/spinner";
+import { Pre } from "~/components/ui/typography";
 import { cn } from "~/lib/utils";
-import { Button } from "./ui/button";
-import Spinner from "./ui/spinner";
 
 export default function PreformattedText({
   children,
@@ -57,13 +58,10 @@ export default function PreformattedText({
   }, [code]);
 
   return (
-    <pre
+    <Pre
       {...props}
       ref={ref}
-      className={cn(
-        "group relative mt-6 overflow-x-auto rounded-lg border font-sans",
-        className,
-      )}
+      className={cn("group relative font-sans", className)}
     >
       <Button
         className="absolute right-2 top-2 z-10 hidden group-hover:inline-flex"
@@ -83,6 +81,6 @@ export default function PreformattedText({
         <span className="sr-only">{copyMessage}</span>
       </Button>
       {children}
-    </pre>
+    </Pre>
   );
 }
