@@ -64,6 +64,17 @@ let message = "Hello world";
 alert(message);
 ```
 
+```pwsh
+# Load amro theme
+oh-my-posh init --config amro pwsh | Invoke-Expression
+
+# Load from file
+oh-my-posh init pwsh --config 'C:/Users/Posh/jandedobbeleer.omp.json' | Invoke-Expression
+
+# Load from URL
+oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json' | Invoke-Expression
+```
+
 ## Inline code
 
 This web site is using `markedjs/marked`.
