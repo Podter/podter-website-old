@@ -9,7 +9,7 @@ code {
     overflow-x: auto;
   }
 
-  @apply scrollbar-thin scrollbar-thumb-foreground scrollbar-track-border;
+  @apply scrollbar-thin scrollbar-track-secondary scrollbar-thumb-secondary-foreground;
 }
 
 .rehype-autolink-headings {
