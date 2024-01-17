@@ -1,7 +1,6 @@
-// TODO: make config look better
-
-import createMDX from "@next/mdx";
+import mdx from "@next/mdx";
 import million from "million/compiler";
+import withPlugins from "next-compose-plugins";
 
 import "./env.mjs";
 
@@ -14,10 +13,12 @@ const nextConfig = {
   },
 };
 
-const withMDX = createMDX();
-
+/** @type {Parameters<typeof million.next>[1]} */
 const millionConfig = {
   auto: { rsc: true },
 };
 
-export default million.next(withMDX(nextConfig), millionConfig);
+export default withPlugins(
+  [() => million.next(nextConfig, millionConfig), mdx()],
+  nextConfig,
+);
