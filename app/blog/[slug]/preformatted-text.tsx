@@ -47,6 +47,7 @@ export default function PreformattedText({
     [copyState],
   );
 
+  // TODO: fix this
   const copy = useCallback(async () => {
     try {
       setCopyState("copying");
