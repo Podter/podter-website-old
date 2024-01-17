@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 
 export const metadata = createMetadata({
   title: "Blog",
-  description: "Blog page",
+  description: "A collection of blog posts I've written.",
 });
 
 export default function Blogs() {
