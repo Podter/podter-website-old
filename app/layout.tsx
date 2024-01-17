@@ -3,6 +3,7 @@ import type { PropsWithChildren } from "react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
+import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
 import { CalSans } from "~/lib/cal-sans";
 import { cn } from "~/lib/utils";
@@ -33,9 +34,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
-          <Borders />
+          <TooltipProvider>
+            <Navbar />
+            <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
+            <Borders />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
