@@ -1,0 +1,10 @@
+diff --git a/sass/_theme.scss b/sass/_theme.scss
+index 621980dbfdc6ebfcc223e1bba2932ef1a4bd1ade..56378973de606aacc0a187368956d77bf8853937 100644
+--- a/sass/_theme.scss
++++ b/sass/_theme.scss
+@@ -1,4 +1,4 @@
+-@use "@catppuccin/palette/scss/catppuccin";
++@use "../../palette/scss/catppuccin";
+ @use "sass:color";
+ 
+ $highlights: (

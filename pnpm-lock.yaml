@@ -4,7 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@catppuccin/highlightjs@0.1.4':
+    hash: ynhtizoi7mvapbqeqokhhgttni
+    path: patches/@catppuccin__highlightjs@0.1.4.patch
+
 dependencies:
+  '@catppuccin/highlightjs':
+    specifier: ^0.1.4
+    version: 0.1.4(patch_hash=ynhtizoi7mvapbqeqokhhgttni)
+  '@catppuccin/palette':
+    specifier: ^1.0.3
+    version: 1.0.3
   '@mdx-js/react':
     specifier: ^3.0.0
     version: 3.0.0(@types/react@18.2.48)(react@18.2.0)
@@ -430,6 +441,15 @@ packages:
       '@babel/helper-string-parser': 7.23.4
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+
+  /@catppuccin/highlightjs@0.1.4(patch_hash=ynhtizoi7mvapbqeqokhhgttni):
+    resolution: {integrity: sha512-PEzMrpE7VvXFLvQuNAomTcvAuXUJlBlcqvSqhHYFapSxBKye+auNokemssEVuv053KH7Go44Aa4sE+rZNOM5cQ==}
+    dev: false
+    patched: true
+
+  /@catppuccin/palette@1.0.3:
+    resolution: {integrity: sha512-L3jclhx8z7Oyv4b1x9TCXjikvLbKd+dwksNOJsi6W811PPGdP38PYiX5h4/renukOp8lUEkPIPv07S/5HA3tVg==}
+    dev: false
 
   /@emotion/is-prop-valid@0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}

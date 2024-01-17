@@ -15,7 +15,6 @@ import { createMetadata } from "~/lib/create-metadata";
 import { mdxComponents } from "~/lib/mdx";
 
 import "./blog.scss";
-import "./highlightjs.scss";
 
 export const dynamic = "force-static";
 
