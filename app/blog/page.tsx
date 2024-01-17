@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { CalendarIcon } from "@radix-ui/react-icons";
+import { format } from "date-fns/format";
 
+import { H1, P } from "~/components/ui/typography";
 import { getBlogPosts } from "~/lib/blog";
 import { createMetadata } from "~/lib/create-metadata";
+
+export const dynamic = "force-static";
 
 export const metadata = createMetadata({
   title: "Blog",
@@ -13,11 +18,29 @@ export default function Blogs() {
 
   return (
     <>
-      {posts.map((post) => (
-        <Link key={post.slug} href={`/blog/${post.slug}`}>
-          <p>{post.slug}</p>
-        </Link>
-      ))}
+      <div className="flex flex-col">
+        <H1>Blog</H1>
+        <P className="mt-3">A collection of blog posts I&apos;ve written.</P>
+      </div>
+      <div className="mt-6 flex flex-col">
+        {posts.map((post) => (
+          <div key={post.slug} className="mt-10 flex flex-col gap-3 first:mt-0">
+            <Link
+              href={post.url}
+              className="font-medium leading-7 underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-foreground/50"
+            >
+              {post.metadata.title}
+            </Link>
+            <P className="mt-0">{post.metadata.description}</P>
+            <div className="flex items-center gap-1">
+              <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
+              <p className="text-sm leading-7 text-muted-foreground">
+                {format(post.date, "do MMMM, yyyy")}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
