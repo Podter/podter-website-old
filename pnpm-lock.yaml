@@ -46,6 +46,9 @@ dependencies:
   geist:
     specifier: ^1.2.1
     version: 1.2.1(next@14.0.5-canary.59)
+  highlight.js:
+    specifier: ^11.9.0
+    version: 11.9.0
   million:
     specifier: ^2.6.4
     version: 2.6.4

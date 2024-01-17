@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns/format";
 import { parseISO } from "date-fns/parseISO";
+import pwsh from "highlight.js/lib/languages/powershell";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
@@ -60,9 +61,14 @@ export default async function Blog({ params }: PageParams) {
       mdxOptions: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
-          // @ts-expect-error types are wrong
-          rehypeHighlight,
           rehypeSlug,
+          [
+            // @ts-expect-error types are wrong
+            rehypeHighlight,
+            {
+              languages: { pwsh },
+            },
+          ],
           [
             rehypeAutolinkHeadings,
             {
