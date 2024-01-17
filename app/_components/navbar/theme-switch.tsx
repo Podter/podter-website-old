@@ -24,7 +24,7 @@ export default function ThemeSwitch() {
 
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           size="icon"
           className="h-6 w-6"

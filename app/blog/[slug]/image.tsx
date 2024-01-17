@@ -19,7 +19,7 @@ export default function Image({ href, src, className, ...props }: ImageProps) {
   return (
     <div className="group relative mt-6 w-full overflow-hidden rounded-xl">
       <Tooltip>
-        <TooltipTrigger className="absolute right-2 top-2 z-20">
+        <TooltipTrigger className="absolute right-2 top-2 z-20" asChild>
           <Button
             className="opacity-0 transition-opacity group-hover:opacity-100"
             size="icon"

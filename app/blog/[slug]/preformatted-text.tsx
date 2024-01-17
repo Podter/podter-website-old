@@ -69,7 +69,7 @@ export default function PreformattedText({
       className={cn("group relative font-sans", className)}
     >
       <Tooltip>
-        <TooltipTrigger className="absolute right-2 top-2 z-10">
+        <TooltipTrigger className="absolute right-2 top-2 z-10" asChild>
           <Button
             className="opacity-0 transition-opacity group-hover:opacity-100"
             size="icon"
