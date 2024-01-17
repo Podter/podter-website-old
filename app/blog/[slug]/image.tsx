@@ -21,7 +21,7 @@ export default function Image({ href, src, className, ...props }: ImageProps) {
       <Tooltip>
         <TooltipTrigger className="absolute right-2 top-2 z-20">
           <Button
-            className="hidden group-hover:inline-flex"
+            className="opacity-0 transition-opacity group-hover:opacity-100"
             size="icon"
             variant="outline"
             asChild
