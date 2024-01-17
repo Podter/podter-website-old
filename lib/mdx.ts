@@ -10,6 +10,7 @@ import {
   H4,
   Ol,
   P,
+  Pre,
   Ul,
 } from "~/components/ui/typography";
 
@@ -24,4 +25,5 @@ export const mdxComponents: MDXComponents = {
   ol: Ol,
   code: Code,
   a: A,
+  pre: Pre,
 };

@@ -2,6 +2,12 @@
 
 code {
   @include theme.highlights("latte", "hex");
+
+  &.hljs {
+    padding: 1rem;
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 .rehype-autolink-headings {
