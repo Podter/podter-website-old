@@ -10,6 +10,7 @@ const nextConfig = {
   experimental: {
     ppr: true,
     webpackBuildWorker: true,
+    mdxRs: true,
   },
 };
 
