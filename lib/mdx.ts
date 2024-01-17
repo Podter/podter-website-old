@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 
+import { Table, Td, Th, Tr } from "~/components/ui/table";
 import {
   A,
   Blockquote,
@@ -26,4 +27,8 @@ export const mdxComponents: MDXComponents = {
   code: Code,
   a: A,
   pre: Pre,
+  table: Table,
+  tr: Tr,
+  th: Th,
+  td: Td,
 };
