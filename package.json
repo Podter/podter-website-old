@@ -23,6 +23,7 @@
     "date-fns": "^3.2.0",
     "framer-motion": "^10.18.0",
     "geist": "^1.2.1",
+    "million": "^2.6.4",
     "next": "14.0.5-canary.59",
     "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",

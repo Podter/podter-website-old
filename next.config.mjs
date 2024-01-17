@@ -1,6 +1,7 @@
-// TODO: make config look better, add million.js
+// TODO: make config look better
 
 import createMDX from "@next/mdx";
+import million from "million/compiler";
 
 import "./env.mjs";
 
@@ -15,4 +16,8 @@ const nextConfig = {
 
 const withMDX = createMDX();
 
-export default withMDX(nextConfig);
+const millionConfig = {
+  auto: { rsc: true },
+};
+
+export default million.next(withMDX(nextConfig), millionConfig);
