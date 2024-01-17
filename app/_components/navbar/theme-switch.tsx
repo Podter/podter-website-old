@@ -5,6 +5,11 @@ import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 import { Button } from "~/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
 
 export default function ThemeSwitch() {
   const { resolvedTheme: theme, setTheme } = useTheme();
@@ -18,15 +23,26 @@ export default function ThemeSwitch() {
   }, [setTheme, theme]);
 
   return (
-    <Button
-      size="icon"
-      className="h-6 w-6"
-      variant="ghost"
-      onClick={toggleTheme}
-    >
-      <SunIcon className="h-4 w-4 dark:hidden" width={16} height={16} />
-      <MoonIcon className="hidden h-4 w-4 dark:block" width={16} height={16} />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <Tooltip>
+      <TooltipTrigger>
+        <Button
+          size="icon"
+          className="h-6 w-6"
+          variant="ghost"
+          onClick={toggleTheme}
+        >
+          <SunIcon className="h-4 w-4 dark:hidden" width={16} height={16} />
+          <MoonIcon
+            className="hidden h-4 w-4 dark:block"
+            width={16}
+            height={16}
+          />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Toggle theme</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }

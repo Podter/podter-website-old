@@ -10,6 +10,11 @@ import {
 
 import { Button } from "~/components/ui/button";
 import Spinner from "~/components/ui/spinner";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { Pre } from "~/components/ui/typography";
 import { cn } from "~/lib/utils";
 
@@ -63,23 +68,34 @@ export default function PreformattedText({
       ref={ref}
       className={cn("group relative font-sans", className)}
     >
-      <Button
-        className="absolute right-2 top-2 z-10 hidden group-hover:inline-flex"
-        size="icon"
-        variant="outline"
-        onClick={copy}
-      >
-        {copyState === "copied" ? (
-          <CheckIcon className="h-4 w-4" width={16} height={16} />
-        ) : copyState === "copying" ? (
-          <Spinner size={16} />
-        ) : copyState === "error" ? (
-          <ExclamationTriangleIcon className="h-4 w-4" width={16} height={16} />
-        ) : (
-          <CopyIcon className="h-4 w-4" width={16} height={16} />
-        )}
-        <span className="sr-only">{copyMessage}</span>
-      </Button>
+      <Tooltip>
+        <TooltipTrigger className="absolute right-2 top-2 z-10">
+          <Button
+            className="hidden group-hover:inline-flex"
+            size="icon"
+            variant="outline"
+            onClick={copy}
+          >
+            {copyState === "copied" ? (
+              <CheckIcon className="h-4 w-4" width={16} height={16} />
+            ) : copyState === "copying" ? (
+              <Spinner size={16} />
+            ) : copyState === "error" ? (
+              <ExclamationTriangleIcon
+                className="h-4 w-4"
+                width={16}
+                height={16}
+              />
+            ) : (
+              <CopyIcon className="h-4 w-4" width={16} height={16} />
+            )}
+            <span className="sr-only">{copyMessage}</span>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{copyMessage}</p>
+        </TooltipContent>
+      </Tooltip>
       {children}
     </Pre>
   );
