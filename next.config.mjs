@@ -8,7 +8,6 @@ import "./env.mjs";
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    ppr: true,
     webpackBuildWorker: true,
     mdxRs: true,
   },
