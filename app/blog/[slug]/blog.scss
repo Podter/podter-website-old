@@ -8,6 +8,8 @@ code {
     display: block;
     overflow-x: auto;
   }
+
+  @apply scrollbar-thin scrollbar-thumb-foreground scrollbar-track-border;
 }
 
 .rehype-autolink-headings {

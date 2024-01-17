@@ -58,6 +58,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.69.7",
     "shadcn-ui": "^0.7.0",
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"

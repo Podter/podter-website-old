@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import scrollbar from "tailwind-scrollbar";
 import animate from "tailwindcss-animate";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -81,7 +82,7 @@ const config = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, scrollbar],
 } satisfies Config;
 
 export default config;
