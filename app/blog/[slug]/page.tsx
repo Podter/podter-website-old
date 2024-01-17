@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns/format";
-import { parseISO } from "date-fns/parseISO";
 import pwsh from "highlight.js/lib/languages/powershell";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -40,7 +39,7 @@ export function generateMetadata({ params }: PageParams): Metadata | undefined {
     return;
   }
 
-  const date = format(parseISO(post.metadata.date), "d MMMM yyyy");
+  const date = format(post.date, "d MMMM yyyy");
 
   return createMetadata({
     title: post.metadata.title,
@@ -86,7 +85,7 @@ export default async function Blog({ params }: PageParams) {
     },
   });
 
-  const date = format(parseISO(post.metadata.date), "do MMMM, yyyy");
+  const date = format(post.date, "do MMMM, yyyy");
 
   return (
     <>

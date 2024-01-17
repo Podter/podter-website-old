@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { parseISO } from "date-fns/parseISO";
 
 interface Metadata {
   title: string;
@@ -37,8 +38,11 @@ export function getBlogPosts() {
   return mdxFiles.map((file) => {
     const filePath = path.join(contentPath, file);
     const { metadata, content } = readMDXFile(filePath);
-    const slug = path.basename(file, path.extname(file));
 
-    return { filePath, metadata, slug, content };
+    const slug = path.basename(file, path.extname(file));
+    const url = `/blog/${slug}`;
+    const date = parseISO(metadata.date);
+
+    return { filePath, metadata, slug, url, date, content };
   });
 }
