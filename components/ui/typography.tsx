@@ -124,13 +124,3 @@ export function A({ className, ...props }: JSX.IntrinsicElements["a"]) {
   );
 }
 A.displayName = "A";
-
-export function Pre({ className, ...props }: JSX.IntrinsicElements["pre"]) {
-  return (
-    <pre
-      {...props}
-      className={cn("mt-6 overflow-x-auto rounded-lg border", className)}
-    />
-  );
-}
-Pre.displayName = "Pre";

@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 
+import PreformattedText from "~/components/preformatted-text";
 import { Table, Td, Th, Tr } from "~/components/ui/table";
 import {
   A,
@@ -11,7 +12,6 @@ import {
   H4,
   Ol,
   P,
-  Pre,
   Ul,
 } from "~/components/ui/typography";
 
@@ -26,7 +26,7 @@ export const mdxComponents: MDXComponents = {
   ol: Ol,
   code: Code,
   a: A,
-  pre: Pre,
+  pre: PreformattedText,
   table: Table,
   tr: Tr,
   th: Th,
