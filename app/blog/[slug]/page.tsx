@@ -53,7 +53,7 @@ export default async function Blog({ params }: PageParams) {
     return notFound();
   }
 
-  // TODO: make code block, checkbox, image works
+  // TODO: make checkbox, image works
   const { content } = await compileMDX({
     source: post.content,
     components: mdxComponents,
