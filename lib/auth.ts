@@ -6,6 +6,7 @@ import { z } from "zod";
 import { env } from "~/env.mjs";
 
 const TokenSchema = z.object({
+  name: z.string(),
   email: z.string(),
   picture: z.string(),
   sub: z.string(),
@@ -15,6 +16,7 @@ declare module "next-auth" {
   // eslint-disable-next-line no-unused-vars
   interface Session {
     user: {
+      name: string;
       user: string;
       email: string;
     };
@@ -52,6 +54,7 @@ export const {
     session({ session, token: rawToken }) {
       const token = TokenSchema.parse(rawToken);
 
+      const name = token.name;
       const userId = token.sub;
       const provider = getProvider(token.picture);
       const email = token.email;
@@ -59,6 +62,7 @@ export const {
       return {
         ...session,
         user: {
+          name,
           user: `${provider}:${userId}`,
           email,
         },
