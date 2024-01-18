@@ -36,6 +36,7 @@ function getProvider(avatar: string): "github" | "discord" {
 export const {
   handlers: { GET, POST },
   auth,
+  signIn,
 } = NextAuth({
   secret: env.AUTH_SECRET,
   providers: [
