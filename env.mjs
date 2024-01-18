@@ -15,12 +15,22 @@ export const env = createEnv({
   },
   server: {
     POSTGRES_URL: z.string(),
+    AUTH_SECRET: z.string(),
+    DISCORD_ID: z.string(),
+    DISCORD_SECRET: z.string(),
+    GITHUB_ID: z.string(),
+    GITHUB_SECRET: z.string(),
   },
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
   runtimeEnv: {
     POSTGRES_URL: process.env.POSTGRES_URL,
+    AUTH_SECRET: process.env.AUTH_SECRET,
+    DISCORD_ID: process.env.DISCORD_ID,
+    DISCORD_SECRET: process.env.DISCORD_SECRET,
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET,
 
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 
