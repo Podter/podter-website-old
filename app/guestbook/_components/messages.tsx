@@ -38,20 +38,22 @@ async function Message({ message }: MessageProps) {
   const { name, url, avatar } = await fetchUser(message.user);
 
   return (
-    <div className="flex items-center">
-      <Avatar className="mr-2 h-6 w-6">
+    <div className="flex items-center gap-3 rounded-lg border p-2 sm:gap-2 sm:border-none sm:p-0">
+      <Avatar className="h-8 w-8 sm:h-6 sm:w-6">
         <AvatarImage src={avatar} alt={`${name}'s avatar`} />
         <AvatarFallback>
           <Spinner size={12} />
         </AvatarFallback>
       </Avatar>
-      <Link
-        href={url}
-        className="mr-1 text-sm text-muted-foreground underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
-      >
-        {name}:
-      </Link>
-      <p>{message.message}</p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:gap-1">
+        <Link
+          href={url}
+          className="text-sm text-muted-foreground underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
+        >
+          {name}:
+        </Link>
+        <p className="sm:text-sm">{message.message}</p>
+      </div>
     </div>
   );
 }
