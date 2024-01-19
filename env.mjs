@@ -18,6 +18,7 @@ export const env = createEnv({
     AUTH_SECRET: z.string(),
     DISCORD_ID: z.string(),
     DISCORD_SECRET: z.string(),
+    DISCORD_BOT_TOKEN: z.string(),
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
   },
@@ -29,6 +30,7 @@ export const env = createEnv({
     AUTH_SECRET: process.env.AUTH_SECRET,
     DISCORD_ID: process.env.DISCORD_ID,
     DISCORD_SECRET: process.env.DISCORD_SECRET,
+    DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
     GITHUB_ID: process.env.GITHUB_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
 
