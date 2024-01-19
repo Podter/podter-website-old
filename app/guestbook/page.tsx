@@ -5,6 +5,7 @@ import { H1, P } from "~/components/ui/typography";
 import { createMetadata } from "~/lib/create-metadata";
 import Form from "./_components/form";
 import Messages from "./_components/messages";
+import { FormSkeleton, MessageSkeletons } from "./_components/skeletons";
 
 export const runtime = "edge";
 
@@ -20,10 +21,10 @@ export default function Guestbook() {
         <H1>Guestbook</H1>
         <P className="mt-3">Sign my guestbook and leave your mark.</P>
       </div>
-      <Suspense>
+      <Suspense fallback={<FormSkeleton />}>
         <Form />
       </Suspense>
-      <Suspense>
+      <Suspense fallback={<MessageSkeletons />}>
         <Messages />
       </Suspense>
       <Toaster />

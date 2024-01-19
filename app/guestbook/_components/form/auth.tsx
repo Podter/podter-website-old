@@ -5,7 +5,7 @@ import { signIn } from "~/lib/auth";
 
 export default function Auth() {
   return (
-    <div className="mt-6 flex flex-col items-center gap-2 sm:flex-row">
+    <div className="mt-6 flex flex-col justify-stretch gap-2 sm:flex-row sm:items-center sm:justify-start">
       <form
         action={async () => {
           "use server";
