@@ -6,6 +6,8 @@ import { createMetadata } from "~/lib/create-metadata";
 import Form from "./_components/form";
 import Messages from "./_components/messages";
 
+export const runtime = "edge";
+
 export const metadata = createMetadata({
   title: "Guestbook",
   description: "Sign my guestbook and leave your mark.",
