@@ -37,6 +37,7 @@ export const {
   handlers: { GET, POST },
   auth,
   signIn,
+  signOut,
 } = NextAuth({
   secret: env.AUTH_SECRET,
   providers: [
