@@ -1,10 +1,9 @@
 import { Suspense } from "react";
 
 import { H1, P } from "~/components/ui/typography";
-import { auth } from "~/lib/auth";
 import { createMetadata } from "~/lib/create-metadata";
-import Auth from "./auth";
-import Form from "./form";
+import Form from "./_components/form";
+import Messages from "./_components/messages";
 
 export const metadata = createMetadata({
   title: "Guestbook",
@@ -19,18 +18,11 @@ export default function Guestbook() {
         <P className="mt-3">Sign my guestbook and leave your mark.</P>
       </div>
       <Suspense>
-        <GuestbookForm />
+        <Form />
+      </Suspense>
+      <Suspense>
+        <Messages />
       </Suspense>
     </>
   );
-}
-
-async function GuestbookForm() {
-  const session = await auth();
-
-  if (session) {
-    return <Form name={session.user.name} />;
-  }
-
-  return <Auth />;
 }
