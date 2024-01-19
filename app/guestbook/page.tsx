@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 
+import { Toaster } from "~/components/ui/sonner";
 import { H1, P } from "~/components/ui/typography";
 import { createMetadata } from "~/lib/create-metadata";
 import Form from "./_components/form";
@@ -23,6 +24,7 @@ export default function Guestbook() {
       <Suspense>
         <Messages />
       </Suspense>
+      <Toaster />
     </>
   );
 }

@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { Pencil1Icon, Pencil2Icon } from "@radix-ui/react-icons";
+import {
+  CrossCircledIcon,
+  Pencil1Icon,
+  Pencil2Icon,
+} from "@radix-ui/react-icons";
 import { useFormState, useFormStatus } from "react-dom";
+import { toast } from "sonner";
 
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -19,7 +24,11 @@ export default function GuestbookInput({
   const [state, formAction] = useFormState(sign, { success: true });
 
   useEffect(() => {
-    console.log(state);
+    if (!state.success && state.error) {
+      toast.error(state.error, {
+        icon: <CrossCircledIcon width={20} height={20} />,
+      });
+    }
   }, [state]);
 
   return (

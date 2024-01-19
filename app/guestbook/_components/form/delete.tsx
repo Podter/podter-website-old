@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import { TrashIcon } from "@radix-ui/react-icons";
+import { CrossCircledIcon, TrashIcon } from "@radix-ui/react-icons";
 import { useFormState, useFormStatus } from "react-dom";
+import { toast } from "sonner";
 
 import Spinner from "~/components/ui/spinner";
 import { deleteMessage } from "../../actions";
@@ -11,13 +12,19 @@ export default function DeleteMessage() {
   const [state, formAction] = useFormState(deleteMessage, { success: true });
 
   useEffect(() => {
-    console.log(state);
+    if (!state.success && state.error) {
+      toast.error(state.error, {
+        icon: <CrossCircledIcon width={20} height={20} />,
+      });
+    }
   }, [state]);
 
   return (
-    <form action={formAction}>
-      <DeleteButton />
-    </form>
+    <>
+      <form action={formAction}>
+        <DeleteButton />
+      </form>
+    </>
   );
 }
 
