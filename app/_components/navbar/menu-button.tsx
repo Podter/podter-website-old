@@ -10,6 +10,7 @@ import { cn } from "~/lib/utils";
 
 const MobileMenu = dynamic(() => import("~/components/mobile-menu"));
 
+// TODO: load on mobile only, not on press
 export default function MenuButton() {
   const [open, setOpen] = useState(false);
   const [opened, setOpened] = useState(false);
