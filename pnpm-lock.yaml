@@ -16,6 +16,12 @@ dependencies:
   '@catppuccin/palette':
     specifier: ^1.0.3
     version: 1.0.3
+  '@iconify/icons-fa6-brands':
+    specifier: ^1.2.11
+    version: 1.2.11
+  '@iconify/react':
+    specifier: ^4.1.1
+    version: 4.1.1(react@18.2.0)
   '@mdx-js/react':
     specifier: ^3.0.0
     version: 3.0.0(@types/react@18.2.48)(react@18.2.0)
@@ -1058,6 +1064,25 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@iconify/icons-fa6-brands@1.2.11:
+    resolution: {integrity: sha512-M45384DjmylDO74UJpL1E//B8R0bKu36Tkf80w394Iuo7BP5u1k4Ca3QgB9L5NzMyIwbhAKKEBFOo0NcfsSg5Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify/react@4.1.1(react@18.2.0):
+    resolution: {integrity: sha512-jed14EjvKjee8mc0eoscGxlg7mSQRkwQG3iX3cPBCO7UlOjz0DtlvTqxqEcHUJGh+z1VJ31Yhu5B9PxfO0zbdg==}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 18.2.0
+    dev: false
+
+  /@iconify/types@2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.1:
     resolution: {integrity: sha512-esr2BZ1x0bo+wl7Gx2hjssYhjrhUsD88VQulI0FrG8/otRQUOxLWHMBd1Y1qo2Gfg2KUvXNpT0ASnV9BzJCexw==}

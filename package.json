@@ -18,6 +18,8 @@
   "dependencies": {
     "@catppuccin/highlightjs": "^0.1.4",
     "@catppuccin/palette": "^1.0.3",
+    "@iconify/icons-fa6-brands": "^1.2.11",
+    "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
