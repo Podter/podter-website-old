@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import type { Page } from "~/constants/pages";
 import { cn } from "~/lib/utils";
 
-interface LinkProps extends Page {
+interface LinkProps extends Omit<Page, "icon"> {
   path: string;
 }
 
