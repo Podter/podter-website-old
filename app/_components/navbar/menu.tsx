@@ -1,24 +1,26 @@
 "use client";
 
-import { useCallback } from "react";
-import { LayoutGroup, LazyMotion } from "framer-motion";
+import dynamic from "next/dynamic";
 
 import { pages } from "~/constants/pages";
+import { useMediaQuery } from "~/hooks/use-media-query";
 import Link from "./link";
 
-export default function Menu() {
-  const domMax = useCallback(
-    () => import("~/lib/animation").then((mod) => mod.default),
-    [],
-  );
+const AnimatedMenu = dynamic(() => import("./animated-menu"), {
+  loading: DummyMenu,
+});
 
+export default function Menu() {
+  const isSm = useMediaQuery("(min-width: 640px)");
+  return isSm ? <AnimatedMenu /> : <DummyMenu />;
+}
+
+function DummyMenu() {
   return (
-    <LazyMotion features={domMax}>
-      <LayoutGroup>
-        {Object.entries(pages).map(([path, { name }], i) => (
-          <Link key={i} path={path} name={name} />
-        ))}
-      </LayoutGroup>
-    </LazyMotion>
+    <>
+      {Object.entries(pages).map(([path, { name }], i) => (
+        <Link key={i} path={path} name={name} />
+      ))}
+    </>
   );
 }

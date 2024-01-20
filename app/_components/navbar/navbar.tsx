@@ -14,7 +14,6 @@ export default function Navbar() {
         <Link href="/" className="px-2 font-medium sm:hidden">
           podter._
         </Link>
-        {/* TODO: lazy import menu */}
         <nav className="hidden h-full items-center gap-1 sm:flex">
           <Link
             href="/"
