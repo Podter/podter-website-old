@@ -31,21 +31,25 @@ export default function MobileMenu() {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-30 bg-[rgb(239,241,245)]/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 dark:bg-[rgb(30,30,46)]/80" />
         <Dialog.Content className="fixed bottom-8 left-8 right-8 top-[4.5rem] z-40 flex origin-top-left flex-col rounded-3xl border bg-background p-6 pt-3 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-75 data-[state=open]:zoom-in-75">
-          <Link href="/" className="flex h-12 items-center font-medium">
-            podter._
-          </Link>
-          {Object.entries(pages).map(([path, { name }], i) => (
-            <Link
-              key={i}
-              href={path}
-              className="flex h-[3.5rem] items-center text-3xl font-semibold"
-            >
-              {name}
+          <nav className="flex flex-col">
+            <Link href="/" className="flex h-12 items-center font-medium">
+              podter._
             </Link>
-          ))}
-          <p className="mt-auto text-sm text-muted-foreground">
-            © 2024 Podter - All right reserved
-          </p>
+            {Object.entries(pages).map(([path, { name }], i) => (
+              <Link
+                key={i}
+                href={path}
+                className="flex h-[3.5rem] items-center text-3xl font-semibold"
+              >
+                {name}
+              </Link>
+            ))}
+          </nav>
+          <footer className="mt-auto flex flex-col">
+            <p className="text-sm text-muted-foreground">
+              © 2024 Podter - All right reserved
+            </p>
+          </footer>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
