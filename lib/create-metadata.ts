@@ -8,7 +8,7 @@ interface CreateMetadataOptions {
   publishedTime?: string;
 }
 
-// TODO: Add og images
+// TODO: add og images
 export const createMetadata = ({
   title,
   description,

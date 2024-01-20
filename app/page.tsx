@@ -2,6 +2,7 @@ import { H1, P } from "~/components/ui/typography";
 
 export const dynamic = "force-static";
 
+// TODO: add home page
 export default function Home() {
   return (
     <>

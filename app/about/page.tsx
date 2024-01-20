@@ -8,6 +8,7 @@ export const metadata = createMetadata({
   description: "About page",
 });
 
+// TODO: add about page
 export default function About() {
   return <AboutContent />;
 }

@@ -7,6 +7,7 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 
+// TODO: add working cmdk
 export default function Cmdk() {
   return (
     <Tooltip>

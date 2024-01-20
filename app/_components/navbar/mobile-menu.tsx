@@ -46,6 +46,7 @@ export default function MobileMenu() {
             ))}
           </nav>
           <footer className="mt-auto flex flex-col">
+            {/* TODO: add socials */}
             <p className="text-sm text-muted-foreground">
               © 2024 Podter - All right reserved
             </p>
