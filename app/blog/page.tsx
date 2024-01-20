@@ -32,9 +32,9 @@ export default function Blogs() {
               {post.metadata.title}
             </Link>
             <P className="mt-0">{post.metadata.description}</P>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 text-muted-foreground">
               <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
-              <p className="text-sm leading-7 text-muted-foreground">
+              <p className="text-sm leading-7">
                 {format(post.date, "do MMMM, yyyy")}
               </p>
             </div>
