@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Cmdk from "./cmdk";
+import Command from "./command";
 import Menu from "./menu";
 import MobileMenu from "./mobile-menu";
 import ThemeSwitch from "./theme-switch";
@@ -25,7 +25,7 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex h-full items-center justify-end gap-1">
-        <Cmdk />
+        <Command />
         <ThemeSwitch />
       </div>
     </header>

@@ -1,13 +1,12 @@
 "use client";
 
+import type { DialogProps } from "@radix-ui/react-dialog";
 import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/offline";
-import { useAtom } from "jotai";
 
 import { pages } from "~/constants/pages";
 import { socials } from "~/constants/socials";
-import { cmdkAtom } from "~/lib/atoms";
 import {
   CommandDialog,
   CommandEmpty,
@@ -18,21 +17,22 @@ import {
   CommandSeparator,
 } from "./ui/command";
 
-export default function Cmdk() {
+interface CmdkProps extends Omit<DialogProps, "children"> {}
+
+export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   const router = useRouter();
-  const [open, setOpen] = useAtom(cmdkAtom);
 
   // eslint-disable-next-line no-unused-vars
   const runCommand = useCallback<(fn: () => void) => void>(
     (fn) => {
-      setOpen(false);
+      onOpenChange!(false);
       fn();
     },
-    [setOpen],
+    [onOpenChange],
   );
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandDialog open={open} onOpenChange={onOpenChange} {...props}>
       <CommandInput placeholder="Type a command or search…" />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

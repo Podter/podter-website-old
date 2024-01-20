@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Provider as JotaiProvider } from "jotai";
 
-import Cmdk from "~/components/cmdk";
 import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
 import { CalSans } from "~/lib/cal-sans";
@@ -47,7 +46,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 <BordersVertical />
               </div>
               <BordersHorizontal />
-              <Cmdk />
             </TooltipProvider>
           </ThemeProvider>
         </JotaiProvider>
