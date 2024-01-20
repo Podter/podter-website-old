@@ -19,6 +19,7 @@
     "@catppuccin/highlightjs": "^0.1.4",
     "@catppuccin/palette": "^1.0.3",
     "@iconify/icons-fa6-brands": "^1.2.11",
+    "@iconify/icons-material-symbols": "^1.2.58",
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -53,6 +54,7 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@iconify/types": "^2.0.0",
     "@mdx-js/loader": "^3.0.0",
     "@next/mdx": "^14.0.4",
     "@types/mdx": "^2.0.10",
