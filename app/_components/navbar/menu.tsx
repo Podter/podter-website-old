@@ -15,6 +15,7 @@ export default function Menu() {
   return isSm ? <AnimatedMenu /> : <DummyMenu />;
 }
 
+// TODO: make this better
 function DummyMenu() {
   return (
     <>
