@@ -38,6 +38,7 @@
     "framer-motion": "^10.18.0",
     "geist": "^1.2.1",
     "highlight.js": "^11.9.0",
+    "jotai": "^2.6.2",
     "million": "^2.6.4",
     "next": "14.0.5-canary.59",
     "next-auth": "5.0.0-beta.5",

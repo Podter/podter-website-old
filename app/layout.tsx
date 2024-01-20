@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
+import { Provider as JotaiProvider } from "jotai";
 
 import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
@@ -34,18 +35,20 @@ export default function RootLayout({ children }: PropsWithChildren) {
           CalSans.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>
-            <div className="container relative flex flex-col">
-              <Navbar />
-              <main className="mb-16 flex flex-col px-4 md:mx-6">
-                {children}
-              </main>
-              <BordersVertical />
-            </div>
-            <BordersHorizontal />
-          </TooltipProvider>
-        </ThemeProvider>
+        <JotaiProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <TooltipProvider>
+              <div className="container relative flex flex-col">
+                <Navbar />
+                <main className="mb-16 flex flex-col px-4 md:mx-6">
+                  {children}
+                </main>
+                <BordersVertical />
+              </div>
+              <BordersHorizontal />
+            </TooltipProvider>
+          </ThemeProvider>
+        </JotaiProvider>
       </body>
     </html>
   );
