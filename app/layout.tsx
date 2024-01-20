@@ -22,6 +22,7 @@ export const viewport: Viewport = {
   ],
 };
 
+// TODO: 404 and error page
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="dark">
