@@ -3,11 +3,14 @@
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef, useState } from "react";
 import NextLink from "next/link";
+import { Icon } from "@iconify/react/offline";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import { Button } from "~/components/ui/button";
 import { pages } from "~/constants/pages";
+import { socials } from "~/constants/socials";
+import { cn } from "~/lib/utils";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -17,7 +20,10 @@ export default function MobileMenu() {
       <Dialog.Trigger asChild>
         <Button
           size="icon"
-          className="z-50 h-6 w-6 sm:hidden"
+          className={cn(
+            "z-50 h-6 w-6 sm:hidden",
+            open && "!bg-background !text-foreground",
+          )}
           variant={open ? "outline" : "ghost"}
         >
           {open ? (
@@ -45,8 +51,28 @@ export default function MobileMenu() {
               </Link>
             ))}
           </nav>
-          <footer className="mt-auto flex flex-col">
-            {/* TODO: add socials */}
+          <footer className="mt-auto flex flex-col gap-3">
+            <div className="flex gap-2">
+              {Object.entries(socials).map(([name, { url, icon }]) => (
+                <Button
+                  key={name}
+                  size="icon"
+                  className="h-8 w-8"
+                  variant="outline"
+                  asChild
+                >
+                  <NextLink href={url}>
+                    <Icon
+                      icon={icon}
+                      className="h-4 w-4"
+                      width={16}
+                      height={16}
+                    />
+                    <span className="sr-only">{name}</span>
+                  </NextLink>
+                </Button>
+              ))}
+            </div>
             <p className="text-sm text-muted-foreground">
               © 2024 Podter - All right reserved
             </p>
