@@ -2,15 +2,14 @@ import Link from "next/link";
 
 import Command from "./command";
 import Menu from "./menu";
-import MobileMenu from "./mobile-menu";
+import MenuButton from "./menu-button";
 import ThemeSwitch from "./theme-switch";
 
 export default function Navbar() {
   return (
     <header className="mb-10 mt-6 flex h-10 w-full items-center justify-between px-4 md:my-20">
       <div className="flex h-full items-center">
-        {/* TODO: maybe lazy load them */}
-        <MobileMenu />
+        <MenuButton />
         <Link href="/" className="px-2 font-medium sm:hidden">
           podter._
         </Link>
