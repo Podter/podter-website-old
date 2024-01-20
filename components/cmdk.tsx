@@ -1,0 +1,71 @@
+"use client";
+
+import { useCallback } from "react";
+import { useRouter } from "next/navigation";
+import { Icon } from "@iconify/react/offline";
+import { useAtom } from "jotai";
+
+import { pages } from "~/constants/pages";
+import { socials } from "~/constants/socials";
+import { cmdkAtom } from "~/lib/atoms";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "./ui/command";
+
+export default function Cmdk() {
+  const router = useRouter();
+  const [open, setOpen] = useAtom(cmdkAtom);
+
+  // eslint-disable-next-line no-unused-vars
+  const runCommand = useCallback<(fn: () => void) => void>(
+    (fn) => {
+      setOpen(false);
+      fn();
+    },
+    [setOpen],
+  );
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search…" />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Navigation">
+          {Object.entries(pages).map(([path, { name, icon: Icon }], i) => (
+            <CommandItem
+              key={i}
+              onSelect={() => runCommand(() => router.push(path))}
+            >
+              <Icon className="mr-2 h-5 w-5" width={20} height={20} />
+              <span>{name[0].toUpperCase() + name.slice(1)}</span>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+        <CommandSeparator />
+        {/* TODO: add blog */}
+        <CommandGroup heading="Links">
+          {Object.entries(socials).map(([social, { url, icon }], i) => (
+            <CommandItem
+              key={i}
+              onSelect={() => runCommand(() => window.open(url))}
+            >
+              <Icon
+                className="mr-2 h-5 w-5"
+                width={20}
+                height={20}
+                icon={icon}
+              />
+              <span>{social}</span>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
