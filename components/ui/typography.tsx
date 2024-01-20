@@ -129,7 +129,7 @@ export function Pre({ className, ...props }: JSX.IntrinsicElements["pre"]) {
   return (
     <pre
       {...props}
-      className={cn("mt-6 overflow-x-auto rounded-lg border", className)}
+      className={cn("mt-6 overflow-x-auto rounded-lg border shadow", className)}
     />
   );
 }

@@ -17,7 +17,7 @@ interface ImageProps extends NextImageProps {
 
 export default function Image({ href, src, className, ...props }: ImageProps) {
   return (
-    <div className="group relative mt-6 w-full overflow-hidden rounded-xl">
+    <div className="group relative mt-6 w-full overflow-hidden rounded-xl border shadow">
       <Tooltip>
         <TooltipTrigger className="absolute right-2 top-2 z-20" asChild>
           <Button

@@ -26,7 +26,7 @@ export default function Projects() {
         {projects.map(
           ({ title, description, img, url, action = "Open", sourceUrl }, i) => (
             <div key={i} className="mt-10 flex flex-col gap-3 first:mt-0">
-              <div className="aspect-video overflow-hidden rounded-xl md:aspect-[24/9]">
+              <div className="aspect-video overflow-hidden rounded-xl border shadow md:aspect-[24/9]">
                 <Image
                   src={img}
                   alt={title}
