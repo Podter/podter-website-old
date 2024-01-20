@@ -32,6 +32,7 @@
     "cal-sans": "^1.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cmdk": "^0.2.0",
     "date-fns": "^3.2.0",
     "drizzle-orm": "^0.29.3",
     "framer-motion": "^10.18.0",
