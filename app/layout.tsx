@@ -8,7 +8,7 @@ import { defaultMetadata } from "~/constants/metadata";
 import { CalSans } from "~/lib/cal-sans";
 import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/providers/theme-provider";
-import Borders from "./_components/borders";
+import { BordersHorizontal, BordersVertical } from "./_components/borders";
 import Navbar from "./_components/navbar";
 
 import "./globals.scss";
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className="dark">
       <body
         className={cn(
-          "container relative flex flex-col overflow-x-hidden font-sans",
+          "overflow-x-hidden font-sans",
           GeistSans.variable,
           GeistMono.variable,
           CalSans.variable,
@@ -35,9 +35,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider>
-            <Navbar />
-            <main className="mb-16 flex flex-col px-4 md:mx-6">{children}</main>
-            <Borders />
+            <div className="container relative flex flex-col">
+              <Navbar />
+              <main className="mb-16 flex flex-col px-4 md:mx-6">
+                {children}
+              </main>
+              <BordersVertical />
+            </div>
+            <BordersHorizontal />
           </TooltipProvider>
         </ThemeProvider>
       </body>

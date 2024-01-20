@@ -1,0 +1,64 @@
+$color: hsl(var(--foreground));
+$line-width: 10px;
+
+$duration: 1s;
+$timing: cubic-bezier(0.645, 0.045, 0.355, 1);
+$fill-mode: forwards;
+
+.line_horizontal {
+  background: linear-gradient(
+    to right,
+    $color,
+    $color 50%,
+    transparent 0,
+    transparent
+  );
+  background-size: $line-width 1px;
+
+  animation-name: animate_line_horizontal;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+}
+
+.line_vertical {
+  background: linear-gradient(
+    to bottom,
+    $color,
+    $color 50%,
+    transparent 0,
+    transparent
+  );
+  background-size: 1px $line-width;
+
+  animation-name: animate_line_vertical;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+}
+
+.animate_delay {
+  animation-delay: 0.15s;
+}
+
+@keyframes animate_line_vertical {
+  from {
+    height: 0;
+    opacity: 0.5;
+  }
+  to {
+    height: 100%;
+    opacity: 0.2;
+  }
+}
+
+@keyframes animate_line_horizontal {
+  from {
+    width: 0;
+    opacity: 0.5;
+  }
+  to {
+    width: 100%;
+    opacity: 0.2;
+  }
+}
