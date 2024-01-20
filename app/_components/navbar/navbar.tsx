@@ -2,12 +2,14 @@ import Link from "next/link";
 
 import Cmdk from "./cmdk";
 import Menu from "./menu";
+import MobileMenu from "./mobile-menu";
 import ThemeSwitch from "./theme-switch";
 
 export default function Navbar() {
   return (
     <header className="mb-10 mt-6 flex h-10 w-full items-center justify-between px-4 md:my-20">
       <div className="flex h-full items-center">
+        <MobileMenu />
         <Link href="/" className="px-2 font-medium sm:hidden">
           podter._
         </Link>
