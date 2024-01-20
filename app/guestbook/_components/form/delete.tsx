@@ -40,7 +40,7 @@ function DeleteButton() {
         <Spinner className="mr-1" size={14} color="hsl(var(--destructive))" />
       ) : (
         <TrashIcon className="mr-1 h-3.5 w-3.5" width={14} height={14} />
-      )}{" "}
+      )}
       Delete
     </button>
   );

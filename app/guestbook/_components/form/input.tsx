@@ -64,7 +64,7 @@ function SubmitButton({ edit }: SubmitButtonProps) {
         <Pencil2Icon className="mr-2 h-4 w-4" width={16} height={16} />
       ) : (
         <Pencil1Icon className="mr-2 h-4 w-4" width={16} height={16} />
-      )}{" "}
+      )}
       {edit ? "Edit" : "Sign"}
     </Button>
   );
