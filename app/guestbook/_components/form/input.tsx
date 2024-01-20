@@ -38,6 +38,7 @@ export default function GuestbookInput({
         type="text"
         name="message"
         defaultValue={initialMessage}
+        required
       />
       <SubmitButton edit={initialMessage ? true : false} />
     </form>
