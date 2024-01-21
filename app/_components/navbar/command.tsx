@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
-import { Component1Icon } from "@radix-ui/react-icons";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { Button } from "~/components/ui/button";
@@ -37,13 +37,13 @@ export default function Command() {
             onClick={openCmdk}
             onMouseEnter={() => setLoaded(true)}
           >
-            <Component1Icon className="h-4 w-4" width={16} height={16} />
-            <span className="sr-only">Open command menu</span>
+            <MagnifyingGlassIcon className="h-4 w-4" width={16} height={16} />
+            <span className="sr-only">Open search</span>
           </Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>
-            Open command menu <Code className="text-xs">Ctrl</Code>+
+            Open search <Code className="text-xs">Ctrl</Code>+
             <Code className="text-xs">K</Code>
           </p>
         </TooltipContent>

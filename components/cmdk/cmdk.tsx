@@ -70,7 +70,7 @@ export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
     <CommandDialog open={open} onOpenChange={onOpenChange} {...props}>
       <Command shouldFilter={search.length <= 0}>
         <CommandInput
-          placeholder="Type a command or search…"
+          placeholder="Type to search…"
           value={search}
           onValueChange={handleSearch}
         />
