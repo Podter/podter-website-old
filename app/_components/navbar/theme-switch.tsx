@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 
+// TODO: add sound
 export default function ThemeSwitch() {
   const { resolvedTheme: theme, setTheme } = useTheme();
 
