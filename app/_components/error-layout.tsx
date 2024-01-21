@@ -30,9 +30,9 @@ export default function ErrorLayout({
       <div className="mb-16 mt-6 flex items-center justify-center gap-3 md:mb-32">
         {children}
       </div>
-      <FlyingToasters className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-20 h-full w-full select-none overflow-hidden md:hidden" />
-      <FlyingToasters className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-20 hidden h-full w-full select-none overflow-hidden md:block" />
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-10 hidden h-full w-full select-none shadow-[inset_0px_0px_50px_125px_hsl(var(--background))] md:block"></div>
+      <FlyingToasters className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-30 h-full w-full select-none overflow-hidden md:hidden" />
+      <FlyingToasters className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-30 hidden h-full w-full select-none overflow-hidden md:block" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-20 hidden h-full w-full select-none shadow-[inset_0px_0px_50px_125px_hsl(var(--background))] md:block"></div>
     </div>
   );
 }
