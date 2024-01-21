@@ -3,15 +3,15 @@ import type { PropsWithChildren } from "react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
+import { BordersHorizontal, BordersVertical } from "~/components/borders";
+import Navbar from "~/components/navbar";
+import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
 import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
 import { CalSans } from "~/lib/cal-sans";
 import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/providers/theme-provider";
-import { BordersHorizontal, BordersVertical } from "./_components/borders";
-import Navbar from "./_components/navbar";
-import SkipContent from "./_components/skip-content";
 
 import "./globals.scss";
 

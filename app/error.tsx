@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
+import ErrorLayout from "~/components/error-layout";
 import { Button } from "~/components/ui/button";
 import { createMetadata } from "~/lib/create-metadata";
-import ErrorLayout from "./_components/error-layout";
 
 export const metadata = createMetadata({
   title: "Something went wrong",
