@@ -1,24 +1,18 @@
 "use client";
 
-import type { SetStateAction } from "react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import { Button } from "~/components/ui/button";
+import { useMediaQuery } from "~/hooks/use-media-query";
 import { cn } from "~/lib/utils";
 
 const MobileMenu = dynamic(() => import("~/components/mobile-menu"));
 
-// TODO: load on mobile only, not on press
 export default function MenuButton() {
   const [open, setOpen] = useState(false);
-  const [opened, setOpened] = useState(false);
-
-  const handleOpen = useCallback((value: SetStateAction<boolean>) => {
-    setOpened(true);
-    setOpen(value);
-  }, []);
+  const isSm = useMediaQuery("(min-width: 640px)");
 
   return (
     <>
@@ -29,7 +23,7 @@ export default function MenuButton() {
           open && "!bg-background !text-foreground",
         )}
         variant={open ? "outline" : "ghost"}
-        onClick={() => handleOpen((prev) => !prev)}
+        onClick={() => setOpen((prev) => !prev)}
       >
         {open ? (
           <Cross1Icon className="h-4 w-4" width={16} height={16} />
@@ -38,7 +32,7 @@ export default function MenuButton() {
         )}
         <span className="sr-only">Open menu</span>
       </Button>
-      {opened && <MobileMenu open={open} onOpenChange={handleOpen} />}
+      {!isSm && <MobileMenu open={open} onOpenChange={setOpen} />}
     </>
   );
 }
