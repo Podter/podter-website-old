@@ -4,10 +4,13 @@ import type { DialogProps } from "@radix-ui/react-dialog";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/offline";
+import { FileTextIcon } from "@radix-ui/react-icons";
+import { z } from "zod";
 
 import type { Pagefind, PagefindSearchResult } from "./pagefind/types";
 import { pages } from "~/constants/pages";
 import { socials } from "~/constants/socials";
+import { useFetch } from "~/hooks/use-fetch";
 import {
   Command,
   CommandDialog,
@@ -28,10 +31,20 @@ declare global {
   }
 }
 
+export const PostsSchema = z.object({
+  posts: z.array(
+    z.object({
+      title: z.string(),
+      url: z.string(),
+    }),
+  ),
+});
+
 interface CmdkProps extends Omit<DialogProps, "children"> {}
 
 export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   const router = useRouter();
+  const { data } = useFetch("/api/blog", PostsSchema);
 
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<PagefindSearchResult[]>([]);
@@ -115,7 +128,26 @@ export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
                 )}
               </CommandGroup>
               <CommandSeparator />
-              {/* TODO: add blog */}
+              {data && (
+                <>
+                  <CommandGroup heading="Blog">
+                    {data.posts.map(({ title, url }, i) => (
+                      <CommandItem
+                        key={i}
+                        onSelect={() => runCommand(() => router.push(url))}
+                      >
+                        <FileTextIcon
+                          className="mr-2 h-5 w-5"
+                          width={20}
+                          height={20}
+                        />
+                        <span>{title}</span>
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                  <CommandSeparator />
+                </>
+              )}
               <CommandGroup heading="Links">
                 {Object.entries(socials).map(([social, { url, icon }], i) => (
                   <CommandItem
