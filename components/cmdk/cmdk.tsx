@@ -5,6 +5,7 @@ import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/offline";
 
+import type { Pagefind } from "./pagefind/types";
 import { pages } from "~/constants/pages";
 import { socials } from "~/constants/socials";
 import {
@@ -17,16 +18,21 @@ import {
   CommandSeparator,
 } from "../ui/command";
 
+declare global {
+  // eslint-disable-next-line no-unused-vars
+  interface Window {
+    pagefind?: Pagefind;
+  }
+}
+
 interface CmdkProps extends Omit<DialogProps, "children"> {}
 
 export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // @ts-ignore
     if (typeof window.pagefind === "undefined") {
       import(/* webpackIgnore: true */ "./pagefind/pagefind.js")
-        // @ts-ignore
         .then((mod) => (window.pagefind = mod))
         .catch(console.error);
     }
