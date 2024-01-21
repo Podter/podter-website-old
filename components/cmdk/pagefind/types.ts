@@ -61,7 +61,7 @@ type PagefindSearchResult = {
 };
 
 /** The useful data Pagefind provides for a search result */
-export type PagefindSearchFragment = {
+type PagefindSearchFragment = {
   /** Pagefind's processed URL for this page. Will include the baseUrl if configured */
   url: string;
   /** Pagefind's unprocessed URL for this page */
