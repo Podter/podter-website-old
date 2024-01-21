@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import useSound from "use-sound";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -11,17 +12,21 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 
-// TODO: add sound
 export default function ThemeSwitch() {
   const { resolvedTheme: theme, setTheme } = useTheme();
+
+  const [playSwitchOff] = useSound("/sounds/switch-off.mp3");
+  const [playSwitchOn] = useSound("/sounds/switch-on.mp3");
 
   const toggleTheme = useCallback(() => {
     if (theme === "dark") {
       setTheme("light");
+      playSwitchOn();
     } else {
       setTheme("dark");
+      playSwitchOff();
     }
-  }, [setTheme, theme]);
+  }, [playSwitchOff, playSwitchOn, setTheme, theme]);
 
   return (
     <Tooltip>
