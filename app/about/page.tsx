@@ -5,10 +5,10 @@ export const dynamic = "force-static";
 
 export const metadata = createMetadata({
   title: "About",
-  description: "About page",
+  description:
+    "Hey, I'm Podter. I'm a student and self-taught developer from Thailand.",
 });
 
-// TODO: add about page
 export default function About() {
   return <AboutContent />;
 }
