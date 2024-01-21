@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import Menu from "~/components/menu";
 import Command from "./command";
-import Menu from "./menu";
 import MenuButton from "./menu-button";
 import ThemeSwitch from "./theme-switch";
 
