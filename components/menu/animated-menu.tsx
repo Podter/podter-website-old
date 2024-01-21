@@ -4,7 +4,7 @@ import { LayoutGroup, LazyMotion, m } from "framer-motion";
 import { useTheme } from "next-themes";
 
 import { pages } from "~/constants/pages";
-import { indicatorClassNames, Link } from "./link";
+import { BaseLink, indicatorClassNames } from "./base-link";
 
 export default function AnimatedMenu() {
   const domMax = useCallback(
@@ -16,9 +16,9 @@ export default function AnimatedMenu() {
     <LazyMotion features={domMax}>
       <LayoutGroup>
         {Object.entries(pages).map(([path, { name }], i) => (
-          <Link key={i} name={name} href={path}>
+          <BaseLink key={i} name={name} href={path}>
             <Indicator />
-          </Link>
+          </BaseLink>
         ))}
       </LayoutGroup>
     </LazyMotion>

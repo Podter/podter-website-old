@@ -1,18 +1,18 @@
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef, useMemo } from "react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "~/lib/utils";
 
-interface LinkProps extends ComponentPropsWithoutRef<typeof NextLink> {
+interface BaseLinkProps extends ComponentPropsWithoutRef<typeof Link> {
   name: string;
 }
 
 export const indicatorClassNames =
   "absolute inset-0 -z-10 rounded-full bg-accent";
 
-export const Link = forwardRef<ElementRef<typeof NextLink>, LinkProps>(
+export const BaseLink = forwardRef<ElementRef<typeof Link>, BaseLinkProps>(
   ({ name, href, children, className, ...props }, ref) => {
     const pathname = usePathname();
     const isActive = useMemo(
@@ -21,7 +21,7 @@ export const Link = forwardRef<ElementRef<typeof NextLink>, LinkProps>(
     );
 
     return (
-      <NextLink
+      <Link
         {...props}
         href={href}
         className={cn(
@@ -33,8 +33,8 @@ export const Link = forwardRef<ElementRef<typeof NextLink>, LinkProps>(
       >
         {name}
         {isActive && children}
-      </NextLink>
+      </Link>
     );
   },
 );
-Link.displayName = "Link";
+BaseLink.displayName = "BaseLink";
