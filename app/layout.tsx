@@ -10,6 +10,7 @@ import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/providers/theme-provider";
 import { BordersHorizontal, BordersVertical } from "./_components/borders";
 import Navbar from "./_components/navbar";
+import SkipContent from "./_components/skip-content";
 
 import "./globals.scss";
 
@@ -36,9 +37,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider>
+            <SkipContent />
             <div className="container relative flex flex-col">
               <Navbar />
               <main className="mb-16 flex flex-col px-4 md:mx-6">
+                <div id="content" tabIndex={-1} />
                 {children}
               </main>
               <BordersVertical />
