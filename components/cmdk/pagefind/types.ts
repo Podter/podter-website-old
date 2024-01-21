@@ -44,7 +44,7 @@ type PagefindSearchResults = {
 };
 
 /** A single result from a search query, before actual data has been loaded */
-type PagefindSearchResult = {
+export type PagefindSearchResult = {
   /** Pagefind's internal ID for this page, unique across the site */
   id: string;
   /** Pagefind's internal score for your query matching this page, that is used when ranking these results */
@@ -61,7 +61,7 @@ type PagefindSearchResult = {
 };
 
 /** The useful data Pagefind provides for a search result */
-type PagefindSearchFragment = {
+export type PagefindSearchFragment = {
   /** Pagefind's processed URL for this page. Will include the baseUrl if configured */
   url: string;
   /** Pagefind's unprocessed URL for this page */

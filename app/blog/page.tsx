@@ -22,7 +22,7 @@ export default function Blogs() {
         <H1>Blog</H1>
         <P className="mt-3">A collection of blog posts I&apos;ve written.</P>
       </div>
-      <div className="mt-6 flex flex-col">
+      <div className="mt-6 flex flex-col" data-pagefind-ignore>
         {posts.map((post) => (
           <div key={post.slug} className="mt-10 flex flex-col gap-3 first:mt-0">
             <Link
