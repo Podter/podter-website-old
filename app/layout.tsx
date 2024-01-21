@@ -40,7 +40,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <SkipContent />
             <div className="container relative flex flex-col">
               <Navbar />
-              <main className="mb-16 flex flex-col px-4 md:mx-6">
+              <main
+                className="mb-16 flex flex-col px-4 md:mx-6"
+                data-pagefind-body
+              >
                 <div id="content" tabIndex={-1} />
                 {children}
               </main>

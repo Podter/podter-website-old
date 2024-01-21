@@ -1,7 +1,7 @@
 "use client";
 
 import type { DialogProps } from "@radix-ui/react-dialog";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/offline";
 
@@ -21,6 +21,16 @@ interface CmdkProps extends Omit<DialogProps, "children"> {}
 
 export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   const router = useRouter();
+
+  useEffect(() => {
+    // @ts-ignore
+    if (typeof window.pagefind === "undefined") {
+      import(/* webpackIgnore: true */ "./pagefind/pagefind.js")
+        // @ts-ignore
+        .then((mod) => (window.pagefind = mod))
+        .catch(console.error);
+    }
+  }, []);
 
   // eslint-disable-next-line no-unused-vars
   const runCommand = useCallback<(fn: () => void) => void>(
