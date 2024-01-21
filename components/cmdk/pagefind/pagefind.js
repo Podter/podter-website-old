@@ -1,9 +1,11 @@
 // @ts-check
 
+import { mockSearchData } from "./mock-search-data";
+
 /** @type {import('./types').Pagefind} */
 const pagefind = {
   debouncedSearch: async () => ({
-    results: [],
+    results: mockSearchData,
     unfilteredResultCount: 0,
     filters: {},
     totalFilters: {},

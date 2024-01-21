@@ -33,6 +33,7 @@ export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   useEffect(() => {
     if (typeof window.pagefind === "undefined") {
       import(/* webpackIgnore: true */ "./pagefind/pagefind.js")
+        // @ts-expect-error ignore
         .then((mod) => (window.pagefind = mod))
         .catch(console.error);
     }
