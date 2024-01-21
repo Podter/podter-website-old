@@ -1,37 +1,39 @@
-import type { ElementRef, MouseEventHandler } from "react";
-import { forwardRef, useCallback } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 import type { BaseLinkProps } from "./base-link";
 import { useWindowSize } from "~/hooks/use-window-size";
 import BaseLink from "./base-link";
 
-const WithConfetti = forwardRef<ElementRef<typeof BaseLink>, BaseLinkProps>(
-  ({ ...props }, ref) => {
-    const { width, height } = useWindowSize();
+export default function WithConfetti({ ...props }: BaseLinkProps) {
+  const { width, height } = useWindowSize();
+  const ref = useRef<HTMLElement>(null);
 
-    const triggerConfetti = useCallback<MouseEventHandler<HTMLElement>>(
-      async (e) => {
-        const confetti = (await import("canvas-confetti")).default;
-        confetti({
-          particleCount: 75,
-          spread: 100,
-          origin: {
-            x: e.clientX / width,
-            y: e.clientY / height,
-          },
-          startVelocity: 12,
-          gravity: 0.75,
-          decay: 0.95,
-          disableForReducedMotion: true,
-          ticks: 500,
-        });
-      },
-      [width, height],
-    );
+  const { x, y } = useMemo(() => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
 
-    return <BaseLink {...props} asButton onClick={triggerConfetti} ref={ref} />;
-  },
-);
-WithConfetti.displayName = "WithConfetti";
+      const elX = rect.x + rect.width / 2;
+      const elY = rect.y + rect.height / 2;
 
-export default WithConfetti;
+      return { x: elX / width, y: elY / height };
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }, [width, height]);
+
+  const triggerConfetti = useCallback(async () => {
+    const confetti = (await import("canvas-confetti")).default;
+    confetti({
+      particleCount: 75,
+      spread: 100,
+      origin: { x, y },
+      startVelocity: 12,
+      gravity: 0.75,
+      decay: 0.95,
+      disableForReducedMotion: true,
+      ticks: 500,
+    });
+  }, [x, y]);
+
+  return <BaseLink {...props} asButton onClick={triggerConfetti} ref={ref} />;
+}
