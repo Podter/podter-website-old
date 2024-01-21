@@ -11,7 +11,7 @@ export default function Socials() {
         <Link
           key={name}
           href={url}
-          className="flex items-center justify-between rounded-lg border bg-background p-4 shadow hover:bg-accent"
+          className="flex items-center justify-between rounded-lg border bg-background p-4 shadow transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
           <div className="flex items-center gap-3">
             <Icon icon={icon} className="h-6 w-6" width={24} height={24} />
