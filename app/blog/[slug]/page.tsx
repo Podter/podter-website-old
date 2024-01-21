@@ -89,10 +89,12 @@ export default async function Blog({ params }: PageParams) {
 
   return (
     <>
-      <H1>{post.metadata.title}</H1>
-      <div className="mt-3 flex items-center gap-1 text-muted-foreground">
-        <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
-        <p className="text-sm">Published on {date}</p>
+      <div className="flex flex-col">
+        <H1>{post.metadata.title}</H1>
+        <div className="mt-3 flex items-center gap-1 text-muted-foreground">
+          <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
+          <p className="text-sm">Published on {date}</p>
+        </div>
       </div>
       <article className="mt-6">{content}</article>
     </>
