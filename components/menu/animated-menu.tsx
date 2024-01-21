@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef, useCallback, useMemo } from "react";
-import { LayoutGroup, LazyMotion, m } from "framer-motion";
+import { LayoutGroup, LazyMotion, m, MotionConfig } from "framer-motion";
 import { useTheme } from "next-themes";
 
 import { pages } from "~/constants/pages";
@@ -14,13 +14,15 @@ export default function AnimatedMenu() {
 
   return (
     <LazyMotion features={domMax}>
-      <LayoutGroup>
-        {Object.entries(pages).map(([path, { name }], i) => (
-          <BaseLink key={i} name={name} href={path}>
-            <Indicator />
-          </BaseLink>
-        ))}
-      </LayoutGroup>
+      <MotionConfig reducedMotion="user">
+        <LayoutGroup>
+          {Object.entries(pages).map(([path, { name }], i) => (
+            <BaseLink key={i} name={name} href={path}>
+              <Indicator />
+            </BaseLink>
+          ))}
+        </LayoutGroup>
+      </MotionConfig>
     </LazyMotion>
   );
 }
