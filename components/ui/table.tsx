@@ -4,7 +4,7 @@ import { cn } from "~/lib/utils";
 
 export function Table({ className, ...props }: JSX.IntrinsicElements["table"]) {
   return (
-    <div className={cn("mt-6 w-full overflow-y-auto", className)}>
+    <div className={cn("mt-6 w-full overflow-y-auto bg-background", className)}>
       <table {...props} className="w-full" />
     </div>
   );
