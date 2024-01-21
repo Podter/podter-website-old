@@ -15,7 +15,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "./ui/command";
+} from "../ui/command";
 
 interface CmdkProps extends Omit<DialogProps, "children"> {}
 
