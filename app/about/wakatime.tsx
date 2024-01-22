@@ -14,7 +14,7 @@ const WakaTimeResponseSchema = z.object({
   }),
 });
 
-// TODO: make this work
+// TODO: make this work, dont render on build
 export default async function WakaTime() {
   const rawData = await fetch(
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
