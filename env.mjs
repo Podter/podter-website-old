@@ -21,6 +21,7 @@ export const env = createEnv({
     DISCORD_BOT_TOKEN: z.string(),
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
+    WAKATIME_SECRET_API_KEY: z.string(),
   },
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
@@ -33,6 +34,7 @@ export const env = createEnv({
     DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
     GITHUB_ID: process.env.GITHUB_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
+    WAKATIME_SECRET_API_KEY: process.env.WAKATIME_SECRET_API_KEY,
 
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 
