@@ -38,7 +38,7 @@ async function Message({ message }: MessageProps) {
   const { name, url, avatar } = await fetchUser(message.user);
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border p-2 shadow sm:gap-2 sm:border-none sm:p-0 sm:shadow-none">
+    <div className="flex items-center gap-3 rounded-lg border bg-background p-2 shadow sm:gap-2 sm:border-none sm:bg-none sm:p-0 sm:shadow-none">
       <Avatar className="h-8 w-8 sm:h-6 sm:w-6">
         <AvatarImage src={avatar} alt={`${name}'s avatar`} />
         <AvatarFallback>
