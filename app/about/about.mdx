@@ -1,12 +1,14 @@
 import { Separator } from "~/components/ui/separator";
 import { H1 } from "~/components/ui/typography";
+import PodterServer from "./podter-server";
 import Socials from "./socials";
+import U from "./underline";
 
 {/* TODO: add underlines and links */}
 
 <H1 className="mt-0">About</H1>
 
-Hey, I'm Podter. Some folks call me Pod for short. I'm a student and self-taught
+Hey, I'm <U>Podter</U>. Some folks call me <U>Pod</U> for short. I'm a student and self-taught
 developer from Thailand. I like playing games and listening to music. I enjoy
 web development and Linux stuff.
 
@@ -25,8 +27,12 @@ I also learned a bit of C# and Dart with Flutter. Look like enjoy using TypeScri
 Sometime I mess around with Linux or OS stuff. Trying out different distros in VMs,
 setting up my own server, self-hosting, Docker, and stuff like that.
 
+<PodterServer />
+
 If I'm not coding then I'm probably playing games or watching something.
-I like playing indie games and adventure games. I also enjoy watching South Park and Bluey.
+I like playing indie games and adventure games. I also enjoy watching
+[South Park](https://www.southparkstudios.com) and [Bluey](https://www.bluey.tv).
+{/* Add their favicons */}
 
 <Separator className="mt-6" />
 
