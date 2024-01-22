@@ -1,5 +1,5 @@
 import { P } from "~/components/ui/typography";
-import Socials from "./_components/socials";
+import Socials from "./socials";
 
 export const dynamic = "force-static";
 

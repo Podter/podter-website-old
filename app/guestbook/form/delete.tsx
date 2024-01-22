@@ -6,7 +6,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { toast } from "sonner";
 
 import Spinner from "~/components/ui/spinner";
-import { deleteMessage } from "../../actions";
+import { deleteMessage } from "../actions";
 
 export default function DeleteMessage() {
   const [state, formAction] = useFormState(deleteMessage, { success: true });

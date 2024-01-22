@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import { Toaster } from "~/components/ui/sonner";
 import { H1, P } from "~/components/ui/typography";
 import { createMetadata } from "~/lib/create-metadata";
-import Form from "./_components/form";
-import Messages from "./_components/messages";
-import { FormSkeleton, MessageSkeletons } from "./_components/skeletons";
+import Form from "./form";
+import Messages from "./messages";
+import { FormSkeleton, MessageSkeletons } from "./skeletons";
 
 export const runtime = "edge";
 

@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import Spinner from "~/components/ui/spinner";
-import { sign } from "../../actions";
+import { sign } from "../actions";
 
 interface GuestbookInputProps {
   initialMessage?: string;
