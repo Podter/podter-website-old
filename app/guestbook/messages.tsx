@@ -1,3 +1,4 @@
+import { unstable_cache as cache } from "next/cache";
 import Link from "next/link";
 import { desc } from "drizzle-orm";
 
@@ -7,15 +8,21 @@ import { db } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { fetchUser } from "~/lib/fetch-user";
 
+const getMessages = cache(
+  async () =>
+    await db
+      .select({
+        id: guestbook.id,
+        user: guestbook.user,
+        message: guestbook.message,
+      })
+      .from(guestbook)
+      .orderBy(desc(guestbook.createdAt)),
+  ["guestbook"],
+);
+
 export default async function Messages() {
-  const messages = await db
-    .select({
-      id: guestbook.id,
-      user: guestbook.user,
-      message: guestbook.message,
-    })
-    .from(guestbook)
-    .orderBy(desc(guestbook.createdAt));
+  const messages = await getMessages();
 
   return (
     <div className="mt-6 flex flex-col gap-3">
