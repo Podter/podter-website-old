@@ -6,13 +6,11 @@ import Link from "next/link";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { useLanyardWS } from "use-lanyard";
 
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "~/components/ui/hover-card";
-import Spinner from "~/components/ui/spinner";
 import {
   discordId,
   discordJoinDate,
@@ -20,6 +18,7 @@ import {
 } from "~/constants/lanyard";
 import { useTimestamps } from "~/hooks/use-timestamps";
 import { cn } from "~/lib/utils";
+import DiscordAvatar from "./discord-avatar";
 
 interface LanyardProps {
   initialData: LanyardData;
@@ -31,7 +30,7 @@ interface ActivityData {
 }
 
 // TODO: maybe move it to somewhere else?
-export default function Lanyard({ initialData }: LanyardProps) {
+export default function LanyardClient({ initialData }: LanyardProps) {
   const data = useLanyardWS(discordId, {
     initialData,
     api: {
@@ -122,29 +121,5 @@ export default function Lanyard({ initialData }: LanyardProps) {
         </div>
       </HoverCardContent>
     </HoverCard>
-  );
-}
-
-interface DiscordAvatarProps {
-  user: string | null;
-  className?: string;
-  spinnerSize?: number;
-}
-
-function DiscordAvatar({
-  user,
-  className,
-  spinnerSize = 12,
-}: DiscordAvatarProps) {
-  return (
-    <Avatar className={cn("border shadow", className)}>
-      <AvatarImage
-        src={`https://${lanyardHostname}/${discordId}.png`}
-        alt={`${user}'s avatar`}
-      />
-      <AvatarFallback>
-        <Spinner size={spinnerSize} />
-      </AvatarFallback>
-    </Avatar>
   );
 }
