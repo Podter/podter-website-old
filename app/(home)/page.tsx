@@ -22,7 +22,7 @@ export default async function Home() {
   const lanyard = await getLanyard();
 
   return (
-    <div className="flex h-[calc(100vh-10.5rem)] w-full flex-col items-center justify-center text-center md:h-[calc(100vh-16.5rem)]">
+    <div className="relative flex h-[calc(100vh-10.5rem)] w-full flex-col items-center justify-center text-center md:h-[calc(100vh-16.5rem)]">
       <h1 className="font-heading text-7xl font-semibold md:text-8xl">
         Podter
       </h1>

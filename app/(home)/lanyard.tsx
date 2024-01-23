@@ -2,10 +2,24 @@
 
 import type { Activity, Data as LanyardData } from "use-lanyard";
 import { useMemo } from "react";
+import Link from "next/link";
+import { CalendarIcon } from "@radix-ui/react-icons";
 import { useLanyardWS } from "use-lanyard";
 
-import { discordId, lanyardHostname } from "~/constants/lanyard";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "~/components/ui/hover-card";
+import Spinner from "~/components/ui/spinner";
+import {
+  discordId,
+  discordJoinDate,
+  lanyardHostname,
+} from "~/constants/lanyard";
 import { useTimestamps } from "~/hooks/use-timestamps";
+import { cn } from "~/lib/utils";
 
 interface LanyardProps {
   initialData: LanyardData;
@@ -16,6 +30,7 @@ interface ActivityData {
   details: string;
 }
 
+// TODO: maybe move it to somewhere else?
 export default function Lanyard({ initialData }: LanyardProps) {
   const data = useLanyardWS(discordId, {
     initialData,
@@ -52,5 +67,84 @@ export default function Lanyard({ initialData }: LanyardProps) {
     }
   }, [data]);
 
-  return <div>{JSON.stringify(activity)}</div>;
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <div className="absolute left-0 top-0 flex items-center gap-2">
+          <DiscordAvatar
+            user={data.discord_user.global_name}
+            className="h-6 w-6"
+          />
+          <Link
+            href={`https://discord.com/users/${discordId}`}
+            className="text-sm text-muted-foreground underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
+          >
+            {activity ? (
+              <>
+                {activity.type}{" "}
+                <span className="font-semibold">{activity.details}</span>{" "}
+                {time && (
+                  <span suppressHydrationWarning>• {time.start} elapsed</span>
+                )}
+              </>
+            ) : (
+              "I'm not currently doing anything!"
+            )}
+          </Link>
+        </div>
+      </HoverCardTrigger>
+      <HoverCardContent className="flex gap-2">
+        <div className="relative flex">
+          <DiscordAvatar
+            user={data.discord_user.global_name}
+            spinnerSize={16}
+          />
+          <div
+            className={cn(
+              "absolute bottom-1 right-0 h-2.5 w-2.5 rounded-full bg-slate-600",
+              {
+                "bg-green-400": data.discord_status === "online",
+                "bg-yellow-400": data.discord_status === "idle",
+                "bg-red-600": data.discord_status === "dnd",
+              },
+            )}
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm">
+            <span className="font-medium">@{data.discord_user.username}</span>{" "}
+            <span className="text-muted-foreground">on Discord</span>
+          </p>
+          <div className="ml-2 flex items-center gap-1 text-xs text-muted-foreground">
+            <CalendarIcon className="h-3 w-3" width={12} height={12} />{" "}
+            <p>Joined {discordJoinDate}</p>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  );
+}
+
+interface DiscordAvatarProps {
+  user: string | null;
+  className?: string;
+  spinnerSize?: number;
+}
+
+function DiscordAvatar({
+  user,
+  className,
+  spinnerSize = 12,
+}: DiscordAvatarProps) {
+  return (
+    <Avatar className={cn("border shadow", className)}>
+      <AvatarImage
+        src={`https://${lanyardHostname}/${discordId}.png`}
+        alt={`${user}'s avatar`}
+      />
+      <AvatarFallback>
+        <Spinner size={spinnerSize} />
+      </AvatarFallback>
+    </Avatar>
+  );
 }
