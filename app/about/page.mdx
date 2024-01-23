@@ -1,9 +1,18 @@
 import { Separator } from "~/components/ui/separator";
 import { H1 } from "~/components/ui/typography";
+import { createMetadata } from "~/lib/create-metadata";
 import PodterServer from "./podter-server";
 import Socials from "./socials";
 import U from "./underline";
 import WakaTime from "./wakatime";
+
+export const dynamic = "force-static";
+
+export const metadata = createMetadata({
+  title: "About",
+  description:
+    "Hey, I'm Podter. I'm a student and self-taught developer from Thailand.",
+});
 
 {/* TODO: add underlines and links */}
 

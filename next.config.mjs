@@ -7,6 +7,7 @@ import "./env.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   reactStrictMode: true,
   experimental: {
     webpackBuildWorker: true,
