@@ -1,6 +1,4 @@
-import type { z } from "zod";
-
-import type { PostsSchema } from "~/components/cmdk/cmdk";
+import type { Posts } from "~/lib/schema";
 import { getBlogPosts } from "~/lib/blog";
 
 export const dynamic = "force-static";
@@ -13,5 +11,5 @@ export async function GET() {
       title: post.metadata.title,
       url: post.url,
     })),
-  } as z.infer<typeof PostsSchema>);
+  } as Posts);
 }

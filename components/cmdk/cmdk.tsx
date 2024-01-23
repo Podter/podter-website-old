@@ -5,12 +5,12 @@ import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/offline";
 import { FileTextIcon } from "@radix-ui/react-icons";
-import { z } from "zod";
 
 import type { Pagefind, PagefindSearchResult } from "./pagefind/types";
 import { pages } from "~/constants/pages";
 import { socials } from "~/constants/socials";
 import { useFetch } from "~/hooks/use-fetch";
+import { PostsSchema } from "~/lib/schema";
 import {
   Command,
   CommandDialog,
@@ -30,15 +30,6 @@ declare global {
     pagefind?: Pagefind;
   }
 }
-
-export const PostsSchema = z.object({
-  posts: z.array(
-    z.object({
-      title: z.string(),
-      url: z.string(),
-    }),
-  ),
-});
 
 interface CmdkProps extends Omit<DialogProps, "children"> {}
 
