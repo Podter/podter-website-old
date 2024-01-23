@@ -136,6 +136,9 @@ dependencies:
   tailwind-merge:
     specifier: ^2.2.0
     version: 2.2.0
+  use-lanyard:
+    specifier: ^1.5.2
+    version: 1.5.2(react-dom@18.2.0)(react@18.2.0)
   use-sound:
     specifier: ^4.0.1
     version: 4.0.1(patch_hash=bbtej2synxs7jhkmxorvpl2hni)(react@18.2.0)
@@ -8213,6 +8216,17 @@ packages:
       '@types/react': 18.2.48
       react: 18.2.0
       tslib: 2.6.2
+    dev: false
+
+  /use-lanyard@1.5.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-clxZoUrzgvGa+9IAOv39e4yNjUEvmk/BjBbpIZ/0ymLmclypJkKJ86j5okEjBAACMkw+u1c4gf/zCifpOSwyDA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /use-sidecar@1.1.2(@types/react@18.2.48)(react@18.2.0):
