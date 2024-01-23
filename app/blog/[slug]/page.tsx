@@ -19,6 +19,7 @@ import PreformattedText from "./preformatted-text";
 import "./blog.scss";
 
 export const dynamic = "force-static";
+export const dynamicParams = false;
 
 interface PageParams {
   params: {
