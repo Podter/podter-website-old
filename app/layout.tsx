@@ -24,6 +24,7 @@ export const viewport: Viewport = {
   ],
 };
 
+// TODO: update favicon
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="dark">
