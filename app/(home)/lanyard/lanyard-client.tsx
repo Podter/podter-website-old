@@ -69,7 +69,7 @@ export default function LanyardClient({ initialData }: LanyardProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <div className="absolute left-0 top-0 flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <DiscordAvatar
             user={data.discord_user.global_name}
             className="h-6 w-6"
