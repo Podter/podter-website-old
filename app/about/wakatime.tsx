@@ -1,7 +1,11 @@
-"use client";
+import { Suspense } from "react";
+import {
+  unstable_cache as cache,
+  unstable_noStore as noStore,
+} from "next/cache";
+import { z } from "zod";
 
-import { useFetch } from "~/hooks/use-fetch";
-import { WakaTimeSchema } from "~/lib/schema";
+import { env } from "~/env.mjs";
 
 // TODO: make it better
 export default function WakaTime() {
@@ -13,21 +17,53 @@ export default function WakaTime() {
           (Last 7 days)
         </span>
       </p>
-      <Data />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Data />
+      </Suspense>
     </div>
   );
 }
 
-function Data() {
-  const { data } = useFetch("/api/wakatime", WakaTimeSchema);
+const WakaTimeResponseSchema = z.object({
+  data: z.object({
+    languages: z.array(
+      z.object({
+        name: z.string(),
+        text: z.string(),
+        percent: z.number(),
+      }),
+    ),
+  }),
+});
 
-  if (!data) {
-    return <p>Loading...</p>;
-  }
+const getWakaTime = cache(
+  async () => {
+    const rawData = await fetch(
+      "https://wakatime.com/api/v1/users/current/stats/last_7_days",
+      {
+        headers: {
+          Authorization: `Basic ${Buffer.from(
+            env.WAKATIME_SECRET_API_KEY || "",
+          ).toString("base64")}`,
+        },
+      },
+    ).then((res) => res.json());
+    const { data } = WakaTimeResponseSchema.parse(rawData);
+    return data.languages
+      .slice(0, 5)
+      .map(({ name, text, percent }) => ({ name, text, percent }));
+  },
+  ["lanyard"],
+  { revalidate: 86400 },
+);
+
+async function Data() {
+  noStore();
+  const data = await getWakaTime();
 
   return (
     <div className="mt-3 flex flex-col">
-      {data.languages.slice(0, 5).map(({ name, text, percent }, i) => (
+      {data.map(({ name, text, percent }, i) => (
         <span key={i}>
           {name}: {text} {percent}%
         </span>
