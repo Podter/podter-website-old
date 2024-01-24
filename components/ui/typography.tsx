@@ -117,7 +117,7 @@ export function A({ className, ...props }: JSX.IntrinsicElements["a"]) {
       className={cn(
         Object.keys(props).includes("data-rehype-autolink-headings")
           ? "rehype-autolink-headings"
-          : "text-primary underline-offset-4 hover:underline",
+          : "text-primary underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none",
         className,
       )}
     />

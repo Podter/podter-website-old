@@ -27,7 +27,7 @@ export default function Blogs() {
           <div key={post.slug} className="mt-10 flex flex-col gap-3 first:mt-0">
             <Link
               href={post.url}
-              className="font-medium leading-7 underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-foreground/50"
+              className="font-medium leading-7 underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-foreground/50 focus-visible:decoration-foreground/50 focus-visible:outline-none"
             >
               {post.metadata.title}
             </Link>
