@@ -4,6 +4,8 @@ import { P } from "~/components/ui/typography";
 import { Lanyard, LanyardSkeleton } from "./lanyard";
 import Socials from "./socials";
 
+export const runtime = "edge";
+
 // TODO: add home page
 export default function Home() {
   return (
