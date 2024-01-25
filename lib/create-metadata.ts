@@ -8,26 +8,25 @@ interface CreateMetadataOptions {
   publishedTime?: string;
 }
 
-// TODO: add og images
 export const createMetadata = ({
   title,
   description,
   publishedTime,
-}: CreateMetadataOptions): Metadata => ({
-  ...defaultMetadata,
-  title,
-  description,
-  openGraph: {
-    ...defaultMetadata.openGraph,
+}: CreateMetadataOptions) =>
+  ({
+    ...defaultMetadata,
     title,
     description,
-    type: publishedTime ? "article" : "website",
-    publishedTime,
-    // images: []
-  },
-  twitter: {
-    title,
-    description: description,
-    // images: [],
-  },
-});
+    openGraph: {
+      ...defaultMetadata.openGraph,
+      title,
+      description,
+      type: publishedTime ? "article" : "website",
+      publishedTime,
+    },
+    twitter: {
+      ...defaultMetadata.twitter,
+      title,
+      description: description,
+    },
+  }) satisfies Metadata;

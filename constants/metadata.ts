@@ -5,11 +5,11 @@ import { env } from "~/env.mjs";
 const name = "Podter";
 const twitter = "@Real_Podter";
 const description = "A student and self-taught developer from Thailand.";
-const url = "https://podter.me";
+export const url = "https://podter.me";
 
-export const defaultMetadata: Metadata = {
+export const defaultMetadata = {
   metadataBase: new URL(
-    env.VERCEL_ENV === "production" ? "https://podter.me" : url,
+    env.VERCEL_ENV === "production" ? url : "http://localhost:3000",
   ),
   title: {
     default: name,
@@ -24,7 +24,6 @@ export const defaultMetadata: Metadata = {
     url,
     siteName: name,
     type: "website",
-    // images: []
   },
   twitter: {
     card: "summary_large_image",
@@ -32,7 +31,6 @@ export const defaultMetadata: Metadata = {
     description: description,
     site: name,
     creator: twitter,
-    // images: [],
   },
   other: {
     "darkreader-lock": "true",
@@ -51,4 +49,4 @@ export const defaultMetadata: Metadata = {
   verification: {
     google: "Jfc2vKkk95YzKNp4NaKjW08FQd11KPabjnJucKPeKVc",
   },
-};
+} satisfies Metadata;

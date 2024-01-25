@@ -21,7 +21,7 @@ import "./blog.scss";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-interface PageParams {
+export interface PageParams {
   params: {
     slug: string;
   };
