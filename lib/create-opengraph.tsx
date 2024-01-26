@@ -11,8 +11,8 @@ export function createOpenGraph(title: string, description?: string) {
     const calSansFont = await fetch(
       "https://github.com/calcom/font/raw/main/fonts/webfonts/CalSans-SemiBold.ttf",
     ).then((res) => res.arrayBuffer());
-    const interFont = await fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf",
+    const geistFont = await fetch(
+      "https://github.com/vercel/geist-font/raw/main/packages/next/dist/fonts/geist-sans/Geist-SemiBold.ttf",
     ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
@@ -42,7 +42,7 @@ export function createOpenGraph(title: string, description?: string) {
             <span
               style={{
                 fontSize: 24,
-                fontFamily: "Inter",
+                fontFamily: "Geist",
               }}
               tw="text-right font-semibold text-[#a6adc8]"
             >
@@ -62,8 +62,8 @@ export function createOpenGraph(title: string, description?: string) {
             weight: 600,
           },
           {
-            name: "Inter",
-            data: interFont,
+            name: "Geist",
+            data: geistFont,
             style: "normal",
             weight: 600,
           },
