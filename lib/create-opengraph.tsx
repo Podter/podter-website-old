@@ -9,11 +9,11 @@ export function createOpenGraph(title: string, description?: string) {
 
   return async () => {
     const calSansFont = await fetch(
-      `${baseUrl}/fonts/CalSans-SemiBold.ttf`,
+      "https://github.com/calcom/font/raw/main/fonts/webfonts/CalSans-SemiBold.ttf",
     ).then((res) => res.arrayBuffer());
-    const interFont = await fetch(`${baseUrl}/fonts/Inter-SemiBold.ttf`).then(
-      (res) => res.arrayBuffer(),
-    );
+    const interFont = await fetch(
+      "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf",
+    ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       (
