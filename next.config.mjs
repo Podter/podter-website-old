@@ -14,6 +14,15 @@ const nextConfig = {
     mdxRs: true,
     // ppr: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.steamgriddb.com",
+        pathname: "/grid/**",
+      },
+    ],
+  },
 };
 
 /** @type {Parameters<typeof million.next>[1]} */

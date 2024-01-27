@@ -22,6 +22,8 @@ export const env = createEnv({
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
     WAKATIME_SECRET_API_KEY: z.string(),
+    STEAM_API_KEY: z.string(),
+    STEAMGRIDDB_API_KEY: z.string(),
   },
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
@@ -35,6 +37,8 @@ export const env = createEnv({
     GITHUB_ID: process.env.GITHUB_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
     WAKATIME_SECRET_API_KEY: process.env.WAKATIME_SECRET_API_KEY,
+    STEAM_API_KEY: process.env.STEAM_API_KEY,
+    STEAMGRIDDB_API_KEY: process.env.STEAMGRIDDB_API_KEY,
 
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 
