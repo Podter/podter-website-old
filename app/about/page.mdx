@@ -1,6 +1,7 @@
 import { Separator } from "~/components/ui/separator";
 import { H1 } from "~/components/ui/typography";
 import { createMetadata } from "~/lib/create-metadata";
+import { Bluey, SouthPark } from "./links";
 import PodterServer from "./podter-server";
 import Socials from "./socials";
 import Steam from "./steam";
@@ -13,8 +14,6 @@ export const metadata = createMetadata({
   title: "About",
   description: "Get to know me a little better.",
 });
-
-{/* TODO: add underlines and links */}
 
 <H1 className="mt-0">About</H1>
 
@@ -40,9 +39,7 @@ setting up my own server, self-hosting, Docker, and stuff like that.
 <PodterServer />
 
 If I'm not coding then I'm probably playing games or watching something.
-I like playing indie games and adventure games. I also enjoy watching
-[South Park](https://www.southparkstudios.com) and [Bluey](https://www.bluey.tv).
-{/* TODO: add their favicons */}
+I like playing indie games and adventure games. I also enjoy watching <SouthPark /> and <Bluey />.
 
 <Steam />
 
