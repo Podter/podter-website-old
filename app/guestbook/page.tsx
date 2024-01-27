@@ -7,8 +7,6 @@ import Form from "./form";
 import Messages from "./messages";
 import { FormSkeleton, MessageSkeletons } from "./skeletons";
 
-export const runtime = "edge";
-
 export const metadata = createMetadata({
   title: "Guestbook",
   description: "Sign my guestbook and leave your mark.",

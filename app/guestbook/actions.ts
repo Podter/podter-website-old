@@ -1,5 +1,6 @@
 "use server";
 
+import crypto from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
@@ -7,7 +8,6 @@ import { z } from "zod";
 import { db } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth } from "~/lib/auth";
-import { digestString } from "~/lib/digest-string";
 
 const FormSchema = z.object({
   message: z.string().min(1, { message: "Message is required." }),
@@ -56,7 +56,10 @@ export async function sign(
         })
         .where(eq(guestbook.user, session.user.user));
     } else {
-      const emailHash = await digestString(session.user.email);
+      const emailHash = crypto
+        .createHash("sha256")
+        .update(session.user.email)
+        .digest("hex");
 
       await db.insert(guestbook).values({
         user: session.user.user,
