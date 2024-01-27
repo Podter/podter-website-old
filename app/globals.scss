@@ -66,10 +66,9 @@
   }
 }
 
-// TODO: change scrollbar theme
 @layer base {
   * {
-    @apply scroll-smooth border-border;
+    @apply scroll-smooth border-border scrollbar-thin scrollbar-track-muted scrollbar-thumb-muted-foreground;
   }
   body {
     @apply bg-background text-foreground antialiased;
