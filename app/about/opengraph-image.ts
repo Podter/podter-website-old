@@ -3,7 +3,7 @@ import { createOpenGraph } from "~/lib/create-opengraph";
 export const dynamic = "force-static";
 
 const title = "About";
-const description = "A little bit about me.";
+const description = "Get to know me a little better.";
 
 export const alt = `${title} - ${description}`;
 
