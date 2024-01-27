@@ -55,7 +55,7 @@ export default async function Data() {
                 {text}
               </span>
             </p>
-            <p className="text-sm font-normal text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {percent.toFixed(2)}%
             </p>
           </div>

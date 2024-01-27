@@ -16,7 +16,7 @@ export default function WakaTime() {
         <Data />
       </Suspense>
       <div className="flex w-full justify-end">
-        <p className="text-sm font-normal text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           Data provided by WakaTime
         </p>
       </div>
