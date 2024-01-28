@@ -15,6 +15,7 @@ interface Project {
   sourceUrl?: string;
 }
 
+// TODO: update projects
 export const projects: Project[] = [
   {
     title: "podter.me",

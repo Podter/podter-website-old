@@ -51,6 +51,7 @@ export const {
     }),
   ],
   session: { strategy: "jwt" },
+  // TODO: compare email hash
   callbacks: {
     // @ts-expect-error token should be returned
     session({ session, token: rawToken }) {
