@@ -29,7 +29,6 @@ interface ActivityData {
   details: string;
 }
 
-// TODO: maybe move it to somewhere else?
 export default function LanyardClient({ initialData }: LanyardProps) {
   const data = useLanyardWS(discordId, {
     initialData,
