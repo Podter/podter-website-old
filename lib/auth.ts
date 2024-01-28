@@ -1,8 +1,12 @@
+import crypto from "node:crypto";
+import { eq } from "drizzle-orm";
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 import GitHub from "next-auth/providers/github";
 import { z } from "zod";
 
+import { db } from "~/database";
+import { guestbook } from "~/database/schema/guestbook";
 import { env } from "~/env.mjs";
 
 const TokenSchema = z.object({
@@ -51,8 +55,37 @@ export const {
     }),
   ],
   session: { strategy: "jwt" },
-  // TODO: compare email hash
   callbacks: {
+    async signIn({ user, account }) {
+      if (user.email) {
+        const emailHash = crypto
+          .createHash("sha256")
+          .update(user.email)
+          .digest("hex");
+
+        const existingMessages = await db
+          .select({ user: guestbook.user })
+          .from(guestbook)
+          .where(eq(guestbook.emailHash, emailHash))
+          .limit(1);
+
+        const existingMessage = existingMessages[0];
+        if (existingMessage) {
+          const isSameProvider = existingMessage.user.includes(
+            account?.provider!,
+          );
+          if (isSameProvider) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return true;
+        }
+      }
+
+      return false;
+    },
     // @ts-expect-error token should be returned
     session({ session, token: rawToken }) {
       const token = TokenSchema.parse(rawToken);
