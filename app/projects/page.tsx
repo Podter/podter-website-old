@@ -22,56 +22,57 @@ export default function Projects() {
         <H1>Projects</H1>
         <P className="mt-3">A list of projects I&apos;ve worked on.</P>
       </div>
-      <div className="mt-6 flex flex-col">
-        {projects.map(
-          ({ title, description, img, url, action = "Open", sourceUrl }, i) => (
-            <div key={i} className="mt-10 flex flex-col gap-3 first:mt-0">
-              <MagicalContainer
-                containerClassName="flex aspect-video items-center justify-center overflow-hidden rounded-xl shadow md:aspect-[24/9]"
-                className="h-full w-full rounded-xl object-cover p-px"
-                color="hsl(226, 64%, 88%)"
-                asChild
-              >
-                <Image src={img} alt={title} />
-              </MagicalContainer>
-              <p className="scroll-m-20 text-2xl font-semibold tracking-tight">
-                {title}
-              </p>
-              <p className="leading-7">{description}</p>
-              <div className="flex gap-2">
-                {url && (
-                  <Button asChild size="sm">
-                    <Link href={url}>
-                      <ExternalLinkIcon
-                        className="mr-2 h-4 w-4"
-                        width={16}
-                        height={16}
-                      />
-                      {action}
-                    </Link>
-                  </Button>
-                )}
-                {sourceUrl && (
-                  <Button
-                    asChild
-                    variant={url ? "secondary" : "default"}
-                    size="sm"
-                  >
-                    <Link href={sourceUrl}>
-                      <GitHubLogoIcon
-                        className="mr-2 h-4 w-4"
-                        width={16}
-                        height={16}
-                      />
-                      GitHub
-                    </Link>
-                  </Button>
-                )}
-              </div>
+      {projects.map(
+        ({ title, description, img, url, action = "Open", sourceUrl }, i) => (
+          <div
+            key={i}
+            className="mt-10 flex flex-col gap-3 [&:nth-child(3)]:mt-6"
+          >
+            <MagicalContainer
+              containerClassName="flex aspect-video items-center justify-center overflow-hidden rounded-xl shadow md:aspect-[24/9]"
+              className="h-full w-full rounded-xl object-cover p-px"
+              color="hsl(226, 64%, 88%)"
+              asChild
+            >
+              <Image src={img} alt={title} />
+            </MagicalContainer>
+            <p className="scroll-m-20 text-2xl font-semibold tracking-tight">
+              {title}
+            </p>
+            <p className="leading-7">{description}</p>
+            <div className="flex gap-2">
+              {url && (
+                <Button asChild size="sm">
+                  <Link href={url}>
+                    <ExternalLinkIcon
+                      className="mr-2 h-4 w-4"
+                      width={16}
+                      height={16}
+                    />
+                    {action}
+                  </Link>
+                </Button>
+              )}
+              {sourceUrl && (
+                <Button
+                  asChild
+                  variant={url ? "secondary" : "default"}
+                  size="sm"
+                >
+                  <Link href={sourceUrl}>
+                    <GitHubLogoIcon
+                      className="mr-2 h-4 w-4"
+                      width={16}
+                      height={16}
+                    />
+                    GitHub
+                  </Link>
+                </Button>
+              )}
             </div>
-          ),
-        )}
-      </div>
+          </div>
+        ),
+      )}
     </>
   );
 }

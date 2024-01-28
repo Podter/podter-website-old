@@ -22,25 +22,27 @@ export default function Blogs() {
         <H1>Blog</H1>
         <P className="mt-3">A collection of blog posts I&apos;ve written.</P>
       </div>
-      <div className="mt-6 flex flex-col" data-pagefind-ignore>
-        {posts.map((post) => (
-          <div key={post.slug} className="mt-10 flex flex-col gap-3 first:mt-0">
-            <Link
-              href={post.url}
-              className="font-medium leading-7 underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-foreground/50 focus-visible:decoration-foreground/50 focus-visible:outline-none"
-            >
-              {post.metadata.title}
-            </Link>
-            <P className="mt-0">{post.metadata.description}</P>
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
-              <p className="text-sm leading-7">
-                {format(post.date, "do MMMM, yyyy")}
-              </p>
-            </div>
+      {posts.map((post) => (
+        <div
+          key={post.slug}
+          className="mt-10 flex flex-col gap-3 [&:nth-child(3)]:mt-6"
+          data-pagefind-ignore
+        >
+          <Link
+            href={post.url}
+            className="font-medium leading-7 underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-foreground/50 focus-visible:decoration-foreground/50 focus-visible:outline-none"
+          >
+            {post.metadata.title}
+          </Link>
+          <P className="mt-0">{post.metadata.description}</P>
+          <div className="flex items-center gap-1 text-muted-foreground">
+            <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
+            <p className="text-sm leading-7">
+              {format(post.date, "do MMMM, yyyy")}
+            </p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </>
   );
 }
