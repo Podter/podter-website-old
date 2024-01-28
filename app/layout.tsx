@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import { BordersHorizontal, BordersVertical } from "~/components/borders";
+import Content from "~/components/content";
 import Navbar from "~/components/navbar";
 import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
@@ -40,13 +41,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <SkipContent />
             <div className="container relative flex flex-col">
               <Navbar />
-              <main
-                className="mb-16 flex flex-col px-4 md:mx-6"
-                data-pagefind-body
-              >
+              <Content>
                 <div id="content" tabIndex={-1} data-pagefind-ignore />
                 {children}
-              </main>
+              </Content>
               <BordersVertical />
             </div>
             <BordersHorizontal />
