@@ -27,7 +27,7 @@ export default function Projects() {
           ({ title, description, img, url, action = "Open", sourceUrl }, i) => (
             <div key={i} className="mt-10 flex flex-col gap-3 first:mt-0">
               <MagicalContainer
-                containerClassName="aspect-video overflow-hidden rounded-xl shadow md:aspect-[24/9] flex justify-center items-center"
+                containerClassName="flex aspect-video items-center justify-center overflow-hidden rounded-xl shadow md:aspect-[24/9]"
                 className="h-full w-full rounded-xl object-cover p-px"
                 color="hsl(226, 64%, 88%)"
                 asChild

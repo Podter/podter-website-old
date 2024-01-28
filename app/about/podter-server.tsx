@@ -7,7 +7,7 @@ export default function PodterServer() {
   return (
     <MagicalContainer
       asChild
-      containerClassName="mt-6 w-full rounded-xl shadow flex justify-center items-center"
+      containerClassName="mt-6 flex w-full items-center justify-center rounded-xl shadow"
       className="h-full w-full rounded-xl p-px"
       color="hsl(226, 64%, 88%)"
     >
