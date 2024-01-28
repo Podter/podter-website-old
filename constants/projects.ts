@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     title: "podter.me",
     description:
-      "The website that you are currently on right now. Built with Next.js, React, Tailwind CSS, shadcn/ui and Vercel Postgres.",
+      "The website that you are currently on right now. Built with Next.js app router, React, Tailwind CSS, Auth.js and Vercel Postgres.",
     img: podWeb,
     sourceUrl: "https://github.com/Podter/podter.me",
   },
