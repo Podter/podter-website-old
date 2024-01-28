@@ -1,11 +1,15 @@
 import { Suspense } from "react";
 
+import MagicalContainer from "~/components/magical-container";
 import Spinner from "~/components/ui/spinner";
 import Data from "./data";
 
 export default function WakaTime() {
   return (
-    <div className="mt-6 flex w-full flex-col rounded-xl border bg-background p-4">
+    <MagicalContainer
+      containerClassName="mt-6 w-full rounded-xl shadow"
+      className="flex w-full flex-col p-4"
+    >
       <p className="font-semibold leading-none tracking-tight">
         Most used languages{" "}
         <span className="text-sm font-normal text-muted-foreground">
@@ -20,7 +24,7 @@ export default function WakaTime() {
           Data provided by WakaTime
         </p>
       </div>
-    </div>
+    </MagicalContainer>
   );
 }
 

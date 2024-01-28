@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
+import MagicalContainer from "~/components/magical-container";
 import { Button } from "~/components/ui/button";
 import { H1, P } from "~/components/ui/typography";
 import { projects } from "~/constants/projects";
@@ -15,7 +16,6 @@ export const metadata = createMetadata({
 });
 
 export default function Projects() {
-  // TODO: make it better (?)
   return (
     <>
       <div className="flex flex-col">
@@ -26,13 +26,14 @@ export default function Projects() {
         {projects.map(
           ({ title, description, img, url, action = "Open", sourceUrl }, i) => (
             <div key={i} className="mt-10 flex flex-col gap-3 first:mt-0">
-              <div className="aspect-video overflow-hidden rounded-xl border shadow md:aspect-[24/9]">
-                <Image
-                  src={img}
-                  alt={title}
-                  className="h-full w-full object-cover transition-transform hover:scale-[1.025]"
-                />
-              </div>
+              <MagicalContainer
+                containerClassName="aspect-video overflow-hidden rounded-xl shadow md:aspect-[24/9] flex justify-center items-center"
+                className="h-full w-full rounded-xl object-cover p-px"
+                color="hsl(226, 64%, 88%)"
+                asChild
+              >
+                <Image src={img} alt={title} />
+              </MagicalContainer>
               <p className="scroll-m-20 text-2xl font-semibold tracking-tight">
                 {title}
               </p>

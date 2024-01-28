@@ -7,7 +7,7 @@ import Data from "./data";
 export default function Steam() {
   return (
     <MagicalContainer
-      containerClassName="mt-6 w-full rounded-xl"
+      containerClassName="mt-6 w-full rounded-xl shadow"
       className="flex w-full flex-col p-4"
     >
       <p className="font-semibold leading-none tracking-tight">

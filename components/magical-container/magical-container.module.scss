@@ -19,7 +19,7 @@
   &::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      hsl(var(--foreground)),
+      var(--color),
       transparent 40%
     );
     z-index: 4;
@@ -28,7 +28,7 @@
   &::after {
     background: radial-gradient(
       600px circle at var(--mouse-x) var(--mouse-y),
-      hsl(var(--foreground)),
+      var(--color),
       transparent 40%
     );
     z-index: 1;
@@ -36,7 +36,7 @@
 
   &:hover {
     &::before {
-      opacity: 0.06;
+      opacity: var(--hover-opacity);
     }
     &::after {
       opacity: 0.4;
