@@ -25,6 +25,7 @@ export const viewport: Viewport = {
   ],
 };
 
+// TODO: add umami, add seo stuff, add client stuff
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="dark">
