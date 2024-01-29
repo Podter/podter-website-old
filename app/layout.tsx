@@ -9,12 +9,12 @@ import Content from "~/components/content";
 import Navbar from "~/components/navbar";
 import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
-import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
 import { cn } from "~/lib/utils";
-import { ThemeProvider } from "~/providers/theme-provider";
 
 import "./globals.scss";
+
+import Providers from "./providers";
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -42,21 +42,19 @@ export default function RootLayout({ children }: PropsWithChildren) {
           CalSans.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>
-            <SkipContent />
-            <div className="container relative flex flex-col">
-              <Navbar />
-              <Content>
-                <div id="content" tabIndex={-1} data-pagefind-ignore />
-                {children}
-              </Content>
-              <BordersVertical />
-            </div>
-            <BordersHorizontal />
-            <StarField />
-          </TooltipProvider>
-        </ThemeProvider>
+        <Providers>
+          <SkipContent />
+          <div className="container relative flex flex-col">
+            <Navbar />
+            <Content>
+              <div id="content" tabIndex={-1} data-pagefind-ignore />
+              {children}
+            </Content>
+            <BordersVertical />
+          </div>
+          <BordersHorizontal />
+          <StarField />
+        </Providers>
       </body>
     </html>
   );
