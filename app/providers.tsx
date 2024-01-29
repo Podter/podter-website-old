@@ -2,6 +2,7 @@
 
 import type { PropsWithChildren } from "react";
 import { useEffect } from "react";
+import PlausibleProvider from "next-plausible";
 import { ThemeProvider } from "next-themes";
 
 import { TooltipProvider } from "~/components/ui/tooltip";
@@ -21,8 +22,14 @@ export default function Providers({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <TooltipProvider>{children}</TooltipProvider>
-    </ThemeProvider>
+    <PlausibleProvider
+      domain="podter.me"
+      customDomain="https://plausible.podter.me"
+      selfHosted
+    >
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <TooltipProvider>{children}</TooltipProvider>
+      </ThemeProvider>
+    </PlausibleProvider>
   );
 }
