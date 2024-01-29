@@ -1,0 +1,12 @@
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+@for $i from 1 through 5 {
+  .message_skeleton:nth-child(#{$i}) {
+    --message-width: #{randomNum(128, 256)}px;
+  }
+}

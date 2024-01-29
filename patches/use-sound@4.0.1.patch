@@ -1,0 +1,15 @@
+diff --git a/package.json b/package.json
+index f87268c8a99c0a76e9dd0e7406c5ec7dfe994a4c..5efc73701bdb18da8e2ccee9b8c105852fb82600 100644
+--- a/package.json
++++ b/package.json
+@@ -3,10 +3,6 @@
+   "author": "Josh Comeau",
+   "version": "4.0.1",
+   "module": "dist/use-sound.esm.js",
+-  "exports": {
+-    "import": "./dist/use-sound.esm.js",
+-    "require": "./dist/index.js"
+-  },
+   "repository": "github:joshwcomeau/use-sound",
+   "license": "MIT",
+   "main": "dist/index.js",

@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 23% 95%;
+    --foreground: 240 21% 15%;
+
+    --card: 220 23% 95%;
+    --card-foreground: 240 21% 15%;
+
+    --popover: 220 23% 95%;
+    --popover-foreground: 240 21% 15%;
+
+    --primary: 347 87% 44%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 223 16% 83%;
+    --secondary-foreground: 240 21% 15%;
+
+    --muted: 220 21% 89%;
+    --muted-foreground: 233 10% 47%;
+
+    --accent: 223 16% 83%;
+    --accent-foreground: 240 21% 15%;
+
+    --destructive: 355 76% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 223 16% 83%;
+    --input: 223 16% 83%;
+    --ring: 225 14% 77%;
+
+    --magical-container-hover-opacity: 0.1;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 21% 15%;
+    --foreground: 226 64% 88%;
+
+    --card: 240 21% 15%;
+    --card-foreground: 226 64% 88%;
+
+    --popover: 240 21% 15%;
+    --popover-foreground: 226 64% 88%;
+
+    --primary: 343 81% 75%;
+    --primary-foreground: 0 0% 5.88%;
+
+    --secondary: 237 16% 23%;
+    --secondary-foreground: 226 64% 88%;
+
+    --muted: 240 23% 9%;
+    --muted-foreground: 228 24% 72%;
+
+    --accent: 237 16% 23%;
+    --accent-foreground: 226 64% 88%;
+
+    --destructive: 350 65% 77%;
+    --destructive-foreground: 0 0% 5.88%;
+
+    --border: 237 16% 23%;
+    --input: 237 16% 23%;
+    --ring: 234 13% 31%;
+
+    --magical-container-hover-opacity: 0.06;
+  }
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth border-border scrollbar-thin scrollbar-track-muted scrollbar-thumb-muted-foreground;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  mark {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.container {
+  position: relative;
+  background-color: hsl(var(--border));
+
+  &::before,
+  &::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 500ms;
+    pointer-events: none;
+  }
+
+  &::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      var(--color),
+      transparent 40%
+    );
+    z-index: 4;
+  }
+
+  &::after {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      var(--color),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+
+  &:hover {
+    &::before {
+      opacity: var(--hover-opacity);
+    }
+    &::after {
+      opacity: 0.4;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+}
+
+.background {
+  background-color: hsl(var(--background));
+  border-radius: inherit;
+  position: absolute;
+  z-index: 2;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  margin: 1px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
