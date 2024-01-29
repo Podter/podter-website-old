@@ -31,6 +31,12 @@ const millionConfig = {
   auto: { rsc: true },
 };
 
+/** @type {Parameters<typeof withPlausibleProxy>[0]} */
+const plausibleConfig = {
+  customDomain: "https://plausible.podter.me",
+  subdirectory: "stats",
+};
+
 /** @type {Parameters<typeof bundleAnalyzer>[0]} */
 const bundleAnalyzerConfig = {
   enabled: process.env.ANALYZE === "true",
@@ -41,7 +47,7 @@ export default withPlugins(
   [
     () => million.next(nextConfig, millionConfig),
     mdx(),
-    withPlausibleProxy(),
+    withPlausibleProxy(plausibleConfig),
     bundleAnalyzer(bundleAnalyzerConfig),
   ],
   nextConfig,
