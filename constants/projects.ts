@@ -15,7 +15,6 @@ interface Project {
   sourceUrl?: string;
 }
 
-// TODO: update projects
 export const projects: Project[] = [
   {
     title: "podter.me",
@@ -25,19 +24,19 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/Podter/podter.me",
   },
   {
+    title: "JIΛmusic",
+    description:
+      "A music player that plays Floptok songs. Built with Tauri, React and PocketBase. Made for one of the flop companies.",
+    img: jiamusic,
+    sourceUrl: "https://github.com/Podter/jiamusic",
+  },
+  {
     title: "Cozmo Bot",
     description:
       "A Discord bot written in TypeScript using Discord.js. It plays music and do stuff.",
     img: cozmo,
     url: "https://discord.com/api/oauth2/authorize?client_id=559323007697551381&permissions=8&scope=bot%20applications.commands",
     action: "Invite",
-  },
-  {
-    title: "JIΛmusic",
-    description:
-      "A music player that plays Floptok songs. Built with Tauri, React and PocketBase. Made for one of the flop companies.",
-    img: jiamusic,
-    sourceUrl: "https://github.com/Podter/jiamusic",
   },
   {
     title: "Screen Recorder",
