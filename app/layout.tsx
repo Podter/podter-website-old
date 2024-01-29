@@ -30,7 +30,7 @@ const CalSans = localFont({
   variable: "--font-cal-sans",
 });
 
-// TODO: add umami, add client stuff
+// TODO: add umami
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="dark">
