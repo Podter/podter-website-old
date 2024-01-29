@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og";
 
-import { url } from "~/constants/metadata";
-
 export function createOpenGraph(title: string, description?: string) {
   return async () => {
     const calSansFont = await fetch(
@@ -19,7 +17,7 @@ export function createOpenGraph(title: string, description?: string) {
             display: "flex",
             height: "100%",
             width: "100%",
-            backgroundImage: `url(${url}/og-bg.png)`,
+            backgroundImage: `url(https://github.com/Podter/podter.me/raw/main/public/og-bg.png)`,
           }}
         >
           <div tw="absolute right-32 top-24 flex h-full w-full items-start justify-end">
