@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
+import localFont from "next/font/local";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
@@ -10,7 +11,6 @@ import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
 import { TooltipProvider } from "~/components/ui/tooltip";
 import { defaultMetadata } from "~/constants/metadata";
-import { CalSans } from "~/lib/cal-sans";
 import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/providers/theme-provider";
 
@@ -24,6 +24,11 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#1e1e2e" },
   ],
 };
+
+const CalSans = localFont({
+  src: "../node_modules/cal-sans/fonts/webfonts/CalSans-SemiBold.woff2",
+  variable: "--font-cal-sans",
+});
 
 // TODO: add umami, add client stuff
 export default function RootLayout({ children }: PropsWithChildren) {

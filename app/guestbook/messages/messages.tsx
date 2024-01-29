@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import Spinner from "~/components/ui/spinner";
 import { db } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
-import { fetchUser } from "~/lib/fetch-user";
+import { fetchUser } from "./fetch-user";
 
 const getMessages = cache(
   async () =>

@@ -8,7 +8,7 @@ import { BaseLink, indicatorClassNames } from "./base-link";
 
 export default function AnimatedMenu() {
   const domMax = useCallback(
-    () => import("~/lib/animation").then((mod) => mod.default),
+    () => import("./animation").then((mod) => mod.default),
     [],
   );
 
