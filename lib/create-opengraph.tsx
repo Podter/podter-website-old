@@ -1,12 +1,8 @@
 import { ImageResponse } from "next/og";
 
 import { url } from "~/constants/metadata";
-import { env } from "~/env.mjs";
 
 export function createOpenGraph(title: string, description?: string) {
-  const baseUrl =
-    env.VERCEL_ENV === "production" ? url : "http://localhost:3000";
-
   return async () => {
     const calSansFont = await fetch(
       "https://github.com/calcom/font/raw/main/fonts/webfonts/CalSans-SemiBold.ttf",
@@ -23,7 +19,7 @@ export function createOpenGraph(title: string, description?: string) {
             display: "flex",
             height: "100%",
             width: "100%",
-            backgroundImage: `url(${baseUrl}/og-bg.png)`,
+            backgroundImage: `url(${url}/og-bg.png)`,
           }}
         >
           <div tw="absolute right-32 top-24 flex h-full w-full items-start justify-end">
