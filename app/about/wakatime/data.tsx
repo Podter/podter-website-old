@@ -59,7 +59,7 @@ export default async function Data() {
               {percent.toFixed(2)}%
             </p>
           </div>
-          <Progress value={percent} />
+          <Progress value={percent} aria-label={name} />
         </div>
       ))}
     </div>
