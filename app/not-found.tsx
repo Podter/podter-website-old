@@ -8,6 +8,7 @@ import { createMetadata } from "~/lib/create-metadata";
 export const metadata = createMetadata({
   title: "404 Not found",
   description: "You are looking for something that doesn't actually exist.",
+  index: false,
 });
 
 export default function NotFound() {

@@ -9,6 +9,7 @@ import { createMetadata } from "~/lib/create-metadata";
 export const metadata = createMetadata({
   title: "Something went wrong",
   description: "An unexpected error occurred. This rarely happens.",
+  index: false,
 });
 
 interface ErrorPageProps {
