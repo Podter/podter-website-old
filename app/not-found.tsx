@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import Back from "~/components/back";
 import ErrorLayout from "~/components/error-layout";
+import PlausibleNotFound from "~/components/plausible-not-found";
 import { Button } from "~/components/ui/button";
 import { createMetadata } from "~/lib/create-metadata";
 
@@ -22,6 +23,7 @@ export default function NotFound() {
         <Link href="/">Home</Link>
       </Button>
       <Back />
+      <PlausibleNotFound />
     </ErrorLayout>
   );
 }

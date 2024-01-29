@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { usePlausible } from "next-plausible";
 
 import ErrorLayout from "~/components/error-layout";
 import { Button } from "~/components/ui/button";
@@ -18,7 +21,14 @@ interface ErrorPageProps {
 }
 
 export default function Error({ reset, error }: ErrorPageProps) {
-  console.log(error);
+  const plausible = usePlausible();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log(error);
+    plausible("Error", { props: { path: pathname, error: `${error}` } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ErrorLayout

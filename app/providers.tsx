@@ -26,6 +26,7 @@ export default function Providers({ children }: PropsWithChildren) {
       domain="podter.me"
       customDomain="https://plausible.podter.me"
       selfHosted
+      trackOutboundLinks
     >
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <TooltipProvider>{children}</TooltipProvider>
