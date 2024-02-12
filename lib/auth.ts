@@ -86,7 +86,6 @@ export const {
 
       return false;
     },
-    // @ts-expect-error token should be returned
     session({ session, token: rawToken }) {
       const token = TokenSchema.parse(rawToken);
 
