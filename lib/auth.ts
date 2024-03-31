@@ -37,6 +37,17 @@ function getProvider(avatar: string): "github" | "discord" {
   }
 }
 
+function getUserId(avatar: string, provider: "github" | "discord"): string {
+  const { pathname } = new URL(avatar);
+  if (provider === "github") {
+    return pathname.split("/")[2];
+  } else if (provider === "discord") {
+    return pathname.split("/")[2];
+  } else {
+    throw new Error("Unknown provider");
+  }
+}
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -90,8 +101,8 @@ export const {
       const token = TokenSchema.parse(rawToken);
 
       const name = token.name;
-      const userId = token.sub;
       const provider = getProvider(token.picture);
+      const userId = getUserId(token.picture, provider);
       const email = token.email;
 
       return {
