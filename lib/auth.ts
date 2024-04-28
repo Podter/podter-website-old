@@ -1,20 +1,12 @@
-import crypto from "node:crypto";
 import { eq } from "drizzle-orm";
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 import GitHub from "next-auth/providers/github";
-import { z } from "zod";
+import { sha256 } from "ohash";
 
 import { db } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { env } from "~/env.mjs";
-
-const TokenSchema = z.object({
-  name: z.string(),
-  email: z.string(),
-  picture: z.string(),
-  sub: z.string(),
-});
 
 declare module "next-auth" {
   // eslint-disable-next-line no-unused-vars
@@ -24,27 +16,6 @@ declare module "next-auth" {
       user: string;
       email: string;
     };
-  }
-}
-
-function getProvider(avatar: string): "github" | "discord" {
-  if (avatar.includes("github")) {
-    return "github";
-  } else if (avatar.includes("discord")) {
-    return "discord";
-  } else {
-    throw new Error("Unknown provider");
-  }
-}
-
-function getUserId(avatar: string, provider: "github" | "discord"): string {
-  const { pathname } = new URL(avatar);
-  if (provider === "github") {
-    return pathname.split("/")[2];
-  } else if (provider === "discord") {
-    return pathname.split("/")[2];
-  } else {
-    throw new Error("Unknown provider");
   }
 }
 
@@ -69,10 +40,7 @@ export const {
   callbacks: {
     async signIn({ user, account }) {
       if (user.email) {
-        const emailHash = crypto
-          .createHash("sha256")
-          .update(user.email)
-          .digest("hex");
+        const emailHash = sha256(user.email);
 
         const existingMessages = await db
           .select({ user: guestbook.user })
@@ -90,29 +58,42 @@ export const {
           } else {
             return false;
           }
-        } else {
-          return true;
         }
+
+        return true;
       }
 
       return false;
     },
-    session({ session, token: rawToken }) {
-      const token = TokenSchema.parse(rawToken);
+    jwt({ account, profile, token }) {
+      if (account && profile) {
+        if (account.provider === "discord") {
+          token.name = profile.global_name as string;
+          token.provider = account.provider;
+          token.userId = profile.id;
+          token.email = profile.email;
 
-      const name = token.name;
-      const provider = getProvider(token.picture);
-      const userId = getUserId(token.picture, provider);
-      const email = token.email;
+          return token;
+        }
 
-      return {
-        ...session,
-        user: {
-          name,
-          user: `${provider}:${userId}`,
-          email,
-        },
-      };
+        if (account.provider === "github") {
+          token.name = profile.name;
+          token.provider = account.provider;
+          token.userId = profile.id;
+          token.email = profile.email;
+
+          return token;
+        }
+      }
+
+      return token;
+    },
+    session({ session, token }) {
+      session.user.name = token.name as string;
+      session.user.user = `${token.provider}:${token.userId}`;
+      session.user.email = token.email as string;
+
+      return session;
     },
   },
 });
