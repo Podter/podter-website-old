@@ -1,28 +1,26 @@
 import { unstable_cache as cache } from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 import { CodeIcon } from "@radix-ui/react-icons";
-import { z } from "zod";
 
 import { toBase64 } from "~/lib/utils";
 
-const WakaTimeResponseSchema = z.object({
-  data: z.object({
-    human_readable_total_including_other_language: z.string(),
-  }),
-});
+interface WakaTimeResponse {
+  data: {
+    human_readable_total_including_other_language: string;
+  };
+}
 
 const getWakaTime = cache(
   async () => {
     const { WAKATIME_SECRET_API_KEY } = getRequestContext().env;
-    const rawData = await fetch(
+    const { data } = await fetch(
       "https://wakatime.com/api/v1/users/current/stats/last_7_days",
       {
         headers: {
           Authorization: `Basic ${toBase64(WAKATIME_SECRET_API_KEY)}`,
         },
       },
-    ).then((res) => res.json());
-    const { data } = WakaTimeResponseSchema.parse(rawData);
+    ).then((res) => res.json<WakaTimeResponse>());
     return data.human_readable_total_including_other_language;
   },
   ["wakatime-total"],

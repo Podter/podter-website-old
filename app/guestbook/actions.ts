@@ -3,15 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
 import { sha256 } from "ohash";
-import { z } from "zod";
 
 import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth } from "~/lib/auth";
-
-const FormSchema = z.object({
-  message: z.string().min(1, { message: "Message is required." }),
-});
 
 interface FormResponse {
   success: boolean;
@@ -31,13 +26,11 @@ export async function sign(
       };
     }
 
-    const validatedFields = FormSchema.safeParse({
-      message: formData.get("message"),
-    });
-    if (!validatedFields.success) {
+    const message = formData.get("message");
+    if (typeof message !== "string" || message.length <= 0) {
       return {
         success: false,
-        error: validatedFields.error.flatten().fieldErrors.message![0],
+        error: "Message is required.",
       };
     }
 
@@ -53,7 +46,7 @@ export async function sign(
       await db
         .update(guestbook)
         .set({
-          message: validatedFields.data.message,
+          message,
           updatedAt: new Date(),
         })
         .where(eq(guestbook.user, session.user.user));
@@ -62,7 +55,7 @@ export async function sign(
 
       await db.insert(guestbook).values({
         user: session.user.user,
-        message: validatedFields.data.message,
+        message,
         emailHash,
       });
     }

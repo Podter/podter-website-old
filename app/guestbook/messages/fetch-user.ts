@@ -1,22 +1,21 @@
 import { unstable_cache as cache } from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
-import { z } from "zod";
 
 import { toBase64 } from "~/lib/utils";
 
-const DiscordResponseSchema = z.object({
-  id: z.string(),
-  global_name: z.string().nullable(),
-  username: z.string(),
-  avatar: z.string(),
-});
+interface DiscordResponse {
+  global_name: string | null;
+  username: string;
+  id: string;
+  avatar: string;
+}
 
-const GitHubResponseSchema = z.object({
-  name: z.string().nullable(),
-  login: z.string(),
-  html_url: z.string(),
-  avatar_url: z.string(),
-});
+interface GitHubResponse {
+  name: string | null;
+  login: string;
+  html_url: string;
+  avatar_url: string;
+}
 
 interface UserData {
   name: string;
@@ -32,15 +31,11 @@ export const fetchUser = cache(
     const [provider, userId] = user.split(":");
 
     if (provider === "discord") {
-      const rawData = await fetch(
-        `https://discord.com/api/v9/users/${userId}`,
-        {
-          headers: {
-            Authorization: `Bot ${DISCORD_BOT_TOKEN}`,
-          },
+      const data = await fetch(`https://discord.com/api/v9/users/${userId}`, {
+        headers: {
+          Authorization: `Bot ${DISCORD_BOT_TOKEN}`,
         },
-      ).then((res) => res.json());
-      const data = DiscordResponseSchema.parse(rawData);
+      }).then((res) => res.json<DiscordResponse>());
 
       return {
         name: data.global_name ?? data.username,
@@ -48,12 +43,11 @@ export const fetchUser = cache(
         avatar: `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=48`,
       };
     } else if (provider === "github") {
-      const rawData = await fetch(`https://api.github.com/user/${userId}`, {
+      const data = await fetch(`https://api.github.com/user/${userId}`, {
         headers: {
           Authorization: `Basic ${toBase64(`${GITHUB_ID}:${GITHUB_SECRET}`)}`,
         },
-      }).then((res) => res.json());
-      const data = GitHubResponseSchema.parse(rawData);
+      }).then((res) => res.json<GitHubResponse>());
 
       return {
         name: data.name ?? data.login,
