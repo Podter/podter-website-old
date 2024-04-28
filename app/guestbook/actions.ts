@@ -1,8 +1,8 @@
 "use server";
 
-import crypto from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { sha256 } from "ohash";
 import { z } from "zod";
 
 import { db } from "~/database";
@@ -56,10 +56,7 @@ export async function sign(
         })
         .where(eq(guestbook.user, session.user.user));
     } else {
-      const emailHash = crypto
-        .createHash("sha256")
-        .update(session.user.email)
-        .digest("hex");
+      const emailHash = sha256(session.user.email);
 
       await db.insert(guestbook).values({
         user: session.user.user,
