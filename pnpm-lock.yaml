@@ -203,6 +203,9 @@ importers:
       eslint-config-next:
         specifier: ^14.2.3
         version: 14.2.3(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-next-on-pages:
+        specifier: ^1.11.1
+        version: 1.11.1(eslint@8.57.0)
       next-compose-plugins:
         specifier: ^2.2.1
         version: 2.2.1
@@ -2303,6 +2306,10 @@ packages:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
 
+  comment-parser@1.4.1:
+    resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
+    engines: {node: '>= 12.0.0'}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -2983,6 +2990,11 @@ packages:
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
+
+  eslint-plugin-next-on-pages@1.11.1:
+    resolution: {integrity: sha512-lt/P7iAtXImMvnUaQCtsE00fdiKAmkhEWltHGhvATSLLF7Lh7KWsh+vDoQ6FchlsYtcGrHnhlfLvnfQNmo+hiw==}
+    peerDependencies:
+      eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
   eslint-plugin-react-hooks@4.6.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -7796,6 +7808,8 @@ snapshots:
 
   commander@9.5.0: {}
 
+  comment-parser@1.4.1: {}
+
   concat-map@0.0.1: {}
 
   console-control-strings@1.1.0: {}
@@ -8472,6 +8486,12 @@ snapshots:
       minimatch: 3.1.2
       object.entries: 1.1.7
       object.fromentries: 2.0.7
+
+  eslint-plugin-next-on-pages@1.11.1(eslint@8.57.0):
+    dependencies:
+      '@types/estree-jsx': 1.0.3
+      comment-parser: 1.4.1
+      eslint: 8.57.0
 
   eslint-plugin-react-hooks@4.6.0(eslint@8.57.0):
     dependencies:

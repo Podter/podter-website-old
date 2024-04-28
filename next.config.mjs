@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "development") {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-  reactStrictMode: true,
   experimental: {
     webpackBuildWorker: true,
     mdxRs: true,

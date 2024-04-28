@@ -85,6 +85,7 @@
     "drizzle-kit": "^0.20.17",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.3",
+    "eslint-plugin-next-on-pages": "^1.11.1",
     "next-compose-plugins": "^2.2.1",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
