@@ -5,7 +5,7 @@ import Discord from "next-auth/providers/discord";
 import GitHub from "next-auth/providers/github";
 import { sha256 } from "ohash";
 
-import { db } from "~/database";
+import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 
 declare module "next-auth" {
@@ -46,6 +46,7 @@ export const {
         if (user.email) {
           const emailHash = sha256(user.email);
 
+          const db = getD1();
           const existingMessages = await db
             .select({ user: guestbook.user })
             .from(guestbook)

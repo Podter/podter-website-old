@@ -4,7 +4,7 @@ compatibility_date = "2024-04-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
-# [[d1_databases]]
-# binding = "D1_DATABASE"
-# database_name = "podter-website"
-# database_id = "3aa8ba9a-37c5-4322-b297-a4b0d954827f"
+[[d1_databases]]
+binding = "D1_DATABASE"
+database_name = "podter-website"
+database_id = "3aa8ba9a-37c5-4322-b297-a4b0d954827f"

@@ -5,7 +5,7 @@ import { eq } from "drizzle-orm";
 import { sha256 } from "ohash";
 import { z } from "zod";
 
-import { db } from "~/database";
+import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth } from "~/lib/auth";
 
@@ -40,6 +40,8 @@ export async function sign(
         error: validatedFields.error.flatten().fieldErrors.message![0],
       };
     }
+
+    const db = getD1();
 
     const existingMessage = await db
       .select({ id: guestbook.id })
@@ -88,6 +90,7 @@ export async function deleteMessage(): Promise<FormResponse> {
       };
     }
 
+    const db = getD1();
     await db.delete(guestbook).where(eq(guestbook.user, session.user.user));
 
     revalidatePath("/guestbook");
