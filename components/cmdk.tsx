@@ -7,9 +7,8 @@ import { Icon } from "@iconify/react/offline";
 import { FileTextIcon } from "@radix-ui/react-icons";
 
 import { pages } from "~/constants/pages";
+import { posts } from "~/constants/posts";
 import { socials } from "~/constants/socials";
-import { useFetch } from "~/hooks/use-fetch";
-import { PostsSchema } from "~/lib/schema";
 import {
   CommandDialog,
   CommandEmpty,
@@ -24,7 +23,6 @@ interface CmdkProps extends Omit<DialogProps, "children"> {}
 
 export default function Cmdk({ open, onOpenChange }: CmdkProps) {
   const router = useRouter();
-  const { data } = useFetch("/api/blog", PostsSchema);
 
   // eslint-disable-next-line no-unused-vars
   const runCommand = useCallback<(fn: () => void) => void>(
@@ -51,26 +49,18 @@ export default function Cmdk({ open, onOpenChange }: CmdkProps) {
           ))}
         </CommandGroup>
         <CommandSeparator />
-        {data && (
-          <>
-            <CommandGroup heading="Blog">
-              {data.posts.map(({ title, url }, i) => (
-                <CommandItem
-                  key={i}
-                  onSelect={() => runCommand(() => router.push(url))}
-                >
-                  <FileTextIcon
-                    className="mr-2 h-5 w-5"
-                    width={20}
-                    height={20}
-                  />
-                  <span>{title}</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            <CommandSeparator />
-          </>
-        )}
+        <CommandGroup heading="Blog">
+          {posts.map(({ title, url }, i) => (
+            <CommandItem
+              key={i}
+              onSelect={() => runCommand(() => router.push(url))}
+            >
+              <FileTextIcon className="mr-2 h-5 w-5" width={20} height={20} />
+              <span>{title}</span>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+        <CommandSeparator />
         <CommandGroup heading="Links">
           {Object.entries(socials).map(([social, { url, icon }], i) => (
             <CommandItem
