@@ -16,10 +16,7 @@ export default function ErrorLayout({
   children,
 }: PropsWithChildren<ErrorLayoutProps>) {
   return (
-    <div
-      className="relative flex h-[calc(100vh-10.5rem)] w-full flex-col items-center justify-center text-center md:h-[calc(100vh-16.5rem)]"
-      data-pagefind-ignore
-    >
+    <div className="relative flex h-[calc(100vh-10.5rem)] w-full flex-col items-center justify-center text-center md:h-[calc(100vh-16.5rem)]">
       <h1 className="font-heading text-9xl font-semibold md:text-[10rem]">
         {title}
       </h1>

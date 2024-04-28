@@ -26,7 +26,6 @@ export default function Blogs() {
         <div
           key={post.slug}
           className="mt-10 flex flex-col gap-3 [&:nth-child(3)]:mt-6"
-          data-pagefind-ignore
         >
           <Link
             href={post.url}

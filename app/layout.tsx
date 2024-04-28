@@ -46,7 +46,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <div className="container relative flex flex-col">
             <Navbar />
             <Content>
-              <div id="content" tabIndex={-1} data-pagefind-ignore />
+              <div id="content" tabIndex={-1} />
               {children}
             </Content>
             <BordersVertical />

@@ -86,7 +86,6 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",
-    "pagefind": "^1.1.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
