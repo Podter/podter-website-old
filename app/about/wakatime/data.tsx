@@ -1,11 +1,12 @@
-import { getRequestContext } from "@cloudflare/next-on-pages";
 import {
   unstable_cache as cache,
   unstable_noStore as noStore,
 } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { z } from "zod";
 
 import { Progress } from "~/components/ui/progress";
+import { toBase64 } from "~/lib/utils";
 
 const WakaTimeResponseSchema = z.object({
   data: z.object({
@@ -26,9 +27,7 @@ const getWakaTime = cache(
       "https://wakatime.com/api/v1/users/current/stats/last_7_days",
       {
         headers: {
-          Authorization: `Basic ${Buffer.from(
-            WAKATIME_SECRET_API_KEY || "",
-          ).toString("base64")}`,
+          Authorization: `Basic ${toBase64(WAKATIME_SECRET_API_KEY)}`,
         },
       },
     ).then((res) => res.json());

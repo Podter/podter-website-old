@@ -2,6 +2,8 @@ import { unstable_cache as cache } from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 import { z } from "zod";
 
+import { toBase64 } from "~/lib/utils";
+
 const DiscordResponseSchema = z.object({
   id: z.string(),
   global_name: z.string().nullable(),
@@ -48,9 +50,7 @@ export const fetchUser = cache(
     } else if (provider === "github") {
       const rawData = await fetch(`https://api.github.com/user/${userId}`, {
         headers: {
-          Authorization: `Basic ${Buffer.from(
-            `${GITHUB_ID}:${GITHUB_SECRET}`,
-          ).toString("base64")}`,
+          Authorization: `Basic ${toBase64(`${GITHUB_ID}:${GITHUB_SECRET}`)}`,
         },
       }).then((res) => res.json());
       const data = GitHubResponseSchema.parse(rawData);

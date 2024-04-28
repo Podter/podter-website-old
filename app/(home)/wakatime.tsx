@@ -3,6 +3,8 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 import { CodeIcon } from "@radix-ui/react-icons";
 import { z } from "zod";
 
+import { toBase64 } from "~/lib/utils";
+
 const WakaTimeResponseSchema = z.object({
   data: z.object({
     human_readable_total_including_other_language: z.string(),
@@ -16,9 +18,7 @@ const getWakaTime = cache(
       "https://wakatime.com/api/v1/users/current/stats/last_7_days",
       {
         headers: {
-          Authorization: `Basic ${Buffer.from(
-            WAKATIME_SECRET_API_KEY || "",
-          ).toString("base64")}`,
+          Authorization: `Basic ${toBase64(WAKATIME_SECRET_API_KEY)}`,
         },
       },
     ).then((res) => res.json());
