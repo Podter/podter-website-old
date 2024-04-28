@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
 import { sha256 } from "ohash";
 
-import { getD1 } from "~/database";
+import { getD1, getUtcNow } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth } from "~/lib/auth";
 
@@ -47,7 +47,7 @@ export async function sign(
         .update(guestbook)
         .set({
           message,
-          updatedAt: new Date(),
+          updatedAt: getUtcNow(),
         })
         .where(eq(guestbook.user, session.user.user));
     } else {
