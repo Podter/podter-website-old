@@ -25,6 +25,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["next-mdx-remote"],
 };
 
 /** @type {Parameters<typeof million.next>[1]} */
