@@ -22,7 +22,7 @@ import {
 
 interface CmdkProps extends Omit<DialogProps, "children"> {}
 
-export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
+export default function Cmdk({ open, onOpenChange }: CmdkProps) {
   const router = useRouter();
   const { data } = useFetch("/api/blog", PostsSchema);
 
@@ -36,7 +36,7 @@ export default function Cmdk({ open, onOpenChange, ...props }: CmdkProps) {
   );
 
   return (
-    <CommandDialog open={open} onOpenChange={onOpenChange} {...props}>
+    <CommandDialog open={open} onOpenChange={onOpenChange}>
       <CommandInput placeholder="Type to search…" />
       <CommandList>
         <CommandGroup heading="Navigation">
