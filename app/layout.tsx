@@ -9,6 +9,7 @@ import Content from "~/components/content";
 import Navbar from "~/components/navbar";
 import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
+import { Toaster } from "~/components/ui/sonner";
 import { defaultMetadata } from "~/constants/metadata";
 import { cn } from "~/lib/utils";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </div>
           <BordersHorizontal />
           <StarField />
+          <Toaster />
         </Providers>
       </body>
     </html>
