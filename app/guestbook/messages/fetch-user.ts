@@ -1,7 +1,6 @@
 import { unstable_cache as cache } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { z } from "zod";
-
-import { env } from "~/env.mjs";
 
 const DiscordResponseSchema = z.object({
   id: z.string(),
@@ -25,6 +24,9 @@ interface UserData {
 
 export const fetchUser = cache(
   async (user: string): Promise<UserData> => {
+    const { DISCORD_BOT_TOKEN, GITHUB_ID, GITHUB_SECRET } =
+      getRequestContext().env;
+
     const [provider, userId] = user.split(":");
 
     if (provider === "discord") {
@@ -32,7 +34,7 @@ export const fetchUser = cache(
         `https://discord.com/api/v9/users/${userId}`,
         {
           headers: {
-            Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+            Authorization: `Bot ${DISCORD_BOT_TOKEN}`,
           },
         },
       ).then((res) => res.json());
@@ -47,7 +49,7 @@ export const fetchUser = cache(
       const rawData = await fetch(`https://api.github.com/user/${userId}`, {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            `${env.GITHUB_ID}:${env.GITHUB_SECRET}`,
+            `${GITHUB_ID}:${GITHUB_SECRET}`,
           ).toString("base64")}`,
         },
       }).then((res) => res.json());

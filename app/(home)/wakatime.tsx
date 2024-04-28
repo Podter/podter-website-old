@@ -1,8 +1,7 @@
 import { unstable_cache as cache } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { CodeIcon } from "@radix-ui/react-icons";
 import { z } from "zod";
-
-import { env } from "~/env.mjs";
 
 const WakaTimeResponseSchema = z.object({
   data: z.object({
@@ -12,12 +11,13 @@ const WakaTimeResponseSchema = z.object({
 
 const getWakaTime = cache(
   async () => {
+    const { WAKATIME_SECRET_API_KEY } = getRequestContext().env;
     const rawData = await fetch(
       "https://wakatime.com/api/v1/users/current/stats/last_7_days",
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            env.WAKATIME_SECRET_API_KEY || "",
+            WAKATIME_SECRET_API_KEY || "",
           ).toString("base64")}`,
         },
       },

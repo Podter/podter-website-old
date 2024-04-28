@@ -4,10 +4,10 @@ import {
 } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { z } from "zod";
 
 import { steamId } from "~/constants/steam";
-import { env } from "~/env.mjs";
 
 const SteamResponseSchema = z.object({
   response: z.object({
@@ -32,8 +32,10 @@ const SteamGridDBSchema = z.object({
 
 const getSteam = cache(
   async () => {
+    const { STEAM_API_KEY, STEAMGRIDDB_API_KEY } = getRequestContext().env;
+
     const rawData = await fetch(
-      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${env.STEAM_API_KEY}&steamid=${steamId}&format=json&include_appinfo=true`,
+      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${STEAM_API_KEY}&steamid=${steamId}&format=json&include_appinfo=true`,
     ).then((res) => res.json());
     const { response } = SteamResponseSchema.parse(rawData);
 
@@ -47,7 +49,7 @@ const getSteam = cache(
           `https://www.steamgriddb.com/api/v2/grids/steam/${appid}?styles=alternate&dimensions=600x900`,
           {
             headers: {
-              Authorization: `Bearer ${env.STEAMGRIDDB_API_KEY}`,
+              Authorization: `Bearer ${STEAMGRIDDB_API_KEY}`,
             },
           },
         ).then((res) => res.json());

@@ -1,4 +1,8 @@
-import { sql } from "@vercel/postgres";
-import { drizzle } from "drizzle-orm/vercel-postgres";
+import { drizzle } from "drizzle-orm/pg-proxy";
 
-export const db = drizzle(sql);
+// TODO: migrate to d1
+export const db = drizzle(async () => {
+  return {
+    rows: [],
+  };
+});

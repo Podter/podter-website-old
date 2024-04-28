@@ -8,8 +8,8 @@ const getLanyard = cache(
   async () => {
     const { data } = await fetch(
       `https://${lanyardHostname}/v1/users/${discordId}`,
-    ).then((res) => res.json());
-    return data as LanyardData;
+    ).then((res) => res.json<{ data: LanyardData }>());
+    return data;
   },
   ["lanyard"],
   { revalidate: 60 },

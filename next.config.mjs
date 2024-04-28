@@ -1,10 +1,13 @@
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
 import million from "million/compiler";
 import withPlugins from "next-compose-plugins";
 import { withPlausibleProxy } from "next-plausible";
 
-import "./env.mjs";
+if (process.env.NODE_ENV === "development") {
+  await setupDevPlatform();
+}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +16,6 @@ const nextConfig = {
   experimental: {
     webpackBuildWorker: true,
     mdxRs: true,
-    // ppr: true,
   },
   images: {
     remotePatterns: [
