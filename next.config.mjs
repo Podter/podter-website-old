@@ -15,13 +15,8 @@ const nextConfig = {
     mdxRs: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.steamgriddb.com",
-        pathname: "/grid/**",
-      },
-    ],
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
   },
   transpilePackages: ["next-mdx-remote"],
 };
