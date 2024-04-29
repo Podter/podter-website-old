@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { eq } from "drizzle-orm";
 import { sha256 } from "ohash";
 
@@ -60,6 +61,8 @@ export async function sign(
       });
     }
 
+    const { KV_CACHE } = getRequestContext().env;
+    KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,
@@ -86,6 +89,8 @@ export async function deleteMessage(): Promise<FormResponse> {
     const db = getD1();
     await db.delete(guestbook).where(eq(guestbook.user, session.user.user));
 
+    const { KV_CACHE } = getRequestContext().env;
+    KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,

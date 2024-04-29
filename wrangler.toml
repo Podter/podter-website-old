@@ -8,3 +8,7 @@ pages_build_output_dir = ".vercel/output/static"
 binding = "D1_DATABASE"
 database_name = "podter-website"
 database_id = "3aa8ba9a-37c5-4322-b297-a4b0d954827f"
+
+[[kv_namespaces]]
+binding = "KV_CACHE"
+id = "2eb74dee26d04cf1bdd0d66fd9cbcaf5"

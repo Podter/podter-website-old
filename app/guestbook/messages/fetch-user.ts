@@ -1,6 +1,6 @@
-import { unstable_cache as cache } from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
+import { cache } from "~/lib/cache";
 import { toBase64 } from "~/lib/utils";
 
 interface DiscordResponse {
@@ -58,8 +58,8 @@ export const fetchUser = cache(
       throw new Error("Unknown provider");
     }
   },
-  undefined,
+  (user) => `user:${user}`,
   {
-    revalidate: 172800,
+    expirationTtl: 172800,
   },
 );

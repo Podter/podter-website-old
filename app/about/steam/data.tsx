@@ -1,12 +1,9 @@
-import {
-  unstable_cache as cache,
-  unstable_noStore as noStore,
-} from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { steamId } from "~/constants/steam";
+import { cache } from "~/lib/cache";
 
 interface SteamResponse {
   response: {
@@ -62,14 +59,12 @@ const getSteam = cache(
 
     return data;
   },
-  ["steam"],
-  { revalidate: 86400 },
+  "steam",
+  { expirationTtl: 86400 },
 );
 
 export default async function Data() {
-  noStore();
   const data = await getSteam();
-
   return (
     <div className="mt-3 grid grid-cols-2 gap-3 sm:flex">
       {data.map(({ id, name, playtime, img }) => (

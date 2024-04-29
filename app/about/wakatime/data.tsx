@@ -1,10 +1,7 @@
-import {
-  unstable_cache as cache,
-  unstable_noStore as noStore,
-} from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { Progress } from "~/components/ui/progress";
+import { cache } from "~/lib/cache";
 import { toBase64 } from "~/lib/utils";
 
 interface WakaTimeResponse {
@@ -32,14 +29,12 @@ const getWakaTime = cache(
       .slice(0, 5)
       .map(({ name, text, percent }) => ({ name, text, percent }));
   },
-  ["lanyard"],
-  { revalidate: 86400 },
+  "wakatime-languages",
+  { expirationTtl: 86400 },
 );
 
 export default async function Data() {
-  noStore();
   const data = await getWakaTime();
-
   return (
     <div className="mt-3 flex flex-col">
       {data.map(({ name, text, percent }, i) => (

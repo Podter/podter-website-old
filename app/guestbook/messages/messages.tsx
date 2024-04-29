@@ -1,4 +1,3 @@
-import { unstable_cache as cache } from "next/cache";
 import Link from "next/link";
 import { desc } from "drizzle-orm";
 
@@ -6,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import Spinner from "~/components/ui/spinner";
 import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
+import { cache } from "~/lib/cache";
 import { fetchUser } from "./fetch-user";
 
 const getMessages = cache(async () => {
@@ -19,7 +19,7 @@ const getMessages = cache(async () => {
     .from(guestbook)
     .orderBy(desc(guestbook.createdAt));
   return messages;
-}, ["guestbook"]);
+}, "guestbook");
 
 export default async function Messages() {
   const messages = await getMessages();

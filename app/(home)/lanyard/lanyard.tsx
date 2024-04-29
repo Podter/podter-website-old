@@ -1,7 +1,7 @@
 import type { Data as LanyardData } from "use-lanyard";
-import { unstable_cache as cache } from "next/cache";
 
 import { discordId, lanyardHostname } from "~/constants/lanyard";
+import { cache } from "~/lib/cache";
 import LanyardClient from "./lanyard-client";
 
 const getLanyard = cache(
@@ -11,8 +11,8 @@ const getLanyard = cache(
     ).then((res) => res.json<{ data: LanyardData }>());
     return data;
   },
-  ["lanyard"],
-  { revalidate: 60 },
+  "lanyard",
+  { expirationTtl: 60 },
 );
 
 export default async function Lanyard() {

@@ -1,7 +1,7 @@
-import { unstable_cache as cache } from "next/cache";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 import { CodeIcon } from "@radix-ui/react-icons";
 
+import { cache } from "~/lib/cache";
 import { toBase64 } from "~/lib/utils";
 
 interface WakaTimeResponse {
@@ -23,8 +23,8 @@ const getWakaTime = cache(
     ).then((res) => res.json<WakaTimeResponse>());
     return data.human_readable_total_including_other_language;
   },
-  ["wakatime-total"],
-  { revalidate: 86400 },
+  "wakatime-total",
+  { expirationTtl: 86400 },
 );
 
 export default async function WakaTime() {
