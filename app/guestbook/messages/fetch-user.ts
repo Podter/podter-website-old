@@ -42,7 +42,9 @@ export const fetchUser = cache(
         url: `https://discord.com/users/${data.id}`,
         avatar: `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=48`,
       };
-    } else if (provider === "github") {
+    }
+
+    if (provider === "github") {
       const data = await fetch(`https://api.github.com/user/${userId}`, {
         headers: {
           Authorization: `Basic ${toBase64(`${GITHUB_ID}:${GITHUB_SECRET}`)}`,
@@ -54,9 +56,9 @@ export const fetchUser = cache(
         url: data.html_url,
         avatar: data.avatar_url,
       };
-    } else {
-      throw new Error("Unknown provider");
     }
+
+    throw new Error("Unknown provider");
   },
   (user) => `user:${user}`,
   {
