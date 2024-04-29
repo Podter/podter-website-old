@@ -68,10 +68,13 @@ export async function GET(req: Request) {
     },
   );
 
-  return new Response(svg, {
+  const png = await fetch("https://svg-to-png.podter.workers.dev", {
+    method: "POST",
+    body: svg,
     headers: {
       "Content-Type": "image/svg+xml",
-      "Cache-Control": "public, immutable, no-transform, max-age=31536000",
     },
   });
+
+  return png;
 }
