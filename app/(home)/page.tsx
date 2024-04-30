@@ -14,7 +14,7 @@ export const runtime = "edge";
 export default function Home() {
   return (
     <div className="flex h-[calc(100vh-10.5rem)] w-full flex-col md:h-[calc(100vh-16.5rem)]">
-      <div className="animate-fade-in flex flex-col items-center justify-start gap-2 sm:flex-row sm:justify-between">
+      <div className="flex animate-fade-in flex-col items-center justify-start gap-2 sm:flex-row sm:justify-between">
         <Suspense fallback={<LanyardSkeleton />}>
           <Lanyard />
         </Suspense>
@@ -32,13 +32,13 @@ export default function Home() {
         <SplitAnimate as={P} className="mt-2">
           A student and self-taught developer from Thailand.
         </SplitAnimate>
-        <div className="animate-fade-in mt-6 flex flex-col">
+        <div className="mt-6 flex animate-fade-in flex-col">
           <div className="flex items-center justify-center gap-2">
             <Socials />
           </div>
         </div>
       </div>
-      <div className="animate-fade-in flex items-end justify-between">
+      <div className="flex animate-fade-in items-end justify-between">
         <Clock />
         <ScreenSize />
       </div>

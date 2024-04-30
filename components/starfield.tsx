@@ -16,7 +16,7 @@ export default function StarField() {
 
   return (
     <ReactStarField
-      className="animate-fade-in pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-20 h-full w-full select-none overflow-hidden"
+      className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-20 h-full w-full animate-fade-in select-none overflow-hidden"
       fps={60}
       speed={shouldReduceMotion ? 0 : 0.5}
       noBackground
