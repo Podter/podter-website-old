@@ -7,7 +7,7 @@ export default function Content({ children }: PropsWithChildren) {
   return (
     <main
       className={cn(
-        "mb-16 flex flex-col overflow-y-hidden px-4 md:mx-6",
+        "mb-16 flex flex-col px-4 md:mx-6",
         styles.content_transition,
       )}
     >
