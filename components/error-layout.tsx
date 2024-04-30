@@ -24,7 +24,7 @@ export default function ErrorLayout({
         {subtitle}
       </p>
       <P>{description}</P>
-      <div className="mb-16 mt-6 flex items-center justify-center gap-3 md:mb-32">
+      <div className="mb-16 mt-6 flex items-center justify-center gap-3 md:mb-[7.5rem]">
         {children}
       </div>
       <FlyingToasters className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-30 h-full w-full select-none overflow-hidden md:hidden" />

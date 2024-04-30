@@ -3,7 +3,7 @@ $line-width: 10px;
 
 $duration: 1s;
 $timing: cubic-bezier(0.645, 0.045, 0.355, 1);
-$fill-mode: forwards;
+$fill-mode: both;
 
 .line_horizontal {
   background: linear-gradient(

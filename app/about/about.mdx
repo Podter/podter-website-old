@@ -1,3 +1,4 @@
+import SplitAnimate from "~/components/split-animate";
 import { Separator } from "~/components/ui/separator";
 import { H1 } from "~/components/ui/typography";
 import { Bluey, SouthPark } from "./links";
@@ -7,7 +8,9 @@ import Steam from "./steam";
 import U from "./underline";
 import WakaTime from "./wakatime";
 
-<H1 className="mt-0">About</H1>
+<SplitAnimate as={H1} className="mt-0">
+  {"About"}
+</SplitAnimate>
 
 Hey, I'm <U>Podter</U>. Some folks call me <U>Pod</U> for short. I'm a student and self-taught
 developer from Thailand. I like playing games and listening to music. I enjoy

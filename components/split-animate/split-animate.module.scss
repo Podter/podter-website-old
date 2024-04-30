@@ -1,0 +1,15 @@
+.split_animate {
+  animation-name: split_animate;
+  animation-duration: 1.125s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes split_animate {
+  from {
+    transform: translateY(150%) rotate(10deg);
+  }
+  to {
+    transform: translateY(0%) rotate(0deg);
+  }
+}

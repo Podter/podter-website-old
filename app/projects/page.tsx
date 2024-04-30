@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 import MagicalContainer from "~/components/magical-container";
+import SplitAnimate from "~/components/split-animate/split-animate";
 import { Button } from "~/components/ui/button";
 import { H1, P } from "~/components/ui/typography";
 import { projects } from "~/constants/projects";
@@ -19,8 +20,10 @@ export default function Projects() {
   return (
     <>
       <div className="flex flex-col">
-        <H1>Projects</H1>
-        <P className="mt-3">A list of projects I&apos;ve worked on.</P>
+        <SplitAnimate as={H1}>Projects</SplitAnimate>
+        <SplitAnimate as={P} className="mt-3">
+          A list of projects I&apos;ve worked on.
+        </SplitAnimate>
       </div>
       {projects.map(
         ({ title, description, img, url, action = "Open", sourceUrl }, i) => (

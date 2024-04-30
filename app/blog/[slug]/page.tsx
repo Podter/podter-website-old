@@ -9,6 +9,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
+import SplitAnimate from "~/components/split-animate";
 import { H1 } from "~/components/ui/typography";
 import { getBlogPosts } from "~/lib/blog";
 import { createMetadata } from "~/lib/create-metadata";
@@ -91,7 +92,7 @@ export default async function Blog({ params }: PageParams) {
   return (
     <>
       <div className="flex flex-col">
-        <H1>{post.metadata.title}</H1>
+        <SplitAnimate as={H1}>{post.metadata.title}</SplitAnimate>
         <div className="mt-3 flex items-center gap-1 text-muted-foreground">
           <CalendarIcon className="h-3.5 w-3.5" width={14} height={14} />
           <p className="text-sm">Published on {date}</p>

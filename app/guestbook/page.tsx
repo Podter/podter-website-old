@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 
+import SplitAnimate from "~/components/split-animate";
 import { H1, P } from "~/components/ui/typography";
 import { createMetadata } from "~/lib/create-metadata";
 import Form from "./form";
@@ -17,8 +18,10 @@ export default function Guestbook() {
   return (
     <>
       <div className="flex flex-col">
-        <H1>Guestbook</H1>
-        <P className="mt-3">Sign my guestbook and leave your mark.</P>
+        <SplitAnimate as={H1}>Guestbook</SplitAnimate>
+        <SplitAnimate as={P} className="mt-3">
+          Sign my guestbook and leave your mark.
+        </SplitAnimate>
       </div>
       <Suspense fallback={<FormSkeleton />}>
         <Form />

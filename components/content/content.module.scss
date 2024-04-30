@@ -2,21 +2,21 @@
 
 .content_transition > * {
   animation-name: content_transition;
-  animation-duration: 0.3s;
+  animation-duration: 1.125s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.14, 0.64, 0.51, 0.94);
 }
 
 @for $i from 1 through 24 {
   .content_transition > :nth-child(#{$i}) {
-    animation-delay: #{math.div($i, 20)}s;
+    animation-delay: #{0.075 * $i}s;
   }
 }
 
 @keyframes content_transition {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translateY(4.5rem);
   }
   to {
     opacity: 1;

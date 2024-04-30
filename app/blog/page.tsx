@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns/format";
 
+import SplitAnimate from "~/components/split-animate";
 import { H1, P } from "~/components/ui/typography";
 import { getBlogPosts } from "~/lib/blog";
 import { createMetadata } from "~/lib/create-metadata";
@@ -19,8 +20,10 @@ export default function Blogs() {
   return (
     <>
       <div className="flex flex-col">
-        <H1>Blog</H1>
-        <P className="mt-3">A collection of blog posts I&apos;ve written.</P>
+        <SplitAnimate as={H1}>Blog</SplitAnimate>
+        <SplitAnimate as={P} className="mt-3">
+          A collection of blog posts I&apos;ve written.
+        </SplitAnimate>
       </div>
       {posts.map((post) => (
         <div
