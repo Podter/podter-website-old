@@ -62,7 +62,7 @@ export async function sign(
     }
 
     const { KV_CACHE } = getRequestContext().env;
-    KV_CACHE.delete("guestbook");
+    await KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,
@@ -90,7 +90,7 @@ export async function deleteMessage(): Promise<FormResponse> {
     await db.delete(guestbook).where(eq(guestbook.user, session.user.user));
 
     const { KV_CACHE } = getRequestContext().env;
-    KV_CACHE.delete("guestbook");
+    await KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,
