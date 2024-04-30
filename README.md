@@ -1,10 +1,8 @@
 # podter.me
 
-![Podter](app/opengraph-image.png)
+![Podter](public/og.png)
 
 [![Tech stack](https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,sqlite,cloudflare)](https://skillicons.dev)
-
-[![GitHub deployments](https://img.shields.io/github/deployments/Podter/podter.me/Production?label=vercel&logo=vercel&logoColor=white&style=for-the-badge)](https://podter.me/)
 
 Podter's Website. Built with Next.js app router, shadcn/ui, Auth.js, Cloudflare D1, Cloudflare KV and deployed to Cloudflare Pages.
 
