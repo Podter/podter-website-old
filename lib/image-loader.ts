@@ -1,7 +1,10 @@
 import type { ImageLoader } from "next/image";
 
 function normalizeSrc(src: string) {
-  return src.startsWith("/") ? src.slice(1) : src;
+  if (src.startsWith("/")) {
+    return src.slice(1);
+  }
+  return `api/image?url=${encodeURIComponent(src)}`;
 }
 
 // https://developers.cloudflare.com/images/transform-images/integrate-with-frameworks/#nextjs
