@@ -1,40 +1,30 @@
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import million from "million/compiler";
 import withPlugins from "next-compose-plugins";
 import { withPlausibleProxy } from "next-plausible";
 
-import "./env.mjs";
+if (process.env.NODE_ENV === "development") {
+  await setupDevPlatform();
+}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-  reactStrictMode: true,
   experimental: {
     webpackBuildWorker: true,
     mdxRs: true,
-    // ppr: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.steamgriddb.com",
-        pathname: "/grid/**",
-      },
-    ],
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
   },
-};
-
-/** @type {Parameters<typeof million.next>[1]} */
-const millionConfig = {
-  auto: { rsc: true },
+  transpilePackages: ["next-mdx-remote"],
 };
 
 /** @type {Parameters<typeof withPlausibleProxy>[0]} */
 const plausibleConfig = {
   customDomain: "https://plausible.podter.me",
-  subdirectory: "stats",
+  subdirectory: "p",
 };
 
 /** @type {Parameters<typeof bundleAnalyzer>[0]} */
@@ -45,7 +35,6 @@ const bundleAnalyzerConfig = {
 
 export default withPlugins(
   [
-    () => million.next(nextConfig, millionConfig),
     mdx(),
     withPlausibleProxy(plausibleConfig),
     bundleAnalyzer(bundleAnalyzerConfig),

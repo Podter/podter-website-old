@@ -1,0 +1,14 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "podter-website"
+compatibility_date = "2024-04-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "D1_DATABASE"
+database_name = "podter-website"
+database_id = "e7342b72-bb1e-4c9e-8467-7229a7afdf38"
+
+[[kv_namespaces]]
+binding = "KV_CACHE"
+id = "46b5add58ec24b038a97ea73d1723f41"

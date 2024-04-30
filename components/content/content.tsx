@@ -10,7 +10,6 @@ export default function Content({ children }: PropsWithChildren) {
         "mb-16 flex flex-col px-4 md:mx-6",
         styles.content_transition,
       )}
-      data-pagefind-body
     >
       {children}
     </main>

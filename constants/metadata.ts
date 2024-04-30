@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 
-import { env } from "~/env.mjs";
-
 const name = "Podter";
 const twitter = "@Real_Podter";
 const description = "A student and self-taught developer from Thailand.";
 export const url = "https://podter.me";
 
+const ogUrl = "/og.png";
+const ogAlt = `${name} - ${description}`;
+const ogType = "image/png";
+const ogWidth = 1200;
+const ogHeight = 630;
+
 export const defaultMetadata = {
-  metadataBase: new URL(
-    env.VERCEL_ENV === "production" ? url : "http://localhost:3000",
-  ),
+  metadataBase: new URL(url),
   title: {
     default: name,
     template: `%s | ${name}`,
@@ -24,6 +26,13 @@ export const defaultMetadata = {
     url,
     siteName: name,
     type: "website",
+    images: {
+      url: ogUrl,
+      alt: ogAlt,
+      type: ogType,
+      width: ogWidth,
+      height: ogHeight,
+    },
   },
   twitter: {
     card: "summary_large_image",
@@ -31,6 +40,13 @@ export const defaultMetadata = {
     description: description,
     site: name,
     creator: twitter,
+    images: {
+      url: ogUrl,
+      alt: ogAlt,
+      type: ogType,
+      width: ogWidth,
+      height: ogHeight,
+    },
   },
   other: {
     "darkreader-lock": "true",

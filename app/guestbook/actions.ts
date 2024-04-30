@@ -1,17 +1,13 @@
 "use server";
 
-import crypto from "node:crypto";
 import { revalidatePath } from "next/cache";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { eq } from "drizzle-orm";
-import { z } from "zod";
+import { sha256 } from "ohash";
 
-import { db } from "~/database";
+import { getD1, getUtcNow } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth } from "~/lib/auth";
-
-const FormSchema = z.object({
-  message: z.string().min(1, { message: "Message is required." }),
-});
 
 interface FormResponse {
   success: boolean;
@@ -31,15 +27,15 @@ export async function sign(
       };
     }
 
-    const validatedFields = FormSchema.safeParse({
-      message: formData.get("message"),
-    });
-    if (!validatedFields.success) {
+    const message = formData.get("message");
+    if (typeof message !== "string" || message.length <= 0) {
       return {
         success: false,
-        error: validatedFields.error.flatten().fieldErrors.message![0],
+        error: "Message is required.",
       };
     }
+
+    const db = getD1();
 
     const existingMessage = await db
       .select({ id: guestbook.id })
@@ -51,23 +47,22 @@ export async function sign(
       await db
         .update(guestbook)
         .set({
-          message: validatedFields.data.message,
-          updatedAt: new Date(),
+          message,
+          updatedAt: getUtcNow(),
         })
         .where(eq(guestbook.user, session.user.user));
     } else {
-      const emailHash = crypto
-        .createHash("sha256")
-        .update(session.user.email)
-        .digest("hex");
+      const emailHash = sha256(session.user.email);
 
       await db.insert(guestbook).values({
         user: session.user.user,
-        message: validatedFields.data.message,
+        message,
         emailHash,
       });
     }
 
+    const { KV_CACHE } = getRequestContext().env;
+    KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,
@@ -91,8 +86,11 @@ export async function deleteMessage(): Promise<FormResponse> {
       };
     }
 
+    const db = getD1();
     await db.delete(guestbook).where(eq(guestbook.user, session.user.user));
 
+    const { KV_CACHE } = getRequestContext().env;
+    KV_CACHE.delete("guestbook");
     revalidatePath("/guestbook");
     return {
       success: true,

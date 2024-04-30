@@ -4,12 +4,11 @@
     "prettier-plugin-tailwindcss"
   ],
   "tailwindFunctions": ["cn", "cva"],
-  "tailwindAttributes": ["tw", "containerClassName"],
+  "tailwindAttributes": ["className", "tw", "containerClassName"],
   "importOrder": [
     "<TYPES>",
     "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",
-    "^(expo(.*)$)|^(expo$)",
     "<THIRD_PARTY_MODULES>",
     "",
     "<TYPES>^[.|..|~]",

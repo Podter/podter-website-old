@@ -9,6 +9,7 @@ import Content from "~/components/content";
 import Navbar from "~/components/navbar";
 import SkipContent from "~/components/skip-content";
 import StarField from "~/components/starfield";
+import { Toaster } from "~/components/ui/sonner";
 import { defaultMetadata } from "~/constants/metadata";
 import { cn } from "~/lib/utils";
 
@@ -46,13 +47,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <div className="container relative flex flex-col">
             <Navbar />
             <Content>
-              <div id="content" tabIndex={-1} data-pagefind-ignore />
+              <div id="content" tabIndex={-1} />
               {children}
             </Content>
             <BordersVertical />
           </div>
           <BordersHorizontal />
           <StarField />
+          <Toaster />
         </Providers>
       </body>
     </html>

@@ -1,7 +1,7 @@
 import { ExitIcon } from "@radix-ui/react-icons";
 import { eq } from "drizzle-orm";
 
-import { db } from "~/database";
+import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
 import { auth, signOut } from "~/lib/auth";
 import Auth from "./auth";
@@ -15,6 +15,7 @@ export default async function Form() {
     return <Auth />;
   }
 
+  const db = getD1();
   const existingMessages = await db
     .select({ message: guestbook.message })
     .from(guestbook)

@@ -1,20 +1,12 @@
-import crypto from "node:crypto";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { eq } from "drizzle-orm";
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 import GitHub from "next-auth/providers/github";
-import { z } from "zod";
+import { sha256 } from "ohash";
 
-import { db } from "~/database";
+import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
-import { env } from "~/env.mjs";
-
-const TokenSchema = z.object({
-  name: z.string(),
-  email: z.string(),
-  picture: z.string(),
-  sub: z.string(),
-});
 
 declare module "next-auth" {
   // eslint-disable-next-line no-unused-vars
@@ -27,92 +19,87 @@ declare module "next-auth" {
   }
 }
 
-function getProvider(avatar: string): "github" | "discord" {
-  if (avatar.includes("github")) {
-    return "github";
-  } else if (avatar.includes("discord")) {
-    return "discord";
-  } else {
-    throw new Error("Unknown provider");
-  }
-}
-
-function getUserId(avatar: string, provider: "github" | "discord"): string {
-  const { pathname } = new URL(avatar);
-  if (provider === "github") {
-    return pathname.split("/")[2];
-  } else if (provider === "discord") {
-    return pathname.split("/")[2];
-  } else {
-    throw new Error("Unknown provider");
-  }
-}
-
 export const {
   handlers: { GET, POST },
   auth,
   signIn,
   signOut,
-} = NextAuth({
-  secret: env.AUTH_SECRET,
-  providers: [
-    Discord({
-      clientId: env.DISCORD_ID,
-      clientSecret: env.DISCORD_SECRET,
-    }),
-    GitHub({
-      clientId: env.GITHUB_ID,
-      clientSecret: env.GITHUB_SECRET,
-    }),
-  ],
-  session: { strategy: "jwt" },
-  callbacks: {
-    async signIn({ user, account }) {
-      if (user.email) {
-        const emailHash = crypto
-          .createHash("sha256")
-          .update(user.email)
-          .digest("hex");
+} = NextAuth(() => {
+  const { AUTH_SECRET, DISCORD_ID, DISCORD_SECRET, GITHUB_ID, GITHUB_SECRET } =
+    getRequestContext().env;
 
-        const existingMessages = await db
-          .select({ user: guestbook.user })
-          .from(guestbook)
-          .where(eq(guestbook.emailHash, emailHash))
-          .limit(1);
+  return {
+    secret: AUTH_SECRET,
+    providers: [
+      Discord({
+        clientId: DISCORD_ID,
+        clientSecret: DISCORD_SECRET,
+      }),
+      GitHub({
+        clientId: GITHUB_ID,
+        clientSecret: GITHUB_SECRET,
+      }),
+    ],
+    session: { strategy: "jwt" },
+    callbacks: {
+      async signIn({ user, account }) {
+        if (user.email) {
+          const emailHash = sha256(user.email);
 
-        const existingMessage = existingMessages[0];
-        if (existingMessage) {
-          const isSameProvider = existingMessage.user.includes(
-            account?.provider!,
-          );
-          if (isSameProvider) {
-            return true;
-          } else {
-            return false;
+          const db = getD1();
+          const existingMessages = await db
+            .select({ user: guestbook.user })
+            .from(guestbook)
+            .where(eq(guestbook.emailHash, emailHash))
+            .limit(1);
+
+          const existingMessage = existingMessages[0];
+          if (existingMessage) {
+            const isSameProvider = existingMessage.user.includes(
+              account?.provider!,
+            );
+            if (isSameProvider) {
+              return true;
+            } else {
+              return false;
+            }
           }
-        } else {
+
           return true;
         }
-      }
 
-      return false;
+        return false;
+      },
+      jwt({ account, profile, token }) {
+        if (account && profile) {
+          if (account.provider === "discord") {
+            token.name = profile.global_name as string;
+            token.provider = account.provider;
+            token.userId = profile.id;
+            token.email = profile.email;
+
+            return token;
+          }
+
+          if (account.provider === "github") {
+            token.name = profile.name;
+            token.provider = account.provider;
+            token.userId = profile.id;
+            token.email = profile.email;
+
+            return token;
+          }
+        }
+
+        return token;
+      },
+      session({ session, token }) {
+        session.user.name = token.name as string;
+        session.user.user = `${token.provider}:${token.userId}`;
+        session.user.email = token.email as string;
+
+        return session;
+      },
     },
-    session({ session, token: rawToken }) {
-      const token = TokenSchema.parse(rawToken);
-
-      const name = token.name;
-      const provider = getProvider(token.picture);
-      const userId = getUserId(token.picture, provider);
-      const email = token.email;
-
-      return {
-        ...session,
-        user: {
-          name,
-          user: `${provider}:${userId}`,
-          email,
-        },
-      };
-    },
-  },
+  };
 });

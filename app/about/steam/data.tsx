@@ -1,41 +1,34 @@
-import {
-  unstable_cache as cache,
-  unstable_noStore as noStore,
-} from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
-import { z } from "zod";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { steamId } from "~/constants/steam";
-import { env } from "~/env.mjs";
+import { cache } from "~/lib/cache";
 
-const SteamResponseSchema = z.object({
-  response: z.object({
-    games: z.array(
-      z.object({
-        appid: z.number(),
-        name: z.string(),
-        playtime_forever: z.number(),
-        rtime_last_played: z.number(),
-      }),
-    ),
-  }),
-});
+interface SteamResponse {
+  response: {
+    games: {
+      appid: number;
+      name: string;
+      playtime_forever: number;
+      rtime_last_played: number;
+    }[];
+  };
+}
 
-const SteamGridDBSchema = z.object({
-  data: z.array(
-    z.object({
-      url: z.string(),
-    }),
-  ),
-});
+interface SteamGridDBResponse {
+  data: {
+    url: string;
+  }[];
+}
 
 const getSteam = cache(
   async () => {
-    const rawData = await fetch(
-      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${env.STEAM_API_KEY}&steamid=${steamId}&format=json&include_appinfo=true`,
-    ).then((res) => res.json());
-    const { response } = SteamResponseSchema.parse(rawData);
+    const { STEAM_API_KEY, STEAMGRIDDB_API_KEY } = getRequestContext().env;
+
+    const { response } = await fetch(
+      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${STEAM_API_KEY}&steamid=${steamId}&format=json&include_appinfo=true`,
+    ).then((res) => res.json<SteamResponse>());
 
     const games = response.games
       .sort((a, b) => b.rtime_last_played - a.rtime_last_played)
@@ -43,15 +36,14 @@ const getSteam = cache(
 
     const data = await Promise.all(
       games.map(async ({ appid, name, playtime_forever }) => {
-        const rawData = await fetch(
+        const { data } = await fetch(
           `https://www.steamgriddb.com/api/v2/grids/steam/${appid}?styles=alternate&dimensions=600x900`,
           {
             headers: {
-              Authorization: `Bearer ${env.STEAMGRIDDB_API_KEY}`,
+              Authorization: `Bearer ${STEAMGRIDDB_API_KEY}`,
             },
           },
-        ).then((res) => res.json());
-        const { data } = SteamGridDBSchema.parse(rawData);
+        ).then((res) => res.json<SteamGridDBResponse>());
 
         const minutes = playtime_forever % 60;
         const hours = Math.floor(playtime_forever / 60);
@@ -67,14 +59,12 @@ const getSteam = cache(
 
     return data;
   },
-  ["steam"],
-  { revalidate: 86400 },
+  "steam",
+  { expirationTtl: 86400 },
 );
 
 export default async function Data() {
-  noStore();
   const data = await getSteam();
-
   return (
     <div className="mt-3 grid grid-cols-2 gap-3 sm:flex">
       {data.map(({ id, name, playtime, img }) => (

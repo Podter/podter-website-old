@@ -1,25 +1,25 @@
-import { unstable_cache as cache } from "next/cache";
 import Link from "next/link";
 import { desc } from "drizzle-orm";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import Spinner from "~/components/ui/spinner";
-import { db } from "~/database";
+import { getD1 } from "~/database";
 import { guestbook } from "~/database/schema/guestbook";
+import { cache } from "~/lib/cache";
 import { fetchUser } from "./fetch-user";
 
-const getMessages = cache(
-  async () =>
-    await db
-      .select({
-        id: guestbook.id,
-        user: guestbook.user,
-        message: guestbook.message,
-      })
-      .from(guestbook)
-      .orderBy(desc(guestbook.createdAt)),
-  ["guestbook"],
-);
+const getMessages = cache(async () => {
+  const db = getD1();
+  const messages = await db
+    .select({
+      id: guestbook.id,
+      user: guestbook.user,
+      message: guestbook.message,
+    })
+    .from(guestbook)
+    .orderBy(desc(guestbook.createdAt));
+  return messages;
+}, "guestbook");
 
 export default async function Messages() {
   const messages = await getMessages();

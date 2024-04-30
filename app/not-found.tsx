@@ -6,6 +6,8 @@ import PlausibleNotFound from "~/components/plausible-not-found";
 import { Button } from "~/components/ui/button";
 import { createMetadata } from "~/lib/create-metadata";
 
+export const runtime = "edge";
+
 export const metadata = createMetadata({
   title: "404 Not found",
   description: "You are looking for something that doesn't actually exist.",

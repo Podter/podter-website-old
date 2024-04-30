@@ -1,49 +1,40 @@
-import {
-  unstable_cache as cache,
-  unstable_noStore as noStore,
-} from "next/cache";
-import { z } from "zod";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { Progress } from "~/components/ui/progress";
-import { env } from "~/env.mjs";
+import { cache } from "~/lib/cache";
+import { toBase64 } from "~/lib/utils";
 
-const WakaTimeResponseSchema = z.object({
-  data: z.object({
-    languages: z.array(
-      z.object({
-        name: z.string(),
-        text: z.string(),
-        percent: z.number(),
-      }),
-    ),
-  }),
-});
+interface WakaTimeResponse {
+  data: {
+    languages: {
+      name: string;
+      text: string;
+      percent: number;
+    }[];
+  };
+}
 
 const getWakaTime = cache(
   async () => {
-    const rawData = await fetch(
+    const { WAKATIME_SECRET_API_KEY } = getRequestContext().env;
+    const { data } = await fetch(
       "https://wakatime.com/api/v1/users/current/stats/last_7_days",
       {
         headers: {
-          Authorization: `Basic ${Buffer.from(
-            env.WAKATIME_SECRET_API_KEY || "",
-          ).toString("base64")}`,
+          Authorization: `Basic ${toBase64(WAKATIME_SECRET_API_KEY)}`,
         },
       },
-    ).then((res) => res.json());
-    const { data } = WakaTimeResponseSchema.parse(rawData);
+    ).then((res) => res.json<WakaTimeResponse>());
     return data.languages
       .slice(0, 5)
       .map(({ name, text, percent }) => ({ name, text, percent }));
   },
-  ["lanyard"],
-  { revalidate: 86400 },
+  "wakatime-languages",
+  { expirationTtl: 86400 },
 );
 
 export default async function Data() {
-  noStore();
   const data = await getWakaTime();
-
   return (
     <div className="mt-3 flex flex-col">
       {data.map(({ name, text, percent }, i) => (
