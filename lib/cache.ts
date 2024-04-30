@@ -12,12 +12,10 @@ export function cache<T extends Callback>(
   opts?: KVNamespacePutOptions,
 ): T {
   async function cachedCallback(...args: Parameters<typeof callback>) {
-    if (typeof key === "function") {
-      key = key(...args);
-    }
+    const cacheKey = typeof key === "function" ? key(...args) : key;
 
     const { KV_CACHE } = getRequestContext().env;
-    const cached = await KV_CACHE.get(key);
+    const cached = await KV_CACHE.get(cacheKey);
 
     if (cached) {
       const { data } = superjson.parse<{
@@ -27,7 +25,7 @@ export function cache<T extends Callback>(
     }
 
     const data = await callback(...args);
-    await KV_CACHE.put(key, superjson.stringify({ data }), opts);
+    await KV_CACHE.put(cacheKey, superjson.stringify({ data }), opts);
 
     return data;
   }
