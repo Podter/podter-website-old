@@ -2,7 +2,6 @@ import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
 import withPlugins from "next-compose-plugins";
-import { withPlausibleProxy } from "next-plausible";
 
 if (process.env.NODE_ENV === "development") {
   await setupDevPlatform();
@@ -19,12 +18,18 @@ const nextConfig = {
     loaderFile: "./lib/image-loader.ts",
   },
   transpilePackages: ["next-mdx-remote"],
-};
-
-/** @type {Parameters<typeof withPlausibleProxy>[0]} */
-const plausibleConfig = {
-  customDomain: "https://plausible.podter.me",
-  subdirectory: "p",
+  rewrites() {
+    return [
+      {
+        source: "/u/script.js",
+        destination: "https://umami.podter.me/script.js",
+      },
+      {
+        source: "/u/api/:path",
+        destination: "https://umami.podter.me/api/:path",
+      },
+    ];
+  },
 };
 
 /** @type {Parameters<typeof bundleAnalyzer>[0]} */
@@ -34,10 +39,6 @@ const bundleAnalyzerConfig = {
 };
 
 export default withPlugins(
-  [
-    mdx(),
-    withPlausibleProxy(plausibleConfig),
-    bundleAnalyzer(bundleAnalyzerConfig),
-  ],
+  [mdx(), bundleAnalyzer(bundleAnalyzerConfig)],
   nextConfig,
 );

@@ -2,10 +2,19 @@
 
 import type { PropsWithChildren } from "react";
 import { useEffect } from "react";
-import PlausibleProvider from "next-plausible";
 import { ThemeProvider } from "next-themes";
 
 import { TooltipProvider } from "~/components/ui/tooltip";
+
+declare global {
+  // eslint-disable-next-line no-unused-vars
+  interface Window {
+    umami: {
+      // eslint-disable-next-line no-unused-vars
+      track: (event: string, data?: unknown) => void;
+    };
+  }
+}
 
 export default function Providers({ children }: PropsWithChildren) {
   useEffect(() => {
@@ -22,15 +31,8 @@ export default function Providers({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <PlausibleProvider
-      domain="podter.me"
-      customDomain="https://plausible.podter.me"
-      selfHosted
-      trackOutboundLinks
-    >
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <TooltipProvider>{children}</TooltipProvider>
-      </ThemeProvider>
-    </PlausibleProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <TooltipProvider>{children}</TooltipProvider>
+    </ThemeProvider>
   );
 }

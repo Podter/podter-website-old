@@ -51,7 +51,6 @@
     "next": "^14.2.3",
     "next-auth": "5.0.0-beta.16",
     "next-mdx-remote": "^4.4.1",
-    "next-plausible": "^3.12.0",
     "next-themes": "^0.3.0",
     "ohash": "^1.1.3",
     "react": "^18.3.1",
@@ -109,5 +108,6 @@
       "@catppuccin/highlightjs@0.1.4": "patches/@catppuccin__highlightjs@0.1.4.patch",
       "use-sound@4.0.1": "patches/use-sound@4.0.1.patch"
     }
-  }
+  },
+  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
 }
