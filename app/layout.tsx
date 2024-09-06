@@ -63,6 +63,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         src="/u/script.js"
         data-website-id="cbd4a933-8232-4c21-921f-f31357470124"
         data-host-url="/u"
+        data-domains="podter.me"
       />
     </html>
   );
